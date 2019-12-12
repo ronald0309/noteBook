@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.vistas;
 
-namespace noteBook
+namespace noteBook.UNA.vistas
 {
-    public partial class login : Form
+    public partial class RegistroLibro : Form
     {
-        public login()
+        public RegistroLibro()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
