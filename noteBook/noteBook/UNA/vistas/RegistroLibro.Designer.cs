@@ -40,60 +40,60 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(315, 216);
+            this.btnGuardar.Location = new System.Drawing.Point(223, 172);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(135, 23);
-            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.TabIndex = 31;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(241, 196);
+            this.label4.Location = new System.Drawing.Point(149, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 14;
+            this.label4.TabIndex = 30;
             this.label4.Text = "Colores";
             // 
             // colorCombo
             // 
             this.colorCombo.FormattingEnabled = true;
-            this.colorCombo.Location = new System.Drawing.Point(315, 189);
+            this.colorCombo.Location = new System.Drawing.Point(223, 145);
             this.colorCombo.Name = "colorCombo";
             this.colorCombo.Size = new System.Drawing.Size(135, 21);
-            this.colorCombo.TabIndex = 13;
+            this.colorCombo.TabIndex = 29;
             // 
             // txtGenero
             // 
-            this.txtGenero.Location = new System.Drawing.Point(315, 163);
+            this.txtGenero.Location = new System.Drawing.Point(223, 119);
             this.txtGenero.Name = "txtGenero";
             this.txtGenero.Size = new System.Drawing.Size(135, 20);
-            this.txtGenero.TabIndex = 12;
+            this.txtGenero.TabIndex = 28;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(315, 137);
+            this.txtNombre.Location = new System.Drawing.Point(223, 93);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(135, 20);
-            this.txtNombre.TabIndex = 11;
+            this.txtNombre.TabIndex = 27;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(238, 166);
+            this.label3.Location = new System.Drawing.Point(146, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 10;
+            this.label3.TabIndex = 26;
             this.label3.Text = "Genero";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(238, 140);
+            this.label2.Location = new System.Drawing.Point(146, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 9;
+            this.label2.TabIndex = 25;
             this.label2.Text = "Nombre";
             // 
             // label1
@@ -101,10 +101,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mistral", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(309, 80);
+            this.label1.Location = new System.Drawing.Point(217, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 33);
-            this.label1.TabIndex = 8;
+            this.label1.TabIndex = 24;
             this.label1.Text = "REGISTRO LIBRO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -113,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(567, 259);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.colorCombo);
@@ -122,6 +122,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
             this.ResumeLayout(false);

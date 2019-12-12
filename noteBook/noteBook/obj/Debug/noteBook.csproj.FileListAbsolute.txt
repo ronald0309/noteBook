@@ -9,3 +9,4 @@ D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Menu.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.RegistroLibro.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.FormularioNota.resources

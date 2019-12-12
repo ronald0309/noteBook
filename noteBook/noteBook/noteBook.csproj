@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UNA\vistas\FormularioNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\FormularioNota.Designer.cs">
+      <DependentUpon>FormularioNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="UNA\vistas\RegistroLibro.Designer.cs">
       <DependentUpon>RegistroLibro.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
+      <DependentUpon>FormularioNota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
