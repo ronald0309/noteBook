@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using noteBook.UNA.vistas;
 
 namespace noteBook
 {
@@ -15,6 +16,11 @@ namespace noteBook
         public login()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
