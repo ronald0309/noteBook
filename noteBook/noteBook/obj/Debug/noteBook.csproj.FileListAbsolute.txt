@@ -1,0 +1,9 @@
+D:\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\noteBook.exe.config
+D:\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\noteBook.exe
+D:\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\noteBook.pdb
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csprojAssemblyReference.cache
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.login.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.Properties.Resources.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.GenerateResource.cache
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
