@@ -110,6 +110,7 @@
             this.btnMisLibros.TabIndex = 3;
             this.btnMisLibros.Text = "Mis Libros";
             this.btnMisLibros.UseVisualStyleBackColor = false;
+            this.btnMisLibros.Click += new System.EventHandler(this.btnMisLibros_Click);
             // 
             // btnAgregar
             // 
@@ -127,6 +128,7 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // panelTitulo
             // 
