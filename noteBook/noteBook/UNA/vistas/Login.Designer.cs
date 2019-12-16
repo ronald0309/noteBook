@@ -140,6 +140,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

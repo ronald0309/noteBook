@@ -163,6 +163,7 @@
             this.Controls.Add(this.panelMenu);
             this.Name = "Menu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelTitulo.ResumeLayout(false);

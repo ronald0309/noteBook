@@ -49,5 +49,10 @@ namespace noteBook.UNA.vistas
             miLibros.pintar();
             this.abrirForma(miLibros);
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

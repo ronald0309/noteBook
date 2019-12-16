@@ -76,10 +76,11 @@
             // 
             this.FormularioGuardarBtn.Location = new System.Drawing.Point(156, 145);
             this.FormularioGuardarBtn.Name = "FormularioGuardarBtn";
-            this.FormularioGuardarBtn.Size = new System.Drawing.Size(171, 23);
+            this.FormularioGuardarBtn.Size = new System.Drawing.Size(171, 32);
             this.FormularioGuardarBtn.TabIndex = 19;
             this.FormularioGuardarBtn.Text = "Guadar";
             this.FormularioGuardarBtn.UseVisualStyleBackColor = true;
+            this.FormularioGuardarBtn.Click += new System.EventHandler(this.FormularioGuardarBtn_Click);
             // 
             // FormularioTxtTitulo
             // 
@@ -152,6 +153,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormularioNota";
             this.Text = "FormularioNota";
+            this.Load += new System.EventHandler(this.FormularioNota_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

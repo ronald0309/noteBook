@@ -1,4 +1,5 @@
-﻿using System;
+﻿using noteBook.UNA.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,46 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
         }
-    }
+        int x = 0;
+        int y = 0;
+        public void setXY(int x1, int y2)
+        {
+            x = x1;
+            y = y2;
+        }
+        private void FormularioNota_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormularioGuardarBtn_Click(object sender, EventArgs e)
+        {
+            foreach (var libroGuardados in Singlenton.Instance.LibrosList)
+            {
+
+                Label tituloL = new Label();
+                Label descrip = new Label();
+                tituloL.Text = FormularioTxtTitulo.Text;
+                descrip.Text = FormularioTxtDescrip.Text;
+                ListBox nota = new ListBox();
+                nota.Controls.Add(tituloL);
+                nota.Controls.Add(descrip);            
+                nota.Location = new Point(x, y);
+                // g.MouseMove += (s, a) =>
+                //{
+                //  x = a.X;
+                ///y = a.Y;
+                ///nota.Location = new Point(x + 30, y + 30);
+
+                // };
+                libroGuardados.NotaNueva(nota);
+
+                this.Close();
+            }
+
+            
+        }
+
+    
+}
 }

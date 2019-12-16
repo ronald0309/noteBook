@@ -17,15 +17,20 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
         }
+        private int contadorPosicion= 0;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Label libro =new Label();
-            libro.Text = txtNombre.Text;
-             
-            Singlenton.Instance.libros.Add(libro);
-            txtGenero.Text = "";
-            txtNombre.Text = "";
+            Libro libro = new Libro();
+            libro.Nombre = txtNombre.Text;
+            libro.Genero = txtGenero.Text;
+            libro.Orden = "1";
+            libro.Color = 1;
+            libro.pocision = contadorPosicion;
+            contadorPosicion++;
+            Singlenton.Instance.LibrosList.Add(libro);
             this.Hide();
+
+
         }
     }
 }

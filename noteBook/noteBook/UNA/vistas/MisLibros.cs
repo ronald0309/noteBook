@@ -21,14 +21,41 @@ namespace noteBook.UNA.vistas
         }
         public void pintar()
         {
-            
-            TabPage tab = new TabPage();
-            foreach (var p in Singlenton.Instance.libros)
+            int cont = 0;
+            tabControl1.SelectedIndex = 0;
+            foreach (var lib in Singlenton.Instance.LibrosList)
             {
-                tab.Controls.Add(p);
+                if (tabControl1.TabPages.Count == lib.pocision)
+                {
+                    List<Label> prue = new List<Label>();
+                    TabPage tab = new TabPage();
+                    tab.Text = lib.Nombre;
+                    Label q = new Label();
+                    tab.MouseClick += (s, e) =>
+                    {
+                        int x = e.X;
+                        int y = e.Y;
+                        FormularioNota formulario = new FormularioNota();
+                        formulario.setXY(x, y);
+                        formulario.ShowDialog();
+
+
+                        foreach (var p in lib.Lista)
+                        {
+                            tab.Controls.Add(p);
+                        }
+                        // l.Location = new Point(x, y);
+
+                    };
+                    tabControl1.Controls.Add(tab);
+                }
+
             }
-           
-            tabControl1.Controls.Add(tab);
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,11 +11,12 @@ namespace noteBook.UNA.Clases
         public class Singlenton
         {
             private static Singlenton instance = null;
-            public List<Label> libros = new List<Label>();
-          
+            public  List<Libro> LibrosList = new List<Libro>();
 
 
-            protected Singlenton() { }
+
+
+        protected Singlenton() { }
             public static Singlenton Instance
             {
                 get
@@ -28,8 +29,7 @@ namespace noteBook.UNA.Clases
                 }
             }
 
-
-
-        }
+       
+    }
     
 }
