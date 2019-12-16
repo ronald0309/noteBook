@@ -52,7 +52,7 @@ namespace noteBook.UNA.vistas
         {
             MisLibros miLibros = new MisLibros();
             this.labelTitulo.Text = "Mis libros";
-            miLibros.pintar();
+            miLibros.dibujar2();
             this.abrirForma(miLibros);
         }
 
@@ -70,6 +70,11 @@ namespace noteBook.UNA.vistas
         {
             DateTime hoy = DateTime.Now;
             HoraLabel.Text = hoy.ToString("hh:mm:ss tt");
+        }
+
+        private void panelVistas_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

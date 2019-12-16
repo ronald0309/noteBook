@@ -29,33 +29,42 @@ namespace noteBook.UNA.vistas
         {
 
         }
+        public string posicion
+        {
+            get;
+            set;
+        }
 
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
             foreach (var libroGuardados in Singlenton.Instance.LibrosList)
             {
+              
+                if (libroGuardados.Nombre == posicion)
+                {
+                    Label tituloL = new Label();
+                    Label descrip = new Label();
+                    tituloL.Text = FormularioTxtTitulo.Text;
+                    descrip.Text = FormularioTxtDescrip.Text;
+                     FlowLayoutPanel nota = new FlowLayoutPanel();
+                    nota.BackColor = colorDialog1.Color;
+                    nota.Controls.Add(descrip);
+                    nota.Controls.Add(tituloL);
+                    nota.Location = new Point(x, y);
+                    nota.MouseMove += (s, u) =>
+                   {
+                       x = u.X;
+                       y = u.Y;
+                       nota.Location = new Point(x, y);
 
-                Label tituloL = new Label();
-                Label descrip = new Label();
-                tituloL.Text = FormularioTxtTitulo.Text;
-                descrip.Text = FormularioTxtDescrip.Text;
-                ListBox nota = new ListBox();
-                nota.BackColor = colorDialog1.Color;
-                nota.Controls.Add(tituloL);
-                nota.Controls.Add(descrip);            
-                nota.Location = new Point(x, y);
-                // g.MouseMove += (s, a) =>
-                //{
-                //  x = a.X;
-                ///y = a.Y;
-                ///nota.Location = new Point(x + 30, y + 30);
+                   };
+                    MisLibros f = new MisLibros();                  
+                    libroGuardados.NotaNueva(nota);
 
-                // };
-                libroGuardados.NotaNueva(nota);
-
+                    
+                }
                 this.Close();
             }
-
             
         }
 

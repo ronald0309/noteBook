@@ -34,12 +34,12 @@
             this.labelTitulo = new System.Windows.Forms.Label();
             this.panelVistas = new System.Windows.Forms.Panel();
             this.panelSuperio = new System.Windows.Forms.Panel();
+            this.HoraLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnMisLibros = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.HoraLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Aquamarine;
             this.panel2.Controls.Add(this.labelTitulo);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(166, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(634, 62);
@@ -71,11 +71,12 @@
             // panelVistas
             // 
             this.panelVistas.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panelVistas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelVistas.Location = new System.Drawing.Point(166, 128);
+            this.panelVistas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelVistas.Location = new System.Drawing.Point(166, 66);
             this.panelVistas.Name = "panelVistas";
-            this.panelVistas.Size = new System.Drawing.Size(634, 322);
+            this.panelVistas.Size = new System.Drawing.Size(634, 384);
             this.panelVistas.TabIndex = 7;
+            this.panelVistas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVistas_Paint);
             // 
             // panelSuperio
             // 
@@ -86,6 +87,16 @@
             this.panelSuperio.Name = "panelSuperio";
             this.panelSuperio.Size = new System.Drawing.Size(634, 66);
             this.panelSuperio.TabIndex = 6;
+            // 
+            // HoraLabel
+            // 
+            this.HoraLabel.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoraLabel.Location = new System.Drawing.Point(31, 25);
+            this.HoraLabel.Name = "HoraLabel";
+            this.HoraLabel.Size = new System.Drawing.Size(173, 27);
+            this.HoraLabel.TabIndex = 0;
+            this.HoraLabel.Text = "label2";
+            this.HoraLabel.Click += new System.EventHandler(this.HoraLabel_Click);
             // 
             // label1
             // 
@@ -156,16 +167,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(166, 450);
             this.panelMenu.TabIndex = 5;
-            // 
-            // HoraLabel
-            // 
-            this.HoraLabel.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoraLabel.Location = new System.Drawing.Point(31, 25);
-            this.HoraLabel.Name = "HoraLabel";
-            this.HoraLabel.Size = new System.Drawing.Size(173, 27);
-            this.HoraLabel.TabIndex = 0;
-            this.HoraLabel.Text = "label2";
-            this.HoraLabel.Click += new System.EventHandler(this.HoraLabel_Click);
             // 
             // timer1
             // 

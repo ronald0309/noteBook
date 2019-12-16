@@ -41,6 +41,7 @@ namespace noteBook.UNA.vistas
                         int y = e.Y;
                         FormularioNota formulario = new FormularioNota();
                         formulario.setXY(x, y);
+                       // formulario.posicion = lib.pocision;
                         formulario.ShowDialog();
 
 
@@ -56,7 +57,42 @@ namespace noteBook.UNA.vistas
 
             }
         }
+        public void dibujar2()
+        {
+            foreach (var lib in Singlenton.Instance.LibrosList) {
+                TabPage tab = new TabPage();
+                tab.Text = lib.Nombre;
+                tab.BackColor = Color.FromArgb(lib.Color);
+                Label q = new Label();
 
+                tab.MouseClick += (s, e) =>
+                {
+                    int x = e.X;
+                    int y = e.Y;
+                    FormularioNota formulario = new FormularioNota();
+                    formulario.setXY(x, y);
+                    formulario.posicion = lib.Nombre;
+                    formulario.ShowDialog();
+
+
+                      foreach (var p in lib.Lista)
+                    {
+                      tab.Controls.Add(p);
+                    }
+
+                };
+                foreach (var p in lib.Lista)
+                {
+                    tab.Controls.Add(p);
+                }
+
+                tab.Refresh();
+                tabControl1.Controls.Add(tab);
+                
+                }
+
+        }
+     
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

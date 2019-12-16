@@ -8,12 +8,12 @@ namespace noteBook.UNA.Clases
 {
     public class Libro
     {
-        public List<ListBox> Notas = new List<ListBox>();
-        public List<ListBox> Lista
+        public List<FlowLayoutPanel> Notas = new List<FlowLayoutPanel>();
+        public List<FlowLayoutPanel> Lista
         {
             get { return Notas; }
         }
-        public void NotaNueva(ListBox nota)
+        public void NotaNueva(FlowLayoutPanel nota)
         {
             Lista.Add(nota);
 
