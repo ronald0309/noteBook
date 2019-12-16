@@ -29,6 +29,10 @@ namespace noteBook.UNA.vistas
                 {
                     List<Label> prue = new List<Label>();
                     TabPage tab = new TabPage();
+                    tab.BackColor = Color.FromArgb(lib.Color);
+                
+
+
                     tab.Text = lib.Nombre;
                     Label q = new Label();
                     tab.MouseClick += (s, e) =>

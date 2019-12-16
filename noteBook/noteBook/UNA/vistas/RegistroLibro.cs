@@ -15,7 +15,9 @@ namespace noteBook.UNA.vistas
     {
         public RegistroLibro()
         {
+
             InitializeComponent();
+            colorDialog1.Color = Color.Red;
         }
         private int contadorPosicion= 0;
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -24,13 +26,29 @@ namespace noteBook.UNA.vistas
             libro.Nombre = txtNombre.Text;
             libro.Genero = txtGenero.Text;
             libro.Orden = "1";
-            libro.Color = 1;
+            libro.Color = SelectorColores.BackColor.ToArgb();
             libro.pocision = contadorPosicion;
             contadorPosicion++;
             Singlenton.Instance.LibrosList.Add(libro);
             this.Hide();
 
 
+        }
+
+       
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectorColores_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                SelectorColores.BackColor = colorDialog1.Color;
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ namespace noteBook.UNA.vistas
                 tituloL.Text = FormularioTxtTitulo.Text;
                 descrip.Text = FormularioTxtDescrip.Text;
                 ListBox nota = new ListBox();
+                nota.BackColor = colorDialog1.Color;
                 nota.Controls.Add(tituloL);
                 nota.Controls.Add(descrip);            
                 nota.Location = new Point(x, y);
@@ -57,6 +58,13 @@ namespace noteBook.UNA.vistas
             
         }
 
-    
-}
+        private void SelectorColoresNotas_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                SelectorColoresNotas.BackColor = colorDialog1.Color;
+            }
+        }
+    }
 }
