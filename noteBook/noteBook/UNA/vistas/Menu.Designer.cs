@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
@@ -38,7 +39,10 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.HoraLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
+            this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -48,9 +52,9 @@
             this.panel2.BackColor = System.Drawing.Color.Aquamarine;
             this.panel2.Controls.Add(this.labelTitulo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(166, 72);
+            this.panel2.Location = new System.Drawing.Point(166, 66);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 56);
+            this.panel2.Size = new System.Drawing.Size(634, 62);
             this.panel2.TabIndex = 8;
             // 
             // labelTitulo
@@ -76,10 +80,11 @@
             // panelSuperio
             // 
             this.panelSuperio.BackColor = System.Drawing.Color.Turquoise;
+            this.panelSuperio.Controls.Add(this.HoraLabel);
             this.panelSuperio.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperio.Location = new System.Drawing.Point(166, 0);
             this.panelSuperio.Name = "panelSuperio";
-            this.panelSuperio.Size = new System.Drawing.Size(634, 72);
+            this.panelSuperio.Size = new System.Drawing.Size(634, 66);
             this.panelSuperio.TabIndex = 6;
             // 
             // label1
@@ -104,7 +109,7 @@
             this.btnMisLibros.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMisLibros.Image = ((System.Drawing.Image)(resources.GetObject("btnMisLibros.Image")));
             this.btnMisLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMisLibros.Location = new System.Drawing.Point(0, 128);
+            this.btnMisLibros.Location = new System.Drawing.Point(0, 122);
             this.btnMisLibros.Name = "btnMisLibros";
             this.btnMisLibros.Size = new System.Drawing.Size(166, 57);
             this.btnMisLibros.TabIndex = 3;
@@ -122,7 +127,7 @@
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 72);
+            this.btnAgregar.Location = new System.Drawing.Point(0, 66);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(166, 56);
             this.btnAgregar.TabIndex = 2;
@@ -137,7 +142,7 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(166, 72);
+            this.panelTitulo.Size = new System.Drawing.Size(166, 66);
             this.panelTitulo.TabIndex = 1;
             // 
             // panelMenu
@@ -151,6 +156,20 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(166, 450);
             this.panelMenu.TabIndex = 5;
+            // 
+            // HoraLabel
+            // 
+            this.HoraLabel.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoraLabel.Location = new System.Drawing.Point(31, 25);
+            this.HoraLabel.Name = "HoraLabel";
+            this.HoraLabel.Size = new System.Drawing.Size(173, 27);
+            this.HoraLabel.TabIndex = 0;
+            this.HoraLabel.Text = "label2";
+            this.HoraLabel.Click += new System.EventHandler(this.HoraLabel_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Menu
             // 
@@ -166,6 +185,7 @@
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelSuperio.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.panelMenu.ResumeLayout(false);
@@ -184,5 +204,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panelTitulo;
         private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Label HoraLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -16,6 +16,7 @@ namespace noteBook.UNA.vistas
         public FormularioNota()
         {
             InitializeComponent();
+            colorDialog1.Color = Color.Blue;
         }
         int x = 0;
         int y = 0;
@@ -65,6 +66,16 @@ namespace noteBook.UNA.vistas
 
                 SelectorColoresNotas.BackColor = colorDialog1.Color;
             }
+        }
+
+        private void btnFuentes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
         }
     }
 }

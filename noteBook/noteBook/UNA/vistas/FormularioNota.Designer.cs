@@ -41,6 +41,7 @@
             this.formularioLabelTitulo = new System.Windows.Forms.Label();
             this.SelectorColoresNotas = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             this.btnFuentes.TabIndex = 23;
             this.btnFuentes.Text = "Fuentes";
             this.btnFuentes.UseVisualStyleBackColor = true;
+            this.btnFuentes.Click += new System.EventHandler(this.btnFuentes_Click);
             // 
             // combFuen
             // 
@@ -95,7 +97,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(75, 152);
+            this.label5.Location = new System.Drawing.Point(88, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 17;
@@ -140,12 +142,16 @@
             // SelectorColoresNotas
             // 
             this.SelectorColoresNotas.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.SelectorColoresNotas.Location = new System.Drawing.Point(156, 141);
+            this.SelectorColoresNotas.Location = new System.Drawing.Point(156, 152);
             this.SelectorColoresNotas.Name = "SelectorColoresNotas";
-            this.SelectorColoresNotas.Size = new System.Drawing.Size(41, 36);
+            this.SelectorColoresNotas.Size = new System.Drawing.Size(24, 25);
             this.SelectorColoresNotas.TabIndex = 24;
             this.SelectorColoresNotas.TabStop = false;
             this.SelectorColoresNotas.Click += new System.EventHandler(this.SelectorColoresNotas_Click);
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
             // 
             // FormularioNota
             // 
@@ -189,5 +195,6 @@
         private System.Windows.Forms.Label formularioLabelTitulo;
         private System.Windows.Forms.PictureBox SelectorColoresNotas;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }

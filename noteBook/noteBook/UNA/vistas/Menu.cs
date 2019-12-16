@@ -13,11 +13,17 @@ namespace noteBook.UNA.vistas
     public partial class Menu : Form
     {
         private RegistroLibro registroLibros = new RegistroLibro();
-        
+        private Timer tiempo;
         public Menu()
         {
+            tiempo = new Timer();
+            tiempo.Tick += new EventHandler(timer1_Tick);
+
             InitializeComponent();
+            tiempo.Enabled = true;
+
         }
+       
         private void abrirForma(Object hija)
         {
             if (this.panelVistas.Controls.Count > 0)
@@ -53,6 +59,17 @@ namespace noteBook.UNA.vistas
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void HoraLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+            HoraLabel.Text = hoy.ToString("hh:mm:ss tt");
         }
     }
 }
