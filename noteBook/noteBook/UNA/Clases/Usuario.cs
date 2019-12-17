@@ -9,7 +9,7 @@ namespace noteBook.UNA.Clases
     {
         public Usuario()
         {
-
+            Activo = false;
         }
         public string NombreUsuario
         {
@@ -17,6 +17,11 @@ namespace noteBook.UNA.Clases
             set;
         }
         public string Contarseña
+        {
+            get;
+            set;
+        }
+        public bool Activo
         {
             get;
             set;

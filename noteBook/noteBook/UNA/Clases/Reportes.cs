@@ -7,6 +7,10 @@ namespace noteBook.UNA.Clases
 {
     public class Reportes
     {
+        public Reportes()
+        {
+
+        }
         public DateTime FechaCreacion
         {
             get;

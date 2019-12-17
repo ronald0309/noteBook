@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UNA\Clases\Reportes.cs" />
-
     <Compile Include="UNA\Clases\Nota.cs" />
-
     <Compile Include="UNA\Clases\Libro.cs" />
     <Compile Include="UNA\Clases\Singlenton.cs" />
     <Compile Include="UNA\vistas\FormularioNota.cs">

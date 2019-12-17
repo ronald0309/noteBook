@@ -40,7 +40,9 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -160,6 +162,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panelMenu.Controls.Add(this.label2);
+            this.panelMenu.Controls.Add(this.lblUsuario);
             this.panelMenu.Controls.Add(this.btnMisLibros);
             this.panelMenu.Controls.Add(this.btnAgregar);
             this.panelMenu.Controls.Add(this.panelTitulo);
@@ -169,9 +173,27 @@
             this.panelMenu.Size = new System.Drawing.Size(166, 450);
             this.panelMenu.TabIndex = 5;
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(102, 428);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Usuario";
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 428);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "El usuario activo es:";
             // 
             // Menu
             // 
@@ -194,6 +216,7 @@
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +234,7 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label HoraLabel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label label2;
     }
 }
