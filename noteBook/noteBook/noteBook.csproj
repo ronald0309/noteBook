@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UNA\Clases\Reportes.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
     <Compile Include="UNA\Clases\Singlenton.cs" />
     <Compile Include="UNA\vistas\FormularioNota.cs">
@@ -80,6 +81,7 @@
     <Compile Include="UNA\vistas\RegistroLibro.Designer.cs">
       <DependentUpon>RegistroLibro.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\Clases\Usuario.cs" />
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
       <DependentUpon>FormularioNota.cs</DependentUpon>
     </EmbeddedResource>
