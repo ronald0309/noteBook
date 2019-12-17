@@ -19,44 +19,7 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
            
         }
-        public void pintar()
-        {
-            int cont = 0;
-            tabControl1.SelectedIndex = 0;
-            foreach (var lib in Singlenton.Instance.LibrosList)
-            {
-                if (tabControl1.TabPages.Count == lib.pocision)
-                {
-                    List<Label> prue = new List<Label>();
-                    TabPage tab = new TabPage();
-                    tab.BackColor = Color.FromArgb(lib.Color);
-                
-
-
-                    tab.Text = lib.Nombre;
-                    Label q = new Label();
-                    tab.MouseClick += (s, e) =>
-                    {
-                        int x = e.X;
-                        int y = e.Y;
-                        FormularioNota formulario = new FormularioNota();
-                        formulario.setXY(x, y);
-                       // formulario.posicion = lib.pocision;
-                        formulario.ShowDialog();
-
-
-                        foreach (var p in lib.Lista)
-                        {
-                            tab.Controls.Add(p);
-                        }
-                        // l.Location = new Point(x, y);
-
-                    };
-                    tabControl1.Controls.Add(tab);
-                }
-
-            }
-        }
+      
         public void dibujar2()
         {
             foreach (var lib in Singlenton.Instance.LibrosList) {
@@ -75,15 +38,32 @@ namespace noteBook.UNA.vistas
                     formulario.ShowDialog();
 
 
-                      foreach (var p in lib.Lista)
+                    foreach (var p in lib.AgregarNota)
                     {
-                      tab.Controls.Add(p);
+                        FlowLayoutPanel f = new FlowLayoutPanel();
+                        f.Location = new Point(p.PosicionX, p.PosicionY);
+                        Label titulo = new Label();
+                        titulo.Text = p.Titulo;
+                        f.Controls.Add(titulo);
+                        f.BackColor = Color.FromArgb(p.ColorFondo);
+                        tab.Controls.Add(f);
                     }
 
                 };
-                foreach (var p in lib.Lista)
+                foreach (var p in lib.AgregarNota)
                 {
-                    tab.Controls.Add(p);
+                    FlowLayoutPanel f = new FlowLayoutPanel();
+                    f.Location = new Point(p.PosicionX,p.PosicionY);
+                    Label titulo = new Label();
+                    Label hora = new Label();
+                    titulo.Text = p.Titulo;
+                    hora.Text = p.FechaCreacion;
+
+                    f.Controls.Add(titulo);
+                    f.Controls.Add(hora);
+                    f.BackColor =Color.FromArgb( p.ColorFondo);
+
+                    tab.Controls.Add(f);
                 }
 
                 tab.Refresh();

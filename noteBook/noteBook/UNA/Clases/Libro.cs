@@ -8,16 +8,8 @@ namespace noteBook.UNA.Clases
 {
     public class Libro
     {
-        public List<FlowLayoutPanel> Notas = new List<FlowLayoutPanel>();
-        public List<FlowLayoutPanel> Lista
-        {
-            get { return Notas; }
-        }
-        public void NotaNueva(FlowLayoutPanel nota)
-        {
-            Lista.Add(nota);
-
-        }
+        public List<Nota> AgregarNota = new List<Nota>();
+        
         public int pocision
         {
             get;
@@ -44,6 +36,21 @@ namespace noteBook.UNA.Clases
             get;
             set;
 
+        }
+
+        public Nota Nota
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public int CantidadNotas
+        {
+            get;
+            set;
+            
         }
     }
 }

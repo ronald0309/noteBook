@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnFuentes = new System.Windows.Forms.Button();
-            this.combFuen = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.FormularioTxtDescrip = new System.Windows.Forms.TextBox();
             this.FormularioGuardarBtn = new System.Windows.Forms.Button();
@@ -42,7 +41,10 @@
             this.SelectorColoresNotas = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.colorFuente = new System.Windows.Forms.PictureBox();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFuentes
@@ -54,14 +56,6 @@
             this.btnFuentes.Text = "Fuentes";
             this.btnFuentes.UseVisualStyleBackColor = true;
             this.btnFuentes.Click += new System.EventHandler(this.btnFuentes_Click);
-            // 
-            // combFuen
-            // 
-            this.combFuen.FormattingEnabled = true;
-            this.combFuen.Location = new System.Drawing.Point(336, 51);
-            this.combFuen.Name = "combFuen";
-            this.combFuen.Size = new System.Drawing.Size(109, 21);
-            this.combFuen.TabIndex = 22;
             // 
             // textBox4
             // 
@@ -93,15 +87,16 @@
             this.FormularioTxtTitulo.Name = "FormularioTxtTitulo";
             this.FormularioTxtTitulo.Size = new System.Drawing.Size(171, 20);
             this.FormularioTxtTitulo.TabIndex = 18;
+            this.FormularioTxtTitulo.TextChanged += new System.EventHandler(this.FormularioTxtTitulo_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(88, 152);
+            this.label5.Location = new System.Drawing.Point(75, 139);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 17;
-            this.label5.Text = "color";
+            this.label5.Text = "color Fondo";
             // 
             // label4
             // 
@@ -142,7 +137,7 @@
             // SelectorColoresNotas
             // 
             this.SelectorColoresNotas.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.SelectorColoresNotas.Location = new System.Drawing.Point(156, 152);
+            this.SelectorColoresNotas.Location = new System.Drawing.Point(156, 131);
             this.SelectorColoresNotas.Name = "SelectorColoresNotas";
             this.SelectorColoresNotas.Size = new System.Drawing.Size(24, 25);
             this.SelectorColoresNotas.TabIndex = 24;
@@ -153,14 +148,24 @@
             // 
             this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
             // 
+            // colorFuente
+            // 
+            this.colorFuente.BackColor = System.Drawing.Color.DarkRed;
+            this.colorFuente.Location = new System.Drawing.Point(333, 52);
+            this.colorFuente.Name = "colorFuente";
+            this.colorFuente.Size = new System.Drawing.Size(19, 20);
+            this.colorFuente.TabIndex = 25;
+            this.colorFuente.TabStop = false;
+            this.colorFuente.Click += new System.EventHandler(this.colorFuente_Click);
+            // 
             // FormularioNota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 249);
+            this.Controls.Add(this.colorFuente);
             this.Controls.Add(this.SelectorColoresNotas);
             this.Controls.Add(this.btnFuentes);
-            this.Controls.Add(this.combFuen);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.FormularioTxtDescrip);
             this.Controls.Add(this.FormularioGuardarBtn);
@@ -177,6 +182,7 @@
             this.Text = "FormularioNota";
             this.Load += new System.EventHandler(this.FormularioNota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +191,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnFuentes;
-        private System.Windows.Forms.ComboBox combFuen;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox FormularioTxtDescrip;
         private System.Windows.Forms.Button FormularioGuardarBtn;
@@ -198,5 +203,7 @@
         private System.Windows.Forms.PictureBox SelectorColoresNotas;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.PictureBox colorFuente;
+        private System.Windows.Forms.ColorDialog colorDialog2;
     }
 }
