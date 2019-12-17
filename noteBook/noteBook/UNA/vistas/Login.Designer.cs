@@ -139,6 +139,8 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelNomb);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.login_Load);

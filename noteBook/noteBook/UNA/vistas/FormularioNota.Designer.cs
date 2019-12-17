@@ -171,6 +171,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.formularioLabelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(537, 288);
+            this.MinimumSize = new System.Drawing.Size(537, 288);
             this.Name = "FormularioNota";
             this.Text = "FormularioNota";
             this.Load += new System.EventHandler(this.FormularioNota_Load);

@@ -53,8 +53,9 @@
             this.panel2.Controls.Add(this.labelTitulo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(166, 66);
+            this.panel2.MaximumSize = new System.Drawing.Size(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 62);
+            this.panel2.Size = new System.Drawing.Size(634, 50);
             this.panel2.TabIndex = 8;
             // 
             // labelTitulo
@@ -62,7 +63,7 @@
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Myanmar Text", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelTitulo.Location = new System.Drawing.Point(6, 4);
+            this.labelTitulo.Location = new System.Drawing.Point(3, 3);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(22, 37);
             this.labelTitulo.TabIndex = 0;
@@ -72,9 +73,9 @@
             // 
             this.panelVistas.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panelVistas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVistas.Location = new System.Drawing.Point(166, 66);
+            this.panelVistas.Location = new System.Drawing.Point(166, 116);
             this.panelVistas.Name = "panelVistas";
-            this.panelVistas.Size = new System.Drawing.Size(634, 384);
+            this.panelVistas.Size = new System.Drawing.Size(634, 334);
             this.panelVistas.TabIndex = 7;
             this.panelVistas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVistas_Paint);
             // 
@@ -177,13 +178,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelVistas);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelSuperio);
             this.Controls.Add(this.panelMenu);
+            this.MaximumSize = new System.Drawing.Size(1100, 600);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Menu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
+            this.Resize += new System.EventHandler(this.Menu_Resize);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelSuperio.ResumeLayout(false);

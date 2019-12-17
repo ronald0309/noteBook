@@ -30,6 +30,8 @@ namespace noteBook.UNA.vistas
             libro.pocision = contadorPosicion;
             contadorPosicion++;
             Singlenton.Instance.LibrosList.Add(libro);
+            txtNombre.Text = "";
+            txtGenero.Text = "";
             this.Hide();
 
 
@@ -49,6 +51,16 @@ namespace noteBook.UNA.vistas
 
                 SelectorColores.BackColor = colorDialog1.Color;
             }
+        }
+
+        private void RegistroLibro_Resize(object sender, EventArgs e)
+        {
+            txtNombre.Height = this.Height - 200;
+            txtNombre.Width = this.Width - 500;
+            lblTitulo.Height = this.Height - 116;
+            lblTitulo.Width = this.Width - 800;
+            txtGenero.Height = this.Height - 200;
+            txtGenero.Width = this.Width - 500;
         }
     }
 }

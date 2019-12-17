@@ -76,5 +76,10 @@ namespace noteBook.UNA.vistas
         {
 
         }
+
+        private void Menu_Resize(object sender, EventArgs e)
+        {
+            panelVistas.Height = this.Height - 136;
+        }
     }
 }

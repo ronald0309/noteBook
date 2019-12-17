@@ -18,8 +18,8 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
             colorDialog1.Color = Color.Blue;
         }
-        int x = 0;
-        int y = 0;
+        private int x = 0;
+        private int y = 0;
         public void setXY(int x1, int y2)
         {
             x = x1;
