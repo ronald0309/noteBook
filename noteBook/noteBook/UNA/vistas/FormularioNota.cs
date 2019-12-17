@@ -17,6 +17,7 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
             colorDialog1.Color = Color.Blue;
+            colorDialog2.Color = Color.DarkRed;
         }
         private int x = 0;
         private int y = 0;
@@ -39,27 +40,19 @@ namespace noteBook.UNA.vistas
         {
             foreach (var libroGuardados in Singlenton.Instance.LibrosList)
             {
-              
+                
                 if (libroGuardados.Nombre == posicion)
                 {
-                    Label tituloL = new Label();
-                    Label descrip = new Label();
-                    tituloL.Text = FormularioTxtTitulo.Text;
-                    descrip.Text = FormularioTxtDescrip.Text;
-                     FlowLayoutPanel nota = new FlowLayoutPanel();
-                    nota.BackColor = colorDialog1.Color;
-                    nota.Controls.Add(descrip);
-                    nota.Controls.Add(tituloL);
-                    nota.Location = new Point(x, y);
-                    nota.MouseMove += (s, u) =>
-                   {
-                       x = u.X;
-                       y = u.Y;
-                       nota.Location = new Point(x, y);
-
-                   };
-                    MisLibros f = new MisLibros();                  
-                    libroGuardados.NotaNueva(nota);
+                    int n = libroGuardados.AgregarNota.Count;
+                    MessageBox.Show(n.ToString());
+                    Nota no = new Nota();
+                    no.Titulo =FormularioTxtTitulo.Text;
+                    no.PosicionX = x;
+                    no.PosicionY = y;
+                    no.ColorFondo = colorDialog1.Color.ToArgb();
+                    DateTime hoy = DateTime.Now;
+                     no.FechaCreacion=hoy.ToString("hh:mm:ss tt");
+                    libroGuardados.AgregarNota.Add(no);
 
                     
                 }
@@ -85,6 +78,20 @@ namespace noteBook.UNA.vistas
         private void fontDialog1_Apply(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormularioTxtTitulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void colorFuente_Click(object sender, EventArgs e)
+        {
+            if (colorDialog2.ShowDialog() == DialogResult.OK)
+            {
+
+              colorFuente.BackColor = colorDialog2.Color;
+            }
         }
     }
 }

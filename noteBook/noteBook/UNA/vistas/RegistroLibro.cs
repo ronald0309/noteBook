@@ -28,6 +28,7 @@ namespace noteBook.UNA.vistas
             libro.Orden = "1";
             libro.Color = SelectorColores.BackColor.ToArgb();
             libro.pocision = contadorPosicion;
+            
             contadorPosicion++;
             Singlenton.Instance.LibrosList.Add(libro);
             txtNombre.Text = "";
