@@ -28,7 +28,19 @@ namespace noteBook.UNA.vistas
         }
         private void FormularioNota_Load(object sender, EventArgs e)
         {
+            int p = 0;
+            foreach (FontFamily font in FontFamily.Families) {
 
+
+                FuenteComboBox.Items.Add(font.Name.ToString());
+
+               
+
+
+                //    FuenteComboBox.Font = new Font(FuenteComboBox.Items[p].ToString(), FuenteComboBox.Font.Size);
+                p++;
+                //  FuenteComboBox.Font = new Font(font.Name.ToString(), FuenteComboBox.Font.Size);
+            }
         }
         public string posicion
         {
@@ -44,15 +56,17 @@ namespace noteBook.UNA.vistas
                 if (libroGuardados.Nombre == posicion)
                 {
                     int n = libroGuardados.AgregarNota.Count;
-                    MessageBox.Show(n.ToString());
-                    Nota no = new Nota();
-                    no.Titulo =FormularioTxtTitulo.Text;
-                    no.PosicionX = x;
-                    no.PosicionY = y;
-                    no.ColorFondo = colorDialog1.Color.ToArgb();
+                 ///   MessageBox.Show(n.ToString());
+                    Nota nota = new Nota();
+                    nota.Titulo =FormularioTxtTitulo.Text;
+                    nota.PosicionX = x;
+                    nota.PosicionY = y;
+                    nota.Fuente = FuenteComboBox.Text;
+                    nota.ColorFuente = colorDialog2.Color.ToArgb();
+                    nota.ColorFondo = colorDialog1.Color.ToArgb();
                     DateTime hoy = DateTime.Now;
-                     no.FechaCreacion=hoy.ToString("hh:mm:ss tt");
-                    libroGuardados.AgregarNota.Add(no);
+                     nota.FechaCreacion=hoy.ToString("hh:mm:ss tt");
+                    libroGuardados.AgregarNota.Add(nota);
 
                     
                 }
@@ -92,6 +106,21 @@ namespace noteBook.UNA.vistas
 
               colorFuente.BackColor = colorDialog2.Color;
             }
+        }
+
+        private void FuenteComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {    
+       
+                //FuenteComboBox.Font = new Font(FuenteComboBox.Text, FuenteComboBox.Font.Size);
+            
+            
+           // FuenteComboBox.Font = new Font(FuenteComboBox.Text, FuenteComboBox.Font.Size); 
+        }
+
+        private void FuenteComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            
+
         }
     }
 }

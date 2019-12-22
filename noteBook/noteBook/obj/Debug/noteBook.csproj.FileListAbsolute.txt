@@ -14,7 +14,6 @@ D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Mis
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\noteBook.exe.config
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\noteBook.exe
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\noteBook.pdb
-C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csprojAssemblyReference.cache
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.FormularioNota.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.login.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.Properties.Resources.resources
@@ -24,3 +23,6 @@ C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vi
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csproj.GenerateResource.cache
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.exe
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.pdb
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.UserControl1.resources
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csprojAssemblyReference.cache
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaControl.resources
