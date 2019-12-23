@@ -32,6 +32,9 @@
 =======
             this.btnFuentes = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
+<<<<<<< HEAD
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
+=======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
             this.FormularioTxtDescrip = new System.Windows.Forms.TextBox();
             this.FormularioGuardarBtn = new System.Windows.Forms.Button();
@@ -69,6 +72,9 @@
             this.textBox4.Size = new System.Drawing.Size(171, 20);
             this.textBox4.TabIndex = 21;
             // 
+<<<<<<< HEAD
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
+=======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
             // FormularioTxtDescrip
             // 
@@ -175,6 +181,9 @@
 =======
             this.Controls.Add(this.btnFuentes);
             this.Controls.Add(this.textBox4);
+<<<<<<< HEAD
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
+=======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
             this.Controls.Add(this.FormularioTxtDescrip);
             this.Controls.Add(this.FormularioGuardarBtn);
@@ -203,6 +212,9 @@
 
         private System.Windows.Forms.Button btnFuentes;
         private System.Windows.Forms.TextBox textBox4;
+<<<<<<< HEAD
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
+=======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
         private System.Windows.Forms.TextBox FormularioTxtDescrip;
         private System.Windows.Forms.Button FormularioGuardarBtn;

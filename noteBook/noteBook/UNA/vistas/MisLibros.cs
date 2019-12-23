@@ -41,6 +41,7 @@ namespace noteBook.UNA.vistas
                     foreach (var p in lib.AgregarNota)
                     {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         // FlowLayoutPanel f = new FlowLayoutPanel();
                         //f.Location = new Point(p.PosicionX, p.PosicionY);
                         //Label titulo = new Label();
@@ -58,6 +59,8 @@ namespace noteBook.UNA.vistas
                         notaControl.ColorFuente = p.ColorFuente;
                         tab.Controls.Add(notaControl);
 =======
+=======
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
                         FlowLayoutPanel f = new FlowLayoutPanel();
                         f.Location = new Point(p.PosicionX, p.PosicionY);
                         Label titulo = new Label();
@@ -65,12 +68,16 @@ namespace noteBook.UNA.vistas
                         f.Controls.Add(titulo);
                         f.BackColor = Color.FromArgb(p.ColorFondo);
                         tab.Controls.Add(f);
+<<<<<<< HEAD
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
+=======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
                     }
 
                 };
                 foreach (var p in lib.AgregarNota)
                 {
+<<<<<<< HEAD
 <<<<<<< HEAD
                     NotaControl notaControl = new NotaControl();
                     notaControl.Location = new Point(p.PosicionX, p.PosicionY);
@@ -81,6 +88,8 @@ namespace noteBook.UNA.vistas
                     tab.Controls.Add(notaControl);
 
 =======
+=======
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
                     FlowLayoutPanel f = new FlowLayoutPanel();
                     f.Location = new Point(p.PosicionX,p.PosicionY);
                     Label titulo = new Label();

@@ -26,6 +26,7 @@ C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.exe
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.pdb
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.ReportesForm.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.UserControl1.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csprojAssemblyReference.cache
@@ -36,5 +37,7 @@ C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\WindowsFormsCon
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csproj.CopyComplete
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Busqueda.resources
 
+=======
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
 =======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop

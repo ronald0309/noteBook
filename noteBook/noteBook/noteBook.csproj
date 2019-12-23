@@ -101,6 +101,7 @@
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </EmbeddedResource>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     <Compile Include="UNA\vistas\UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +114,8 @@
       <DependentUpon>Busqueda.cs</DependentUpon>
     </EmbeddedResource>
 
+=======
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
 =======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
