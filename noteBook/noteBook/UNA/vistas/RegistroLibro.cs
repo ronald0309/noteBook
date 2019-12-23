@@ -33,12 +33,21 @@ namespace noteBook.UNA.vistas
             Singlenton.Instance.LibrosList.Add(libro);
             txtNombre.Text = "";
             txtGenero.Text = "";
+            GenerarReporte(libro.Genero, libro.Nombre, Convert.ToString(libro.Color), Convert.ToString(libro.Orden), Convert.ToString(libro.pocision));
             this.Hide();
 
 
         }
+        void GenerarReporte(string genero, string nombre, string color, string orden,string posicion)
+        {
+            DateTime hoy = DateTime.Now;
+            Reportes reporte = new Reportes();
+            reporte.GenerarReporte("Se agrega un nuevo libro", hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), $"Se crea un nuevo libro de nombre {(nombre)}, del genero {(genero)}, de color  {(color)} (en rgb) y de orden  {(orden)}  ", "Libro");
+            Singlenton.Instance.Reportes.Add(reporte);
 
-       
+        }
+
+
 
         private void label4_Click(object sender, EventArgs e)
         {

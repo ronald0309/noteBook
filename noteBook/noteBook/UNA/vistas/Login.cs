@@ -9,18 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using noteBook.UNA.vistas;
 using Menu = noteBook.UNA.vistas.Menu;
-
+using noteBook.UNA.Clases;
 namespace noteBook
 {
     public partial class login : Form
     {
         private Menu menu = new Menu();
+        Usuario logearUsuario = new Usuario();
         public login()
         {
             InitializeComponent();
+            Singlenton.Instance.CrearUsuarios();
         }
-
-        
+        private void ValidarUsuario()
+        {
+            foreach (Usuario u in Singlenton.Instance.usuarios)
+            {
+                if (txtUsuario.Text == u.NombreUsuario)
+                {
+                    logearUsuario = u;
+                }
+            }
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -38,23 +48,44 @@ namespace noteBook
                 }
                 else
                 {
-                    
+                    ValidarUsuario();
 
-                    if (txtUsuario.Text == "x")
+
+                    if (txtUsuario.Text == logearUsuario.NombreUsuario)
                     {
 
-                        if (txtContraseña.Text == "1")
+
+                        if (txtContraseña.Text == logearUsuario.Contraseña)
                         {
+                            foreach (Usuario u in Singlenton.Instance.usuarios)
+                            {
+                                if (txtUsuario.Text == u.NombreUsuario)
+                                {
+                                    u.Activo = true;
+                                }
+                                else
+                                {
+                                    u.Activo = false;
+                                }
+                            }
+
+                            menu.MostrarUsuarioActivo();
                             this.Hide();
                             menu.ShowDialog();
                             this.Close();
                         }
-                        else { MessageBox.Show("Contraseña incorrecta"); }
+
+                        else
+                        {
+                            MessageBox.Show("Contraseña incorrecta");
+                        }
 
                     }
-                    else { MessageBox.Show("Usuario incorrecto"); }
+                    else
+                    {
+                        MessageBox.Show("Usuario incorrecto");
+                    }
                 }
-
             }
         }
 

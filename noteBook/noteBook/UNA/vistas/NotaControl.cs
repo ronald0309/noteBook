@@ -54,7 +54,7 @@ namespace noteBook.UNA.vistas
 
         }
 
-
+        
         private void NotaControl_Load(object sender, EventArgs e)
         {
 

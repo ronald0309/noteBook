@@ -19,7 +19,8 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
            
         }
-      
+        
+
         public void dibujar2()
         {
             foreach (var lib in Singlenton.Instance.LibrosList) {
@@ -55,6 +56,7 @@ namespace noteBook.UNA.vistas
                         notaControl.TituloNota = p.Titulo;
                         notaControl.ColorNota = p.ColorFondo;
                         notaControl.ColorFuente = p.ColorFuente;
+                       
                         tab.Controls.Add(notaControl);
                     }
 

@@ -67,12 +67,21 @@ namespace noteBook.UNA.vistas
                     DateTime hoy = DateTime.Now;
                      nota.FechaCreacion=hoy.ToString("hh:mm:ss tt");
                     libroGuardados.AgregarNota.Add(nota);
+                    GenerarReporte(nota.Fuente, nota.Titulo, Convert.ToString(nota.ColorFondo), Convert.ToString(nota.ColorFuente));
 
-                    
+
                 }
                 this.Close();
             }
             
+        }
+        void GenerarReporte(string fuente, string titulo, string colorFondo, string colorFuente)
+        {
+            DateTime hoy = DateTime.Now;
+            Reportes reporte = new Reportes();
+            reporte.GenerarReporte("Se agrega una nueva nota", hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), $"Se crea una nueva nota de nombre {(titulo)}, con la fuente {(fuente)}, el color de la fuente en rgb es {(colorFuente)} y el color del fondo en rgb es {(colorFondo)} ", "Nota");
+            Singlenton.Instance.Reportes.Add(reporte);
+
         }
 
         private void SelectorColoresNotas_Click(object sender, EventArgs e)

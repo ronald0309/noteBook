@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
     public partial class Menu : Form
@@ -18,12 +18,34 @@ namespace noteBook.UNA.vistas
         {
             tiempo = new Timer();
             tiempo.Tick += new EventHandler(timer1_Tick);
-
+            foreach (Usuario u in Singlenton.Instance.usuarios)
+            {
+                if (u.Activo)
+                {
+                    lblUsuario.Text = u.NombreUsuario;
+                }
+                else
+                {
+                    MessageBox.Show("no hay usuarios activos");
+                }
+            }
             InitializeComponent();
             tiempo.Enabled = true;
 
         }
-       
+        public void MostrarUsuarioActivo()
+        {
+
+            foreach (Usuario u in Singlenton.Instance.usuarios)
+            {
+                if (u.Activo)
+                {
+                    lblUsuario.Text = u.NombreUsuario;
+                }
+            }
+
+        }
+
         private void abrirForma(Object hija)
         {
             if (this.panelVistas.Controls.Count > 0)
@@ -86,6 +108,12 @@ namespace noteBook.UNA.vistas
         {
             Busqueda busqueda = new Busqueda();
             this.abrirForma(busqueda);
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            ReportesForm reporteForm = new ReportesForm();
+            this.abrirForma(reporteForm);
         }
     }
 }

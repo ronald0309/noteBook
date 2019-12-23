@@ -7,29 +7,53 @@ using System.Windows.Forms;
 
 namespace noteBook.UNA.Clases
 {
-    
-        public class Singlenton
-        {
-            private static Singlenton instance = null;
-            public  List<Libro> LibrosList = new List<Libro>();
 
-
+    public class Singlenton
+    {
+        private static Singlenton instance = null;
+        public List<Libro> LibrosList = new List<Libro>();
+        public List<Reportes> Reportes = new List<Reportes>();
+        public List<Usuario> usuarios = new List<Usuario>();
 
 
         protected Singlenton() { }
-            public static Singlenton Instance
+        public static Singlenton Instance
+        {
+            get
             {
-                get
-                {
-                    if (instance == null)
-                        instance = new Singlenton();
+                if (instance == null)
+                    instance = new Singlenton();
 
-                    return instance;
+                return instance;
 
-                }
             }
-
+        }
+        public void CrearUsuarios()
+        {
+            Usuario usuario1 = new Usuario();
+            usuario1.NombreUsuario = "Ronny";
+            usuario1.Contraseña = "123";
+            usuario1.Activo = false;
+            usuarios.Add(usuario1);
+            Usuario usuario2 = new Usuario();
+            usuario2.NombreUsuario = "Gerardo";
+            usuario2.Contraseña = "456";
+            usuarios.Add(usuario2);
+            Usuario usuario3 = new Usuario();
+            usuario3.NombreUsuario = "Ruben";
+            usuario3.Contraseña = "789";
+            usuarios.Add(usuario3);
+            Usuario usuario4 = new Usuario();
+            usuario4.NombreUsuario = "x";
+            usuario4.Contraseña = "1";
+            usuarios.Add(usuario4);
+           
+        }
        
+        
+
+
+
     }
-    
+
 }
