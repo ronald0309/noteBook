@@ -105,11 +105,18 @@ namespace noteBook.UNA.vistas
             panelVistas.Height = this.Height - 136;
         }
 
+
         private void btnReporte_Click(object sender, EventArgs e)
         {
             ReportesForm reporteF = new ReportesForm();
             reporteF.CargarInformacion();
             this.abrirForma(reporteF);
+
+        private void Busquedabtn_Click(object sender, EventArgs e)
+        {
+            Busqueda busqueda = new Busqueda();
+            this.abrirForma(busqueda);
+
         }
     }
 }

@@ -42,8 +42,12 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+
             this.label2 = new System.Windows.Forms.Label();
             this.btnReporte = new System.Windows.Forms.Button();
+
+            this.Busquedabtn = new System.Windows.Forms.Button();
+
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -163,9 +167,13 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+
             this.panelMenu.Controls.Add(this.btnReporte);
             this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.lblUsuario);
+
+            this.panelMenu.Controls.Add(this.Busquedabtn);
+
             this.panelMenu.Controls.Add(this.btnMisLibros);
             this.panelMenu.Controls.Add(this.btnAgregar);
             this.panelMenu.Controls.Add(this.panelTitulo);
@@ -188,6 +196,7 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+
             // label2
             // 
             this.label2.AutoSize = true;
@@ -214,6 +223,25 @@
             this.btnReporte.Text = "Reportes";
             this.btnReporte.UseVisualStyleBackColor = false;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+
+            // Busquedabtn
+            // 
+            this.Busquedabtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Busquedabtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Busquedabtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Busquedabtn.FlatAppearance.BorderSize = 0;
+            this.Busquedabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Busquedabtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Busquedabtn.Image = ((System.Drawing.Image)(resources.GetObject("Busquedabtn.Image")));
+            this.Busquedabtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Busquedabtn.Location = new System.Drawing.Point(0, 179);
+            this.Busquedabtn.Name = "Busquedabtn";
+            this.Busquedabtn.Size = new System.Drawing.Size(166, 57);
+            this.Busquedabtn.TabIndex = 4;
+            this.Busquedabtn.Text = "Busqueda";
+            this.Busquedabtn.UseVisualStyleBackColor = false;
+            this.Busquedabtn.Click += new System.EventHandler(this.Busquedabtn_Click);
+
             // 
             // Menu
             // 
@@ -254,8 +282,12 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label HoraLabel;
         private System.Windows.Forms.Timer timer1;
+
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnReporte;
+
+        private System.Windows.Forms.Button Busquedabtn;
+
     }
 }

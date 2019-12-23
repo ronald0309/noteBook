@@ -30,3 +30,8 @@ C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vi
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csprojAssemblyReference.cache
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaControl.resources
 
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\WindowsFormsControlLibrary1.dll
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\WindowsFormsControlLibrary1.pdb
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csproj.CopyComplete
+C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Busqueda.resources
+

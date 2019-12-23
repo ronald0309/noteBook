@@ -132,6 +132,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
+            this.Load += new System.EventHandler(this.RegistroLibro_Load);
             this.Resize += new System.EventHandler(this.RegistroLibro_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColores)).EndInit();
             this.ResumeLayout(false);
