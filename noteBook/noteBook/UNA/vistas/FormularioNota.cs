@@ -53,12 +53,20 @@ namespace noteBook.UNA.vistas
                     DateTime hoy = DateTime.Now;
                      no.FechaCreacion=hoy.ToString("hh:mm:ss tt");
                     libroGuardados.AgregarNota.Add(no);
+                    GenerarReporte(hoy);
 
                     
                 }
                 this.Close();
             }
             
+        }
+        void GenerarReporte(DateTime hoy)
+        {
+            Reportes reporte = new Reportes();
+            reporte.GenerarReporte("Se agrega nota",hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"),$"Se crea una nueva nota de nombre {(FormularioTxtTitulo.Text)}","Nota");
+            Singlenton.Instance.ListaReportes.Add(reporte);
+
         }
 
         private void SelectorColoresNotas_Click(object sender, EventArgs e)

@@ -50,6 +50,12 @@
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
     <Compile Include="UNA\Clases\Singlenton.cs" />
+    <Compile Include="UNA\vistas\ReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\ReportesForm.Designer.cs">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\FormularioNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
       <DependentUpon>RegistroLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Clases\Usuario.cs" />
+    <EmbeddedResource Include="UNA\vistas\ReportesForm.resx">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
       <DependentUpon>FormularioNota.cs</DependentUpon>
     </EmbeddedResource>

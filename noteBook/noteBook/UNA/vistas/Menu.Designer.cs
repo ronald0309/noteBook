@@ -43,6 +43,7 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.btnReporte = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -162,6 +163,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panelMenu.Controls.Add(this.btnReporte);
             this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.lblUsuario);
             this.panelMenu.Controls.Add(this.btnMisLibros);
@@ -194,6 +196,24 @@
             this.label2.Size = new System.Drawing.Size(102, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "El usuario activo es:";
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporte.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporte.FlatAppearance.BorderSize = 0;
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReporte.Image = ((System.Drawing.Image)(resources.GetObject("btnReporte.Image")));
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.Location = new System.Drawing.Point(0, 179);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(166, 57);
+            this.btnReporte.TabIndex = 6;
+            this.btnReporte.Text = "Reportes";
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // Menu
             // 
@@ -236,5 +256,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnReporte;
     }
 }
