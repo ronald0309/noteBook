@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFuentes = new System.Windows.Forms.Button();
             this.FormularioTxtDescrip = new System.Windows.Forms.TextBox();
             this.FormularioGuardarBtn = new System.Windows.Forms.Button();
             this.FormularioTxtTitulo = new System.Windows.Forms.TextBox();
@@ -48,16 +47,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnFuentes
-            // 
-            this.btnFuentes.Location = new System.Drawing.Point(336, 208);
-            this.btnFuentes.Name = "btnFuentes";
-            this.btnFuentes.Size = new System.Drawing.Size(109, 23);
-            this.btnFuentes.TabIndex = 23;
-            this.btnFuentes.Text = "Fuentes";
-            this.btnFuentes.UseVisualStyleBackColor = true;
-            this.btnFuentes.Click += new System.EventHandler(this.btnFuentes_Click);
-            // 
             // FormularioTxtDescrip
             // 
             this.FormularioTxtDescrip.Location = new System.Drawing.Point(156, 79);
@@ -67,7 +56,7 @@
             // 
             // FormularioGuardarBtn
             // 
-            this.FormularioGuardarBtn.Location = new System.Drawing.Point(156, 208);
+            this.FormularioGuardarBtn.Location = new System.Drawing.Point(156, 185);
             this.FormularioGuardarBtn.Name = "FormularioGuardarBtn";
             this.FormularioGuardarBtn.Size = new System.Drawing.Size(171, 32);
             this.FormularioGuardarBtn.TabIndex = 19;
@@ -182,7 +171,6 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.colorFuente);
             this.Controls.Add(this.SelectorColoresNotas);
-            this.Controls.Add(this.btnFuentes);
             this.Controls.Add(this.FormularioTxtDescrip);
             this.Controls.Add(this.FormularioGuardarBtn);
             this.Controls.Add(this.FormularioTxtTitulo);
@@ -205,8 +193,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFuentes;
         private System.Windows.Forms.TextBox FormularioTxtDescrip;
         private System.Windows.Forms.Button FormularioGuardarBtn;
         private System.Windows.Forms.TextBox FormularioTxtTitulo;

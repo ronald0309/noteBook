@@ -81,5 +81,11 @@ namespace noteBook.UNA.vistas
         {
             panelVistas.Height = this.Height - 136;
         }
+
+        private void Busquedabtn_Click(object sender, EventArgs e)
+        {
+            Busqueda busqueda = new Busqueda();
+            this.abrirForma(busqueda);
+        }
     }
 }

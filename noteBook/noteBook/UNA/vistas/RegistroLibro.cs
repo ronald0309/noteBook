@@ -63,5 +63,10 @@ namespace noteBook.UNA.vistas
             txtGenero.Height = this.Height - 200;
             txtGenero.Width = this.Width - 500;
         }
+
+        private void RegistroLibro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
