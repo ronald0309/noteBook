@@ -50,6 +50,7 @@
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
     <Compile Include="UNA\Clases\Singlenton.cs" />
+<<<<<<< HEAD
 
     <Compile Include="UNA\vistas\ReportesForm.cs">
       <SubType>Form</SubType>
@@ -64,6 +65,8 @@
       <DependentUpon>Busqueda.cs</DependentUpon>
 
     </Compile>
+=======
+>>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
     <Compile Include="UNA\vistas\FormularioNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +100,7 @@
       <DependentUpon>RegistroLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Clases\Usuario.cs" />
+<<<<<<< HEAD
     <EmbeddedResource Include="UNA\vistas\ReportesForm.resx">
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +119,8 @@
 
 =======
 >>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
+=======
+>>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
       <DependentUpon>FormularioNota.cs</DependentUpon>
     </EmbeddedResource>

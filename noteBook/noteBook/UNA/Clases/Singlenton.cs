@@ -13,8 +13,7 @@ namespace noteBook.UNA.Clases
         private static Singlenton instance = null;
         public List<Libro> LibrosList = new List<Libro>();
         public List<Usuario> ListaUsuarios = new List<Usuario>();
-        public List<Reportes> ListaReportes = new List<Reportes>();
-
+        
         public void CrearUsuarios()
         {
             Usuario usuario1 = new Usuario();

@@ -162,6 +162,7 @@
         Atc0wc6c+Q/R1GsZ2pS1AQAAAABJRU5ErkJggg==
 </value>
   </data>
+<<<<<<< HEAD
 
   <data name="btnReporte.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 
@@ -178,6 +179,8 @@
         uaWMzunR8++4a3p3OL4rY+dCbNsPElqY52KbM0oAAAAASUVORK5CYII=
 </value>
   </data>
+=======
+>>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 14</value>
   </metadata>

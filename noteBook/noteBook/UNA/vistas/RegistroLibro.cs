@@ -28,8 +28,7 @@ namespace noteBook.UNA.vistas
             libro.Orden = "1";
             libro.Color = SelectorColores.BackColor.ToArgb();
             libro.pocision = contadorPosicion;
-            DateTime hoy = DateTime.Now;
-            GenerarReporte(hoy);
+            
             contadorPosicion++;
             Singlenton.Instance.LibrosList.Add(libro);
             txtNombre.Text = "";
@@ -39,13 +38,7 @@ namespace noteBook.UNA.vistas
 
         }
 
-        void GenerarReporte(DateTime hoy)
-        {
-            Reportes reporte = new Reportes();
-            reporte.GenerarReporte("Se agrega un nuevo libro", hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), $"Se crea un nuevo libro con el nombre {(txtNombre.Text)} del genero {(txtGenero.Text)}", "Libro");
-            Singlenton.Instance.ListaReportes.Add(reporte);
-
-        }
+       
 
         private void label4_Click(object sender, EventArgs e)
         {

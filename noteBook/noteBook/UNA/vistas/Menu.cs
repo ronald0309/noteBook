@@ -104,6 +104,7 @@ namespace noteBook.UNA.vistas
         {
             panelVistas.Height = this.Height - 136;
         }
+<<<<<<< HEAD
 
 
         private void btnReporte_Click(object sender, EventArgs e)
@@ -118,5 +119,7 @@ namespace noteBook.UNA.vistas
             this.abrirForma(busqueda);
 
         }
+=======
+>>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
     }
 }
