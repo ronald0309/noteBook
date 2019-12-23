@@ -44,13 +44,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
 
             this.label2 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.btnReporte = new System.Windows.Forms.Button();
 
             this.Busquedabtn = new System.Windows.Forms.Button();
 
-=======
->>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -170,11 +167,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-<<<<<<< HEAD
 
             this.panelMenu.Controls.Add(this.btnReporte);
-=======
->>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
             this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.lblUsuario);
 
@@ -212,7 +206,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "El usuario activo es:";
             // 
-<<<<<<< HEAD
             // btnReporte
             // 
             this.btnReporte.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -250,8 +243,6 @@
             this.Busquedabtn.Click += new System.EventHandler(this.Busquedabtn_Click);
 
             // 
-=======
->>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,12 +285,9 @@
 
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
-<<<<<<< HEAD
         private System.Windows.Forms.Button btnReporte;
 
         private System.Windows.Forms.Button Busquedabtn;
 
-=======
->>>>>>> parent of d31a03e... se crea la clase reportes, se implementa en crear libros y notas
     }
 }
