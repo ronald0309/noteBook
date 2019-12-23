@@ -30,12 +30,14 @@
         {
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.colorCombo = new System.Windows.Forms.ComboBox();
             this.txtGenero = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.SelectorColores = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectorColores)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -46,6 +48,7 @@
             this.btnGuardar.TabIndex = 31;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label4
             // 
@@ -55,14 +58,7 @@
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "Colores";
-            // 
-            // colorCombo
-            // 
-            this.colorCombo.FormattingEnabled = true;
-            this.colorCombo.Location = new System.Drawing.Point(223, 145);
-            this.colorCombo.Name = "colorCombo";
-            this.colorCombo.Size = new System.Drawing.Size(135, 21);
-            this.colorCombo.TabIndex = 29;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtGenero
             // 
@@ -96,17 +92,28 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Nombre";
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mistral", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(217, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 33);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "REGISTRO LIBRO";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Mistral", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Blue;
+            this.lblTitulo.Location = new System.Drawing.Point(217, 36);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(159, 33);
+            this.lblTitulo.TabIndex = 24;
+            this.lblTitulo.Text = "REGISTRO LIBRO";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SelectorColores
+            // 
+            this.SelectorColores.BackColor = System.Drawing.Color.Red;
+            this.SelectorColores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectorColores.Location = new System.Drawing.Point(223, 142);
+            this.SelectorColores.Name = "SelectorColores";
+            this.SelectorColores.Size = new System.Drawing.Size(33, 24);
+            this.SelectorColores.TabIndex = 32;
+            this.SelectorColores.TabStop = false;
+            this.SelectorColores.Click += new System.EventHandler(this.SelectorColores_Click);
             // 
             // RegistroLibro
             // 
@@ -114,17 +121,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(567, 259);
+            this.Controls.Add(this.SelectorColores);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.colorCombo);
             this.Controls.Add(this.txtGenero);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
+            this.Load += new System.EventHandler(this.RegistroLibro_Load);
+            this.Resize += new System.EventHandler(this.RegistroLibro_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.SelectorColores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,11 +144,12 @@
 
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox colorCombo;
         private System.Windows.Forms.TextBox txtGenero;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.PictureBox SelectorColores;
     }
 }
