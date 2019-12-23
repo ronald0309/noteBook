@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnFuentes = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.FormularioTxtDescrip = new System.Windows.Forms.TextBox();
             this.FormularioGuardarBtn = new System.Windows.Forms.Button();
             this.FormularioTxtTitulo = new System.Windows.Forms.TextBox();
@@ -43,6 +42,8 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorFuente = new System.Windows.Forms.PictureBox();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.FuenteComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).BeginInit();
             this.SuspendLayout();
@@ -56,13 +57,6 @@
             this.btnFuentes.Text = "Fuentes";
             this.btnFuentes.UseVisualStyleBackColor = true;
             this.btnFuentes.Click += new System.EventHandler(this.btnFuentes_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(156, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 20);
-            this.textBox4.TabIndex = 21;
             // 
             // FormularioTxtDescrip
             // 
@@ -101,7 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(333, 18);
+            this.label4.Location = new System.Drawing.Point(366, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 16;
@@ -158,15 +152,37 @@
             this.colorFuente.TabStop = false;
             this.colorFuente.Click += new System.EventHandler(this.colorFuente_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Publico",
+            "Privado"});
+            this.comboBox1.Location = new System.Drawing.Point(156, 104);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(171, 21);
+            this.comboBox1.TabIndex = 26;
+            // 
+            // FuenteComboBox
+            // 
+            this.FuenteComboBox.FormattingEnabled = true;
+            this.FuenteComboBox.Location = new System.Drawing.Point(358, 51);
+            this.FuenteComboBox.Name = "FuenteComboBox";
+            this.FuenteComboBox.Size = new System.Drawing.Size(121, 21);
+            this.FuenteComboBox.TabIndex = 27;
+            this.FuenteComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.FuenteComboBox_DrawItem);
+            this.FuenteComboBox.SelectedIndexChanged += new System.EventHandler(this.FuenteComboBox_SelectedIndexChanged);
+            // 
             // FormularioNota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 249);
+            this.Controls.Add(this.FuenteComboBox);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.colorFuente);
             this.Controls.Add(this.SelectorColoresNotas);
             this.Controls.Add(this.btnFuentes);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.FormularioTxtDescrip);
             this.Controls.Add(this.FormularioGuardarBtn);
             this.Controls.Add(this.FormularioTxtTitulo);
@@ -191,7 +207,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnFuentes;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox FormularioTxtDescrip;
         private System.Windows.Forms.Button FormularioGuardarBtn;
         private System.Windows.Forms.TextBox FormularioTxtTitulo;
@@ -205,5 +220,7 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.PictureBox colorFuente;
         private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox FuenteComboBox;
     }
 }

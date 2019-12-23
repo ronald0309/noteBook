@@ -40,28 +40,38 @@ namespace noteBook.UNA.vistas
 
                     foreach (var p in lib.AgregarNota)
                     {
-                        FlowLayoutPanel f = new FlowLayoutPanel();
-                        f.Location = new Point(p.PosicionX, p.PosicionY);
-                        Label titulo = new Label();
-                        titulo.Text = p.Titulo;
-                        f.Controls.Add(titulo);
-                        f.BackColor = Color.FromArgb(p.ColorFondo);
-                        tab.Controls.Add(f);
+                        // FlowLayoutPanel f = new FlowLayoutPanel();
+                        //f.Location = new Point(p.PosicionX, p.PosicionY);
+                        //Label titulo = new Label();
+                        //titulo.Text = "Titulo"+p.Titulo;
+                        //f.Controls.Add(titulo);
+                        // f.BackColor = Color.FromArgb(p.ColorFondo);
+                        //tab.Controls.Add(f);
+                        NotaControl notaControl = new NotaControl();
+                        notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                        notaControl.FuenteTipo = p.Fuente;
+                        notaControl.TituloNota = p.Titulo;
+                        notaControl.ColorNota = p.ColorFondo;
+                        notaControl.ColorFuente = p.ColorFuente;
+                        tab.Controls.Add(notaControl);
                     }
 
                 };
                 foreach (var p in lib.AgregarNota)
                 {
                     FlowLayoutPanel f = new FlowLayoutPanel();
+                    f.BackColor = Color.FromArgb(p.ColorFondo);
+
                     f.Location = new Point(p.PosicionX,p.PosicionY);
                     Label titulo = new Label();
                     Label hora = new Label();
                     titulo.Text = p.Titulo;
+                    titulo.BackColor = Color.Violet;
                     hora.Text = p.FechaCreacion;
 
                     f.Controls.Add(titulo);
                     f.Controls.Add(hora);
-                    f.BackColor =Color.FromArgb( p.ColorFondo);
+                    ;
 
                     tab.Controls.Add(f);
                 }
