@@ -40,6 +40,7 @@ namespace noteBook.UNA.vistas
 
                     foreach (var p in lib.AgregarNota)
                     {
+<<<<<<< HEAD
                         // FlowLayoutPanel f = new FlowLayoutPanel();
                         //f.Location = new Point(p.PosicionX, p.PosicionY);
                         //Label titulo = new Label();
@@ -56,11 +57,21 @@ namespace noteBook.UNA.vistas
                         notaControl.ColorNota = p.ColorFondo;
                         notaControl.ColorFuente = p.ColorFuente;
                         tab.Controls.Add(notaControl);
+=======
+                        FlowLayoutPanel f = new FlowLayoutPanel();
+                        f.Location = new Point(p.PosicionX, p.PosicionY);
+                        Label titulo = new Label();
+                        titulo.Text = p.Titulo;
+                        f.Controls.Add(titulo);
+                        f.BackColor = Color.FromArgb(p.ColorFondo);
+                        tab.Controls.Add(f);
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
                     }
 
                 };
                 foreach (var p in lib.AgregarNota)
                 {
+<<<<<<< HEAD
                     NotaControl notaControl = new NotaControl();
                     notaControl.Location = new Point(p.PosicionX, p.PosicionY);
                     notaControl.FuenteTipo = p.Fuente;
@@ -69,6 +80,20 @@ namespace noteBook.UNA.vistas
                     notaControl.ColorFuente = p.ColorFuente;
                     tab.Controls.Add(notaControl);
 
+=======
+                    FlowLayoutPanel f = new FlowLayoutPanel();
+                    f.Location = new Point(p.PosicionX,p.PosicionY);
+                    Label titulo = new Label();
+                    Label hora = new Label();
+                    titulo.Text = p.Titulo;
+                    hora.Text = p.FechaCreacion;
+
+                    f.Controls.Add(titulo);
+                    f.Controls.Add(hora);
+                    f.BackColor =Color.FromArgb( p.ColorFondo);
+
+                    tab.Controls.Add(f);
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
                 }
 
                 tab.Refresh();

@@ -90,23 +90,17 @@
     <Compile Include="UNA\vistas\MisLibros.Designer.cs">
       <DependentUpon>MisLibros.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\NotaControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UNA\vistas\NotaControl.Designer.cs">
-      <DependentUpon>NotaControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UNA\vistas\RegistroLibro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UNA\vistas\RegistroLibro.Designer.cs">
       <DependentUpon>RegistroLibro.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UNA\Clases\Usuario.cs" />
     <EmbeddedResource Include="UNA\vistas\ReportesForm.resx">
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
 
     <Compile Include="UNA\vistas\UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -119,6 +113,8 @@
       <DependentUpon>Busqueda.cs</DependentUpon>
     </EmbeddedResource>
 
+=======
+>>>>>>> parent of 9294f59... Merge remote-tracking branch 'origin/Develop-Gerardo' into Develop
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
       <DependentUpon>FormularioNota.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,14 +136,8 @@
     <EmbeddedResource Include="UNA\vistas\MisLibros.resx">
       <DependentUpon>MisLibros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\NotaControl.resx">
-      <DependentUpon>NotaControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\RegistroLibro.resx">
       <DependentUpon>RegistroLibro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
