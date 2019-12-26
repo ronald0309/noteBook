@@ -41,13 +41,7 @@ namespace noteBook.UNA.vistas
 
                     foreach (var p in lib.AgregarNota)
                     {
-                        // FlowLayoutPanel f = new FlowLayoutPanel();
-                        //f.Location = new Point(p.PosicionX, p.PosicionY);
-                        //Label titulo = new Label();
-                        //titulo.Text = "Titulo"+p.Titulo;
-                        //f.Controls.Add(titulo);
-                        // f.BackColor = Color.FromArgb(p.ColorFondo);
-                        //tab.Controls.Add(f);
+                        
                         NotaControl notaControl = new NotaControl();
                         notaControl.Width=136;
                        notaControl.Height=108;

@@ -29,14 +29,9 @@ namespace noteBook.UNA.vistas
         private void FormularioNota_Load(object sender, EventArgs e)
         {
             int p = 0;
-            foreach (FontFamily font in FontFamily.Families) {
-
-
+            foreach (FontFamily font in FontFamily.Families)
+            {
                 FuenteComboBox.Items.Add(font.Name.ToString());
-
-               
-
-
                 //    FuenteComboBox.Font = new Font(FuenteComboBox.Items[p].ToString(), FuenteComboBox.Font.Size);
                 p++;
                 //  FuenteComboBox.Font = new Font(font.Name.ToString(), FuenteComboBox.Font.Size);
@@ -50,49 +45,38 @@ namespace noteBook.UNA.vistas
 
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
-         
-            
-                foreach (var libroGuardados in Singlenton.Instance.LibrosList)
+
+            foreach (var libroGuardados in Singlenton.Instance.LibrosList)
+            {
+
+                if (libroGuardados.Nombre == posicion)
                 {
+                    int n = libroGuardados.AgregarNota.Count;
+                    ///   MessageBox.Show(n.ToString());
+                    Nota nota = new Nota();
+                    nota.Titulo = FormularioTxtTitulo.Text;
+                    nota.PosicionX = x;
+                    nota.PosicionY = y;
+                    nota.Fuente = FuenteComboBox.Text;
+                    nota.ColorFuente = colorDialog2.Color.ToArgb();
+                    nota.ColorFondo = colorDialog1.Color.ToArgb();
+                    DateTime hoy = DateTime.Now;
+                    nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
+                    libroGuardados.AgregarNota.Add(nota);
 
-                    if (libroGuardados.Nombre == posicion)
-                    {
-                        int n = libroGuardados.AgregarNota.Count;
-                        ///   MessageBox.Show(n.ToString());
-                        Nota nota = new Nota();
-                        nota.Titulo = FormularioTxtTitulo.Text;
-                        nota.PosicionX = x;
-                        nota.PosicionY = y;
-                        nota.Fuente = FuenteComboBox.Text;
-                        nota.ColorFuente = colorDialog2.Color.ToArgb();
-                        nota.ColorFondo = colorDialog1.Color.ToArgb();
-                        DateTime hoy = DateTime.Now;
-                    MessageBox.Show(hoy.ToString("dd - MM - yyyy"));
-                        nota.FechaCreacion = hoy.ToString("dd - MM - yyyy");
-                        libroGuardados.AgregarNota.Add(nota);
-                        GenerarReporte(nota.Fuente, nota.Titulo, Convert.ToString(nota.ColorFondo), Convert.ToString(nota.ColorFuente));
+                    Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}, con la fuente {(nota.Fuente)}, el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
 
 
-                    }
+
                     this.Close();
                 }
-           
-            
-        }
-        void GenerarReporte(string fuente, string titulo, string colorFondo, string colorFuente)
-        {
-            DateTime hoy = DateTime.Now;
-            Reportes reporte = new Reportes();
-            reporte.GenerarReporte("Se agrega una nueva nota", hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), $"Se crea una nueva nota de nombre {(titulo)}, con la fuente {(fuente)}, el color de la fuente en rgb es {(colorFuente)} y el color del fondo en rgb es {(colorFondo)} ", "Nota");
-            Singlenton.Instance.Reportes.Add(reporte);
 
-        }
-
+            }
+        } 
         private void SelectorColoresNotas_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-
                 SelectorColoresNotas.BackColor = colorDialog1.Color;
             }
         }
@@ -117,22 +101,19 @@ namespace noteBook.UNA.vistas
             if (colorDialog2.ShowDialog() == DialogResult.OK)
             {
 
-              colorFuente.BackColor = colorDialog2.Color;
+                colorFuente.BackColor = colorDialog2.Color;
             }
         }
 
         private void FuenteComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {    
-       
-                //FuenteComboBox.Font = new Font(FuenteComboBox.Text, FuenteComboBox.Font.Size);
-            
-            
-           // FuenteComboBox.Font = new Font(FuenteComboBox.Text, FuenteComboBox.Font.Size); 
+        {
+
+
         }
 
         private void FuenteComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
-            
+
 
         }
     }

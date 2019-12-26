@@ -13,6 +13,8 @@ namespace noteBook.UNA.vistas
 
     public partial class ReportesForm : Form
     {
+
+        ArchivoManager archivoManager = new ArchivoManager();
         public ReportesForm()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace noteBook.UNA.vistas
                 n = dGVReportes.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
             }
         }
-    }
 
+    }
+       
 }

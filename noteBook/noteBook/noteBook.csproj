@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UNA\Clases\ArchivoManager.cs" />
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
     <Compile Include="UNA\Clases\Reportes.cs" />

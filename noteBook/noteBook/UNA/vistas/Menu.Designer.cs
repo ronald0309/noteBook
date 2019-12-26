@@ -45,6 +45,9 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.Busquedabtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+
+            this.btnGuardar = new System.Windows.Forms.Button();
+
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -164,6 +167,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panelMenu.Controls.Add(this.btnGuardar);
             this.panelMenu.Controls.Add(this.lblUsuario);
             this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.btnReportes);
@@ -234,6 +238,26 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(0, 293);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(166, 57);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+
             // 
             // Menu
             // 
@@ -278,5 +302,6 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
