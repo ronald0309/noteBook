@@ -20,7 +20,7 @@ namespace noteBook.UNA.vistas
             toolTip1.SetToolTip(txtNombre, "Ingrese el nombre del libro");
             colorDialog1.Color = Color.Red;
         }
-        private int contadorPosicion= 0;
+        private int contadorPosicion = 0;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text.Length == 0)
@@ -33,6 +33,7 @@ namespace noteBook.UNA.vistas
             if (GeneroComboBox.Text.Length == 0)
             {
                 errorGuardar.SetError(GeneroComboBox, "Escoja un genero Para el libro");
+
             }
 
             if (txtNombre.Text.Length != 0 && GeneroComboBox.Text.Length != 0)
@@ -51,11 +52,8 @@ namespace noteBook.UNA.vistas
 
                 Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}, del genero {(libro.Genero)}, de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", libro); ;
                 this.Hide();
-            } 
+            }
         }
-        
-
-
 
         private void label4_Click(object sender, EventArgs e)
         {

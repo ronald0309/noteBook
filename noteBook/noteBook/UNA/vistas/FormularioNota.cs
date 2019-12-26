@@ -68,11 +68,13 @@ namespace noteBook.UNA.vistas
 
 
 
+
                     this.Close();
                 }
 
             }
-        } 
+        }
+
         private void SelectorColoresNotas_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -118,3 +120,4 @@ namespace noteBook.UNA.vistas
         }
     }
 }
+
