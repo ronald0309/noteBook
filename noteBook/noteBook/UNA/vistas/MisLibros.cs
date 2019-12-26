@@ -50,7 +50,7 @@ namespace noteBook.UNA.vistas
                         notaControl.TituloNota = p.Titulo;
                         notaControl.ColorNota = p.ColorFondo;
                         notaControl.ColorFuente = p.ColorFuente;
-                       
+                        notaControl.fechaCreacion = p.FechaCreacion;
                         tab.Controls.Add(notaControl);
                     }
 
@@ -63,11 +63,13 @@ namespace noteBook.UNA.vistas
                     notaControl.TituloNota = p.Titulo;
                     notaControl.ColorNota = p.ColorFondo;
                     notaControl.ColorFuente = p.ColorFuente;
+                    notaControl.fechaCreacion = p.FechaCreacion;
+
                     tab.Controls.Add(notaControl);
 
                 }
 
-                tab.Refresh();
+                
                 tabControl1.Controls.Add(tab);
                 
                 }

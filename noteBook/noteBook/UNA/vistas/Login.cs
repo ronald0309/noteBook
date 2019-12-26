@@ -18,7 +18,10 @@ namespace noteBook
         Usuario logearUsuario = new Usuario();
         public login()
         {
+
             InitializeComponent();
+            mensajeLogin.SetToolTip(txtUsuario,"Ingrese el nombre de usuario");
+            mensajeLogin.SetToolTip(txtContraseña, "Ingrese la contraseña");
             Singlenton.Instance.CrearUsuarios();
         }
         private void ValidarUsuario()
@@ -95,6 +98,11 @@ namespace noteBook
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -45,6 +45,7 @@ namespace noteBook.UNA.vistas
 
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
+
             foreach (var libroGuardados in Singlenton.Instance.LibrosList)
             {
 
@@ -65,9 +66,10 @@ namespace noteBook.UNA.vistas
 
                     Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}, con la fuente {(nota.Fuente)}, el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
 
-                }
+
                 this.Close();
             }
+
 
         }
         private void SelectorColoresNotas_Click(object sender, EventArgs e)

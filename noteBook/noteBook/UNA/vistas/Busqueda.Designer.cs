@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BusquedaNotas = new System.Windows.Forms.FlowLayoutPanel();
             this.busquedaTxt = new System.Windows.Forms.TextBox();
+            this.colorLibro = new System.Windows.Forms.ColorDialog();
+            this.BusquedaNotas = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,26 +41,30 @@
             this.panel1.Controls.Add(this.busquedaTxt);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(610, 75);
+            this.panel1.Size = new System.Drawing.Size(610, 60);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // busquedaTxt
+            // 
+            this.busquedaTxt.Location = new System.Drawing.Point(23, 26);
+            this.busquedaTxt.Name = "busquedaTxt";
+            this.busquedaTxt.Size = new System.Drawing.Size(69, 20);
+            this.busquedaTxt.TabIndex = 0;
+            this.busquedaTxt.Text = "Titulo";
+            this.busquedaTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
+            this.busquedaTxt.Leave += new System.EventHandler(this.busquedaTxt_Leave);
             // 
             // BusquedaNotas
             // 
             this.BusquedaNotas.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BusquedaNotas.Location = new System.Drawing.Point(12, 103);
+            this.BusquedaNotas.ImeMode = System.Windows.Forms.ImeMode.Katakana;
+            this.BusquedaNotas.Location = new System.Drawing.Point(12, 78);
             this.BusquedaNotas.Name = "BusquedaNotas";
-            this.BusquedaNotas.Size = new System.Drawing.Size(610, 201);
+            this.BusquedaNotas.Size = new System.Drawing.Size(610, 226);
             this.BusquedaNotas.TabIndex = 1;
             this.BusquedaNotas.Paint += new System.Windows.Forms.PaintEventHandler(this.BusquedaNotas_Paint);
-            // 
-            // busquedaTxt
-            // 
-            this.busquedaTxt.Location = new System.Drawing.Point(99, 18);
-            this.busquedaTxt.Name = "busquedaTxt";
-            this.busquedaTxt.Size = new System.Drawing.Size(100, 20);
-            this.busquedaTxt.TabIndex = 0;
-            this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
-            this.busquedaTxt.Leave += new System.EventHandler(this.busquedaTxt_Leave);
             // 
             // Busqueda
             // 
@@ -81,7 +86,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel BusquedaNotas;
         private System.Windows.Forms.TextBox busquedaTxt;
+        private System.Windows.Forms.ColorDialog colorLibro;
+        private System.Windows.Forms.FlowLayoutPanel BusquedaNotas;
     }
 }
