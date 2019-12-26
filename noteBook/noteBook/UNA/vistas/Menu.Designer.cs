@@ -45,9 +45,7 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.Busquedabtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-
             this.btnGuardar = new System.Windows.Forms.Button();
-
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -238,7 +236,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-
             // 
             // btnGuardar
             // 
@@ -253,11 +250,10 @@
             this.btnGuardar.Location = new System.Drawing.Point(0, 293);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(166, 57);
-            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // Menu
             // 

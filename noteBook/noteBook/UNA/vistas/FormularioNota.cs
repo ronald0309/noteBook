@@ -67,10 +67,11 @@ namespace noteBook.UNA.vistas
                     Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}, con la fuente {(nota.Fuente)}, el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
 
 
-                this.Close();
+                    this.Close();
+                }
+
+
             }
-
-
         }
         private void SelectorColoresNotas_Click(object sender, EventArgs e)
         {
@@ -117,3 +118,4 @@ namespace noteBook.UNA.vistas
         }
     }
 }
+

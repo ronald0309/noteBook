@@ -119,17 +119,7 @@ namespace noteBook.UNA.vistas
             this.abrirForma(reporteForm);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            eliminarArchivo();
-            ArchivoManager archivoManager = new ArchivoManager();
-            archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
-            foreach (Libro item in Singlenton.Instance.LibrosList)
-            {
-                archivoManager.notas.AddRange(item.AgregarNota);
-            }
-            ConstruirElArchivo(archivoManager);
-        }
+        
         private void ConstruirElArchivo(ArchivoManager archivoManager)
         {
             try
@@ -186,6 +176,17 @@ namespace noteBook.UNA.vistas
 
         }
 
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            eliminarArchivo();
+            ArchivoManager archivoManager = new ArchivoManager();
+            archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
+            foreach (Libro item in Singlenton.Instance.LibrosList)
+            {
+                archivoManager.notas.AddRange(item.AgregarNota);
+            }
+            ConstruirElArchivo(archivoManager);
+        }
     }
 }
    
