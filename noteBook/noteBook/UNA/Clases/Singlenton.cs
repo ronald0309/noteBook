@@ -14,7 +14,9 @@ namespace noteBook.UNA.Clases
         public List<Libro> LibrosList = new List<Libro>();
         public List<Reportes> Reportes = new List<Reportes>();
         public List<Usuario> usuarios = new List<Usuario>();
-
+        public List<Libro> librosAuxiliar = new List<Libro>();
+        public List<Reportes> reportesAuxiliar = new List<Reportes>();
+        public List<Usuario> usuariosAuxiliar = new List<Usuario>();
 
         protected Singlenton() { }
         public static Singlenton Instance
@@ -49,8 +51,16 @@ namespace noteBook.UNA.Clases
             usuarios.Add(usuario4);
            
         }
-       
-        
+        public void CargarReporte(string accion,string informacion, Object objeto)
+        {
+            DateTime hoy = DateTime.Now;
+            Reportes reporte = new Reportes();
+            reporte.GenerarReporte("Se agrega un nuevo libro", hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), informacion, objeto);
+            Reportes.Add(reporte);
+            reportesAuxiliar.Add(reporte);
+
+        }
+
 
 
 

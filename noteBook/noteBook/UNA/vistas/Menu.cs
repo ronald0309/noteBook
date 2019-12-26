@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace noteBook.UNA.vistas
     public partial class Menu : Form
     {
         private RegistroLibro registroLibros = new RegistroLibro();
+
+        private readonly string rutaPorDefecto = AppDomain.CurrentDomain.BaseDirectory;
         private Timer tiempo;
         public Menu()
         {
@@ -115,5 +118,74 @@ namespace noteBook.UNA.vistas
             ReportesForm reporteForm = new ReportesForm();
             this.abrirForma(reporteForm);
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            eliminarArchivo();
+            ArchivoManager archivoManager = new ArchivoManager();
+            archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
+            foreach (Libro item in Singlenton.Instance.LibrosList)
+            {
+                archivoManager.notas.AddRange(item.AgregarNota);
+            }
+            ConstruirElArchivo(archivoManager);
+        }
+        private void ConstruirElArchivo(ArchivoManager archivoManager)
+        {
+            try
+            {
+                string nombreNuevoArchivoReporte = archivoManager.CrearArchivoReportes();
+                string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros(rutaPorDefecto);
+                MessageBox.Show($"Los archivos {nombreNuevoArchivoReporte},{nombreNuevoArchivoLibros} se creo de manera correcta {rutaPorDefecto}", "Excelente!", MessageBoxButtons.OK);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Se ha presentado el siguiente inconveniente al crear el archivo: {exception.Message}", "Atención", MessageBoxButtons.OK);
+            }
+        }
+        private void eliminarArchivo()
+        {
+
+            string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro_ *");
+
+            foreach (string archivo in direcionArchivo)
+            {
+
+                File.Delete(archivo);
+
+                string[] texto = System.IO.File.ReadAllLines(archivo);
+                string[] dat = null;
+                foreach (string tex in texto)
+                {
+                    File.Delete(tex);
+                    dat = tex.Split(',');
+                    
+
+                }
+
+
+
+            }
+            //string[] direcionArchivoNota = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota *");
+
+            //foreach (string archivo in direcionArchivoNota)
+            //{
+
+            //    File.Delete(archivo);
+
+            //    string[] texto = System.IO.File.ReadAllLines(archivo);
+            //    string[] dat = null;
+            //    foreach (string tex in texto)
+            //    {
+            //        File.Delete(archivo);
+            //    }
+
+
+
+            //}
+
+        }
+
     }
 }
+   

@@ -11,16 +11,12 @@ namespace noteBook
         {
             get;
             set;
-            
-            
         }
 
         public int Privacidad
         {
             get;
             set;
-            
-            
         }
 
         public string Categoria
