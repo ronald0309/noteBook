@@ -50,29 +50,33 @@ namespace noteBook.UNA.vistas
 
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
-            foreach (var libroGuardados in Singlenton.Instance.LibrosList)
-            {
-                
-                if (libroGuardados.Nombre == posicion)
+         
+            
+                foreach (var libroGuardados in Singlenton.Instance.LibrosList)
                 {
-                    int n = libroGuardados.AgregarNota.Count;
-                 ///   MessageBox.Show(n.ToString());
-                    Nota nota = new Nota();
-                    nota.Titulo =FormularioTxtTitulo.Text;
-                    nota.PosicionX = x;
-                    nota.PosicionY = y;
-                    nota.Fuente = FuenteComboBox.Text;
-                    nota.ColorFuente = colorDialog2.Color.ToArgb();
-                    nota.ColorFondo = colorDialog1.Color.ToArgb();
-                    DateTime hoy = DateTime.Now;
-                     nota.FechaCreacion=hoy.ToString("hh:mm:ss tt");
-                    libroGuardados.AgregarNota.Add(nota);
-                    GenerarReporte(nota.Fuente, nota.Titulo, Convert.ToString(nota.ColorFondo), Convert.ToString(nota.ColorFuente));
+
+                    if (libroGuardados.Nombre == posicion)
+                    {
+                        int n = libroGuardados.AgregarNota.Count;
+                        ///   MessageBox.Show(n.ToString());
+                        Nota nota = new Nota();
+                        nota.Titulo = FormularioTxtTitulo.Text;
+                        nota.PosicionX = x;
+                        nota.PosicionY = y;
+                        nota.Fuente = FuenteComboBox.Text;
+                        nota.ColorFuente = colorDialog2.Color.ToArgb();
+                        nota.ColorFondo = colorDialog1.Color.ToArgb();
+                        DateTime hoy = DateTime.Now;
+                    MessageBox.Show(hoy.ToString("dd - MM - yyyy"));
+                        nota.FechaCreacion = hoy.ToString("dd - MM - yyyy");
+                        libroGuardados.AgregarNota.Add(nota);
+                        GenerarReporte(nota.Fuente, nota.Titulo, Convert.ToString(nota.ColorFondo), Convert.ToString(nota.ColorFuente));
 
 
+                    }
+                    this.Close();
                 }
-                this.Close();
-            }
+           
             
         }
         void GenerarReporte(string fuente, string titulo, string colorFondo, string colorFuente)

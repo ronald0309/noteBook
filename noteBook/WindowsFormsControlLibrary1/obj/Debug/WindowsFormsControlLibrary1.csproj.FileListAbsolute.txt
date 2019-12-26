@@ -4,3 +4,4 @@ C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\De
 C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csproj.GenerateResource.cache
 C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
 C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb
+C:\Users\LordLalo\Documents\Notebook\NoteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache

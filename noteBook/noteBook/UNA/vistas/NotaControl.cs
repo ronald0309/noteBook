@@ -14,12 +14,28 @@ namespace noteBook.UNA.vistas
     {
         public NotaControl()
         {
+
             InitializeComponent();
+         
         }
-        private String tituloNota;
+     
+
+        private string tituloNota;
         private string fuenteTipo;
+        
         private int colorNota;
         private int colorFuente;
+        private string fechaCrea;
+        public string fechaCreacion
+        {
+            get { return fechaCrea; }
+            set
+            {
+                fechaCrea = value;
+               FechaCreacion.Text = value;
+            }
+
+        }
         public string FuenteTipo {
             get { return fuenteTipo; }
             set
@@ -36,6 +52,11 @@ namespace noteBook.UNA.vistas
 
              }
         }
+      
+        
+            
+        
+
         public int ColorNota {
             get { return colorNota; }
             set { colorNota = value;
@@ -54,20 +75,6 @@ namespace noteBook.UNA.vistas
 
         }
 
-        
-        private void NotaControl_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void TituloLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
