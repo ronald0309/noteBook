@@ -53,6 +53,7 @@
             this.dGVReportes.Name = "dGVReportes";
             this.dGVReportes.Size = new System.Drawing.Size(618, 297);
             this.dGVReportes.TabIndex = 0;
+            this.dGVReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReportes_CellContentClick);
             // 
             // colUsuario
             // 

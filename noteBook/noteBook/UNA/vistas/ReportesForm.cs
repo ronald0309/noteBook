@@ -29,6 +29,10 @@ namespace noteBook.UNA.vistas
             }
         }
 
+        private void dGVReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
        
 }

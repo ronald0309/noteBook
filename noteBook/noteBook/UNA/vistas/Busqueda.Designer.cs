@@ -58,6 +58,7 @@
             // 
             // BusquedaNotas
             // 
+            this.BusquedaNotas.AutoScroll = true;
             this.BusquedaNotas.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BusquedaNotas.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.BusquedaNotas.Location = new System.Drawing.Point(12, 78);

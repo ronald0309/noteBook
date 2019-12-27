@@ -16,13 +16,16 @@ namespace noteBook.UNA.vistas
         
         public MisLibros()
         {
+          
             InitializeComponent();
            
         }
-        
+
 
         public void dibujar2()
         {
+         
+            tabControl1.Controls.Clear();
             foreach (var lib in Singlenton.Instance.LibrosList) {
                 TabPage tab = new TabPage();
                 tab.Text = lib.Nombre;
@@ -43,9 +46,10 @@ namespace noteBook.UNA.vistas
                     {
                         
                         NotaControl notaControl = new NotaControl();
-                        notaControl.Width=136;
-                       notaControl.Height=108;
+                                  
                         notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                        notaControl.Height = p.Heigh;
+                        notaControl.Width = p.Width;
                         notaControl.FuenteTipo = p.Fuente;
                         notaControl.TituloNota = p.Titulo;
                         notaControl.ColorNota = p.ColorFondo;
@@ -58,6 +62,8 @@ namespace noteBook.UNA.vistas
                 foreach (var p in lib.AgregarNota)
                 {
                     NotaControl notaControl = new NotaControl();
+                    notaControl.Height = p.Heigh;
+                    notaControl.Width = p.Width;
                     notaControl.Location = new Point(p.PosicionX, p.PosicionY);
                     notaControl.FuenteTipo = p.Fuente;
                     notaControl.TituloNota = p.Titulo;
@@ -77,6 +83,43 @@ namespace noteBook.UNA.vistas
         }
      
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (OrdenComboBox.Text == "Creciente")
+            {
+                List<Libro> librosAuxiliar = new List<Libro>();
+                librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
+                IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderBy(a => a.Nombre);
+                Singlenton.Instance.LibrosList.Clear();
+                Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
+
+                this.dibujar2();
+            }
+            else
+            {
+                if (OrdenComboBox.Text == "Decreciente")
+                {
+                    List<Libro> librosAuxiliar = new List<Libro>();
+                    librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
+                    IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderByDescending(a => a.Nombre);
+                    Singlenton.Instance.LibrosList.Clear();
+                    Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
+
+                    this.dibujar2();
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

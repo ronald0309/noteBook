@@ -55,8 +55,10 @@ namespace noteBook.UNA.vistas
                     ///   MessageBox.Show(n.ToString());
                     Nota nota = new Nota();
                     nota.Titulo = FormularioTxtTitulo.Text;
-                    nota.PosicionX = x;
-                    nota.PosicionY = y;
+                    nota.Width= 155;
+                    nota.Heigh = 152;
+                    nota.PosicionX = x-77;
+                    nota.PosicionY = y-76;
                     nota.Fuente = FuenteComboBox.Text;
                     nota.ColorFuente = colorDialog2.Color.ToArgb();
                     nota.ColorFondo = colorDialog1.Color.ToArgb();

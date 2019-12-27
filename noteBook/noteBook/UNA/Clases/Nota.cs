@@ -74,5 +74,13 @@ namespace noteBook
             get ;
             set;
         }
+        public int Width{
+            get;
+            set;
+        }
+        public int Heigh{
+            get;
+            set;
+        }
     }
 }
