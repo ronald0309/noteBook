@@ -55,7 +55,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 32);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // OrdenComboBox
             // 
@@ -82,6 +82,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MisLibros";
             this.Text = "MisLibros";
+            this.Load += new System.EventHandler(this.MisLibros_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

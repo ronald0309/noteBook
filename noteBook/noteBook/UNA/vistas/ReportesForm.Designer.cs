@@ -105,6 +105,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReportesForm";
             this.Text = "ReportesForm";
+            this.Load += new System.EventHandler(this.ReportesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVReportes)).EndInit();
             this.ResumeLayout(false);
 

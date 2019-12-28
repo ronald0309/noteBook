@@ -67,7 +67,7 @@ namespace noteBook.UNA.Clases
             {
                 foreach (Reportes reporte in reportes)
                 {
-                    var line = $"{reporte.UsuarioActual},{reporte.AccionRealizada},{reporte.Objeto},{reporte.FechaCreacion},{reporte.HoraCreacion},,{reporte.InformacionAdicional}";
+                    var line = $"{reporte.UsuarioActual},{reporte.AccionRealizada},{reporte.Objeto},{reporte.FechaCreacion},{reporte.HoraCreacion},{reporte.InformacionAdicional}";
                     streamWriter.WriteLine(line);
                 }
                 streamWriter.Flush();

@@ -139,70 +139,72 @@ namespace noteBook.UNA.vistas
         private void CargarArchivoLibro()
         {
 
-            string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro_ *");
+            //string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
 
-            foreach (string archivo in direcionArchivo)
-            {
-                int loop = 0;
-                string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] dat = null;
-                foreach (string tex in texto)
-                {
+            //foreach (string archivo in direcionArchivo)
+            //{
+            //    int loop = 0;
+            //    string[] texto = System.IO.File.ReadAllLines(archivo);
+            //    string[] dat = null;
+            //    foreach (string tex in texto)
+            //    {
                     
-                    Libro libro = new Libro();
-                    dat = tex.Split(',');
-                    if (loop == 0)
-                    {
-                        libro.pocision = Convert.ToInt32(dat);
-                        MessageBox.Show($"Los archivosl{loop}");
-                    }
-                    else
-                    {
-                        if (loop == 1)
-                        {
-                            libro.Nombre = Convert.ToString(dat);
-                        }
-                        else
-                        {
-                            if (loop == 2)
-                            {
-                                libro.Genero = Convert.ToString(dat);
-                            }
-                            else
-                            {
-                                if (loop == 3)
-                                {
-                                    libro.Orden = Convert.ToString(dat);
-                                }
-                                else
-                                {
-                                    if (loop == 4)
-                                    {
-                                        libro.Color = Convert.ToInt32(dat);
-                                    }
-                                    else
-                                    {
-                                        if (loop == 5)
-                                        {
-                                            loop = loop;    
-                                        }
-                                        else
-                                        {
-                                            if (loop == 6)
-                                            {
-                                                libro.CantidadNotas = Convert.ToInt32(dat);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Singlenton.Instance.LibrosList.Add(libro);
-                    loop++;
+            //        Libro libro = new Libro();
+            //        dat = tex.Split(',');
+            //        if (loop == 0)
+            //        {
+            //            string dato= Convert.ToString(dat);
+            //            //libro.pocision = Convert.ToInt32(dato);
+            //            MessageBox.Show($"Los archivosl{dato}");
+            //        }
+            //        else
+            //        {
+            //            if (loop == 1)
+            //            {
+            //                libro.Nombre = Convert.ToString(dat);
+            //                MessageBox.Show($"Los archivosl{dat}");
+            //            }
+            //            else
+            //            {
+            //                if (loop == 2)
+            //                {
+            //                    libro.Genero = Convert.ToString(dat);
+            //                }
+            //                else
+            //                {
+            //                    if (loop == 3)
+            //                    {
+            //                        libro.Orden = Convert.ToString(dat);
+            //                    }
+            //                    else
+            //                    {
+            //                        if (loop == 4)
+            //                        {
+            //                            libro.Color = Convert.ToInt32(dat);
+            //                        }
+            //                        else
+            //                        {
+            //                            if (loop == 5)
+            //                            {
+            //                                loop = loop;    
+            //                            }
+            //                            else
+            //                            {
+            //                                if (loop == 6)
+            //                                {
+            //                                    libro.CantidadNotas = Convert.ToInt32(dat);
+            //                                }
+            //                            }
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //        Singlenton.Instance.LibrosList.Add(libro);
+            //        loop++;
 
-                }
-            }
+            //    }
+            //}
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
