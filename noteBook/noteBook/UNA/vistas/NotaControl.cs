@@ -15,6 +15,7 @@ namespace noteBook.UNA.vistas
     {   bool mover = false;
         bool allowResize = false;
         Point inicial;
+
         public NotaControl()
         {
 
@@ -29,6 +30,22 @@ namespace noteBook.UNA.vistas
         private int colorNota;
         private int colorFuente;
         private string fechaCrea;
+        private bool buscar=false;
+        private string palabra;
+        public string PalabraBus
+        {
+            get { return palabra; }
+            set
+            {
+                palabra = value;
+                
+            }
+
+        }
+        public void Buscar(bool buscar) {
+            this.buscar = buscar;
+            
+        }
         public string fechaCreacion
         {
             get { return fechaCrea; }
@@ -44,15 +61,17 @@ namespace noteBook.UNA.vistas
             set
             {
                 fuenteTipo = value;
-                TituloLabel.Font = new Font(fuenteTipo, TituloLabel.Font.Size);
+                TituloRichTextBox.Font = new Font(fuenteTipo,TituloRichTextBox.Font.Size);
 
             }
         }
         public int ColorFuente {
             get { return colorFuente;}
             set { colorFuente = value;
-                TituloLabel.ForeColor = Color.FromArgb(colorFuente);
-
+                if (buscar == false)
+                {
+                    TituloRichTextBox.ForeColor = Color.FromArgb(colorFuente);
+                }
              }
         }
       
@@ -75,10 +94,25 @@ namespace noteBook.UNA.vistas
             set
             {
                 tituloNota = value;
-                TituloLabel.Text = value;
+              ///  TituloLabel.Text = value;
+                TituloRichTextBox.Text = value;
+                if (buscar == true)
+                {
+                    TituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    TituloRichTextBox.Find(PalabraBus);
+
+                    TituloRichTextBox.SelectionColor = Color.Blue;
+                    AgrandarBoton.Hide();
+                    MoverBoton.Hide();
+                }
+                else {
+                    TituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                }
+
+                }
             }
 
-        }
+        //}
 
 
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
@@ -165,6 +199,21 @@ namespace noteBook.UNA.vistas
         private void MoverBoton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FechaCreacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TituloLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TituloRichTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

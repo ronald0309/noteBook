@@ -32,12 +32,18 @@ namespace noteBook.UNA.vistas
             {
                 foreach (var busq2 in busq.AgregarNota) {
                     if (busq2.Titulo.Contains(busquedaTxt.Text)) {
+                    
+                      
+                        
                         NotaControl notaControl = new NotaControl();
-                       //notaControl.Location = new Point(p.PosicionX, p.PosicionY);
                         notaControl.FuenteTipo = busq2.Fuente;
+                        notaControl.Buscar(true);
+                        notaControl.PalabraBus=busquedaTxt.Text;
+                        
                         notaControl.TituloNota = busq2.Titulo;
                         notaControl.ColorNota = busq2.ColorFondo;
                         notaControl.ColorFuente = busq2.ColorFuente;
+                        
                          BusquedaNotas.Controls.Add(notaControl);
                         
                     }

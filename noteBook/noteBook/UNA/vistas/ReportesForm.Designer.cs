@@ -49,9 +49,10 @@
             this.colFechaCreacion,
             this.colHoraCreacion,
             this.colDescripcion});
-            this.dGVReportes.Location = new System.Drawing.Point(1, 1);
+            this.dGVReportes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dGVReportes.Location = new System.Drawing.Point(0, 0);
             this.dGVReportes.Name = "dGVReportes";
-            this.dGVReportes.Size = new System.Drawing.Size(618, 297);
+            this.dGVReportes.Size = new System.Drawing.Size(618, 295);
             this.dGVReportes.TabIndex = 0;
             this.dGVReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReportes_CellContentClick);
             // 

@@ -28,6 +28,10 @@ namespace noteBook.UNA.vistas
             tabControl1.Controls.Clear();
             foreach (var lib in Singlenton.Instance.LibrosList) {
                 TabPage tab = new TabPage();
+                PictureBox ima = new PictureBox();
+               
+
+                tab.Controls.Add(ima);
                 tab.Text = lib.Nombre;
                 tab.BackColor = Color.FromArgb(lib.Color);
                 Label q = new Label();

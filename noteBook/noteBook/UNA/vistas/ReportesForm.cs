@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,9 +28,33 @@ namespace noteBook.UNA.vistas
             {
                 n = dGVReportes.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
             }
+            
+
+            string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.csv");
+            
+            foreach (string archivo in direcionArchivo)
+            {
+
+                string[] texto = System.IO.File.ReadAllLines(archivo);
+                string[] datos= null;
+                foreach (string tex in texto)
+                {
+                    datos = tex.Split(',');
+                    dGVReportes.Rows.Add(datos);
+                    
+                   
+                }
+
+
+            }
         }
 
         private void dGVReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

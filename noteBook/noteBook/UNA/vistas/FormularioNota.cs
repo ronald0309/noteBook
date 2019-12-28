@@ -84,22 +84,6 @@ namespace noteBook.UNA.vistas
                 SelectorColoresNotas.BackColor = colorDialog1.Color;
             }
         }
-
-        private void btnFuentes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormularioTxtTitulo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void colorFuente_Click(object sender, EventArgs e)
         {
             if (colorDialog2.ShowDialog() == DialogResult.OK)
@@ -109,17 +93,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void FuenteComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-
-        }
-
-        private void FuenteComboBox_DrawItem(object sender, DrawItemEventArgs e)
-        {
-
-
-        }
     }
 }
 
