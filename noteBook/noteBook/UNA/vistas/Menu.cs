@@ -34,7 +34,7 @@ namespace noteBook.UNA.vistas
             }
             InitializeComponent();
             tiempo.Enabled = true;
-
+            
         }
         public void MostrarUsuarioActivo()
         {
@@ -83,7 +83,10 @@ namespace noteBook.UNA.vistas
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            if (Singlenton.Instance.LibrosList.Count()== 0)
+            {
+                CargarArchivoLibro();
+            }
         }
 
         private void HoraLabel_Click(object sender, EventArgs e)
@@ -119,7 +122,7 @@ namespace noteBook.UNA.vistas
             this.abrirForma(reporteForm);
         }
 
-        
+
         private void ConstruirElArchivo(ArchivoManager archivoManager)
         {
             try
@@ -133,52 +136,78 @@ namespace noteBook.UNA.vistas
                 MessageBox.Show($"Se ha presentado el siguiente inconveniente al crear el archivo: {exception.Message}", "Atención", MessageBoxButtons.OK);
             }
         }
-        private void eliminarArchivo()
+        private void CargarArchivoLibro()
         {
 
             string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro_ *");
 
             foreach (string archivo in direcionArchivo)
             {
-
-                File.Delete(archivo);
-
+                int loop = 0;
                 string[] texto = System.IO.File.ReadAllLines(archivo);
                 string[] dat = null;
                 foreach (string tex in texto)
                 {
-                    File.Delete(tex);
-                    dat = tex.Split(',');
                     
+                    Libro libro = new Libro();
+                    dat = tex.Split(',');
+                    if (loop == 0)
+                    {
+                        libro.pocision = Convert.ToInt32(dat);
+                        MessageBox.Show($"Los archivosl{loop}");
+                    }
+                    else
+                    {
+                        if (loop == 1)
+                        {
+                            libro.Nombre = Convert.ToString(dat);
+                        }
+                        else
+                        {
+                            if (loop == 2)
+                            {
+                                libro.Genero = Convert.ToString(dat);
+                            }
+                            else
+                            {
+                                if (loop == 3)
+                                {
+                                    libro.Orden = Convert.ToString(dat);
+                                }
+                                else
+                                {
+                                    if (loop == 4)
+                                    {
+                                        libro.Color = Convert.ToInt32(dat);
+                                    }
+                                    else
+                                    {
+                                        if (loop == 5)
+                                        {
+                                            loop = loop;    
+                                        }
+                                        else
+                                        {
+                                            if (loop == 6)
+                                            {
+                                                libro.CantidadNotas = Convert.ToInt32(dat);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    Singlenton.Instance.LibrosList.Add(libro);
+                    loop++;
 
                 }
-
-
-
             }
-            //string[] direcionArchivoNota = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota *");
-
-            //foreach (string archivo in direcionArchivoNota)
-            //{
-
-            //    File.Delete(archivo);
-
-            //    string[] texto = System.IO.File.ReadAllLines(archivo);
-            //    string[] dat = null;
-            //    foreach (string tex in texto)
-            //    {
-            //        File.Delete(archivo);
-            //    }
-
-
-
-            //}
-
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            eliminarArchivo();
+            
             ArchivoManager archivoManager = new ArchivoManager();
             archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)
@@ -190,7 +219,7 @@ namespace noteBook.UNA.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            eliminarArchivo();
+           
             ArchivoManager archivoManager = new ArchivoManager();
             archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)
@@ -201,4 +230,3 @@ namespace noteBook.UNA.vistas
         }
     }
 }
-   

@@ -28,10 +28,10 @@ namespace noteBook.UNA.Clases
             pathLibro = pathLibro.Replace(":", "_");
             pathNota = pathNota.Replace("/", "_");
             pathNota = pathNota.Replace(":", "_");
-            
+            string auxNombre;
             using (StreamWriter streamWriter = new StreamWriter(pathLibro))
             {
-                string auxNombre;
+                
                 foreach (Libro libro in libros)
                 {
                     var line = $"{libro.pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
@@ -43,10 +43,14 @@ namespace noteBook.UNA.Clases
             }
             using (StreamWriter streamWriter = new StreamWriter(pathNota))
             {
-                foreach (Nota nota in notas)
+                foreach (Libro libro in libros)
                 {
-                    var line = $"{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota. Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY}";
-                    streamWriter.WriteLine(line);
+                    auxNombre = libro.Nombre;
+                    foreach (Nota nota in libro.AgregarNota)
+                    {
+                        var line = $"{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY}";
+                        streamWriter.WriteLine(line);
+                    }
                 }
                 streamWriter.Flush();
 
@@ -63,7 +67,7 @@ namespace noteBook.UNA.Clases
             {
                 foreach (Reportes reporte in reportes)
                 {
-                    var line = $"{reporte.FechaCreacion},{reporte.HoraCreacion},{reporte.UsuarioActual},{reporte.InformacionAdicional},{reporte.Objeto}";
+                    var line = $"{reporte.UsuarioActual},{reporte.AccionRealizada},{reporte.Objeto},{reporte.FechaCreacion},{reporte.HoraCreacion},,{reporte.InformacionAdicional}";
                     streamWriter.WriteLine(line);
                 }
                 streamWriter.Flush();

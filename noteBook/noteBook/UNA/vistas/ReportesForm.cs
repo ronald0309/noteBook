@@ -28,7 +28,10 @@ namespace noteBook.UNA.vistas
                 n = dGVReportes.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
             }
         }
+       
 
+            
+        
         private void dGVReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
