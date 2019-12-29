@@ -221,7 +221,20 @@ namespace noteBook.UNA.vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-           
+            string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
+
+            foreach (string archivo in cargarLibros)
+            {
+                File.Delete(archivo);
+            }
+            string[] cargarNotas = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota*");
+
+            foreach (string archivo in cargarNotas)
+            {
+                File.Delete(archivo);
+            }
+
+
             ArchivoManager archivoManager = new ArchivoManager();
             archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)

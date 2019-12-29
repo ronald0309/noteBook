@@ -74,8 +74,10 @@ namespace noteBook.UNA.vistas
                     dGVReportes.Rows.Add(dat);
                 }
 
-
             }
+          
+
+
 
         }
 
