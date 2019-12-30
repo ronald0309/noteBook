@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using noteBook.UNA.vistas;
 using Menu = noteBook.UNA.vistas.Menu;
 using noteBook.UNA.Clases;
+using System.IO;
 namespace noteBook
 {
     public partial class login : Form
@@ -71,7 +72,8 @@ namespace noteBook
                                     u.Activo = false;
                                 }
                             }
-
+                            this.CargarLibros();
+                            this.CargarNotas();
                             menu.MostrarUsuarioActivo();
                             this.Hide();
                             menu.ShowDialog();
@@ -91,7 +93,54 @@ namespace noteBook
                 }
             }
         }
+        private void CargarLibros() {
+            string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
+            
+            foreach (string archivo in cargarLibros)
+            {
 
+                string[] texto = System.IO.File.ReadAllLines(archivo);
+                string[] datosLibro = null;
+                foreach (string tex in texto)
+                {
+                    Libro li = new Libro();
+                    datosLibro = tex.Split(',');
+                    li.Nombre = datosLibro[1];
+                    li.Genero = datosLibro[2];
+                    li.Color = Convert.ToInt32(datosLibro[4].ToString());
+                    Singlenton.Instance.LibrosList.Add(li);
+                }
+            }
+        }
+        private void CargarNotas() {
+            string[] CargarNotas = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota*");
+
+            foreach (string archivo in CargarNotas)
+            {
+                string[] texto = System.IO.File.ReadAllLines(archivo);
+                string[] datosNota = null;
+                foreach (string tex in texto)
+                {
+                    datosNota = tex.Split(',');
+                    foreach (var libro in Singlenton.Instance.LibrosList)
+                    {
+                        if (libro.Nombre == datosNota[0].ToString())
+                        {
+                            Nota nota = new Nota();
+                            nota.Titulo = datosNota[1].ToString();
+                            nota.Fuente = datosNota[5].ToString();
+                            nota.ColorFuente = Convert.ToInt32(datosNota[6].ToString());
+                            nota.ColorFondo = Convert.ToInt32(datosNota[7].ToString());
+                            nota.PosicionX = Convert.ToInt32(datosNota[10]);
+                            nota.PosicionY = Convert.ToInt32(datosNota[11]);
+                            nota.Width = Convert.ToInt32(datosNota[12]);
+                            nota.Heigh = Convert.ToInt32(datosNota[13]);
+                            libro.AgregarNota.Add(nota);
+                        }
+                    }
+                }
+            }
+        }
         private void login_Load(object sender, EventArgs e)
         {
 

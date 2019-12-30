@@ -82,7 +82,6 @@ namespace noteBook.UNA.vistas
             }
         }
 
-
         private void colorFuente_Click(object sender, EventArgs e)
         {
             if (colorDialog2.ShowDialog() == DialogResult.OK)
@@ -91,7 +90,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        
+
     }
 }
 

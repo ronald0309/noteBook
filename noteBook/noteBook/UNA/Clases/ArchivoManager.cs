@@ -48,7 +48,7 @@ namespace noteBook.UNA.Clases
                     auxNombre = libro.Nombre;
                     foreach (Nota nota in libro.AgregarNota)
                     {
-                        var line = $"{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY}";
+                        var line = $"{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh}";
                         streamWriter.WriteLine(line);
                     }
                 }

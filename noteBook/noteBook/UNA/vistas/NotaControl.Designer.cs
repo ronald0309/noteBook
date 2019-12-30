@@ -30,36 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControl));
-            this.TituloLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditar = new System.Windows.Forms.Button();
             this.MoverBoton = new System.Windows.Forms.Button();
             this.AgrandarBoton = new System.Windows.Forms.Button();
             this.FechaCreacion = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.TituloRichTextBox = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TituloLabel
-            // 
-            this.TituloLabel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TituloLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TituloLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TituloLabel.Location = new System.Drawing.Point(0, 0);
-            this.TituloLabel.Name = "TituloLabel";
-            this.TituloLabel.Size = new System.Drawing.Size(155, 32);
-            this.TituloLabel.TabIndex = 0;
-            this.TituloLabel.Text = "Titulo";
-            this.TituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel1
             // 
+
             this.panel1.Controls.Add(this.btnEditar);
+
+            this.panel1.Controls.Add(this.TituloRichTextBox);
+
             this.panel1.Controls.Add(this.MoverBoton);
             this.panel1.Controls.Add(this.AgrandarBoton);
             this.panel1.Controls.Add(this.FechaCreacion);
-            this.panel1.Controls.Add(this.TituloLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -111,18 +101,33 @@
             this.FechaCreacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaCreacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaCreacion.Location = new System.Drawing.Point(1, 44);
+            this.FechaCreacion.Location = new System.Drawing.Point(2, 39);
             this.FechaCreacion.Name = "FechaCreacion";
             this.FechaCreacion.Size = new System.Drawing.Size(150, 39);
             this.FechaCreacion.TabIndex = 1;
             this.FechaCreacion.Text = "FechaCreacion";
             this.FechaCreacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.FechaCreacion.Click += new System.EventHandler(this.FechaCreacion_Click);
             // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // TituloRichTextBox
+            // 
+            this.TituloRichTextBox.BackColor = System.Drawing.Color.White;
+            this.TituloRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TituloRichTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TituloRichTextBox.Enabled = false;
+            this.TituloRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TituloRichTextBox.Location = new System.Drawing.Point(0, 0);
+            this.TituloRichTextBox.Name = "TituloRichTextBox";
+            this.TituloRichTextBox.Size = new System.Drawing.Size(155, 36);
+            this.TituloRichTextBox.TabIndex = 6;
+            this.TituloRichTextBox.Text = "";
+            this.TituloRichTextBox.TextChanged += new System.EventHandler(this.TituloRichTextBox_TextChanged);
             // 
             // NotaControl
             // 
@@ -138,13 +143,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label TituloLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label FechaCreacion;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button AgrandarBoton;
         private System.Windows.Forms.Button MoverBoton;
+
         private System.Windows.Forms.Button btnEditar;
+
+        private System.Windows.Forms.RichTextBox TituloRichTextBox;
+
     }
 }
