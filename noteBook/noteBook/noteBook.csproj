@@ -58,6 +58,12 @@
     <Compile Include="UNA\vistas\Busqueda.Designer.cs">
       <DependentUpon>Busqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\vistas\EditarNotasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\EditarNotasForm.Designer.cs">
+      <DependentUpon>EditarNotasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\FormularioNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <EmbeddedResource Include="UNA\vistas\Busqueda.resx">
       <DependentUpon>Busqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\vistas\EditarNotasForm.resx">
+      <DependentUpon>EditarNotasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
       <DependentUpon>FormularioNota.cs</DependentUpon>

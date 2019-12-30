@@ -20,6 +20,7 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
             CargarInformacion();
+            CargarReportes();
         }
         public void CargarInformacion()
         {
@@ -39,6 +40,10 @@ namespace noteBook.UNA.vistas
         }
 
         private void ReportesForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+        private void CargarReportes()
         {
             string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Reportes*");
 

@@ -70,7 +70,7 @@
             this.FormularioTxtTitulo.Name = "FormularioTxtTitulo";
             this.FormularioTxtTitulo.Size = new System.Drawing.Size(171, 20);
             this.FormularioTxtTitulo.TabIndex = 18;
-            this.FormularioTxtTitulo.TextChanged += new System.EventHandler(this.FormularioTxtTitulo_TextChanged);
+            
             // 
             // label5
             // 
@@ -129,7 +129,7 @@
             // 
             // fontDialog1
             // 
-            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
+            
             // 
             // colorFuente
             // 
@@ -159,8 +159,7 @@
             this.FuenteComboBox.Name = "FuenteComboBox";
             this.FuenteComboBox.Size = new System.Drawing.Size(121, 21);
             this.FuenteComboBox.TabIndex = 27;
-            this.FuenteComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.FuenteComboBox_DrawItem);
-            this.FuenteComboBox.SelectedIndexChanged += new System.EventHandler(this.FuenteComboBox_SelectedIndexChanged);
+            
             // 
             // FormularioNota
             // 
