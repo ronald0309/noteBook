@@ -106,6 +106,7 @@ namespace noteBook
                     Libro li = new Libro();
                     datosLibro = tex.Split(',');
                     li.Nombre = datosLibro[1];
+                    li.Genero = datosLibro[2];
                     li.Color = Convert.ToInt32(datosLibro[4].ToString());
                     Singlenton.Instance.LibrosList.Add(li);
                 }

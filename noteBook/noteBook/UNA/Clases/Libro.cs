@@ -25,6 +25,10 @@ namespace noteBook.UNA.Clases
             get;
             set;
         }
+        public bool abrir {
+            get;
+            set;
+        }
         public string Orden
         {
             get;

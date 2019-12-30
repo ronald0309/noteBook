@@ -77,7 +77,8 @@ namespace noteBook.UNA.vistas
         {
             MisLibros miLibros = new MisLibros();
             this.labelTitulo.Text = "Mis libros";
-            miLibros.dibujar2();
+            miLibros.crearLibro();
+          // miLibros.dibujar2();
             this.abrirForma(miLibros);
         }
 
