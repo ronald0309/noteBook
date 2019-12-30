@@ -113,7 +113,7 @@ namespace noteBook.UNA.vistas
                 }
             }
 
-        }
+       // }
 
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
         {
