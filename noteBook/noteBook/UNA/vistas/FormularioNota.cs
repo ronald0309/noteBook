@@ -15,9 +15,11 @@ namespace noteBook.UNA.vistas
     {
         public FormularioNota()
         {
+          
             InitializeComponent();
             colorDialog1.Color = Color.Blue;
             colorDialog2.Color = Color.DarkRed;
+          
         }
         private int x = 0;
         private int y = 0;
@@ -28,12 +30,22 @@ namespace noteBook.UNA.vistas
         }
         private void FormularioNota_Load(object sender, EventArgs e)
         {
-            int p = 0;
+         
+            VisualizarNota.DesactivarBotones();
+            VisualizarNota.TituloNota = "Titulo";
+            VisualizarNota.Categoria = "Categoria";
+            DateTime hoy = DateTime.Now;
+            
+            VisualizarNota.fechaCreacion = hoy.ToString("hh:mm:ss tt");
+            VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
+            VisualizarNota.ColorFuente = colorDialog2.Color.ToArgb();
+          
+
             foreach (FontFamily font in FontFamily.Families)
             {
                 FuenteComboBox.Items.Add(font.Name.ToString());
                 //    FuenteComboBox.Font = new Font(FuenteComboBox.Items[p].ToString(), FuenteComboBox.Font.Size);
-                p++;
+          
                 //  FuenteComboBox.Font = new Font(font.Name.ToString(), FuenteComboBox.Font.Size);
             }
         }
@@ -45,42 +57,47 @@ namespace noteBook.UNA.vistas
 
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
-
-            foreach (var libroGuardados in Singlenton.Instance.LibrosList)
-            {
-
-                if (libroGuardados.Nombre == posicion)
+            this.error();
+         
+                foreach (var libroGuardados in Singlenton.Instance.LibrosList)
                 {
-                    int n = libroGuardados.AgregarNota.Count;
-                    ///   MessageBox.Show(n.ToString());
-                    Nota nota = new Nota();
-                    if (PrivacidadCombobox.Text == "Publico")
+
+                    if (libroGuardados.Nombre == posicion)
                     {
-                        nota.Privacidad = false;
-                    }
-                    else { 
-                        if (PrivacidadCombobox.Text == "Privado") {
-                            nota.Privacidad=true;
-                                
-                        } }
+                        int n = libroGuardados.AgregarNota.Count;
+                        Nota nota = new Nota();
+                        if (PrivacidadCombobox.Text == "Publico")
+                        {
+                            nota.Privacidad = false;
+                        }
+                        else
+                        {
+                            if (PrivacidadCombobox.Text == "Privado")
+                            {
+                                nota.Privacidad = true;
 
-                    nota.Titulo = FormularioTxtTitulo.Text;
-                    nota.Width= 155;
-                    nota.Heigh = 152;
-                    nota.PosicionX = x-77;
-                    nota.PosicionY = y-76;
-                    nota.Fuente = FuenteComboBox.Text;
-                    nota.ColorFuente = colorDialog2.Color.ToArgb();
-                    nota.ColorFondo = colorDialog1.Color.ToArgb();
-                    DateTime hoy = DateTime.Now;
-                    nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
-                    libroGuardados.AgregarNota.Add(nota);
+                            }
+                        }
 
-                    Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
+                        nota.Titulo = TituloTxt.Text;
+                        nota.Width = 155;
+                        nota.Heigh = 152;
+                        nota.PosicionX = x - 77;
+                        nota.PosicionY = y - 76;
+                        nota.Categoria = CategoriaTxt.Text;
+                        nota.Fuente = FuenteComboBox.Text;
+                        nota.ColorFuente = colorDialog2.Color.ToArgb();
+                        nota.ColorFondo = colorDialog1.Color.ToArgb();
+                        DateTime hoy = DateTime.Now;
+                        nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
+                        libroGuardados.AgregarNota.Add(nota);
 
-                    this.Close();
+                        Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
+
+                        this.Close();
+                    
+
                 }
-
             }
         }
 
@@ -89,6 +106,7 @@ namespace noteBook.UNA.vistas
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 SelectorColoresNotas.BackColor = colorDialog1.Color;
+                VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
             }
         }
 
@@ -97,10 +115,50 @@ namespace noteBook.UNA.vistas
             if (colorDialog2.ShowDialog() == DialogResult.OK)
             {
                 colorFuente.BackColor = colorDialog2.Color;
+                VisualizarNota.ColorFuente = colorDialog2.Color.ToArgb();
             }
         }
 
+        private void TituloTxt_TextChanged(object sender, EventArgs e)
+        {
+            VisualizarNota.TituloNota = TituloTxt.Text;
+        }
 
+        private void FuenteComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VisualizarNota.FuenteTipo = FuenteComboBox.Text;
+        }
+
+        private void VisualizarNota_Load(object sender, EventArgs e)
+        {
+           // VisualizarNota
+        }
+        private void error() {
+            errorDatosNota.Clear();
+            foreach (var libro in Singlenton.Instance.LibrosList) {
+                foreach (var nota in libro.AgregarNota) {
+                    if (nota.Titulo == TituloTxt.Text) {
+                        errorDatosNota.SetError(TituloTxt, "La nota ya existe");
+                    }
+                }
+            }
+            if (TituloTxt.TextLength == 0)
+            {
+                errorDatosNota.SetError(TituloTxt, "Ingrese el nombre de la nota");
+            }
+            if (CategoriaTxt.TextLength == 0)
+            {
+                errorDatosNota.SetError(CategoriaTxt, "Ingrese una categoria");
+            }
+            if (PrivacidadCombobox.Text.Length == 0)
+            {
+                errorDatosNota.SetError(PrivacidadCombobox, "Seleccione la privacidad");
+            }
+        }
+        private void CategoriaTxt_TextChanged(object sender, EventArgs e)
+        {
+            VisualizarNota.Categoria = CategoriaTxt.Text;
+        }
     }
 }
 

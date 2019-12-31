@@ -25,25 +25,36 @@ namespace noteBook.UNA.vistas
         }
         private string tituloNota;
         private string fuenteTipo;
-
+        private string categoria;
         private int colorNota;
         private int colorFuente;
         private string fechaCrea;
-        private bool buscar=false;
+        private bool buscar = false;
         private string palabra;
+
+        public string Categoria
+        {
+            get { return categoria; }
+            set
+            {
+                categoria = value;
+                CategoriaLabel.Text = value;
+            }
+
+        }
         public string PalabraBus
         {
             get { return palabra; }
             set
             {
                 palabra = value;
-                
+
             }
 
         }
         public void Buscar(bool buscar) {
             this.buscar = buscar;
-            
+
         }
         public string fechaCreacion
         {
@@ -61,19 +72,19 @@ namespace noteBook.UNA.vistas
             set
             {
                 fuenteTipo = value;
-                TituloRichTextBox.Font = new Font(fuenteTipo,TituloRichTextBox.Font.Size);
+                TituloRichTextBox.Font = new Font(fuenteTipo, TituloRichTextBox.Font.Size);
 
             }
         }
 
         public int ColorFuente {
-            get { return colorFuente;}
+            get { return colorFuente; }
             set { colorFuente = value;
                 if (buscar == false)
                 {
                     TituloRichTextBox.ForeColor = Color.FromArgb(colorFuente);
                 }
-             }
+            }
 
         }
 
@@ -88,6 +99,11 @@ namespace noteBook.UNA.vistas
                 MoverBoton.BackColor = Color.FromArgb(colorNota);
                 AgrandarBoton.BackColor = Color.FromArgb(colorNota);
             }
+        }
+        public void DesactivarBotones() {
+            btnEditar.Hide();
+            AgrandarBoton.Hide();
+            MoverBoton.Hide();
         }
         public string TituloNota
         {
