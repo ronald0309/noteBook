@@ -13,7 +13,7 @@ namespace noteBook
             set;
         }
 
-        public int Privacidad
+        public bool Privacidad
         {
             get;
             set;

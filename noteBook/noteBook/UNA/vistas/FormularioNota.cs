@@ -54,6 +54,16 @@ namespace noteBook.UNA.vistas
                     int n = libroGuardados.AgregarNota.Count;
                     ///   MessageBox.Show(n.ToString());
                     Nota nota = new Nota();
+                    if (PrivacidadCombobox.Text == "Publico")
+                    {
+                        nota.Privacidad = false;
+                    }
+                    else { 
+                        if (PrivacidadCombobox.Text == "Privado") {
+                            nota.Privacidad=true;
+                                
+                        } }
+
                     nota.Titulo = FormularioTxtTitulo.Text;
                     nota.Width= 155;
                     nota.Heigh = 152;

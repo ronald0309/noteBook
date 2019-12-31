@@ -102,6 +102,12 @@
     <Compile Include="UNA\vistas\NotaControl.Designer.cs">
       <DependentUpon>NotaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\vistas\NotaPrivadaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\NotaPrivadaControl.Designer.cs">
+      <DependentUpon>NotaPrivadaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\RegistroLibro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\NotaControl.resx">
       <DependentUpon>NotaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\vistas\NotaPrivadaControl.resx">
+      <DependentUpon>NotaPrivadaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\RegistroLibro.resx">
       <DependentUpon>RegistroLibro.cs</DependentUpon>

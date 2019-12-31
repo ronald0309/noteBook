@@ -50,7 +50,9 @@ namespace noteBook.UNA.vistas
                         }
                         if (CBXPrivacidad.SelectedIndex >=0)
                         {
-                            nota.Privacidad = CBXPrivacidad.SelectedIndex;
+
+                          //  nota.Privacidad = CBXPrivacidad.SelectedIndex;
+
                         }
                         if (CBXFuente.SelectedIndex >= 0)
                         {
