@@ -58,34 +58,54 @@ namespace noteBook.UNA.vistas
                             formulario.ShowDialog();
                             foreach (var p in libros.AgregarNota)
                             {
+                                if (p.Privacidad == false)
+                                {
+                                    NotaControl notaControl = new NotaControl();
 
-                                NotaControl notaControl = new NotaControl();
-
-                                notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                                notaControl.Height = p.Heigh;
-                                notaControl.Width = p.Width;
-                                notaControl.FuenteTipo = p.Fuente;
-                                notaControl.TituloNota = p.Titulo;
-                                notaControl.ColorNota = p.ColorFondo;
-                                notaControl.ColorFuente = p.ColorFuente;
-                                notaControl.fechaCreacion = p.FechaCreacion;
-                                pestaña.Controls.Add(notaControl);
+                                    notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                    notaControl.Height = p.Heigh;
+                                    notaControl.Width = p.Width;
+                                    notaControl.FuenteTipo = p.Fuente;
+                                    notaControl.TituloNota = p.Titulo;
+                                    notaControl.ColorNota = p.ColorFondo;
+                                    notaControl.ColorFuente = p.ColorFuente;
+                                    notaControl.fechaCreacion = p.FechaCreacion;
+                                    pestaña.Controls.Add(notaControl);
+                                }
+                                else {
+                                    NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                    notaPrivada.Nombre = p.Titulo;
+                                    notaPrivada.ColorFondo = p.ColorFondo;
+                                    notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                    pestaña.Controls.Add(notaPrivada);
+                                }
                             }
 
                         };
                         foreach (var p in libros.AgregarNota)
                         {
-                            NotaControl notaControl = new NotaControl();
-                            notaControl.Height = p.Heigh;
-                            notaControl.Width = p.Width;
-                            notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                            notaControl.FuenteTipo = p.Fuente;
-                            notaControl.TituloNota = p.Titulo;
-                            notaControl.ColorNota = p.ColorFondo;
-                            notaControl.ColorFuente = p.ColorFuente;
-                            notaControl.fechaCreacion = p.FechaCreacion;
+                            if (p.Privacidad == false)
+                            {
+                                NotaControl notaControl = new NotaControl();
+                                notaControl.Height = p.Heigh;
+                                notaControl.Width = p.Width;
+                                notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                notaControl.FuenteTipo = p.Fuente;
+                                notaControl.TituloNota = p.Titulo;
+                                notaControl.ColorNota = p.ColorFondo;
+                                notaControl.ColorFuente = p.ColorFuente;
+                                notaControl.fechaCreacion = p.FechaCreacion;
 
-                            pestaña.Controls.Add(notaControl);
+                                pestaña.Controls.Add(notaControl);
+                            }
+                            else
+                            {
+                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                notaPrivada.Nombre = p.Titulo;
+                                notaPrivada.ColorFondo = p.ColorFondo;
+                                notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                pestaña.Controls.Add(notaPrivada);
+                            }
 
                         }
 
@@ -125,36 +145,64 @@ namespace noteBook.UNA.vistas
 
                     foreach (var p in lib.AgregarNota)
                     {
+                        if (p.Privacidad == false)
+                        {
+
+                            NotaControl notaControl = new NotaControl();
+
+                            notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                            notaControl.Height = p.Heigh;
+                            notaControl.Width = p.Width;
+                            notaControl.FuenteTipo = p.Fuente;
+                            notaControl.TituloNota = p.Titulo;
+                            notaControl.ColorNota = p.ColorFondo;
+                            notaControl.ColorFuente = p.ColorFuente;
+                            notaControl.fechaCreacion = p.FechaCreacion;
+                            tab.Controls.Add(notaControl);
+                        }
+                        else {
+                            if (p.Privacidad == true) {
+                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                notaPrivada.Nombre = p.Titulo;
+                                notaPrivada.ColorFondo = p.ColorFondo;
+                                notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                tab.Controls.Add(notaPrivada); 
+                            }
                         
+                        }
+                    }
+
+                };
+
+                foreach (var p in lib.AgregarNota)
+                {
+                    if (p.Privacidad == false)
+                    {
                         NotaControl notaControl = new NotaControl();
-                                  
-                        notaControl.Location = new Point(p.PosicionX, p.PosicionY);
                         notaControl.Height = p.Heigh;
                         notaControl.Width = p.Width;
+                        notaControl.Location = new Point(p.PosicionX, p.PosicionY);
                         notaControl.FuenteTipo = p.Fuente;
                         notaControl.TituloNota = p.Titulo;
                         notaControl.ColorNota = p.ColorFondo;
                         notaControl.ColorFuente = p.ColorFuente;
                         notaControl.fechaCreacion = p.FechaCreacion;
+
                         tab.Controls.Add(notaControl);
                     }
+                    else
+                    {
+                        if (p.Privacidad == true)
+                        {
+                            NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                            notaPrivada.Nombre = p.Titulo;
+                            notaPrivada.ColorFondo = p.ColorFondo;
+                            notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                            tab.Controls.Add(notaPrivada);
+                        }
 
-                };
-                foreach (var p in lib.AgregarNota)
-                {
-                    NotaControl notaControl = new NotaControl();
-                    notaControl.Height = p.Heigh;
-                    notaControl.Width = p.Width;
-                    notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                    notaControl.FuenteTipo = p.Fuente;
-                    notaControl.TituloNota = p.Titulo;
-                    notaControl.ColorNota = p.ColorFondo;
-                    notaControl.ColorFuente = p.ColorFuente;
-                    notaControl.fechaCreacion = p.FechaCreacion;
-
-                    tab.Controls.Add(notaControl);
-
-                }
+                    }
+                    }
 
                 
                 tabControl1.Controls.Add(tab);

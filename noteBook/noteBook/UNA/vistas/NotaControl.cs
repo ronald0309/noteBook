@@ -12,7 +12,8 @@ using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
     public partial class NotaControl : UserControl
-    {   bool mover = false;
+    {
+        bool mover = false;
         bool allowResize = false;
         Point inicial;
 
@@ -20,13 +21,11 @@ namespace noteBook.UNA.vistas
         {
 
             InitializeComponent();
-         
-        }
-     
 
+        }
         private string tituloNota;
         private string fuenteTipo;
-        
+
         private int colorNota;
         private int colorFuente;
         private string fechaCrea;
@@ -52,11 +51,12 @@ namespace noteBook.UNA.vistas
             set
             {
                 fechaCrea = value;
-               FechaCreacion.Text = value;
+                FechaCreacion.Text = value;
             }
 
         }
-        public string FuenteTipo {
+        public string FuenteTipo
+        {
             get { return fuenteTipo; }
             set
             {
@@ -65,6 +65,7 @@ namespace noteBook.UNA.vistas
 
             }
         }
+
         public int ColorFuente {
             get { return colorFuente;}
             set { colorFuente = value;
@@ -73,22 +74,22 @@ namespace noteBook.UNA.vistas
                     TituloRichTextBox.ForeColor = Color.FromArgb(colorFuente);
                 }
              }
-        }
-      
-        
-            
-        
 
-        public int ColorNota {
+        }
+
+        public int ColorNota
+        {
             get { return colorNota; }
-            set { colorNota = value;
-               
+            set
+            {
+                colorNota = value;
+
                 panel1.BackColor = Color.FromArgb(colorNota);
-                MoverBoton.BackColor= Color.FromArgb(colorNota);
-                AgrandarBoton.BackColor= Color.FromArgb(colorNota);
+                MoverBoton.BackColor = Color.FromArgb(colorNota);
+                AgrandarBoton.BackColor = Color.FromArgb(colorNota);
             }
         }
-      public  string TituloNota
+        public string TituloNota
         {
             get { return tituloNota; }
             set
@@ -112,8 +113,7 @@ namespace noteBook.UNA.vistas
                 }
             }
 
-        //}
-
+       // }
 
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
         {
@@ -139,7 +139,7 @@ namespace noteBook.UNA.vistas
                         if (nota.Titulo == this.TituloNota)
                         {
                             nota.Heigh = AgrandarBoton.Top + e.Y;
-                            nota.Width = AgrandarBoton.Left + e.X ;
+                            nota.Width = AgrandarBoton.Left + e.X;
                         }
                     }
 
@@ -151,7 +151,7 @@ namespace noteBook.UNA.vistas
         private void AgrandarBoton_MouseDown(object sender, MouseEventArgs e)
         {
             allowResize = true;
-          
+
         }
 
         private void MoverBoton_MouseDown(object sender, MouseEventArgs e)
@@ -173,14 +173,17 @@ namespace noteBook.UNA.vistas
                 {
                     this.Left = e.X + this.Left + inicial.X;
                     this.Top = e.Y + this.Top + inicial.Y;
-                    foreach (var libro in Singlenton.Instance.LibrosList) {
-                        foreach (var nota in libro.AgregarNota) {
-                            if (nota.Titulo == this.TituloNota) { 
-                                nota.PosicionX= e.X + this.Left + inicial.X;
+                    foreach (var libro in Singlenton.Instance.LibrosList)
+                    {
+                        foreach (var nota in libro.AgregarNota)
+                        {
+                            if (nota.Titulo == this.TituloNota)
+                            {
+                                nota.PosicionX = e.X + this.Left + inicial.X;
                                 nota.PosicionY = e.Y + this.Top + inicial.Y; ;
                             }
                         }
-                    
+
                     }
                 }
             }
@@ -201,6 +204,25 @@ namespace noteBook.UNA.vistas
 
         }
 
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            EditarNotasForm editarNota = new EditarNotasForm();
+            foreach (var libro in Singlenton.Instance.LibrosList)
+            {
+                foreach (var nota in libro.AgregarNota)
+                {
+                    if (nota.Titulo == this.tituloNota)
+                    {
+                        editarNota.CargarDatos(nota);
+                        editarNota.ShowDialog();
+                        this.Refresh();
+                    }
+                }
+            }
+
+        }
+
         private void FechaCreacion_Click(object sender, EventArgs e)
         {
 
@@ -215,5 +237,6 @@ namespace noteBook.UNA.vistas
         {
             
         }
+
     }
 }

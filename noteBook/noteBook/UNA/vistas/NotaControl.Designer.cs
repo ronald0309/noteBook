@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControl));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.MoverBoton = new System.Windows.Forms.Button();
             this.AgrandarBoton = new System.Windows.Forms.Button();
             this.FechaCreacion = new System.Windows.Forms.Label();
@@ -41,7 +42,11 @@
             // 
             // panel1
             // 
+
+            this.panel1.Controls.Add(this.btnEditar);
+
             this.panel1.Controls.Add(this.TituloRichTextBox);
+
             this.panel1.Controls.Add(this.MoverBoton);
             this.panel1.Controls.Add(this.AgrandarBoton);
             this.panel1.Controls.Add(this.FechaCreacion);
@@ -51,6 +56,17 @@
             this.panel1.Size = new System.Drawing.Size(155, 152);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(44, 118);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(33, 34);
+            this.btnEditar.TabIndex = 6;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // MoverBoton
             // 
@@ -132,6 +148,10 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button AgrandarBoton;
         private System.Windows.Forms.Button MoverBoton;
+
+        private System.Windows.Forms.Button btnEditar;
+
         private System.Windows.Forms.RichTextBox TituloRichTextBox;
+
     }
 }

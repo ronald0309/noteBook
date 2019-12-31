@@ -58,6 +58,12 @@
     <Compile Include="UNA\vistas\Busqueda.Designer.cs">
       <DependentUpon>Busqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\vistas\EditarNotasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\EditarNotasForm.Designer.cs">
+      <DependentUpon>EditarNotasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\FormularioNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     <Compile Include="UNA\vistas\NotaControl.Designer.cs">
       <DependentUpon>NotaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\vistas\NotaPrivadaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\NotaPrivadaControl.Designer.cs">
+      <DependentUpon>NotaPrivadaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\RegistroLibro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="UNA\vistas\Busqueda.resx">
       <DependentUpon>Busqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\vistas\EditarNotasForm.resx">
+      <DependentUpon>EditarNotasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
       <DependentUpon>FormularioNota.cs</DependentUpon>
@@ -143,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\NotaControl.resx">
       <DependentUpon>NotaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\vistas\NotaPrivadaControl.resx">
+      <DependentUpon>NotaPrivadaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\RegistroLibro.resx">
       <DependentUpon>RegistroLibro.cs</DependentUpon>

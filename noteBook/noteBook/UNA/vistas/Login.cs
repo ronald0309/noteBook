@@ -129,6 +129,15 @@ namespace noteBook
                             Nota nota = new Nota();
                             nota.Titulo = datosNota[1].ToString();
                             nota.Fuente = datosNota[5].ToString();
+                            if (datosNota[2] == "False")
+                            {
+                                nota.Privacidad = false;
+                            }
+                            else {
+                                nota.Privacidad = true;
+                            }
+
+                            
                             nota.ColorFuente = Convert.ToInt32(datosNota[6].ToString());
                             nota.ColorFondo = Convert.ToInt32(datosNota[7].ToString());
                             nota.PosicionX = Convert.ToInt32(datosNota[10]);

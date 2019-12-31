@@ -41,7 +41,7 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorFuente = new System.Windows.Forms.PictureBox();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.PrivacidadCombobox = new System.Windows.Forms.ComboBox();
             this.FuenteComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).BeginInit();
@@ -126,10 +126,6 @@
             this.SelectorColoresNotas.TabStop = false;
             this.SelectorColoresNotas.Click += new System.EventHandler(this.SelectorColoresNotas_Click);
             // 
-            // fontDialog1
-            // 
-            
-            // 
             // colorFuente
             // 
             this.colorFuente.BackColor = System.Drawing.Color.DarkRed;
@@ -140,16 +136,16 @@
             this.colorFuente.TabStop = false;
             this.colorFuente.Click += new System.EventHandler(this.colorFuente_Click);
             // 
-            // comboBox1
+            // PrivacidadCombobox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.PrivacidadCombobox.FormattingEnabled = true;
+            this.PrivacidadCombobox.Items.AddRange(new object[] {
             "Publico",
             "Privado"});
-            this.comboBox1.Location = new System.Drawing.Point(156, 104);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 21);
-            this.comboBox1.TabIndex = 26;
+            this.PrivacidadCombobox.Location = new System.Drawing.Point(156, 104);
+            this.PrivacidadCombobox.Name = "PrivacidadCombobox";
+            this.PrivacidadCombobox.Size = new System.Drawing.Size(171, 21);
+            this.PrivacidadCombobox.TabIndex = 26;
             // 
             // FuenteComboBox
             // 
@@ -158,7 +154,6 @@
             this.FuenteComboBox.Name = "FuenteComboBox";
             this.FuenteComboBox.Size = new System.Drawing.Size(121, 21);
             this.FuenteComboBox.TabIndex = 27;
-         
             // 
             // FormularioNota
             // 
@@ -166,7 +161,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 249);
             this.Controls.Add(this.FuenteComboBox);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.PrivacidadCombobox);
             this.Controls.Add(this.colorFuente);
             this.Controls.Add(this.SelectorColoresNotas);
             this.Controls.Add(this.FormularioTxtDescrip);
@@ -204,7 +199,7 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.PictureBox colorFuente;
         private System.Windows.Forms.ColorDialog colorDialog2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox PrivacidadCombobox;
         private System.Windows.Forms.ComboBox FuenteComboBox;
     }
 }

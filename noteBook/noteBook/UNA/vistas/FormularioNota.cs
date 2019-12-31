@@ -54,6 +54,16 @@ namespace noteBook.UNA.vistas
                     int n = libroGuardados.AgregarNota.Count;
                     ///   MessageBox.Show(n.ToString());
                     Nota nota = new Nota();
+                    if (PrivacidadCombobox.Text == "Publico")
+                    {
+                        nota.Privacidad = false;
+                    }
+                    else { 
+                        if (PrivacidadCombobox.Text == "Privado") {
+                            nota.Privacidad=true;
+                                
+                        } }
+
                     nota.Titulo = FormularioTxtTitulo.Text;
                     nota.Width= 155;
                     nota.Heigh = 152;
@@ -66,10 +76,7 @@ namespace noteBook.UNA.vistas
                     nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
                     libroGuardados.AgregarNota.Add(nota);
 
-                    Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}, con la fuente {(nota.Fuente)}, el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
-
-
-
+                    Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
 
                     this.Close();
                 }
@@ -84,11 +91,11 @@ namespace noteBook.UNA.vistas
                 SelectorColoresNotas.BackColor = colorDialog1.Color;
             }
         }
+
         private void colorFuente_Click(object sender, EventArgs e)
         {
             if (colorDialog2.ShowDialog() == DialogResult.OK)
             {
-
                 colorFuente.BackColor = colorDialog2.Color;
             }
         }

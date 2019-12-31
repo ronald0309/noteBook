@@ -45,6 +45,7 @@
             // GeneroLabel
             // 
             this.GeneroLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.GeneroLabel.Enabled = false;
             this.GeneroLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeneroLabel.Location = new System.Drawing.Point(32, 71);
             this.GeneroLabel.Name = "GeneroLabel";
@@ -57,10 +58,11 @@
             // TituloLabel
             // 
             this.TituloLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TituloLabel.Enabled = false;
             this.TituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TituloLabel.Location = new System.Drawing.Point(28, 23);
+            this.TituloLabel.Location = new System.Drawing.Point(29, 23);
             this.TituloLabel.Name = "TituloLabel";
-            this.TituloLabel.Size = new System.Drawing.Size(135, 26);
+            this.TituloLabel.Size = new System.Drawing.Size(134, 26);
             this.TituloLabel.TabIndex = 0;
             this.TituloLabel.Text = "Titulo";
             this.TituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
