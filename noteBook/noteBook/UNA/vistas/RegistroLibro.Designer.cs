@@ -156,6 +156,7 @@
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "RegistroLibro";
             this.Load += new System.EventHandler(this.RegistroLibro_Load);
             this.Resize += new System.EventHandler(this.RegistroLibro_Resize);

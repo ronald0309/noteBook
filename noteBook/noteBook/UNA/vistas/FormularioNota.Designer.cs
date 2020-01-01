@@ -70,7 +70,6 @@
             this.FormularioTxtTitulo.Name = "FormularioTxtTitulo";
             this.FormularioTxtTitulo.Size = new System.Drawing.Size(171, 20);
             this.FormularioTxtTitulo.TabIndex = 18;
-
             // 
             // label5
             // 
@@ -155,7 +154,6 @@
             this.FuenteComboBox.Name = "FuenteComboBox";
             this.FuenteComboBox.Size = new System.Drawing.Size(121, 21);
             this.FuenteComboBox.TabIndex = 27;
-
             // 
             // FormularioNota
             // 
@@ -178,6 +176,7 @@
             this.MaximumSize = new System.Drawing.Size(537, 288);
             this.MinimumSize = new System.Drawing.Size(537, 288);
             this.Name = "FormularioNota";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormularioNota";
             this.Load += new System.EventHandler(this.FormularioNota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).EndInit();

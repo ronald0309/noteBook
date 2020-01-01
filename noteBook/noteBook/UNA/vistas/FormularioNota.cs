@@ -32,9 +32,9 @@ namespace noteBook.UNA.vistas
             foreach (FontFamily font in FontFamily.Families)
             {
                 FuenteComboBox.Items.Add(font.Name.ToString());
-                //    FuenteComboBox.Font = new Font(FuenteComboBox.Items[p].ToString(), FuenteComboBox.Font.Size);
+               
                 p++;
-                //  FuenteComboBox.Font = new Font(font.Name.ToString(), FuenteComboBox.Font.Size);
+               
             }
         }
         public string posicion
@@ -62,7 +62,8 @@ namespace noteBook.UNA.vistas
                         if (PrivacidadCombobox.Text == "Privado") {
                             nota.Privacidad=true;
                                 
-                        } }
+                        }
+                    }
 
                     nota.Titulo = FormularioTxtTitulo.Text;
                     nota.Width= 155;
