@@ -37,11 +37,12 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.busquedaTxt);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(610, 60);
+            this.panel1.Size = new System.Drawing.Size(634, 66);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -59,11 +60,12 @@
             // BusquedaNotas
             // 
             this.BusquedaNotas.AutoScroll = true;
-            this.BusquedaNotas.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BusquedaNotas.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BusquedaNotas.Dock = System.Windows.Forms.DockStyle.Right;
             this.BusquedaNotas.ImeMode = System.Windows.Forms.ImeMode.Katakana;
-            this.BusquedaNotas.Location = new System.Drawing.Point(12, 78);
+            this.BusquedaNotas.Location = new System.Drawing.Point(-4, 66);
             this.BusquedaNotas.Name = "BusquedaNotas";
-            this.BusquedaNotas.Size = new System.Drawing.Size(610, 226);
+            this.BusquedaNotas.Size = new System.Drawing.Size(638, 268);
             this.BusquedaNotas.TabIndex = 1;
             this.BusquedaNotas.Paint += new System.Windows.Forms.PaintEventHandler(this.BusquedaNotas_Paint);
             // 
@@ -71,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(634, 334);
             this.Controls.Add(this.BusquedaNotas);
             this.Controls.Add(this.panel1);
