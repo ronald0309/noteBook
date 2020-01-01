@@ -39,15 +39,13 @@ namespace noteBook.UNA.vistas
                 LibroControl Libr = new LibroControl();
                 Libr.Nombre = libros.Nombre;
                 Libr.Genero = libros.Genero;
-                Libr.ColorLibro = libros.Color;
-                TabPage pestaña = new TabPage();
+                Libr.ColorLibro = libros.Color;      
                 Libr.MouseClick += (a, b) =>
-                   {
-                    
+                {
                     if (libros.abrir == false)
                     {
                         libros.abrir = true;
-                        
+                        TabPage pestaña = new TabPage();
                         pestaña.Text = libros.Nombre;
                         pestaña.BackColor = Color.FromArgb(libros.Color);
                         pestaña.MouseClick += (s, e) =>
@@ -84,34 +82,31 @@ namespace noteBook.UNA.vistas
                             }
 
                         };
-                        if (libros.abrir == true)
+                        foreach (var p in libros.AgregarNota)
                         {
-                            foreach (var p in libros.AgregarNota)
+                            if (p.Privacidad == false)
                             {
-                                if (p.Privacidad == false)
-                                {
-                                    NotaControl notaControl = new NotaControl();
-                                    notaControl.Height = p.Heigh;
-                                    notaControl.Width = p.Width;
-                                    notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                                    notaControl.FuenteTipo = p.Fuente;
-                                    notaControl.TituloNota = p.Titulo;
-                                    notaControl.ColorNota = p.ColorFondo;
-                                    notaControl.ColorFuente = p.ColorFuente;
-                                    notaControl.fechaCreacion = p.FechaCreacion;
+                                NotaControl notaControl = new NotaControl();
+                                notaControl.Height = p.Heigh;
+                                notaControl.Width = p.Width;
+                                notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                notaControl.FuenteTipo = p.Fuente;
+                                notaControl.TituloNota = p.Titulo;
+                                notaControl.ColorNota = p.ColorFondo;
+                                notaControl.ColorFuente = p.ColorFuente;
+                                notaControl.fechaCreacion = p.FechaCreacion;
 
-                                    pestaña.Controls.Add(notaControl);
-                                }
-                                else
-                                {
-                                    NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
-                                    notaPrivada.Nombre = p.Titulo;
-                                    notaPrivada.ColorFondo = p.ColorFondo;
-                                    notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-                                    pestaña.Controls.Add(notaPrivada);
-                                }
-
+                                pestaña.Controls.Add(notaControl);
                             }
+                            else
+                            {
+                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                notaPrivada.Nombre = p.Titulo;
+                                notaPrivada.ColorFondo = p.ColorFondo;
+                                notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                pestaña.Controls.Add(notaPrivada);
+                            }
+
                         }
 
                         tabControl1.Controls.Add(pestaña);
@@ -156,7 +151,6 @@ namespace noteBook.UNA.vistas
                             NotaControl notaControl = new NotaControl();
 
                             notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                            notaControl.Categoria = p.Categoria;
                             notaControl.Height = p.Heigh;
                             notaControl.Width = p.Width;
                             notaControl.FuenteTipo = p.Fuente;
@@ -188,7 +182,6 @@ namespace noteBook.UNA.vistas
                         notaControl.Height = p.Heigh;
                         notaControl.Width = p.Width;
                         notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                        notaControl.Categoria = p.Categoria;
                         notaControl.FuenteTipo = p.Fuente;
                         notaControl.TituloNota = p.Titulo;
                         notaControl.ColorNota = p.ColorFondo;

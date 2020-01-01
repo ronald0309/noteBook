@@ -54,50 +54,50 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.Color.Aquamarine;
             this.panel2.Controls.Add(this.labelTitulo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(166, 52);
+            this.panel2.Location = new System.Drawing.Point(166, 66);
             this.panel2.MaximumSize = new System.Drawing.Size(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 34);
+            this.panel2.Size = new System.Drawing.Size(634, 50);
             this.panel2.TabIndex = 8;
             // 
             // labelTitulo
             // 
+            this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Myanmar Text", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelTitulo.Location = new System.Drawing.Point(6, 3);
+            this.labelTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelTitulo.Location = new System.Drawing.Point(3, 3);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(209, 28);
+            this.labelTitulo.Size = new System.Drawing.Size(22, 37);
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "l";
             // 
             // panelVistas
             // 
-            this.panelVistas.BackColor = System.Drawing.Color.White;
+            this.panelVistas.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panelVistas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVistas.Location = new System.Drawing.Point(166, 86);
+            this.panelVistas.Location = new System.Drawing.Point(166, 116);
             this.panelVistas.Name = "panelVistas";
-            this.panelVistas.Size = new System.Drawing.Size(634, 364);
+            this.panelVistas.Size = new System.Drawing.Size(634, 334);
             this.panelVistas.TabIndex = 7;
             this.panelVistas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVistas_Paint);
             // 
             // panelSuperio
             // 
-            this.panelSuperio.BackColor = System.Drawing.Color.Blue;
+            this.panelSuperio.BackColor = System.Drawing.Color.Turquoise;
             this.panelSuperio.Controls.Add(this.HoraLabel);
             this.panelSuperio.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperio.Location = new System.Drawing.Point(166, 0);
             this.panelSuperio.Name = "panelSuperio";
-            this.panelSuperio.Size = new System.Drawing.Size(634, 52);
+            this.panelSuperio.Size = new System.Drawing.Size(634, 66);
             this.panelSuperio.TabIndex = 6;
             // 
             // HoraLabel
             // 
             this.HoraLabel.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoraLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.HoraLabel.Location = new System.Drawing.Point(21, 9);
+            this.HoraLabel.Location = new System.Drawing.Point(31, 25);
             this.HoraLabel.Name = "HoraLabel";
             this.HoraLabel.Size = new System.Drawing.Size(173, 27);
             this.HoraLabel.TabIndex = 0;
@@ -108,8 +108,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mistral", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(12, 0);
+            this.label1.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 42);
             this.label1.TabIndex = 0;
@@ -118,7 +118,7 @@
             // 
             // btnMisLibros
             // 
-            this.btnMisLibros.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnMisLibros.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnMisLibros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMisLibros.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMisLibros.FlatAppearance.BorderSize = 0;
@@ -126,9 +126,9 @@
             this.btnMisLibros.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMisLibros.Image = ((System.Drawing.Image)(resources.GetObject("btnMisLibros.Image")));
             this.btnMisLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMisLibros.Location = new System.Drawing.Point(0, 108);
+            this.btnMisLibros.Location = new System.Drawing.Point(0, 122);
             this.btnMisLibros.Name = "btnMisLibros";
-            this.btnMisLibros.Size = new System.Drawing.Size(164, 57);
+            this.btnMisLibros.Size = new System.Drawing.Size(166, 57);
             this.btnMisLibros.TabIndex = 3;
             this.btnMisLibros.Text = "Mis Libros";
             this.btnMisLibros.UseVisualStyleBackColor = false;
@@ -136,7 +136,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAgregar.FlatAppearance.BorderSize = 0;
@@ -144,9 +144,9 @@
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 52);
+            this.btnAgregar.Location = new System.Drawing.Point(0, 66);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(164, 56);
+            this.btnAgregar.Size = new System.Drawing.Size(166, 56);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -154,18 +154,17 @@
             // 
             // panelTitulo
             // 
-            this.panelTitulo.BackColor = System.Drawing.Color.Blue;
+            this.panelTitulo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panelTitulo.Controls.Add(this.label1);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(164, 52);
+            this.panelTitulo.Size = new System.Drawing.Size(166, 66);
             this.panelTitulo.TabIndex = 1;
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panelMenu.Controls.Add(this.btnGuardar);
             this.panelMenu.Controls.Add(this.lblUsuario);
             this.panelMenu.Controls.Add(this.label2);
@@ -182,7 +181,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
@@ -190,9 +189,9 @@
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(0, 279);
+            this.btnGuardar.Location = new System.Drawing.Point(0, 293);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(164, 57);
+            this.btnGuardar.Size = new System.Drawing.Size(166, 57);
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -218,7 +217,7 @@
             // 
             // btnReportes
             // 
-            this.btnReportes.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnReportes.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportes.FlatAppearance.BorderSize = 0;
@@ -226,9 +225,9 @@
             this.btnReportes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 222);
+            this.btnReportes.Location = new System.Drawing.Point(0, 236);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(164, 57);
+            this.btnReportes.Size = new System.Drawing.Size(166, 57);
             this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
@@ -236,7 +235,7 @@
             // 
             // Busquedabtn
             // 
-            this.Busquedabtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Busquedabtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Busquedabtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Busquedabtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.Busquedabtn.FlatAppearance.BorderSize = 0;
@@ -244,9 +243,9 @@
             this.Busquedabtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Busquedabtn.Image = ((System.Drawing.Image)(resources.GetObject("Busquedabtn.Image")));
             this.Busquedabtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Busquedabtn.Location = new System.Drawing.Point(0, 165);
+            this.Busquedabtn.Location = new System.Drawing.Point(0, 179);
             this.Busquedabtn.Name = "Busquedabtn";
-            this.Busquedabtn.Size = new System.Drawing.Size(164, 57);
+            this.Busquedabtn.Size = new System.Drawing.Size(166, 57);
             this.Busquedabtn.TabIndex = 4;
             this.Busquedabtn.Text = "Busqueda";
             this.Busquedabtn.UseVisualStyleBackColor = false;
@@ -272,6 +271,7 @@
             this.Load += new System.EventHandler(this.Menu_Load);
             this.Resize += new System.EventHandler(this.Menu_Resize);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panelSuperio.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
