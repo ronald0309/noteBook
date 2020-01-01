@@ -211,6 +211,7 @@
             this.MaximumSize = new System.Drawing.Size(537, 288);
             this.MinimumSize = new System.Drawing.Size(537, 288);
             this.Name = "FormularioNota";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormularioNota";
             this.Load += new System.EventHandler(this.FormularioNota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).EndInit();

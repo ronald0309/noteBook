@@ -44,9 +44,6 @@ namespace noteBook.UNA.vistas
             foreach (FontFamily font in FontFamily.Families)
             {
                 FuenteComboBox.Items.Add(font.Name.ToString());
-                //    FuenteComboBox.Font = new Font(FuenteComboBox.Items[p].ToString(), FuenteComboBox.Font.Size);
-          
-                //  FuenteComboBox.Font = new Font(font.Name.ToString(), FuenteComboBox.Font.Size);
             }
         }
         public string posicion
@@ -70,15 +67,14 @@ namespace noteBook.UNA.vistas
                         {
                             nota.Privacidad = false;
                         }
-                        else
-                        {
-                            if (PrivacidadCombobox.Text == "Privado")
-                            {
-                                nota.Privacidad = true;
-
-                            }
+         
+                          
+                    else { 
+                        if (PrivacidadCombobox.Text == "Privado") {
+                            nota.Privacidad=true;
+                                
                         }
-
+                    }
                         nota.Titulo = TituloTxt.Text;
                         nota.Width = 155;
                         nota.Heigh = 152;
