@@ -268,7 +268,6 @@
             this.MaximumSize = new System.Drawing.Size(1100, 600);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Menu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.Resize += new System.EventHandler(this.Menu_Resize);

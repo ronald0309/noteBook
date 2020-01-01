@@ -105,7 +105,6 @@
             this.Controls.Add(this.dGVReportes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReportesForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReportesForm";
             this.Load += new System.EventHandler(this.ReportesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVReportes)).EndInit();
