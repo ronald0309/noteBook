@@ -5,3 +5,10 @@ C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\De
 C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
 C:\Users\LordLalo\Documents\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb
 C:\Users\LordLalo\Documents\Notebook\NoteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\bin\Debug\WindowsFormsControlLibrary1.dll
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\bin\Debug\WindowsFormsControlLibrary1.pdb
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\noteBook.UNA.vistas.UserControl1.resources
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csproj.GenerateResource.cache
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb
