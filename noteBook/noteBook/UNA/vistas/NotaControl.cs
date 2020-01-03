@@ -21,8 +21,7 @@ namespace noteBook.UNA.vistas
         {
 
             InitializeComponent();
-
-        }
+                  }
         private string tituloNota;
         private string fuenteTipo;
         private string categoria;

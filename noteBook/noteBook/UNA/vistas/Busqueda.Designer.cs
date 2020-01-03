@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CategoriaTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.busquedaTxt = new System.Windows.Forms.TextBox();
             this.colorLibro = new System.Windows.Forms.ColorDialog();
             this.BusquedaNotas = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.CategoriaTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel1.Controls.Add(this.CategoriaTxt);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.CategoriaTxt);
             this.panel1.Controls.Add(this.busquedaTxt);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -52,13 +52,25 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // CategoriaTxt
+            // label1
             // 
-            this.CategoriaTxt.Location = new System.Drawing.Point(98, 29);
-            this.CategoriaTxt.Name = "CategoriaTxt";
-            this.CategoriaTxt.Size = new System.Drawing.Size(84, 20);
-            this.CategoriaTxt.TabIndex = 0;
-            this.CategoriaTxt.TextChanged += new System.EventHandler(this.CategoriaTxt_TextChanged);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(94, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 26);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Categoria";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(19, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Titulo";
             // 
             // busquedaTxt
             // 
@@ -82,25 +94,13 @@
             this.BusquedaNotas.TabIndex = 1;
             this.BusquedaNotas.Paint += new System.Windows.Forms.PaintEventHandler(this.BusquedaNotas_Paint);
             // 
-            // label2
+            // CategoriaTxt
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(19, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Titulo";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(94, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 26);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Categoria";
+            this.CategoriaTxt.Location = new System.Drawing.Point(117, 29);
+            this.CategoriaTxt.Name = "CategoriaTxt";
+            this.CategoriaTxt.Size = new System.Drawing.Size(84, 20);
+            this.CategoriaTxt.TabIndex = 4;
+            this.CategoriaTxt.TextChanged += new System.EventHandler(this.CategoriaTxt_TextChanged_1);
             // 
             // Busqueda
             // 
@@ -125,8 +125,8 @@
         private System.Windows.Forms.TextBox busquedaTxt;
         private System.Windows.Forms.ColorDialog colorLibro;
         private System.Windows.Forms.FlowLayoutPanel BusquedaNotas;
-        private System.Windows.Forms.TextBox CategoriaTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox CategoriaTxt;
     }
 }

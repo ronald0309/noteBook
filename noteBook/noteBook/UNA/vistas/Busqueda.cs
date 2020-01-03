@@ -7,15 +7,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace noteBook.UNA.vistas
 {
     public partial class Busqueda : Form
     {
+        
         public Busqueda()
         {
             InitializeComponent();
+            
+              
         }
 
         private void busquedaTxt_Leave(object sender, EventArgs e)
@@ -78,12 +82,17 @@ namespace noteBook.UNA.vistas
 
         private void CategoriaTxt_TextChanged(object sender, EventArgs e)
         {
-            this.busqueda();
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)
+        {
+            this.busqueda();
         }
     }
 }
