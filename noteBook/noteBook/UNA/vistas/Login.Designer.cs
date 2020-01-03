@@ -40,6 +40,7 @@
             this.mensajeLogin = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.LinkRegistrarse = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -132,11 +133,23 @@
             this.label2.Text = "Contraseña";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LinkRegistrarse
+            // 
+            this.LinkRegistrarse.AutoSize = true;
+            this.LinkRegistrarse.Location = new System.Drawing.Point(521, 325);
+            this.LinkRegistrarse.Name = "LinkRegistrarse";
+            this.LinkRegistrarse.Size = new System.Drawing.Size(57, 13);
+            this.LinkRegistrarse.TabIndex = 34;
+            this.LinkRegistrarse.TabStop = true;
+            this.LinkRegistrarse.Text = "Registrase";
+            this.LinkRegistrarse.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkRegistrarse_LinkClicked);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LinkRegistrarse);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
@@ -167,6 +180,7 @@
         private System.Windows.Forms.ToolTip mensajeLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel LinkRegistrarse;
     }
 }
 

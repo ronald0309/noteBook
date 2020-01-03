@@ -15,6 +15,7 @@ namespace noteBook
 {
     public partial class login : Form
     {
+        RegistroUsuarioForms registroUsuario= new RegistroUsuarioForms();
         private Menu menu = new Menu();
         Usuario logearUsuario = new Usuario();
         public login()
@@ -163,6 +164,11 @@ namespace noteBook
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LinkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            registroUsuario.ShowDialog();
         }
     }
 }

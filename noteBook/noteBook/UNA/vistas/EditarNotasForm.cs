@@ -263,45 +263,22 @@ namespace noteBook.UNA.vistas
             if (!guardoDatos)
 
             {
-
-                //essageBox.Show("Desea salir sin guardar el proyecto", "alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
                 MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
-
                 DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
-
                 if (dr == DialogResult.Yes)
-
                 {
-
                     this.Close();
-
                 }
-
                 else
-
                 {
-
                     if (dr == DialogResult.No)
 
                     {
-
                         ModificarNota();
-
                         MessageBox.Show("Se modifico la nota");
-
                         this.Close();
-
                     }
-
-
-
-
-
                 }
-
-
-
             }
 
         }
@@ -315,27 +292,15 @@ namespace noteBook.UNA.vistas
         {
 
             try
-
             {
-
                 ModificarNota();
-
                 MessageBox.Show("Se modifico la nota");
-
                 this.Close();
-
             }
-
             catch (Exception Ex)
-
             {
-
                 MessageBox.Show("Se produjo un error al guardar la nota");
-
             }
-
-
-
         }
 
     }
