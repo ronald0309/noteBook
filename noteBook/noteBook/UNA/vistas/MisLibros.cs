@@ -31,11 +31,11 @@ namespace noteBook.UNA.vistas
         }
         public void crearLibro()
         {
-            this.CerrarLibro();
-           
-                foreach (var libros in Singlenton.Instance.LibrosList)
+            //this.CerrarLibro();
+          
+            foreach (var libros in Singlenton.Instance.LibrosList)
             {
-               
+
                 LibroControl Libr = new LibroControl();
                 Libr.Nombre = libros.Nombre;
                 Libr.Genero = libros.Genero;
@@ -43,89 +43,170 @@ namespace noteBook.UNA.vistas
                 TabPage pestaña = new TabPage();
                 Libr.MouseClick += (a, b) =>
                    {
-                    
-                    if (libros.abrir == false)
+
+                       if (libros.abrir == false)
+                       {
+                           libros.abrir = true;
+                           Libr.Abierto = true;
+
+                           pestaña.Text = libros.Nombre;
+                           pestaña.BackColor = Color.FromArgb(libros.Color);
+                           pestaña.MouseClick += (s, e) =>
+                           {
+                               int x = e.X;
+                               int y = e.Y;
+                               FormularioNota formulario = new FormularioNota();
+                               formulario.setXY(x, y);
+                               formulario.posicion = libros.Nombre;
+                               formulario.ShowDialog();
+                               foreach (var p in libros.AgregarNota)
+                               {
+                                   if (p.Privacidad == false)
+                                   {
+                                       NotaControl notaControl = new NotaControl();
+
+                                       notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                       notaControl.Height = p.Heigh;
+                                       notaControl.Width = p.Width;
+                                       notaControl.Categoria = p.Categoria;
+
+                                       notaControl.FuenteTipo = p.Fuente;
+                                       notaControl.TituloNota = p.Titulo;
+                                       notaControl.ColorNota = p.ColorFondo;
+                                       notaControl.ColorFuente = p.ColorFuente;
+                                       notaControl.fechaCreacion = p.FechaCreacion;
+                                       pestaña.Controls.Add(notaControl);
+                                   }
+                                   else {
+                                       NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                       notaPrivada.Nombre = p.Titulo;
+                                       notaPrivada.ColorFondo = p.ColorFondo;
+                                       notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                       pestaña.Controls.Add(notaPrivada);
+                                   }
+                               }
+
+                           };
+                           if (libros.abrir == true)
+                           {
+                               foreach (var p in libros.AgregarNota)
+                               {
+                                   if (p.Privacidad == false)
+                                   {
+                                       NotaControl notaControl = new NotaControl();
+                                       notaControl.Height = p.Heigh;
+                                       notaControl.Width = p.Width;
+                                       notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                       notaControl.FuenteTipo = p.Fuente;
+                                       notaControl.TituloNota = p.Titulo;
+                                       notaControl.ColorNota = p.ColorFondo;
+                                       notaControl.ColorFuente = p.ColorFuente;
+                                       notaControl.fechaCreacion = p.FechaCreacion;
+                                       notaControl.Categoria = p.Categoria;
+                                       pestaña.Controls.Add(notaControl);
+                                   }
+                                   else
+                                   {
+                                       NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                       notaPrivada.Nombre = p.Titulo;
+                                       notaPrivada.ColorFondo = p.ColorFondo;
+                                       notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+
+                                       pestaña.Controls.Add(notaPrivada);
+                                   }
+
+                               }
+                           }
+
+                           tabControl1.Controls.Add(pestaña);
+                       }
+
+                   };
+
+
+                if (libros.abrir== true)
+                {
+                    TabPage pestañaLibro = new TabPage();
+                    pestañaLibro.Text = libros.Nombre;
+                    pestañaLibro.BackColor = Color.FromArgb(libros.Color);
+                    pestañaLibro.MouseClick += (s, e) =>
                     {
-                        libros.abrir = true;
-                        
-                        pestaña.Text = libros.Nombre;
-                        pestaña.BackColor = Color.FromArgb(libros.Color);
-                        pestaña.MouseClick += (s, e) =>
+                        int x = e.X;
+                        int y = e.Y;
+                        FormularioNota formulario = new FormularioNota();
+                        formulario.setXY(x, y);
+                        formulario.posicion = libros.Nombre;
+                        formulario.ShowDialog();
+                        foreach (var p in libros.AgregarNota)
                         {
-                            int x = e.X;
-                            int y = e.Y;
-                            FormularioNota formulario = new FormularioNota();
-                            formulario.setXY(x, y);
-                            formulario.posicion = libros.Nombre;
-                            formulario.ShowDialog();
-                            foreach (var p in libros.AgregarNota)
+                            if (p.Privacidad == false)
                             {
-                                if (p.Privacidad == false)
-                                {
-                                    NotaControl notaControl = new NotaControl();
+                                NotaControl notaControl = new NotaControl();
 
-                                    notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                                    notaControl.Height = p.Heigh;
-                                    notaControl.Width = p.Width;
-                                    notaControl.FuenteTipo = p.Fuente;
-                                    notaControl.TituloNota = p.Titulo;
-                                    notaControl.ColorNota = p.ColorFondo;
-                                    notaControl.ColorFuente = p.ColorFuente;
-                                    notaControl.fechaCreacion = p.FechaCreacion;
-                                    pestaña.Controls.Add(notaControl);
-                                }
-                                else {
-                                    NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
-                                    notaPrivada.Nombre = p.Titulo;
-                                    notaPrivada.ColorFondo = p.ColorFondo;
-                                    notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-                                    pestaña.Controls.Add(notaPrivada);
-                                }
+                                notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                notaControl.Height = p.Heigh;
+                                notaControl.Width = p.Width;
+                                notaControl.Categoria = p.Categoria;
+
+                                notaControl.FuenteTipo = p.Fuente;
+                                notaControl.TituloNota = p.Titulo;
+                                notaControl.ColorNota = p.ColorFondo;
+                                notaControl.ColorFuente = p.ColorFuente;
+                                notaControl.fechaCreacion = p.FechaCreacion;
+                                pestañaLibro.Controls.Add(notaControl);
                             }
-
-                        };
-                        if (libros.abrir == true)
-                        {
-                            foreach (var p in libros.AgregarNota)
+                            else
                             {
-                                if (p.Privacidad == false)
-                                {
-                                    NotaControl notaControl = new NotaControl();
-                                    notaControl.Height = p.Heigh;
-                                    notaControl.Width = p.Width;
-                                    notaControl.Location = new Point(p.PosicionX, p.PosicionY);
-                                    notaControl.FuenteTipo = p.Fuente;
-                                    notaControl.TituloNota = p.Titulo;
-                                    notaControl.ColorNota = p.ColorFondo;
-                                    notaControl.ColorFuente = p.ColorFuente;
-                                    notaControl.fechaCreacion = p.FechaCreacion;
-
-                                    pestaña.Controls.Add(notaControl);
-                                }
-                                else
-                                {
-                                    NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
-                                    notaPrivada.Nombre = p.Titulo;
-                                    notaPrivada.ColorFondo = p.ColorFondo;
-                                    notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-                                    pestaña.Controls.Add(notaPrivada);
-                                }
-
+                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                notaPrivada.Nombre = p.Titulo;
+                                notaPrivada.ColorFondo = p.ColorFondo;
+                                notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                pestaña.Controls.Add(notaPrivada);
                             }
                         }
 
-                        tabControl1.Controls.Add(pestaña);
-                    }
+                    };
+                    foreach (var p in libros.AgregarNota)
+                    {
+                        if (p.Privacidad == false)
+                        {
+                            NotaControl notaControl = new NotaControl();
+                            notaControl.Height = p.Heigh;
+                            notaControl.Width = p.Width;
+                            notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                            notaControl.FuenteTipo = p.Fuente;
+                            notaControl.TituloNota = p.Titulo;
+                            notaControl.ColorNota = p.ColorFondo;
+                            notaControl.ColorFuente = p.ColorFuente;
+                            notaControl.fechaCreacion = p.FechaCreacion;
+                            notaControl.Categoria = p.Categoria;
+                            pestañaLibro.Controls.Add(notaControl);
+                        }
+                        else
+                        {
+                            NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                            notaPrivada.Nombre = p.Titulo;
+                            notaPrivada.ColorFondo = p.ColorFondo;
+                            notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
 
-                };
-               
+                            pestañaLibro.Controls.Add(notaPrivada);
+                        }
+
+                    }
+                    tabControl1.Controls.Add(pestañaLibro);
+                }
                 
 
-               
-                    LibroContenedorLayout.Controls.Add(Libr);
-            }
-        }
+                LibroContenedorLayout.Controls.Add(Libr);
+            
 
+            }
+           
+        }
+        public void LibrosUsados() { 
+          
+        
+        }
 
         public void dibujar2()
         {

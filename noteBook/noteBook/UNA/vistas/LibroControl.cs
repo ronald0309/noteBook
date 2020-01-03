@@ -19,6 +19,11 @@ namespace noteBook.UNA.vistas
         string nombre;
         string genero;
         int color;
+        bool abierto;
+        public bool Abierto {
+            get;
+            set;
+        }
         public string Nombre {
             get { return nombre; }
             set { nombre = value;

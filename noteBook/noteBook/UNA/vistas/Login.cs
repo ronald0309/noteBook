@@ -128,6 +128,7 @@ namespace noteBook
                         {
                             Nota nota = new Nota();
                             nota.Titulo = datosNota[1].ToString();
+                            nota.Categoria = datosNota[3].ToString();
                             nota.Fuente = datosNota[5].ToString();
                             if (datosNota[2] == "False")
                             {
