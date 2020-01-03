@@ -142,12 +142,22 @@
   </data>
   <data name="AgrandarBoton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAPdJREFUSEvt
-        lVsKwjAQRfsr/vsARTfiLnxsQFFwX7ooFd2J3tMSGEIS04eC4IXDOE3uTGratPirjc7i5rEWKW2E76FO
-        VHfxNDzETKTEOPOsjzpR+U0WIkfMs75aTVjhXKQ0FVdhfW+bUJiVOSORQiHZBkR8+JNNVsLtgV/AbxQb
-        x7+sfubJLzQUiBhq0Fi20Z4L0kF01sCJlR9Fv8yqSO7u7Hc0FvxVvTKrIvmozDqQ3ZMtF6Sd+MimEwcC
-        tXq6OAy7eE+Sh+pX3ngGMThyzq6JuAjrq9WEleWIedZX+07cHsXEOPOsL9kk9GXk0Ewp9GU8ib+aqChe
-        HzqBGD7WblcAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAA2FJREFUSEud
+        VdlPE2EQX31W/woTH+gWEONtvB40UaOJxiP6qFFRE6PRFyOHGJQHrwcBlbYgKKiIPmAQ8IqiJkrCEQ2K
+        KHd3t4UW2kINlI4z0/3qQg9aJpnsfvPNzO/75vhGmo0ApHn2UjlDscgnFJt8SbXKxfRVbOZMu9W8VFeb
+        Gw1XLF6kWOVc5F5kiMO9isWc47QsWaibJkZ2i3wQjR0znM3Gmmo1H9BdxCbIkeajcsEM46TYbpOvkB/d
+        ZSShUoFalgFjHY9g0t0FAU9/wkz6Yx1VQPaYq3zd5XTSQwQj7y9AYLQXXI0nYfjlkYTZVX8UwQZgpCmb
+        bhRUbeb9uusQUdJwQyUQT/NN8Pc0gmJLBfe78zD6MTfETTmgVW7gkDiebP0vR3a/Ps1y/5868LYUidA5
+        qHh0CA4TVRFvChDn0x3ANBWAiaHvMOH8BsN1h1nH/fZcSDbUgQpBVlPLV4C/u4HthS/FZspmAOoDFPSJ
+        jTBIzU52MOV3g7f1zn9DwXjT8c4a3HfpIKvYzvP1hkHP3EP+JW40g/E0kOAUOJ/tZiBfu81ozMUR8Nlh
+        qPZQHBAZBmwpaRJ1rlEoQBzV2yAY+Msy5/M9DETFQOvRT3kQ8A6C4/EW0B6s5cOo95dHBbFbTMck1Wq6
+        bBQKEPp3Vm8Py7WH67k86Z/ir1WsDu8JvWgg9ARh0k2FRqGn+VYYJFmOCoL+8SZynlHobSlkZa1iDfh/
+        vwjJMcm+thKOP61dr06hs+v8r5Ytw6qqB6U0LQaInBuRE1/bPVYWiRdVxDmo2sw6zppdetXd5d6Jl3jO
+        CT3XRiFVkREkDIBJNuqJqhv7WR0XRLOkpHKv4KJbCL0txXh90SdI2IyeL9fA/eYMh5ANKzfi+iz3D/US
+        Uaw+YQAimgdigxI/3lWLpbkOJl2dhkewD1wNmawz8uGiQd4PE452zEl6tJtk6RCS5LidsgAF/HaNfs5n
+        I6p/OnkiLEp6Qmtlex1AixhkNHBok5I76frFIUiWJod/gFa1iQCCisW0V3c9nXDzqn4KjnG0U8ditXyl
+        uAFQg+suI4kmGk02VAwKgyQ5SAMr7mQUhCfZhwacoyRYiRmiWMTFgPOAyjCKQyNT+WeRvm46NxosSU1H
+        sOPoLBdfiCL+4pqf8VlJkv4BG8G6Y98wI3UAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
