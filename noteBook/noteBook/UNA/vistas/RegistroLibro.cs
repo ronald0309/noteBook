@@ -23,6 +23,7 @@ namespace noteBook.UNA.vistas
         private int contadorPosicion = 0;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            errorGuardar.Clear();
             if (txtNombre.Text.Length == 0)
             {
                 errorGuardar.SetError(txtNombre, "Ingrese el nombre del libro");
