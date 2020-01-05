@@ -104,8 +104,8 @@ namespace noteBook.UNA.Clases
                 streamWriter.Flush();
 
             }
-            Singlenton.Instance.reportesAuxiliar = null;
-            Singlenton.Instance.reportesAuxiliar = new List<Reportes>();
+            Singlenton.Instance.usuariosAuxiliar = null;
+            Singlenton.Instance.usuariosAuxiliar = new List<Usuario>();
             return pathUsuarios;
         }
         public void CargarLibros()
