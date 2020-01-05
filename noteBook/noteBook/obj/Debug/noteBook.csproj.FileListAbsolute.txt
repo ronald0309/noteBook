@@ -70,3 +70,4 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.Genera
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.CopyComplete
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources

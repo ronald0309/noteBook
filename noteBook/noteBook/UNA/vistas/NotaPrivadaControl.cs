@@ -36,6 +36,13 @@ namespace noteBook.UNA.vistas
 
         private void DesbloqueButton_Click(object sender, EventArgs e)
         {
+            AccesoNotaPrivada notaPrivada = new AccesoNotaPrivada(Nombre);
+           
+            notaPrivada.ShowDialog();
+
+
+            
+
 
         }
 
