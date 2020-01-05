@@ -54,11 +54,23 @@ namespace noteBook.UNA.vistas
             get;
             set;
         }
-
+       
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
+            bool notaCreada = false;
+            foreach (var libros in Singlenton.Instance.LibrosList) {
+                foreach (var notasIguales in libros.AgregarNota) {
+                    if (notasIguales.Titulo.ToLower() == TituloTxt.Text.ToLower()) {
+                        
+                        errorDatosNota.SetError(TituloTxt, "La nota ya existe");
+                        notaCreada = true;
+                    }
+                }
+            }
             this.error();
-         
+            
+            if (PrivacidadCombobox.Text.Length != 0 && TituloTxt.TextLength != 0 && CategoriaTxt.TextLength != 0&&notaCreada==false)
+            {
                 foreach (var libroGuardados in Singlenton.Instance.LibrosList)
                 {
 
@@ -95,8 +107,9 @@ namespace noteBook.UNA.vistas
                         Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
 
                         this.Close();
-                    
 
+
+                    }
                 }
             }
         }

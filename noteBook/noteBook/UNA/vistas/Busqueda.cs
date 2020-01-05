@@ -38,7 +38,7 @@ namespace noteBook.UNA.vistas
             {
                 foreach (var busq2 in busq.AgregarNota)
                 {
-                    string tituloNota = busq2.Titulo.ToLower();
+                 string tituloNota = busq2.Titulo.ToLower();
 
                   string categoria = busq2.Categoria.ToLower();
                     if (tituloNota.Contains(busquedaTxt.Text.ToLower())&&categoria.Contains(CategoriaTxt.Text.ToLower()))

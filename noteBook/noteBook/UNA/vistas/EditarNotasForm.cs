@@ -203,6 +203,7 @@ namespace noteBook.UNA.vistas
             if (!guardoDatos)
 
             {
+                
                 MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
                 DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
