@@ -64,6 +64,9 @@
             this.TXTNombre.Name = "TXTNombre";
             this.TXTNombre.Size = new System.Drawing.Size(142, 20);
             this.TXTNombre.TabIndex = 59;
+            
+            this.TXTNombre.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
+            
             // 
             // label3
             // 

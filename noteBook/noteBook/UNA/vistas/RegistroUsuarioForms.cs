@@ -13,16 +13,35 @@ namespace noteBook.UNA.vistas
 {
     public partial class RegistroUsuarioForms : Form
     {
+        private bool permisoAccion = false;
         ArchivoManager archivoManager = new ArchivoManager();
         private bool GuardoDatos { get; set; }
         //[DllImport("user32.dll")]
         //static extern bool HideCaret(IntPtr hWnd);
         public RegistroUsuarioForms()
         {
-           InitializeComponent();
-        //    TextBox[] texts = { TXTNombre, TXTContrasenna };
-        //    foreach (TextBox item in texts)
-        //        item.GotFocus += delegate { HideCaret(item.Handle); };
+            InitializeComponent();
+            //    TextBox[] texts = { TXTNombre, TXTContrasenna };
+            //    foreach (TextBox item in texts)
+            //        item.GotFocus += delegate { HideCaret(item.Handle); };
+        }
+        private bool ValidarUsuario()
+        {
+            bool permiso=false;
+            foreach (Usuario usuario in Singlenton.Instance.usuarios)
+            {
+
+                if (TXTNombre.Text == usuario.NombreUsuario)
+                {
+                    RegistroUsuarioErrorProvider1.SetError(TXTNombre, "El usuario ya existe");
+                    permiso = false;
+                }
+                else
+                {
+                    permiso = true;
+                }
+            }
+            return permiso;
         }
         private bool guradarUsuario()
         {
@@ -33,14 +52,22 @@ namespace noteBook.UNA.vistas
                 {
                     if (TXTNombre.Text.Length != 0)
                     {
-                        usuario.Contraseña = TXTContrasenna.Text;
-                        usuario.NombreUsuario = TXTNombre.Text;
-                        Singlenton.Instance.usuarios.Add(usuario);
-                        Singlenton.Instance.usuariosAuxiliar.Add(usuario);
-                        string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
-                        Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", usuario);
-                        return true;
-                        
+                       
+                        if (ValidarUsuario())
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            usuario.Contraseña = TXTContrasenna.Text;
+                            usuario.NombreUsuario = TXTNombre.Text;
+                            Singlenton.Instance.usuarios.Add(usuario);
+                            Singlenton.Instance.usuariosAuxiliar.Add(usuario);
+                            string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
+                            Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", usuario);
+                            return true;
+                        }
+
                         ///TODO generar reporte
                     }
                     else
@@ -108,9 +135,22 @@ namespace noteBook.UNA.vistas
 
         private void RegistroUsuarioForms_Load(object sender, EventArgs e)
         {
-            //TXTNombre.GotFocus += delegate {HideCaret(TXTNombre.Handle);
-            //}
+            
         }
 
+       
+
+        private void TXTNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidarUsuario())
+            {
+                RegistroUsuarioErrorProvider1.Clear();
+
+            }
+            
+            
+        }
+
+        
     }
 }
