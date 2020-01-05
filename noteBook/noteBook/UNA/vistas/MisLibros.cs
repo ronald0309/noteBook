@@ -306,6 +306,7 @@ namespace noteBook.UNA.vistas
 
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            tabControl1.Controls.Clear();
             if (OrdenComboBox.Text == "Creciente")
             {
                 List<Libro> librosAuxiliar = new List<Libro>();
@@ -314,7 +315,7 @@ namespace noteBook.UNA.vistas
                 Singlenton.Instance.LibrosList.Clear();
                 Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
 
-                this.dibujar2();
+                this.crearLibro();
             }
             else
             {
@@ -326,7 +327,8 @@ namespace noteBook.UNA.vistas
                     Singlenton.Instance.LibrosList.Clear();
                     Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
 
-                    this.dibujar2();
+                    this.crearLibro();
+
                 }
             }
         }

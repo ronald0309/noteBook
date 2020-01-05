@@ -23,12 +23,19 @@ namespace noteBook.UNA.vistas
         private int contadorPosicion = 0;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            bool repetido = false;
             errorGuardar.Clear();
             if (txtNombre.Text.Length == 0)
             {
                 errorGuardar.SetError(txtNombre, "Ingrese el nombre del libro");
             }
 
+            foreach (var librosIguales in Singlenton.Instance.LibrosList) {
+                if (librosIguales.Nombre.ToLower() == txtNombre.Text.ToLower()) {
+                    errorGuardar.SetError(txtNombre, "El libro ya existe");
+                    repetido = true;
+                }
+            }
 
 
             if (GeneroComboBox.Text.Length == 0)
@@ -36,8 +43,8 @@ namespace noteBook.UNA.vistas
                 errorGuardar.SetError(GeneroComboBox, "Escoja un genero Para el libro");
 
             }
-
-            if (txtNombre.Text.Length != 0 && GeneroComboBox.Text.Length != 0)
+            
+            if (txtNombre.Text.Length != 0 && GeneroComboBox.Text.Length != 0&& repetido==false)
             {
                 Libro libro = new Libro();
                 libro.Nombre = txtNombre.Text;
