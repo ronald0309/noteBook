@@ -13,13 +13,14 @@ namespace noteBook.UNA.vistas
 {
     public partial class FormularioNota : Form
     {
+        string usuario;
         public FormularioNota()
         {
-          
+
             InitializeComponent();
             colorDialog1.Color = Color.Blue;
             colorDialog2.Color = Color.DarkRed;
-          
+
         }
         private int x = 0;
         private int y = 0;
@@ -30,23 +31,21 @@ namespace noteBook.UNA.vistas
         }
         private void FormularioNota_Load(object sender, EventArgs e)
         {
-         
+
             VisualizarNota.DesactivarBotones();
             VisualizarNota.TituloNota = "Titulo";
             VisualizarNota.Categoria = "Categoria";
             DateTime hoy = DateTime.Now;
-            
+
             VisualizarNota.fechaCreacion = hoy.ToString("hh:mm:ss tt");
             VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
             VisualizarNota.ColorFuente = colorDialog2.Color.ToArgb();
-          
+
 
             foreach (FontFamily font in FontFamily.Families)
             {
                 FuenteComboBox.Items.Add(font.Name.ToString());
-                //    FuenteComboBox.Font = new Font(FuenteComboBox.Items[p].ToString(), FuenteComboBox.Font.Size);
-          
-                //  FuenteComboBox.Font = new Font(font.Name.ToString(), FuenteComboBox.Font.Size);
+                
             }
         }
         public string posicion
@@ -54,22 +53,33 @@ namespace noteBook.UNA.vistas
             get;
             set;
         }
-       
+
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
             bool notaCreada = false;
-            foreach (var libros in Singlenton.Instance.LibrosList) {
-                foreach (var notasIguales in libros.AgregarNota) {
-                    if (notasIguales.Titulo.ToLower() == TituloTxt.Text.ToLower()) {
-                        
+
+            foreach (var libros in Singlenton.Instance.LibrosList)
+            {
+                foreach (var notasIguales in libros.AgregarNota)
+                {
+                    if (notasIguales.Titulo.ToLower() == TituloTxt.Text.ToLower())
+                    {
+
                         errorDatosNota.SetError(TituloTxt, "La nota ya existe");
                         notaCreada = true;
                     }
                 }
             }
+            foreach (Usuario u in Singlenton.Instance.usuarios)
+            {
+                if (u.Activo)
+                {
+                    usuario = u.NombreUsuario;
+                }
+            }
             this.error();
-            
-            if (PrivacidadCombobox.Text.Length != 0 && TituloTxt.TextLength != 0 && CategoriaTxt.TextLength != 0&&notaCreada==false)
+
+            if (PrivacidadCombobox.Text.Length != 0 && TituloTxt.TextLength != 0 && CategoriaTxt.TextLength != 0 && notaCreada == false)
             {
                 foreach (var libroGuardados in Singlenton.Instance.LibrosList)
                 {
@@ -90,7 +100,6 @@ namespace noteBook.UNA.vistas
 
                             }
                         }
-
                         nota.Titulo = TituloTxt.Text;
                         nota.Width = 155;
                         nota.Heigh = 152;
@@ -100,6 +109,7 @@ namespace noteBook.UNA.vistas
                         nota.Fuente = FuenteComboBox.Text;
                         nota.ColorFuente = colorDialog2.Color.ToArgb();
                         nota.ColorFondo = colorDialog1.Color.ToArgb();
+                        nota.UsuarioCreadorNota = usuario;
                         DateTime hoy = DateTime.Now;
                         nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
                         libroGuardados.AgregarNota.Add(nota);
@@ -144,13 +154,17 @@ namespace noteBook.UNA.vistas
 
         private void VisualizarNota_Load(object sender, EventArgs e)
         {
-           // VisualizarNota
+            // VisualizarNota
         }
-        private void error() {
+        private void error()
+        {
             errorDatosNota.Clear();
-            foreach (var libro in Singlenton.Instance.LibrosList) {
-                foreach (var nota in libro.AgregarNota) {
-                    if (nota.Titulo == TituloTxt.Text) {
+            foreach (var libro in Singlenton.Instance.LibrosList)
+            {
+                foreach (var nota in libro.AgregarNota)
+                {
+                    if (nota.Titulo == TituloTxt.Text)
+                    {
                         errorDatosNota.SetError(TituloTxt, "La nota ya existe");
                     }
                 }

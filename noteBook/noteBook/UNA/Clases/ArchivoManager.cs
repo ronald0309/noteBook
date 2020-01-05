@@ -45,7 +45,7 @@ namespace noteBook.UNA.Clases
                 ///TODO Crear autoguardado 
                 foreach (Libro libro in libros)
                 {
-                    var line = $"{usuarioActivo},{libro.pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
+                    var line = $"{libro.UsuarioCreadorLibro},{libro.pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
                     streamWriter.WriteLine(line);
                     auxNombre = libro.Nombre;
                 }
@@ -59,7 +59,7 @@ namespace noteBook.UNA.Clases
                     auxNombre = libro.Nombre;
                     foreach (Nota nota in libro.AgregarNota)
                     {
-                        var line = $"{usuarioActivo},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh}";
+                        var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh}";
                         streamWriter.WriteLine(line);
                     }
                 }
@@ -121,6 +121,7 @@ namespace noteBook.UNA.Clases
                 {
                     Libro li = new Libro();
                     datosLibro = tex.Split(',');
+                    li.UsuarioCreadorLibro = datosLibro[0];
                     li.Nombre = datosLibro[2];
                     li.Genero = datosLibro[3];
                     li.Color = Convert.ToInt32(datosLibro[5].ToString());
@@ -136,13 +137,13 @@ namespace noteBook.UNA.Clases
             {
 
                 string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] datosLibro = null;
+                string[] datosUsuario = null;
                 foreach (string tex in texto)
                 {
                     Usuario usuario = new Usuario();
-                    datosLibro = tex.Split(',');
-                    usuario.NombreUsuario = datosLibro[0];
-                    usuario.Contraseña = datosLibro[1];
+                    datosUsuario = tex.Split(',');
+                    usuario.NombreUsuario = datosUsuario[0];
+                    usuario.Contraseña = datosUsuario[1];
                    
                     Singlenton.Instance.usuarios.Add(usuario);
                 }
@@ -164,6 +165,7 @@ namespace noteBook.UNA.Clases
                         if (libro.Nombre == datosNota[1].ToString())
                         {
                             Nota nota = new Nota();
+                            nota.UsuarioCreadorNota = datosNota[0];
                             nota.Titulo = datosNota[2].ToString();
                             nota.Categoria = datosNota[4].ToString();
                             nota.Fuente = datosNota[6].ToString();

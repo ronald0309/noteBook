@@ -71,3 +71,4 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.CopyCo
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources

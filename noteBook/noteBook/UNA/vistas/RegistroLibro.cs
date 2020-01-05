@@ -13,6 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class RegistroLibro : Form
     {
+        private string usuario;
         public RegistroLibro()
         {
 
@@ -24,20 +25,25 @@ namespace noteBook.UNA.vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             bool repetido = false;
+            
             errorGuardar.Clear();
             if (txtNombre.Text.Length == 0)
             {
                 errorGuardar.SetError(txtNombre, "Ingrese el nombre del libro");
             }
-
+            foreach (Usuario u in Singlenton.Instance.usuarios)
+            {
+                if (u.Activo)
+                {
+                    usuario = u.NombreUsuario;
+                }
+            }
             foreach (var librosIguales in Singlenton.Instance.LibrosList) {
                 if (librosIguales.Nombre.ToLower() == txtNombre.Text.ToLower()) {
                     errorGuardar.SetError(txtNombre, "El libro ya existe");
                     repetido = true;
                 }
             }
-
-
             if (GeneroComboBox.Text.Length == 0)
             {
                 errorGuardar.SetError(GeneroComboBox, "Escoja un genero Para el libro");
@@ -52,7 +58,7 @@ namespace noteBook.UNA.vistas
                 libro.Orden = "1";
                 libro.Color = SelectorColores.BackColor.ToArgb();
                 libro.pocision = contadorPosicion;
-
+                libro.UsuarioCreadorLibro = usuario;
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);
                 txtNombre.Text = "";
