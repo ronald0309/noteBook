@@ -78,7 +78,7 @@ namespace noteBook.UNA.vistas
             MisLibros miLibros = new MisLibros();
             this.labelTitulo.Text = "Mis libros";
             miLibros.crearLibro();
-          // miLibros.dibujar2();
+         
             this.abrirForma(miLibros);
         }
 
@@ -128,9 +128,10 @@ namespace noteBook.UNA.vistas
         {
             try
             {
+               
                 string nombreNuevoArchivoReporte = archivoManager.CrearArchivoReportes();
                 string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros(rutaPorDefecto);
-                MessageBox.Show($"Los archivos {nombreNuevoArchivoReporte},{nombreNuevoArchivoLibros} se creo de manera correcta {rutaPorDefecto}", "Excelente!", MessageBoxButtons.OK);
+                MessageBox.Show($"Los archivos , {nombreNuevoArchivoReporte},{nombreNuevoArchivoLibros} se creo de manera correcta {rutaPorDefecto}", "Excelente!", MessageBoxButtons.OK);
             }
             catch (Exception exception)
             {
@@ -140,72 +141,6 @@ namespace noteBook.UNA.vistas
         private void CargarArchivoLibro()
         {
 
-            //string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
-
-            //foreach (string archivo in direcionArchivo)
-            //{
-            //    int loop = 0;
-            //    string[] texto = System.IO.File.ReadAllLines(archivo);
-            //    string[] dat = null;
-            //    foreach (string tex in texto)
-            //    {
-                    
-            //        Libro libro = new Libro();
-            //        dat = tex.Split(',');
-            //        if (loop == 0)
-            //        {
-            //            string dato= Convert.ToString(dat);
-            //            //libro.pocision = Convert.ToInt32(dato);
-            //            MessageBox.Show($"Los archivosl{dato}");
-            //        }
-            //        else
-            //        {
-            //            if (loop == 1)
-            //            {
-            //                libro.Nombre = Convert.ToString(dat);
-            //                MessageBox.Show($"Los archivosl{dat}");
-            //            }
-            //            else
-            //            {
-            //                if (loop == 2)
-            //                {
-            //                    libro.Genero = Convert.ToString(dat);
-            //                }
-            //                else
-            //                {
-            //                    if (loop == 3)
-            //                    {
-            //                        libro.Orden = Convert.ToString(dat);
-            //                    }
-            //                    else
-            //                    {
-            //                        if (loop == 4)
-            //                        {
-            //                            libro.Color = Convert.ToInt32(dat);
-            //                        }
-            //                        else
-            //                        {
-            //                            if (loop == 5)
-            //                            {
-            //                                loop = loop;    
-            //                            }
-            //                            else
-            //                            {
-            //                                if (loop == 6)
-            //                                {
-            //                                    libro.CantidadNotas = Convert.ToInt32(dat);
-            //                                }
-            //                            }
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //        }
-            //        Singlenton.Instance.LibrosList.Add(libro);
-            //        loop++;
-
-            //    }
-            //}
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)

@@ -97,119 +97,74 @@ namespace noteBook.UNA.vistas
             PBColorFuente.BackColor = Color.FromArgb(not.ColorFuente);
 
             if (not.Privacidad)
-
             {
-
                 lblPrivacidad.Text = "Privado";
-
             }
-
             else
-
             {
-
                 lblPrivacidad.Text = "Publico";
-
-
-
             }
-
             foreach (FontFamily font in FontFamily.Families)
-
             {
-
                 CBXFuente.Items.Add(font.Name.ToString());
-
-
-
             }
 
         }
 
         public void ModificarNota()
-
         {
-
-
-
+            string informacion="se modifico la nota ";
             foreach (var libro in Singlenton.Instance.LibrosList)
-
             {
-
                 foreach (var nota in libro.AgregarNota)
-
                 {
-
                     if (not.Titulo == nota.Titulo)
-
                     {
-
+                        informacion = informacion + $"{not.Titulo}; ";
                         if (TXTTitulo.TextLength != 0)
-
                         {
-
+                            informacion = informacion + $"el nombre {not.Titulo} por el nombre {TXTTitulo.Text};";
                             nota.Titulo = TXTTitulo.Text;
-
                         }
-
                         if (TXTCategoria.TextLength != 0)
-
                         {
-
+                            informacion = informacion + $"la categoria {not.Categoria} se modifico por {TXTCategoria.Text};";
                             nota.Categoria = TXTCategoria.Text;
-
                         }
-
                         if (CBXPrivacidad.SelectedIndex >= 0)
-
                         {
-
-
-
+                            informacion = informacion + $"la privacidad {not.Privacidad} se modifico por {CBXPrivacidad.Text};";
                             if (CBXPrivacidad.Text == "Publico")
-
                             {
-
                                 nota.Privacidad = false;
-
                             }
-
                             else
-
                             {
-
                                 if (CBXPrivacidad.Text == "Privado")
-
                                 {
-
                                     nota.Privacidad = true;
-
-
-
                                 }
-
                             }
-
-
-
                         }
-
                         if (CBXFuente.SelectedIndex >= 0)
-
                         {
-
+                            informacion = informacion + $"la privacidad {not.Fuente} se modifico por {CBXFuente.Text};";
                             nota.Fuente = CBXFuente.Text;
-
                         }
-
-                        nota.ColorFuente = colorDialog2.Color.ToArgb();
-
-                        nota.ColorFondo = colorDialog1.Color.ToArgb();
-
+                        if (nota.ColorFuente != colorDialog2.Color.ToArgb())
+                        {
+                            informacion = informacion + $"el color de fuente {nota.ColorFuente} se modifico por {colorDialog2.Color.ToArgb()};";
+                            nota.ColorFuente = colorDialog2.Color.ToArgb();
+                        }
+                        if (nota.ColorFondo != colorDialog1.Color.ToArgb())
+                        {
+                            informacion = informacion + $"el color de fondo {not.ColorFondo} se modifico por {colorDialog1.Color.ToArgb()};";
+                            nota.ColorFondo = colorDialog1.Color.ToArgb();
+                        }
                         DateTime hoy = DateTime.Now;
-
                         nota.FechaModificacion = Convert.ToString(hoy);
-
+                        informacion = informacion + $"se modifico en al fecha{nota.FechaModificacion} ;";
+                        Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}",informacion,nota);
                     }
 
                 }
@@ -217,9 +172,6 @@ namespace noteBook.UNA.vistas
             }
 
         }
-
-
-
         private void PBColorFondo_Click(object sender, EventArgs e)
 
         {
@@ -227,17 +179,11 @@ namespace noteBook.UNA.vistas
             if (colorDialog1.ShowDialog() == DialogResult.OK)
 
             {
-
-
-
                 PBColorFondo.BackColor = colorDialog1.Color;
 
             }
 
         }
-
-
-
         private void PBColorFuente_Click(object sender, EventArgs e)
 
         {
@@ -245,17 +191,11 @@ namespace noteBook.UNA.vistas
             if (colorDialog2.ShowDialog() == DialogResult.OK)
 
             {
-
-
-
                 PBColorFuente.BackColor = colorDialog2.Color;
 
             }
 
         }
-
-
-
         private void btnCancelar_Click(object sender, EventArgs e)
 
         {
@@ -276,17 +216,13 @@ namespace noteBook.UNA.vistas
                     {
                         ModificarNota();
                         MessageBox.Show("Se modifico la nota");
+                        ///TODO generar reporte
                         this.Close();
                     }
                 }
             }
 
         }
-
-
-
-
-
         private void btnAceptar_Click(object sender, EventArgs e)
 
         {
@@ -299,7 +235,7 @@ namespace noteBook.UNA.vistas
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Se produjo un error al guardar la nota");
+                MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
             }
         }
 

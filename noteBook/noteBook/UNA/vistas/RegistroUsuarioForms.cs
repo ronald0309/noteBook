@@ -13,15 +13,16 @@ namespace noteBook.UNA.vistas
 {
     public partial class RegistroUsuarioForms : Form
     {
+        ArchivoManager archivoManager = new ArchivoManager();
         private bool GuardoDatos { get; set; }
-        [DllImport("user32.dll")]
-        static extern bool HideCaret(IntPtr hWnd);
+        //[DllImport("user32.dll")]
+        //static extern bool HideCaret(IntPtr hWnd);
         public RegistroUsuarioForms()
         {
-            InitializeComponent();
-            TextBox[] texts = { TXTNombre, TXTContrasenna };
-            foreach (TextBox item in texts)
-                item.GotFocus += delegate { HideCaret(item.Handle); };
+           InitializeComponent();
+        //    TextBox[] texts = { TXTNombre, TXTContrasenna };
+        //    foreach (TextBox item in texts)
+        //        item.GotFocus += delegate { HideCaret(item.Handle); };
         }
         private bool guradarUsuario()
         {
@@ -35,7 +36,12 @@ namespace noteBook.UNA.vistas
                         usuario.Contraseña = TXTContrasenna.Text;
                         usuario.NombreUsuario = TXTNombre.Text;
                         Singlenton.Instance.usuarios.Add(usuario);
+                        Singlenton.Instance.usuariosAuxiliar.Add(usuario);
+                        string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
+                        Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", usuario);
                         return true;
+                        
+                        ///TODO generar reporte
                     }
                     else
                     {
@@ -68,7 +74,7 @@ namespace noteBook.UNA.vistas
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Se produjo un error al guardar la nota");
+                MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
             }
 
         }
@@ -92,6 +98,7 @@ namespace noteBook.UNA.vistas
                         if (guradarUsuario())
                         {
                             MessageBox.Show("Se creo el usuario");
+
                             this.Close();
                         }
                     }
@@ -103,7 +110,7 @@ namespace noteBook.UNA.vistas
         {
             //TXTNombre.GotFocus += delegate {HideCaret(TXTNombre.Handle);
             //}
-            }
+        }
 
     }
 }

@@ -55,7 +55,7 @@ namespace noteBook.UNA.Clases
         {
             DateTime hoy = DateTime.Now;
             Reportes reporte = new Reportes();
-            reporte.GenerarReporte("Se agrega un nuevo libro", hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), informacion, objeto);
+            reporte.GenerarReporte(accion, hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), informacion, objeto);
             Reportes.Add(reporte);
             reportesAuxiliar.Add(reporte);
 
