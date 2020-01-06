@@ -25,7 +25,7 @@ namespace noteBook.UNA.vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             bool repetido = false;
-            
+
             errorGuardar.Clear();
             if (txtNombre.Text.Length == 0)
             {
@@ -38,8 +38,10 @@ namespace noteBook.UNA.vistas
                     usuario = u.NombreUsuario;
                 }
             }
-            foreach (var librosIguales in Singlenton.Instance.LibrosList) {
-                if (librosIguales.Nombre.ToLower() == txtNombre.Text.ToLower()) {
+            foreach (var librosIguales in Singlenton.Instance.LibrosList)
+            {
+                if (librosIguales.Nombre.ToLower() == txtNombre.Text.ToLower())
+                {
                     errorGuardar.SetError(txtNombre, "El libro ya existe");
                     repetido = true;
                 }
@@ -49,8 +51,8 @@ namespace noteBook.UNA.vistas
                 errorGuardar.SetError(GeneroComboBox, "Escoja un genero Para el libro");
 
             }
-            
-            if (txtNombre.Text.Length != 0 && GeneroComboBox.Text.Length != 0&& repetido==false)
+
+            if (txtNombre.Text.Length != 0 && GeneroComboBox.Text.Length != 0 && repetido == false)
             {
                 Libro libro = new Libro();
                 libro.Nombre = txtNombre.Text;
@@ -62,16 +64,9 @@ namespace noteBook.UNA.vistas
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);
                 txtNombre.Text = "";
-            //    txtGenero.Text = "";
-
                 Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", libro); ;
                 this.Hide();
             }
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SelectorColores_Click(object sender, EventArgs e)
@@ -93,16 +88,6 @@ namespace noteBook.UNA.vistas
             GeneroComboBox.Width = this.Width - 500;
         }
 
-        private void RegistroLibro_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-
-        {
-           
-            
-        }
     }
 }

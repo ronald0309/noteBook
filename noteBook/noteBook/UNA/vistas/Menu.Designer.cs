@@ -84,7 +84,7 @@
             this.panelVistas.Name = "panelVistas";
             this.panelVistas.Size = new System.Drawing.Size(634, 364);
             this.panelVistas.TabIndex = 7;
-            this.panelVistas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVistas_Paint);
+            
             // 
             // panelSuperio
             // 
@@ -105,7 +105,7 @@
             this.HoraLabel.Size = new System.Drawing.Size(173, 27);
             this.HoraLabel.TabIndex = 0;
             this.HoraLabel.Text = "label2";
-            this.HoraLabel.Click += new System.EventHandler(this.HoraLabel_Click);
+           
             // 
             // label1
             // 
@@ -298,7 +298,7 @@
             this.Name = "Menu";
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
-            this.Load += new System.EventHandler(this.Menu_Load);
+            
             this.Resize += new System.EventHandler(this.Menu_Resize);
             this.panel2.ResumeLayout(false);
             this.panelSuperio.ResumeLayout(false);

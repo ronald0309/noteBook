@@ -89,30 +89,11 @@ namespace noteBook.UNA.vistas
             this.abrirForma(miLibros);
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-            if (Singlenton.Instance.LibrosList.Count() == 0)
-            {
-                CargarArchivoLibro();
-            }
-
-
-        }
-
-        private void HoraLabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
             HoraLabel.Text = hoy.ToString("hh:mm:ss tt");
-        }
-
-        private void panelVistas_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void Menu_Resize(object sender, EventArgs e)
@@ -141,26 +122,20 @@ namespace noteBook.UNA.vistas
                 string nombreNuevoArchivoReporte = archivoManager.CrearArchivoReportes();
                 string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros(rutaPorDefecto);
                 DateTime fecha = DateTime.Now;
-                
+
                 lblFechaGuardar.Text = $"{fecha.ToShortTimeString()}";
-                
+
             }
             catch (Exception exception)
             {
                 MessageBox.Show($"Se ha presentado el siguiente inconveniente al crear el archivo: {exception.Message}", "Atención", MessageBoxButtons.OK);
             }
         }
-        private void CargarArchivoLibro()
-        {
-
-        }
-
-      
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             guardarInformacion();
-         }
+        }
         private void guardarInformacion()
         {
             string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
@@ -199,7 +174,7 @@ namespace noteBook.UNA.vistas
             DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                
+
             }
             else
             {
@@ -207,7 +182,8 @@ namespace noteBook.UNA.vistas
 
                 {
                     guardarInformacion();
-                }else
+                }
+                else
                 {
                     if (dr == DialogResult.Cancel)
                     {

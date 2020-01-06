@@ -19,21 +19,28 @@ namespace noteBook.UNA.vistas
         string nombre;
         string genero;
         int color;
-        bool abierto;
-        public bool Abierto {
+        //bool abierto;
+        public bool Abierto
+        {
             get;
             set;
         }
-        public string Nombre {
+        public string Nombre
+        {
             get { return nombre; }
-            set { nombre = value;
+            set
+            {
+                nombre = value;
                 TituloLabel.Text = value;
-           }
+            }
         }
-        public string Genero {
+        public string Genero
+        {
             get { return genero; }
-            set { genero = value;
-                GeneroLabel.Text = value; 
+            set
+            {
+                genero = value;
+                GeneroLabel.Text = value;
             }
         }
         public int ColorLibro
@@ -44,36 +51,23 @@ namespace noteBook.UNA.vistas
                 color = value;
 
                 this.BackColor = Color.FromArgb(color);
-          
+
             }
         }
-        private void GeneroLabel_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void TituloLabel_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void PortadaLibro_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void LibroControl_MouseEnter(object sender, EventArgs e)
         {
 
             this.BackColor = Color.Blue;
-            
-                this.Size=new Size(144, 147);
+
+            this.Size = new Size(144, 147);
         }
 
         private void LibroControl_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(color);
-            this. Size=new Size(139, 142);
+            this.Size = new Size(139, 142);
         }
     }
 }

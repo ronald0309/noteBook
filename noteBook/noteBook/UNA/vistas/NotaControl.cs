@@ -21,7 +21,7 @@ namespace noteBook.UNA.vistas
         {
 
             InitializeComponent();
-                  }
+        }
         private string tituloNota;
         private string fuenteTipo;
         private string categoria;
@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
             set
             {
                 buscarCategoria = value;
-               
+
             }
 
         }
@@ -48,23 +48,24 @@ namespace noteBook.UNA.vistas
             {
                 categoria = value;
                 //  CategoriaLabel.Text = value;
-              
+
                 CategoriarichTextBox.Text = value;
                 if (buscar == true)
                 {
-                    
-                   
+
+
                     CategoriarichTextBox.SelectionAlignment = HorizontalAlignment.Center;
-                   
+
                     CategoriarichTextBox.Find(buscarCategoria.ToLower());
                     CategoriarichTextBox.Find(buscarCategoria.ToUpper());
 
                     //          TituloRichTextBox.Find(PalabraBus);
-                   CategoriarichTextBox.SelectionColor = Color.Blue;
+                    CategoriarichTextBox.SelectionColor = Color.Blue;
                     AgrandarBoton.Hide();
                     MoverBoton.Hide();
                 }
-                else {
+                else
+                {
 
                     CategoriarichTextBox.SelectionAlignment = HorizontalAlignment.Center;
                 }
@@ -82,7 +83,8 @@ namespace noteBook.UNA.vistas
             }
 
         }
-        public void Buscar(bool buscar) {
+        public void Buscar(bool buscar)
+        {
             this.buscar = buscar;
 
         }
@@ -107,9 +109,12 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        public int ColorFuente {
+        public int ColorFuente
+        {
             get { return colorFuente; }
-            set { colorFuente = value;
+            set
+            {
+                colorFuente = value;
                 if (buscar == false)
                 {
                     TituloRichTextBox.ForeColor = Color.FromArgb(colorFuente);
@@ -123,19 +128,20 @@ namespace noteBook.UNA.vistas
             get { return colorNota; }
             set
             {
-                
+
                 colorNota = value;
                 CategoriarichTextBox.BackColor = Color.Red;
-                
+
                 String co = colorNota.ToString();
                 panel1.BackColor = Color.FromArgb(colorNota);
-             ///   CategoriarichTextBox.BackColor = Color.FromName(co);
+                ///   CategoriarichTextBox.BackColor = Color.FromName(co);
                 MoverBoton.BackColor = Color.FromArgb(colorNota);
                 AgrandarBoton.BackColor = Color.FromArgb(colorNota);
-               
+
             }
         }
-        public void DesactivarBotones() {
+        public void DesactivarBotones()
+        {
             btnEditar.Hide();
             AgrandarBoton.Hide();
             MoverBoton.Hide();
@@ -146,26 +152,27 @@ namespace noteBook.UNA.vistas
             set
             {
                 tituloNota = value;
-              ///  TituloLabel.Text = value;
+                ///  TituloLabel.Text = value;
                 TituloRichTextBox.Text = value;
                 if (buscar == true)
                 {
                     TituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
                     TituloRichTextBox.Find(PalabraBus.ToLower());
                     TituloRichTextBox.Find(PalabraBus.ToUpper());
-          //          TituloRichTextBox.Find(PalabraBus);
-                   TituloRichTextBox.SelectionColor = Color.Blue;
+                    //          TituloRichTextBox.Find(PalabraBus);
+                    TituloRichTextBox.SelectionColor = Color.Blue;
                     AgrandarBoton.Hide();
                     MoverBoton.Hide();
                 }
-                else {
+                else
+                {
                     TituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
                 }
 
-                }
             }
+        }
 
-       // }
+        // }
 
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
         {
@@ -241,20 +248,6 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void AgrandarBoton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MoverBoton_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -275,16 +268,8 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void TituloRichTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void CategoriarichTextBox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
-      
     }
 }

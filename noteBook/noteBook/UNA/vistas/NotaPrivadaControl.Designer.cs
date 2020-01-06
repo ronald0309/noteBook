@@ -42,7 +42,7 @@
             this.TituloLabel.TabIndex = 0;
             this.TituloLabel.Text = "Titulo";
             this.TituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.TituloLabel.Click += new System.EventHandler(this.TituloLabel_Click);
+            
             // 
             // DesbloqueButton
             // 

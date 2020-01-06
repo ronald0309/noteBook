@@ -14,47 +14,45 @@ namespace noteBook.UNA.vistas
 {
     public partial class Busqueda : Form
     {
-        
+
         public Busqueda()
         {
             InitializeComponent();
-            
-              
+
+
         }
 
-        private void busquedaTxt_Leave(object sender, EventArgs e)
-        {
-          
-        }
+
 
         private void busquedaTxt_TextChanged(object sender, EventArgs e)
         {
 
             this.busqueda();
         }
-        private void busqueda() {
+        private void busqueda()
+        {
             BusquedaNotas.Controls.Clear();
-            foreach (var busq in Singlenton.Instance.LibrosList)
+            foreach (var busquedaLibro in Singlenton.Instance.LibrosList)
             {
-                foreach (var busq2 in busq.AgregarNota)
+                foreach (var busquedaNota in busquedaLibro.AgregarNota)
                 {
-                 string tituloNota = busq2.Titulo.ToLower();
+                    string tituloNota = busquedaNota.Titulo.ToLower();
 
-                  string categoria = busq2.Categoria.ToLower();
-                    if (tituloNota.Contains(busquedaTxt.Text.ToLower())&&categoria.Contains(CategoriaTxt.Text.ToLower()))
+                    string categoria = busquedaNota.Categoria.ToLower();
+                    if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(CategoriaTxt.Text.ToLower()))
                     {
                         //busq2.Titulo.
 
 
                         NotaControl notaControl = new NotaControl();
-                        notaControl.FuenteTipo = busq2.Fuente;
+                        notaControl.FuenteTipo = busquedaNota.Fuente;
                         notaControl.Buscar(true);
                         notaControl.PalabraBus = busquedaTxt.Text;
                         notaControl.BuscarCategoria = CategoriaTxt.Text;
-                        notaControl.Categoria = busq2.Categoria;
-                        notaControl.TituloNota = busq2.Titulo;
-                        notaControl.ColorNota = busq2.ColorFondo;
-                        notaControl.ColorFuente = busq2.ColorFuente;
+                        notaControl.Categoria = busquedaNota.Categoria;
+                        notaControl.TituloNota = busquedaNota.Titulo;
+                        notaControl.ColorNota = busquedaNota.ColorFondo;
+                        notaControl.ColorFuente = busquedaNota.ColorFuente;
 
                         BusquedaNotas.Controls.Add(notaControl);
 
@@ -63,32 +61,7 @@ namespace noteBook.UNA.vistas
             }
 
         }
-        private void BusquedaNotas_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
 
-    
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void CategoriaTxt_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)
         {

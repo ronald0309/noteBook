@@ -32,5 +32,5 @@ namespace noteBook.UNA.Clases
 
         }
     }
-    
+
 }

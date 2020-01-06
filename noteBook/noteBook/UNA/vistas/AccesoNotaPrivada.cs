@@ -17,36 +17,41 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
         }
         string nombreNota;
-        public AccesoNotaPrivada(string nombreNota) {
+        public AccesoNotaPrivada(string nombreNota)
+        {
             InitializeComponent();
 
             this.nombreNota = nombreNota;
         }
         private void Aceptarbtn_Click(object sender, EventArgs e)
         {
-           // MessageBox.Show(nombreNota);
+            // MessageBox.Show(nombreNota);
             bool datosUsario = false;
-            foreach (var Usuario in Singlenton.Instance.usuarios) {
+            foreach (var Usuario in Singlenton.Instance.usuarios)
+            {
                 if (Usuario.NombreUsuario == NombreUsuarioTxt.Text && Usuario.Contraseña == ContraseñaTxt.Text)
                 {
                     MessageBox.Show("SI estoy");
-                    datosUsario =true;
+                    datosUsario = true;
 
                 }
             }
-            if (datosUsario == true) { 
-              foreach(var libro in Singlenton.Instance.LibrosList)
+            if (datosUsario == true)
+            {
+                foreach (var libro in Singlenton.Instance.LibrosList)
                 {
-                    foreach (var nota in libro.AgregarNota) {
-                        if (nota.Titulo == nombreNota) {
+                    foreach (var nota in libro.AgregarNota)
+                    {
+                        if (nota.Titulo == nombreNota)
+                        {
                             nota.Privacidad = false;
                         }
                     }
                     MessageBox.Show("OLA");
                 }
-                MisLibros mi = new MisLibros();
-                mi.crearLibro();
-                this.Hide();   
+                MisLibros miLibro = new MisLibros();
+                miLibro.crearLibro();
+                this.Hide();
             }
         }
     }

@@ -54,7 +54,7 @@
             this.GeneroLabel.TabIndex = 1;
             this.GeneroLabel.Text = "Genero";
             this.GeneroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.GeneroLabel.Click += new System.EventHandler(this.GeneroLabel_Click);
+            
             // 
             // TituloLabel
             // 
@@ -67,7 +67,7 @@
             this.TituloLabel.TabIndex = 0;
             this.TituloLabel.Text = "Titulo";
             this.TituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.TituloLabel.Click += new System.EventHandler(this.TituloLabel_Click);
+            
             // 
             // LibroControl
             // 

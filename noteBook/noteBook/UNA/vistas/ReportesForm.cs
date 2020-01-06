@@ -50,18 +50,9 @@ namespace noteBook.UNA.vistas
             }
         }
 
-
-
-
-        private void dGVReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
         private void ReportesForm_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void CargarReportes()
         {
@@ -79,12 +70,7 @@ namespace noteBook.UNA.vistas
                 }
 
             }
-          
-
-
 
         }
-
-
     }
 }

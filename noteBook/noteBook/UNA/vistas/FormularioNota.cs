@@ -45,7 +45,7 @@ namespace noteBook.UNA.vistas
             foreach (FontFamily font in FontFamily.Families)
             {
                 FuenteComboBox.Items.Add(font.Name.ToString());
-                
+
             }
         }
         public string posicion
@@ -111,7 +111,7 @@ namespace noteBook.UNA.vistas
                         nota.ColorFondo = colorDialog1.Color.ToArgb();
                         nota.UsuarioCreadorNota = usuario;
                         DateTime hoy = DateTime.Now;
-                        
+
                         nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
                         libroGuardados.AgregarNota.Add(nota);
 
@@ -153,10 +153,7 @@ namespace noteBook.UNA.vistas
             VisualizarNota.FuenteTipo = FuenteComboBox.Text;
         }
 
-        private void VisualizarNota_Load(object sender, EventArgs e)
-        {
-            // VisualizarNota
-        }
+
         private void error()
         {
             errorDatosNota.Clear();

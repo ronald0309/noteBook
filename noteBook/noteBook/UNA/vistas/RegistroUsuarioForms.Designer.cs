@@ -46,7 +46,7 @@
             this.TXTContrasenna.Name = "TXTContrasenna";
             this.TXTContrasenna.Size = new System.Drawing.Size(142, 20);
             this.TXTContrasenna.TabIndex = 71;
-            this.TXTContrasenna.TextChanged += new System.EventHandler(this.TXTContrasenna_TextChanged);
+            
             // 
             // label1
             // 
@@ -132,7 +132,7 @@
             this.Name = "RegistroUsuarioForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.RegistroUsuarioForms_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.RegistroUsuarioErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

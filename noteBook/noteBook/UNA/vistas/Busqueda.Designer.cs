@@ -50,7 +50,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(634, 66);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // label1
             // 
@@ -80,7 +80,7 @@
             this.busquedaTxt.TabIndex = 0;
             this.busquedaTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.busquedaTxt.TextChanged += new System.EventHandler(this.busquedaTxt_TextChanged);
-            this.busquedaTxt.Leave += new System.EventHandler(this.busquedaTxt_Leave);
+            
             // 
             // BusquedaNotas
             // 
@@ -92,7 +92,7 @@
             this.BusquedaNotas.Name = "BusquedaNotas";
             this.BusquedaNotas.Size = new System.Drawing.Size(638, 268);
             this.BusquedaNotas.TabIndex = 1;
-            this.BusquedaNotas.Paint += new System.Windows.Forms.PaintEventHandler(this.BusquedaNotas_Paint);
+            
             // 
             // CategoriaTxt
             // 

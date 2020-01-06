@@ -14,14 +14,15 @@ namespace noteBook.UNA.vistas
 {
     public partial class MisLibros : Form
     {
-        
+
         public MisLibros()
         {
-          
+
             InitializeComponent();
-           
+
         }
-        public void CerrarLibro() {
+        public void CerrarLibro()
+        {
             foreach (var cerrarLibro in Singlenton.Instance.LibrosList)
             {
                 cerrarLibro.abrir = false;
@@ -31,7 +32,7 @@ namespace noteBook.UNA.vistas
         }
         public void crearLibro()
         {
-            
+
             foreach (var libros in Singlenton.Instance.LibrosList)
             {
 
@@ -76,7 +77,8 @@ namespace noteBook.UNA.vistas
                                        notaControl.fechaCreacion = p.FechaCreacion;
                                        pestaña.Controls.Add(notaControl);
                                    }
-                                   else {
+                                   else
+                                   {
                                        NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
                                        notaPrivada.Nombre = p.Titulo;
                                        notaPrivada.ColorFondo = p.ColorFondo;
@@ -123,7 +125,7 @@ namespace noteBook.UNA.vistas
                    };
 
 
-                if (libros.abrir== true)
+                if (libros.abrir == true)
                 {
                     TabPage pestañaLibro = new TabPage();
                     pestañaLibro.Text = libros.Nombre;
@@ -194,34 +196,36 @@ namespace noteBook.UNA.vistas
                     }
                     tabControl1.Controls.Add(pestañaLibro);
                 }
-                
+
 
                 LibroContenedorLayout.Controls.Add(Libr);
-            
+
 
             }
-           
+
         }
-        public void LibrosUsados() { 
-          
-        
+        public void LibrosUsados()
+        {
+
+
         }
 
         public void dibujar2()
         {
-         
+
             tabControl1.Controls.Clear();
-            foreach (var lib in Singlenton.Instance.LibrosList) {
+            foreach (var lib in Singlenton.Instance.LibrosList)
+            {
                 TabPage tab = new TabPage();
-              
+
                 tab.Text = lib.Nombre;
                 tab.BackColor = Color.FromArgb(lib.Color);
                 Label q = new Label();
 
                 tab.MouseClick += (s, e) =>
                 {
-                    int xx= e.X;
-                    int  yy= e.Y;
+                    int xx = e.X;
+                    int yy = e.Y;
                     FormularioNota formulario = new FormularioNota();
                     formulario.setXY(xx, yy);
                     formulario.posicion = lib.Nombre;
@@ -246,15 +250,17 @@ namespace noteBook.UNA.vistas
                             notaControl.fechaCreacion = p.FechaCreacion;
                             tab.Controls.Add(notaControl);
                         }
-                        else {
-                            if (p.Privacidad == true) {
+                        else
+                        {
+                            if (p.Privacidad == true)
+                            {
                                 NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
                                 notaPrivada.Nombre = p.Titulo;
                                 notaPrivada.ColorFondo = p.ColorFondo;
                                 notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-                                tab.Controls.Add(notaPrivada); 
+                                tab.Controls.Add(notaPrivada);
                             }
-                        
+
                         }
                     }
 
@@ -289,15 +295,15 @@ namespace noteBook.UNA.vistas
                         }
 
                     }
-                    }
-
-                
-                tabControl1.Controls.Add(tab);
-                
                 }
 
+
+                tabControl1.Controls.Add(tab);
+
+            }
+
         }
-     
+
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -331,11 +337,11 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-        
+
 
         private void MisLibros_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void LibroTabPage_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@ namespace noteBook.UNA.Clases
 
             }
         }
+        // se genera en esta clase para evitar que se generen cada ves de declarar una instancia de la clase usuario 
         public void CrearUsuarios()
         {
             Usuario usuario1 = new Usuario();
@@ -49,9 +50,9 @@ namespace noteBook.UNA.Clases
             usuario4.NombreUsuario = "x";
             usuario4.Contraseña = "1";
             usuarios.Add(usuario4);
-           
+
         }
-        public void CargarReporte(string accion,string informacion, Object objeto)
+        public void CargarReporte(string accion, string informacion, Object objeto)
         {
             DateTime hoy = DateTime.Now;
             Reportes reporte = new Reportes();
@@ -60,7 +61,13 @@ namespace noteBook.UNA.Clases
             reportesAuxiliar.Add(reporte);
 
         }
-
+        public void desactivarUsuario()
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                usuario.Activo = false;
+            }
+        }
 
 
 

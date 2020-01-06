@@ -13,21 +13,18 @@ namespace noteBook.UNA.vistas
 {
     public partial class RegistroUsuarioForms : Form
     {
-        
+
         ArchivoManager archivoManager = new ArchivoManager();
         private bool GuardoDatos { get; set; }
-        //[DllImport("user32.dll")]
-        //static extern bool HideCaret(IntPtr hWnd);
+
         public RegistroUsuarioForms()
         {
             InitializeComponent();
-            //    TextBox[] texts = { TXTNombre, TXTContrasenna };
-            //    foreach (TextBox item in texts)
-            //        item.GotFocus += delegate { HideCaret(item.Handle); };
+
         }
         private bool ValidarUsuario()
         {
-            bool permiso=false;
+            bool permiso = false;
             foreach (Usuario usuario in Singlenton.Instance.usuarios)
             {
 
@@ -52,7 +49,7 @@ namespace noteBook.UNA.vistas
                 {
                     if (TXTNombre.Text.Length != 0)
                     {
-                       
+
                         if (ValidarUsuario())
                         {
                             return false;
@@ -132,28 +129,15 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void RegistroUsuarioForms_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-       
-
         private void TXTNombre_TextChanged(object sender, EventArgs e)
         {
-            
+
             if (ValidarUsuario())
             {
                 RegistroUsuarioErrorProvider1.Clear();
 
             }
-            
-            
         }
 
-        private void TXTContrasenna_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

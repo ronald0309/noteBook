@@ -17,7 +17,9 @@ namespace noteBook.UNA.vistas
         public string Titulo
         {
             get { return titulo; }
-            set { titulo = value;
+            set
+            {
+                titulo = value;
                 label1.Text = value;
             }
         }
@@ -27,20 +29,11 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Height = 20;
         }
 
-        private void UserControl1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
- 

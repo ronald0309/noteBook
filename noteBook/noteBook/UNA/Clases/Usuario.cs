@@ -9,23 +9,11 @@ namespace noteBook.UNA.Clases
     public class Usuario
     {
         public Usuario() { Activo = false; }
-        public bool Activo
-        {
-            get;
-            set;
-        }
-        
-            public string NombreUsuario
-            {
-                get;
-                set;
-            }
-            public string Contraseña
-            {
-                get;
-                set;
-            }
+        public bool Activo { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Contraseña { get; set; }
 
-        }
-
+       
     }
+
+}

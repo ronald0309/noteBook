@@ -19,7 +19,8 @@ namespace noteBook.UNA.vistas
 
         private string nombre;
         private int colorFondo;
-        public string Nombre {
+        public string Nombre
+        {
             get { return nombre; }
             set
             {
@@ -27,28 +28,23 @@ namespace noteBook.UNA.vistas
                 this.TituloLabel.Text = value;
             }
         }
-        public int ColorFondo {
+        public int ColorFondo
+        {
             get { return colorFondo; }
-            set {
+            set
+            {
                 colorFondo = value;
-                this.BackColor = Color.FromArgb(colorFondo); }
+                this.BackColor = Color.FromArgb(colorFondo);
+            }
         }
 
         private void DesbloqueButton_Click(object sender, EventArgs e)
         {
             AccesoNotaPrivada notaPrivada = new AccesoNotaPrivada(Nombre);
-           
+
             notaPrivada.ShowDialog();
-
-
-            
-
-
         }
 
-        private void TituloLabel_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

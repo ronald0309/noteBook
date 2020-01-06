@@ -62,7 +62,7 @@
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "Colores";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // txtNombre
             // 
@@ -138,7 +138,7 @@
             // 
             this.toolTip1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.toolTip1.IsBalloon = true;
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            
             // 
             // RegistroLibro
             // 
@@ -157,7 +157,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
-            this.Load += new System.EventHandler(this.RegistroLibro_Load);
+            
             this.Resize += new System.EventHandler(this.RegistroLibro_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorGuardar)).EndInit();

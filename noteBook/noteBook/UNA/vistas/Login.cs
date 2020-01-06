@@ -15,7 +15,7 @@ namespace noteBook
 {
     public partial class login : Form
     {
-        RegistroUsuarioForms registroUsuario= new RegistroUsuarioForms();
+        RegistroUsuarioForms registroUsuario = new RegistroUsuarioForms();
         ArchivoManager archivoManager = new ArchivoManager();
         private Menu menu = new Menu();
         Usuario logearUsuario = new Usuario();
@@ -23,11 +23,24 @@ namespace noteBook
         {
 
             InitializeComponent();
-            mensajeLogin.SetToolTip(txtUsuario,"Ingrese el nombre de usuario");
+            mensajeLogin.SetToolTip(txtUsuario, "Ingrese el nombre de usuario");
             mensajeLogin.SetToolTip(txtContraseña, "Ingrese la contraseña");
-            archivoManager.CargarUsuario();
-            Singlenton.Instance.CrearUsuarios();
+            cargarUsuario();
+            
         }
+        private void cargarUsuario()
+        {
+            try
+            {
+                Singlenton.Instance.CrearUsuarios();
+                archivoManager.CargarUsuario();
+                Singlenton.Instance.desactivarUsuario();
+            }catch(Exception Ex)
+            {
+                MessageBox.Show("Se produjo un error al cargar los usuarios");
+            }
+        }
+
         private void ValidarUsuario()
         {
             foreach (Usuario u in Singlenton.Instance.usuarios)
@@ -75,8 +88,14 @@ namespace noteBook
                                     u.Activo = false;
                                 }
                             }
-                            archivoManager.CargarLibros();
-                            archivoManager.CargarNotas();
+                            try
+                            {
+                                archivoManager.CargarLibros();
+                                archivoManager.CargarNotas();
+                            }catch(Exception Ex)
+                            {
+                                MessageBox.Show("Se produjo un error al cargar los libros");
+                            }
                             menu.MostrarUsuarioActivo();
                             this.Hide();
                             menu.ShowDialog();
@@ -95,21 +114,6 @@ namespace noteBook
                     }
                 }
             }
-        }
-       
-        private void login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void LinkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
