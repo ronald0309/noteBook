@@ -54,12 +54,26 @@ namespace noteBook.UNA.vistas
 
         private void TituloLabel_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void PortadaLibro_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void LibroControl_MouseEnter(object sender, EventArgs e)
+        {
+
+            this.BackColor = Color.Blue;
+            
+                this.Size=new Size(144, 147);
+        }
+
+        private void LibroControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(color);
+            this. Size=new Size(139, 142);
         }
     }
 }
