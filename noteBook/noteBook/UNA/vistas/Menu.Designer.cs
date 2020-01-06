@@ -46,6 +46,9 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.Busquedabtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblFechaGuardar = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -166,6 +169,8 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.lblFechaGuardar);
+            this.panelMenu.Controls.Add(this.label3);
             this.panelMenu.Controls.Add(this.btnGuardar);
             this.panelMenu.Controls.Add(this.lblUsuario);
             this.panelMenu.Controls.Add(this.label2);
@@ -256,6 +261,29 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 60000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 414);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Se gardo la informacion:";
+            // 
+            // lblFechaGuardar
+            // 
+            this.lblFechaGuardar.AutoSize = true;
+            this.lblFechaGuardar.Location = new System.Drawing.Point(3, 427);
+            this.lblFechaGuardar.Name = "lblFechaGuardar";
+            this.lblFechaGuardar.Size = new System.Drawing.Size(30, 13);
+            this.lblFechaGuardar.TabIndex = 11;
+            this.lblFechaGuardar.Text = "Hora";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,6 +297,7 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Menu";
             this.Text = "Menu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.Menu_Load);
             this.Resize += new System.EventHandler(this.Menu_Resize);
             this.panel2.ResumeLayout(false);
@@ -299,5 +328,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label lblFechaGuardar;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -13,7 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class RegistroUsuarioForms : Form
     {
-        private bool permisoAccion = false;
+        
         ArchivoManager archivoManager = new ArchivoManager();
         private bool GuardoDatos { get; set; }
         //[DllImport("user32.dll")]
@@ -125,7 +125,6 @@ namespace noteBook.UNA.vistas
                         if (guradarUsuario())
                         {
                             MessageBox.Show("Se creo el usuario");
-
                             this.Close();
                         }
                     }
@@ -142,6 +141,7 @@ namespace noteBook.UNA.vistas
 
         private void TXTNombre_TextChanged(object sender, EventArgs e)
         {
+            
             if (ValidarUsuario())
             {
                 RegistroUsuarioErrorProvider1.Clear();
@@ -151,6 +151,9 @@ namespace noteBook.UNA.vistas
             
         }
 
-        
+        private void TXTContrasenna_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

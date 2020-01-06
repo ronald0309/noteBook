@@ -46,6 +46,7 @@
             this.TXTContrasenna.Name = "TXTContrasenna";
             this.TXTContrasenna.Size = new System.Drawing.Size(142, 20);
             this.TXTContrasenna.TabIndex = 71;
+            this.TXTContrasenna.TextChanged += new System.EventHandler(this.TXTContrasenna_TextChanged);
             // 
             // label1
             // 
@@ -64,9 +65,7 @@
             this.TXTNombre.Name = "TXTNombre";
             this.TXTNombre.Size = new System.Drawing.Size(142, 20);
             this.TXTNombre.TabIndex = 59;
-            
             this.TXTNombre.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
-            
             // 
             // label3
             // 

@@ -17,10 +17,16 @@ namespace noteBook.UNA.vistas
 
         private readonly string rutaPorDefecto = AppDomain.CurrentDomain.BaseDirectory;
         private Timer tiempo;
+        private Timer timer;
+        private ArchivoManager archivoManager = new ArchivoManager();
         public Menu()
         {
             tiempo = new Timer();
             tiempo.Tick += new EventHandler(timer1_Tick);
+            timer = new Timer();
+            timer.Interval = 60000;
+            timer.Tick += new EventHandler(timer2_Tick);
+
             foreach (Usuario u in Singlenton.Instance.usuarios)
             {
                 if (u.Activo)
@@ -34,7 +40,8 @@ namespace noteBook.UNA.vistas
             }
             InitializeComponent();
             tiempo.Enabled = true;
-            
+            timer.Enabled = true;
+
         }
         public void MostrarUsuarioActivo()
         {
@@ -78,16 +85,18 @@ namespace noteBook.UNA.vistas
             MisLibros miLibros = new MisLibros();
             this.labelTitulo.Text = "Mis libros";
             miLibros.crearLibro();
-         
+
             this.abrirForma(miLibros);
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            if (Singlenton.Instance.LibrosList.Count()== 0)
+            if (Singlenton.Instance.LibrosList.Count() == 0)
             {
                 CargarArchivoLibro();
             }
+
+
         }
 
         private void HoraLabel_Click(object sender, EventArgs e)
@@ -128,10 +137,13 @@ namespace noteBook.UNA.vistas
         {
             try
             {
-               
+
                 string nombreNuevoArchivoReporte = archivoManager.CrearArchivoReportes();
                 string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros(rutaPorDefecto);
-                MessageBox.Show($"Los archivos , {nombreNuevoArchivoReporte},{nombreNuevoArchivoLibros} se creo de manera correcta {rutaPorDefecto}", "Excelente!", MessageBoxButtons.OK);
+                DateTime fecha = DateTime.Now;
+                
+                lblFechaGuardar.Text = $"{fecha.ToShortTimeString()}";
+                //MessageBox.Show($"Los archivos , {nombreNuevoArchivoReporte},{nombreNuevoArchivoLibros} se creo de manera correcta {rutaPorDefecto}", "Excelente!", MessageBoxButtons.OK);
             }
             catch (Exception exception)
             {
@@ -143,19 +155,13 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
-        {
-            
-            ArchivoManager archivoManager = new ArchivoManager();
-            archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
-            foreach (Libro item in Singlenton.Instance.LibrosList)
-            {
-                archivoManager.notas.AddRange(item.AgregarNota);
-            }
-            ConstruirElArchivo(archivoManager);
-        }
+      
 
         private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            guardarInformacion();
+         }
+        private void guardarInformacion()
         {
             string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
 
@@ -178,6 +184,37 @@ namespace noteBook.UNA.vistas
                 archivoManager.notas.AddRange(item.AgregarNota);
             }
             ConstruirElArchivo(archivoManager);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            guardarInformacion();
+            timer1.Start();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
+            DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                
+            }
+            else
+            {
+                if (dr == DialogResult.No)
+
+                {
+                    guardarInformacion();
+                }else
+                {
+                    if (dr == DialogResult.Cancel)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
     }
 }
