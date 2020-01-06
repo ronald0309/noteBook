@@ -37,6 +37,7 @@
             // 
             this.PastaLibro.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PastaLibro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PastaLibro.Enabled = false;
             this.PastaLibro.Location = new System.Drawing.Point(0, 0);
             this.PastaLibro.Name = "PastaLibro";
             this.PastaLibro.Size = new System.Drawing.Size(29, 142);
@@ -49,7 +50,7 @@
             this.GeneroLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeneroLabel.Location = new System.Drawing.Point(32, 71);
             this.GeneroLabel.Name = "GeneroLabel";
-            this.GeneroLabel.Size = new System.Drawing.Size(131, 22);
+            this.GeneroLabel.Size = new System.Drawing.Size(108, 22);
             this.GeneroLabel.TabIndex = 1;
             this.GeneroLabel.Text = "Genero";
             this.GeneroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -62,7 +63,7 @@
             this.TituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TituloLabel.Location = new System.Drawing.Point(29, 23);
             this.TituloLabel.Name = "TituloLabel";
-            this.TituloLabel.Size = new System.Drawing.Size(134, 26);
+            this.TituloLabel.Size = new System.Drawing.Size(111, 26);
             this.TituloLabel.TabIndex = 0;
             this.TituloLabel.Text = "Titulo";
             this.TituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -72,12 +73,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lime;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.GeneroLabel);
             this.Controls.Add(this.TituloLabel);
             this.Controls.Add(this.PastaLibro);
             this.Name = "LibroControl";
-            this.Size = new System.Drawing.Size(162, 142);
+            this.Size = new System.Drawing.Size(139, 142);
+            this.MouseEnter += new System.EventHandler(this.LibroControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.LibroControl_MouseLeave);
             this.ResumeLayout(false);
 
         }

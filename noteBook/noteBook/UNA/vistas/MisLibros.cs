@@ -31,8 +31,7 @@ namespace noteBook.UNA.vistas
         }
         public void crearLibro()
         {
-            //this.CerrarLibro();
-            //this.tabControl1.Controls.Clear();
+            
             foreach (var libros in Singlenton.Instance.LibrosList)
             {
 
