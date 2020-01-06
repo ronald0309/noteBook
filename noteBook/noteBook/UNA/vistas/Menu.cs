@@ -143,7 +143,7 @@ namespace noteBook.UNA.vistas
                 DateTime fecha = DateTime.Now;
                 
                 lblFechaGuardar.Text = $"{fecha.ToShortTimeString()}";
-                //MessageBox.Show($"Los archivos , {nombreNuevoArchivoReporte},{nombreNuevoArchivoLibros} se creo de manera correcta {rutaPorDefecto}", "Excelente!", MessageBoxButtons.OK);
+                
             }
             catch (Exception exception)
             {
