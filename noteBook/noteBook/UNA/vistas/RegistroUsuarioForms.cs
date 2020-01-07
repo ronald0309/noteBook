@@ -52,20 +52,21 @@ namespace noteBook.UNA.vistas
 
                         if (ValidarUsuario())
                         {
-                            return false;
-                        }
-                        else
-                        {
                             usuario.Contraseña = TXTContrasenna.Text;
                             usuario.NombreUsuario = TXTNombre.Text;
                             Singlenton.Instance.usuarios.Add(usuario);
                             Singlenton.Instance.usuariosAuxiliar.Add(usuario);
                             string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
                             Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", usuario);
+                            string nuevoArchivoreporte = archivoManager.CrearArchivoReportes();
                             return true;
                         }
+                        else
+                        {
+                            
+                            return false;
+                        }
 
-                        ///TODO generar reporte
                     }
                     else
                     {

@@ -58,7 +58,7 @@ namespace noteBook.UNA.Clases
             Reportes reporte = new Reportes();
             reporte.GenerarReporte(accion, hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), informacion, objeto);
             Reportes.Add(reporte);
-            reportesAuxiliar.Add(reporte);
+           
 
         }
         public void desactivarUsuario()
@@ -68,9 +68,6 @@ namespace noteBook.UNA.Clases
                 usuario.Activo = false;
             }
         }
-
-
-
     }
 
 }

@@ -20,7 +20,7 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
             CargarInformacion();
-            CargarReportes();
+           
         }
         public void CargarInformacion()
         {
@@ -29,48 +29,6 @@ namespace noteBook.UNA.vistas
             {
                 n = dGVReportes.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
             }
-
-
-            string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Reportes*");
-
-            foreach (string archivo in direcionArchivo)
-            {
-
-                string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] datos = null;
-                foreach (string tex in texto)
-                {
-                    datos = tex.Split(',');
-                    dGVReportes.Rows.Add(datos);
-
-
-                }
-
-
-            }
-        }
-
-        private void ReportesForm_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void CargarReportes()
-        {
-            string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Reportes*");
-
-            foreach (string archivo in direcionArchivo)
-            {
-
-                string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] dat = null;
-                foreach (string tex in texto)
-                {
-                    dat = tex.Split(',');
-                    dGVReportes.Rows.Add(dat);
-                }
-
-            }
-
         }
     }
 }

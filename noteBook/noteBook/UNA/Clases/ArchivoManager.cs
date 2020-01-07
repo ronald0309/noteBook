@@ -39,43 +39,48 @@ namespace noteBook.UNA.Clases
             pathNota = pathNota.Replace("/", "_");
             pathNota = pathNota.Replace(":", "_");
             string auxNombre;
-           
 
-                using (StreamWriter streamWriter = new StreamWriter(pathLibro))
+
+            using (StreamWriter streamWriter = new StreamWriter(pathLibro))
+            {
+
+                foreach (Libro libro in libros)
                 {
-                    ///TODO Crear autoguardado 
-                    foreach (Libro libro in libros)
+                    var line = $"{libro.UsuarioCreadorLibro},{libro.pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
+                    streamWriter.WriteLine(line);
+                    auxNombre = libro.Nombre;
+                }
+                streamWriter.Flush();
+
+            }
+
+
+            using (StreamWriter streamWriter = new StreamWriter(pathNota))
+            {
+                foreach (Libro libro in libros)
+                {
+                    auxNombre = libro.Nombre;
+                    foreach (Nota nota in libro.AgregarNota)
                     {
-                        var line = $"{libro.UsuarioCreadorLibro},{libro.pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
+                        var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh}";
                         streamWriter.WriteLine(line);
-                        auxNombre = libro.Nombre;
                     }
-                    streamWriter.Flush();
-
                 }
-            
-            
-                using (StreamWriter streamWriter = new StreamWriter(pathNota))
-                {
-                    foreach (Libro libro in libros)
-                    {
-                        auxNombre = libro.Nombre;
-                        foreach (Nota nota in libro.AgregarNota)
-                        {
-                            var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh}";
-                            streamWriter.WriteLine(line);
-                        }
-                    }
-                    streamWriter.Flush();
+                streamWriter.Flush();
 
-                }
+            }
 
-                return pathLibro;
-            
+            return pathLibro;
+
         }
         public string CrearArchivoReportes()
         {
-            reportes.AddRange(Singlenton.Instance.reportesAuxiliar);
+            string[] cargarReportes = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Reportes*");
+            foreach (string archivo in cargarReportes)
+            {
+                File.Delete(archivo);
+            }
+            reportes.AddRange(Singlenton.Instance.Reportes);
             string pathReportes = $"Reportes_{DateTime.Now.ToString()}.csv";
             pathReportes = pathReportes.Replace("/", "_");
             pathReportes = pathReportes.Replace(":", "_");
@@ -89,8 +94,7 @@ namespace noteBook.UNA.Clases
                 streamWriter.Flush();
 
             }
-            Singlenton.Instance.reportesAuxiliar = null;
-            Singlenton.Instance.reportesAuxiliar = new List<Reportes>();
+
             return pathReportes;
         }
         public string CrearArchivoUsuario()
@@ -149,7 +153,6 @@ namespace noteBook.UNA.Clases
                     datosUsuario = tex.Split(',');
                     usuario.NombreUsuario = datosUsuario[0];
                     usuario.Contraseña = datosUsuario[1];
-
                     Singlenton.Instance.usuarios.Add(usuario);
                 }
             }
@@ -193,6 +196,32 @@ namespace noteBook.UNA.Clases
                     }
                 }
             }
+        }
+        public void CargarReportes()
+        {
+            string[] direcionArchivo = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Reportes*");
+
+            foreach (string archivo in direcionArchivo)
+            {
+
+                string[] texto = System.IO.File.ReadAllLines(archivo);
+                string[] datosUsuario = null;
+                foreach (string tex in texto)
+                {
+                    Reportes reporte = new Reportes();
+                    datosUsuario = tex.Split(',');
+                    reporte.UsuarioActual = datosUsuario[0];
+                    reporte.AccionRealizada = datosUsuario[1];
+                    reporte.Objeto = datosUsuario[2];
+                    reporte.FechaCreacion = datosUsuario[3];
+                    reporte.HoraCreacion = datosUsuario[4];
+                    reporte.InformacionAdicional = datosUsuario[5];
+                    Singlenton.Instance.Reportes.Add(reporte);
+                }
+
+
+            }
+
         }
 
     }

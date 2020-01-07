@@ -150,7 +150,9 @@ namespace noteBook.UNA.vistas
             {
                 File.Delete(archivo);
             }
+            
 
+            
 
             ArchivoManager archivoManager = new ArchivoManager();
             archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);

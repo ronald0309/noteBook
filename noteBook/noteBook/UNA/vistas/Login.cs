@@ -25,10 +25,10 @@ namespace noteBook
             InitializeComponent();
             mensajeLogin.SetToolTip(txtUsuario, "Ingrese el nombre de usuario");
             mensajeLogin.SetToolTip(txtContraseña, "Ingrese la contraseña");
-            cargarUsuario();
+            cargarDatos();
             
         }
-        private void cargarUsuario()
+        private void cargarDatos()
         {
             try
             {
@@ -38,6 +38,16 @@ namespace noteBook
             }catch(Exception Ex)
             {
                 MessageBox.Show("Se produjo un error al cargar los usuarios");
+            }
+            try
+            {
+                archivoManager.CargarLibros();
+                archivoManager.CargarNotas();
+                archivoManager.CargarReportes();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Se produjo un error al cargar los libros");
             }
         }
 
@@ -88,14 +98,7 @@ namespace noteBook
                                     u.Activo = false;
                                 }
                             }
-                            try
-                            {
-                                archivoManager.CargarLibros();
-                                archivoManager.CargarNotas();
-                            }catch(Exception Ex)
-                            {
-                                MessageBox.Show("Se produjo un error al cargar los libros");
-                            }
+                            
                             menu.MostrarUsuarioActivo();
                             this.Hide();
                             menu.ShowDialog();
