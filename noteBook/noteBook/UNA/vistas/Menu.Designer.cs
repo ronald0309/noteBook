@@ -40,6 +40,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.lblFechaGuardar = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.Busquedabtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblFechaGuardar = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -84,7 +84,6 @@
             this.panelVistas.Name = "panelVistas";
             this.panelVistas.Size = new System.Drawing.Size(634, 364);
             this.panelVistas.TabIndex = 7;
-            
             // 
             // panelSuperio
             // 
@@ -105,7 +104,6 @@
             this.HoraLabel.Size = new System.Drawing.Size(173, 27);
             this.HoraLabel.TabIndex = 0;
             this.HoraLabel.Text = "label2";
-           
             // 
             // label1
             // 
@@ -184,6 +182,24 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(166, 450);
             this.panelMenu.TabIndex = 5;
+            // 
+            // lblFechaGuardar
+            // 
+            this.lblFechaGuardar.AutoSize = true;
+            this.lblFechaGuardar.Location = new System.Drawing.Point(3, 427);
+            this.lblFechaGuardar.Name = "lblFechaGuardar";
+            this.lblFechaGuardar.Size = new System.Drawing.Size(30, 13);
+            this.lblFechaGuardar.TabIndex = 11;
+            this.lblFechaGuardar.Text = "Hora";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 414);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Se gardo la informacion:";
             // 
             // btnGuardar
             // 
@@ -265,24 +281,6 @@
             // 
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 414);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Se gardo la informacion:";
-            // 
-            // lblFechaGuardar
-            // 
-            this.lblFechaGuardar.AutoSize = true;
-            this.lblFechaGuardar.Location = new System.Drawing.Point(3, 427);
-            this.lblFechaGuardar.Name = "lblFechaGuardar";
-            this.lblFechaGuardar.Size = new System.Drawing.Size(30, 13);
-            this.lblFechaGuardar.TabIndex = 11;
-            this.lblFechaGuardar.Text = "Hora";
             // 
             // Menu
             // 

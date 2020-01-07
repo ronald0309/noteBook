@@ -268,8 +268,6 @@ namespace noteBook.UNA.vistas
 
         }
 
-
-
-
+        
     }
 }

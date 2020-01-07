@@ -17,7 +17,7 @@ namespace noteBook.UNA.Clases
         public List<Libro> librosAuxiliar = new List<Libro>();
         public List<Reportes> reportesAuxiliar = new List<Reportes>();
         public List<Usuario> usuariosAuxiliar = new List<Usuario>();
-
+        public bool NotaEditada { get; set; }
         protected Singlenton() { }
         public static Singlenton Instance
         {
@@ -58,7 +58,7 @@ namespace noteBook.UNA.Clases
             Reportes reporte = new Reportes();
             reporte.GenerarReporte(accion, hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), informacion, objeto);
             Reportes.Add(reporte);
-           
+
 
         }
         public void desactivarUsuario()

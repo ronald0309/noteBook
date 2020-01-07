@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.OrdenComboBox = new System.Windows.Forms.ComboBox();
             this.LibroTabPage = new System.Windows.Forms.TabPage();
             this.LibroContenedorLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.OrdenComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.LibroTabPage.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -51,6 +51,27 @@
             this.tabControl1.TabIndex = 1;
             this.tabControl1.TabStop = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // LibroTabPage
+            // 
+            this.LibroTabPage.Controls.Add(this.LibroContenedorLayout);
+            this.LibroTabPage.Location = new System.Drawing.Point(4, 22);
+            this.LibroTabPage.Name = "LibroTabPage";
+            this.LibroTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.LibroTabPage.Size = new System.Drawing.Size(792, 392);
+            this.LibroTabPage.TabIndex = 0;
+            this.LibroTabPage.Text = "Libro";
+            this.LibroTabPage.UseVisualStyleBackColor = true;
+            this.LibroTabPage.Click += new System.EventHandler(this.LibroTabPage_Click);
+            // 
+            // LibroContenedorLayout
+            // 
+            this.LibroContenedorLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LibroContenedorLayout.Location = new System.Drawing.Point(3, 3);
+            this.LibroContenedorLayout.Name = "LibroContenedorLayout";
+            this.LibroContenedorLayout.Size = new System.Drawing.Size(786, 386);
+            this.LibroContenedorLayout.TabIndex = 0;
+            this.LibroContenedorLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.LibroContenedorLayout_Paint);
             // 
             // panel1
             // 
@@ -76,27 +97,6 @@
             this.OrdenComboBox.TabIndex = 0;
             this.OrdenComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdenComboBox_SelectedIndexChanged);
             // 
-            // LibroTabPage
-            // 
-            this.LibroTabPage.Controls.Add(this.LibroContenedorLayout);
-            this.LibroTabPage.Location = new System.Drawing.Point(4, 22);
-            this.LibroTabPage.Name = "LibroTabPage";
-            this.LibroTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LibroTabPage.Size = new System.Drawing.Size(792, 392);
-            this.LibroTabPage.TabIndex = 0;
-            this.LibroTabPage.Text = "Libro";
-            this.LibroTabPage.UseVisualStyleBackColor = true;
-            this.LibroTabPage.Click += new System.EventHandler(this.LibroTabPage_Click);
-            // 
-            // LibroContenedorLayout
-            // 
-            this.LibroContenedorLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LibroContenedorLayout.Location = new System.Drawing.Point(3, 3);
-            this.LibroContenedorLayout.Name = "LibroContenedorLayout";
-            this.LibroContenedorLayout.Size = new System.Drawing.Size(786, 386);
-            this.LibroContenedorLayout.TabIndex = 0;
-            this.LibroContenedorLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.LibroContenedorLayout_Paint);
-            // 
             // MisLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,9 +108,10 @@
             this.Name = "MisLibros";
             this.Text = "MisLibros";
             this.Load += new System.EventHandler(this.MisLibros_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MisLibros_MouseMove);
             this.tabControl1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.LibroTabPage.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

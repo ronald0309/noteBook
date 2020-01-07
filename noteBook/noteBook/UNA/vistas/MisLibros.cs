@@ -20,6 +20,7 @@ namespace noteBook.UNA.vistas
 
             InitializeComponent();
 
+
         }
         public void CerrarLibro()
         {
@@ -27,12 +28,11 @@ namespace noteBook.UNA.vistas
             {
                 cerrarLibro.abrir = false;
 
-
             }
         }
         public void crearLibro()
         {
-
+            LibroContenedorLayout.Controls.Clear();
             foreach (var libros in Singlenton.Instance.LibrosList)
             {
 
@@ -221,8 +221,13 @@ namespace noteBook.UNA.vistas
                 tab.Text = lib.Nombre;
                 tab.BackColor = Color.FromArgb(lib.Color);
                 Label q = new Label();
-
-                tab.MouseClick += (s, e) =>
+                tab.MouseMove += (s, e) =>
+                {
+                    tab.Select();
+                    actualizarPage();
+                };
+                
+                    tab.MouseClick += (s, e) =>
                 {
                     int xx = e.X;
                     int yy = e.Y;
@@ -266,6 +271,7 @@ namespace noteBook.UNA.vistas
 
                 };
 
+
                 foreach (var p in lib.AgregarNota)
                 {
                     if (p.Privacidad == false)
@@ -296,7 +302,7 @@ namespace noteBook.UNA.vistas
 
                     }
                 }
-
+               
 
                 tabControl1.Controls.Add(tab);
 
@@ -308,7 +314,7 @@ namespace noteBook.UNA.vistas
         {
 
         }
-
+        
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             tabControl1.Controls.Clear();
@@ -341,7 +347,10 @@ namespace noteBook.UNA.vistas
 
         private void MisLibros_Load(object sender, EventArgs e)
         {
-
+            if (Singlenton.Instance.NotaEditada)
+            {
+                crearLibro();
+            }
         }
 
         private void LibroTabPage_Click(object sender, EventArgs e)
@@ -352,6 +361,56 @@ namespace noteBook.UNA.vistas
         private void LibroContenedorLayout_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        public void actualizarPage()
+        {
+            if (Singlenton.Instance.NotaEditada)
+            {
+
+                foreach (Libro libro in Singlenton.Instance.LibrosList)
+                {
+                    if (libro.Nombre == tabControl1.SelectedTab.Text)
+                    {
+                        tabControl1.SelectedTab.Controls.Clear();
+                        foreach (var p in libro.AgregarNota)
+                        {
+                            if (p.Privacidad == false)
+                            {
+                                NotaControl notaControl = new NotaControl();
+                                notaControl.Height = p.Heigh;
+                                notaControl.Width = p.Width;
+                                notaControl.Location = new Point(p.PosicionX, p.PosicionY);
+                                notaControl.Categoria = p.Categoria;
+                                notaControl.FuenteTipo = p.Fuente;
+                                notaControl.TituloNota = p.Titulo;
+                                notaControl.ColorNota = p.ColorFondo;
+                                notaControl.ColorFuente = p.ColorFuente;
+                                notaControl.fechaCreacion = p.FechaCreacion;
+
+                                tabControl1.SelectedTab.Controls.Add(notaControl);
+                            }
+                            else
+                            {
+                                if (p.Privacidad == true)
+                                {
+                                    NotaPrivadaControl notaPrivada = new NotaPrivadaControl();
+                                    notaPrivada.Nombre = p.Titulo;
+                                    notaPrivada.ColorFondo = p.ColorFondo;
+                                    notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                    tabControl1.SelectedTab.Controls.Add(notaPrivada);
+                                }
+
+                            }
+                        }
+                    }
+                }
+                Singlenton.Instance.NotaEditada = false;
+            }
+        }
+
+        private void MisLibros_MouseMove(object sender, MouseEventArgs e)
+        {
+           
         }
     }
 }

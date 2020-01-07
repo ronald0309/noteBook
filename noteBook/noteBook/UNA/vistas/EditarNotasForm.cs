@@ -165,6 +165,7 @@ namespace noteBook.UNA.vistas
                         nota.FechaModificacion = Convert.ToString(hoy);
                         informacion = informacion + $"se modifico en al fecha{nota.FechaModificacion} ;";
                         Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, nota);
+                        Singlenton.Instance.NotaEditada = true;
                     }
 
                 }

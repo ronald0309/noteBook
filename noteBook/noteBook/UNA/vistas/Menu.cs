@@ -135,6 +135,7 @@ namespace noteBook.UNA.vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             guardarInformacion();
+            MessageBox.Show("Se guardaron los cambios");
         }
         private void guardarInformacion()
         {
@@ -150,10 +151,6 @@ namespace noteBook.UNA.vistas
             {
                 File.Delete(archivo);
             }
-            
-
-            
-
             ArchivoManager archivoManager = new ArchivoManager();
             archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)
@@ -161,6 +158,7 @@ namespace noteBook.UNA.vistas
                 archivoManager.notas.AddRange(item.AgregarNota);
             }
             ConstruirElArchivo(archivoManager);
+           
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -194,5 +192,7 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
+
+        
     }
 }

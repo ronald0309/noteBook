@@ -55,7 +55,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(155, 175);
             this.panel1.TabIndex = 1;
-            
             // 
             // CategoriarichTextBox
             // 
@@ -69,7 +68,6 @@
             this.CategoriarichTextBox.Size = new System.Drawing.Size(155, 36);
             this.CategoriarichTextBox.TabIndex = 7;
             this.CategoriarichTextBox.Text = "";
-            
             // 
             // btnEditar
             // 
@@ -104,7 +102,6 @@
             this.TituloRichTextBox.TabIndex = 6;
             this.TituloRichTextBox.Text = "";
             this.TituloRichTextBox.WordWrap = false;
-            
             // 
             // MoverBoton
             // 
@@ -116,7 +113,6 @@
             this.MoverBoton.Size = new System.Drawing.Size(33, 34);
             this.MoverBoton.TabIndex = 5;
             this.MoverBoton.UseVisualStyleBackColor = true;
-            
             this.MoverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
             this.MoverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
             this.MoverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
@@ -131,7 +127,6 @@
             this.AgrandarBoton.Size = new System.Drawing.Size(33, 34);
             this.AgrandarBoton.TabIndex = 4;
             this.AgrandarBoton.UseVisualStyleBackColor = true;
-            
             this.AgrandarBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseDown);
             this.AgrandarBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseMove);
             this.AgrandarBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseUp);
@@ -162,6 +157,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "NotaControl";
             this.Size = new System.Drawing.Size(155, 175);
+            
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
