@@ -27,21 +27,22 @@ namespace noteBook.UNA.vistas
             timer.Interval = 60000;
             timer.Tick += new EventHandler(timer2_Tick);
 
+            InitializeComponent();
+            tiempo.Enabled = true;
+            timer.Enabled = true;
+            usuarioActivo();
+
+        }
+        private void usuarioActivo()
+        {
             foreach (Usuario u in Singlenton.Instance.usuarios)
             {
                 if (u.Activo)
                 {
                     lblUsuario.Text = u.NombreUsuario;
                 }
-                else
-                {
-                    MessageBox.Show("no hay usuarios activos");
-                }
-            }
-            InitializeComponent();
-            tiempo.Enabled = true;
-            timer.Enabled = true;
 
+            }
         }
         public void MostrarUsuarioActivo()
         {
@@ -158,7 +159,7 @@ namespace noteBook.UNA.vistas
                 archivoManager.notas.AddRange(item.AgregarNota);
             }
             ConstruirElArchivo(archivoManager);
-           
+
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -171,17 +172,18 @@ namespace noteBook.UNA.vistas
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
-            DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("Guardar cambios realizados", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-
+                guardarInformacion();
+                this.Hide();
             }
             else
             {
                 if (dr == DialogResult.No)
 
                 {
-                    guardarInformacion();
+                    e.Cancel = false;
                 }
                 else
                 {
@@ -193,6 +195,11 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+
+        }
     }
 }

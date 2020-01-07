@@ -36,19 +36,20 @@
             this.panelSuperio = new System.Windows.Forms.Panel();
             this.HoraLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMisLibros = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.lblFechaGuardar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnReportes = new System.Windows.Forms.Button();
-            this.Busquedabtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.Busquedabtn = new System.Windows.Forms.Button();
+            this.btnMisLibros = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -117,42 +118,6 @@
             this.label1.Text = "NoteBook\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnMisLibros
-            // 
-            this.btnMisLibros.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnMisLibros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMisLibros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMisLibros.FlatAppearance.BorderSize = 0;
-            this.btnMisLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMisLibros.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnMisLibros.Image = ((System.Drawing.Image)(resources.GetObject("btnMisLibros.Image")));
-            this.btnMisLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMisLibros.Location = new System.Drawing.Point(0, 108);
-            this.btnMisLibros.Name = "btnMisLibros";
-            this.btnMisLibros.Size = new System.Drawing.Size(164, 57);
-            this.btnMisLibros.TabIndex = 3;
-            this.btnMisLibros.Text = "Mis Libros";
-            this.btnMisLibros.UseVisualStyleBackColor = false;
-            this.btnMisLibros.Click += new System.EventHandler(this.btnMisLibros_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 52);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(164, 56);
-            this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // panelTitulo
             // 
             this.panelTitulo.BackColor = System.Drawing.Color.Blue;
@@ -167,6 +132,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.button2);
             this.panelMenu.Controls.Add(this.lblFechaGuardar);
             this.panelMenu.Controls.Add(this.label3);
             this.panelMenu.Controls.Add(this.btnGuardar);
@@ -186,7 +152,8 @@
             // lblFechaGuardar
             // 
             this.lblFechaGuardar.AutoSize = true;
-            this.lblFechaGuardar.Location = new System.Drawing.Point(3, 427);
+            this.lblFechaGuardar.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.lblFechaGuardar.Location = new System.Drawing.Point(124, 424);
             this.lblFechaGuardar.Name = "lblFechaGuardar";
             this.lblFechaGuardar.Size = new System.Drawing.Size(30, 13);
             this.lblFechaGuardar.TabIndex = 11;
@@ -195,11 +162,41 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 414);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 424);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Se gardo la informacion:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.lblUsuario.Location = new System.Drawing.Point(111, 437);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 7;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.label2.Location = new System.Drawing.Point(3, 437);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "El usuario activo es:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 60000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // btnGuardar
             // 
@@ -218,24 +215,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(111, 437);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lblUsuario.TabIndex = 7;
-            this.lblUsuario.Text = "Usuario";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 437);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "El usuario activo es:";
             // 
             // btnReportes
             // 
@@ -273,14 +252,59 @@
             this.Busquedabtn.UseVisualStyleBackColor = false;
             this.Busquedabtn.Click += new System.EventHandler(this.Busquedabtn_Click);
             // 
-            // timer1
+            // btnMisLibros
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.btnMisLibros.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnMisLibros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMisLibros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMisLibros.FlatAppearance.BorderSize = 0;
+            this.btnMisLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMisLibros.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnMisLibros.Image = ((System.Drawing.Image)(resources.GetObject("btnMisLibros.Image")));
+            this.btnMisLibros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMisLibros.Location = new System.Drawing.Point(0, 108);
+            this.btnMisLibros.Name = "btnMisLibros";
+            this.btnMisLibros.Size = new System.Drawing.Size(164, 57);
+            this.btnMisLibros.TabIndex = 3;
+            this.btnMisLibros.Text = "Mis Libros";
+            this.btnMisLibros.UseVisualStyleBackColor = false;
+            this.btnMisLibros.Click += new System.EventHandler(this.btnMisLibros_Click);
             // 
-            // timer2
+            // btnAgregar
             // 
-            this.timer2.Interval = 60000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.btnAgregar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 52);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(164, 56);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 336);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 57);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Cerrar sesión";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Menu
             // 
@@ -329,5 +353,6 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label lblFechaGuardar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }

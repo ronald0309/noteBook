@@ -197,6 +197,21 @@ namespace noteBook.UNA.vistas
             }
 
         }
+        private bool ValidarModificarNota()
+        {
+            bool respuesta = true;
+            foreach (var libro in Singlenton.Instance.LibrosList)
+            {
+                foreach (var nota in libro.AgregarNota)
+                {
+                    if (TXTTitulo.Text == nota.Titulo)
+                    {
+                        respuesta = false;
+                    }
+                }
+            }
+            return respuesta;
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
 
         {
@@ -216,10 +231,16 @@ namespace noteBook.UNA.vistas
                     if (dr == DialogResult.No)
 
                     {
-                        ModificarNota();
-                        MessageBox.Show("Se modifico la nota");
+                        if (ValidarModificarNota())
+                        {
+                            ModificarNota();
+                            MessageBox.Show("Se modifico la nota");
 
-                        this.Close();
+                            this.Close();
+                        } else
+                        {
+                            mensajeEditarNotas.SetToolTip(TXTTitulo, "El nommbre de la nota ya existe");
+                        }
                     }
                 }
             }
@@ -231,9 +252,17 @@ namespace noteBook.UNA.vistas
 
             try
             {
-                ModificarNota();
-                MessageBox.Show("Se modifico la nota");
-                this.Close();
+                if (ValidarModificarNota())
+                {
+                    ModificarNota();
+                    MessageBox.Show("Se modifico la nota");
+
+                    this.Close();
+                }
+                else
+                {
+                    errorProviderEditarNotas.SetError(TXTTitulo, "El nommbre de la nota ya existe");
+                }
             }
             catch (Exception Ex)
             {

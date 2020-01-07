@@ -31,37 +31,36 @@ namespace noteBook.UNA.vistas
         }
         private void busqueda()
         {
-            BusquedaNotas.Controls.Clear();
-            foreach (var busquedaLibro in Singlenton.Instance.LibrosList)
+            if (busquedaTxt.Text.Length > 0 || CategoriaTxt.Text.Length > 0)
             {
-                foreach (var busquedaNota in busquedaLibro.AgregarNota)
+                BusquedaNotas.Controls.Clear();
+                foreach (var busquedaLibro in Singlenton.Instance.LibrosList)
                 {
-                    string tituloNota = busquedaNota.Titulo.ToLower();
-
-                    string categoria = busquedaNota.Categoria.ToLower();
-                    if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(CategoriaTxt.Text.ToLower()))
+                    foreach (var busquedaNota in busquedaLibro.AgregarNota)
                     {
-                        //busq2.Titulo.
+                        string tituloNota = busquedaNota.Titulo.ToLower();
 
+                        string categoria = busquedaNota.Categoria.ToLower();
+                        if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(CategoriaTxt.Text.ToLower()))
+                        {
+                            NotaControl notaControl = new NotaControl();
+                            notaControl.FuenteTipo = busquedaNota.Fuente;
+                            notaControl.Buscar(true);
+                            notaControl.PalabraBus = busquedaTxt.Text;
+                            notaControl.BuscarCategoria = CategoriaTxt.Text;
+                            notaControl.Categoria = busquedaNota.Categoria;
+                            notaControl.TituloNota = busquedaNota.Titulo;
+                            notaControl.ColorNota = busquedaNota.ColorFondo;
+                            notaControl.ColorFuente = busquedaNota.ColorFuente;
 
-                        NotaControl notaControl = new NotaControl();
-                        notaControl.FuenteTipo = busquedaNota.Fuente;
-                        notaControl.Buscar(true);
-                        notaControl.PalabraBus = busquedaTxt.Text;
-                        notaControl.BuscarCategoria = CategoriaTxt.Text;
-                        notaControl.Categoria = busquedaNota.Categoria;
-                        notaControl.TituloNota = busquedaNota.Titulo;
-                        notaControl.ColorNota = busquedaNota.ColorFondo;
-                        notaControl.ColorFuente = busquedaNota.ColorFuente;
+                            BusquedaNotas.Controls.Add(notaControl);
 
-                        BusquedaNotas.Controls.Add(notaControl);
-
+                        }
                     }
                 }
             }
 
         }
-
 
         private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)
         {

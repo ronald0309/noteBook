@@ -23,6 +23,7 @@ namespace noteBook
         {
 
             InitializeComponent();
+            menu.Hide();
             mensajeLogin.SetToolTip(txtUsuario, "Ingrese el nombre de usuario");
             mensajeLogin.SetToolTip(txtContraseña, "Ingrese la contraseña");
             cargarDatos();
@@ -98,11 +99,18 @@ namespace noteBook
                                     u.Activo = false;
                                 }
                             }
-                            
+                          
                             menu.MostrarUsuarioActivo();
                             this.Hide();
+
                             menu.ShowDialog();
-                            this.Close();
+
+                            if (menu.ShowDialog() == DialogResult.OK)
+                            {
+                                this.Close();
+                            }
+                            this.Show();
+                            
                         }
 
                         else

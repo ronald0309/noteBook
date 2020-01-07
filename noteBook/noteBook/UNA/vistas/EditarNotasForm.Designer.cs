@@ -81,10 +81,12 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.TXTCategoria = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.errorProviderEditarNotas = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBColorFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBColorFuente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -278,6 +280,10 @@
             this.label6.TabIndex = 50;
             this.label6.Text = "Categoria";
             // 
+            // errorProviderEditarNotas
+            // 
+            this.errorProviderEditarNotas.ContainerControl = this;
+            // 
             // EditarNotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBColorFondo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBColorFuente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,7 +375,7 @@
         private System.Windows.Forms.TextBox TXTCategoria;
 
         private System.Windows.Forms.Label label6;
-
+        private System.Windows.Forms.ErrorProvider errorProviderEditarNotas;
     }
 
 }

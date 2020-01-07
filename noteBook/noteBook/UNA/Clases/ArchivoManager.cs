@@ -9,6 +9,7 @@ namespace noteBook.UNA.Clases
 {
     class ArchivoManager
     {
+        private readonly string userPassword = "EL20PROYECTO20ESTABA20DIFICIL";
         public List<Libro> libros { get; set; }
         public List<Nota> notas { get; set; }
         public List<Reportes> reportes { get; set; }
@@ -107,7 +108,8 @@ namespace noteBook.UNA.Clases
             {
                 foreach (Usuario usuario in usuarios)
                 {
-                    var line = $"{usuario.NombreUsuario},{usuario.Contraseña}";
+                    string contraseñaIncriptada = Encriptacion.EncriptarString(usuario.Contraseña,userPassword);
+                    var line = $"{usuario.NombreUsuario},{contraseñaIncriptada}";
                     streamWriter.WriteLine(line);
                 }
                 streamWriter.Flush();
@@ -152,7 +154,7 @@ namespace noteBook.UNA.Clases
                     Usuario usuario = new Usuario();
                     datosUsuario = tex.Split(',');
                     usuario.NombreUsuario = datosUsuario[0];
-                    usuario.Contraseña = datosUsuario[1];
+                    usuario.Contraseña =Encriptacion.DesencriptarString( datosUsuario[1],userPassword);
                     Singlenton.Instance.usuarios.Add(usuario);
                 }
             }

@@ -17,9 +17,7 @@ namespace noteBook.UNA.vistas
 
         public MisLibros()
         {
-
             InitializeComponent();
-
 
         }
         public void CerrarLibro()
@@ -41,6 +39,21 @@ namespace noteBook.UNA.vistas
                 Libr.Genero = libros.Genero;
                 Libr.ColorLibro = libros.Color;
                 TabPage pestaña = new TabPage();
+                pestaña.MouseHover += (s, e) =>
+                {
+                    pestaña.Select();
+                    actualizarPage();
+                };
+                pestaña.MouseLeave += (s, e) =>
+                {
+                    pestaña.Select();
+                    actualizarPage();
+                };
+                Libr.MouseHover += (s, e) =>
+                {
+                    
+                    actualizarPage();
+                };
                 Libr.MouseClick += (a, b) =>
                    {
 
@@ -51,6 +64,7 @@ namespace noteBook.UNA.vistas
 
                            pestaña.Text = libros.Nombre;
                            pestaña.BackColor = Color.FromArgb(libros.Color);
+                           pestaña.Select();
                            pestaña.MouseClick += (s, e) =>
                            {
                                int x = e.X;
@@ -69,7 +83,11 @@ namespace noteBook.UNA.vistas
                                        notaControl.Height = p.Heigh;
                                        notaControl.Width = p.Width;
                                        notaControl.Categoria = p.Categoria;
-
+                                       notaControl.MouseHover += (j, k) =>
+                                       {
+                                           notaControl.Select();
+                                           actualizarPage();
+                                       };
                                        notaControl.FuenteTipo = p.Fuente;
                                        notaControl.TituloNota = p.Titulo;
                                        notaControl.ColorNota = p.ColorFondo;
@@ -83,6 +101,11 @@ namespace noteBook.UNA.vistas
                                        notaPrivada.Nombre = p.Titulo;
                                        notaPrivada.ColorFondo = p.ColorFondo;
                                        notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                       notaPrivada.MouseHover += (j, k) =>
+                                       {
+                                           notaPrivada.Select();
+                                           actualizarPage();
+                                       };
                                        pestaña.Controls.Add(notaPrivada);
                                    }
                                }
@@ -104,6 +127,11 @@ namespace noteBook.UNA.vistas
                                        notaControl.ColorFuente = p.ColorFuente;
                                        notaControl.fechaCreacion = p.FechaCreacion;
                                        notaControl.Categoria = p.Categoria;
+                                       notaControl.MouseHover += (j, k) =>
+                                       {
+                                           notaControl.Select();
+                                           actualizarPage();
+                                       };
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
@@ -112,7 +140,11 @@ namespace noteBook.UNA.vistas
                                        notaPrivada.Nombre = p.Titulo;
                                        notaPrivada.ColorFondo = p.ColorFondo;
                                        notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-
+                                       notaPrivada.MouseHover += (j, k) =>
+                                       {
+                                           notaPrivada.Select();
+                                           actualizarPage();
+                                       };
                                        pestaña.Controls.Add(notaPrivada);
                                    }
 
@@ -130,6 +162,7 @@ namespace noteBook.UNA.vistas
                     TabPage pestañaLibro = new TabPage();
                     pestañaLibro.Text = libros.Nombre;
                     pestañaLibro.BackColor = Color.FromArgb(libros.Color);
+                    pestañaLibro.Select();
                     pestañaLibro.MouseClick += (s, e) =>
                     {
                         int x = e.X;
@@ -154,6 +187,11 @@ namespace noteBook.UNA.vistas
                                 notaControl.ColorNota = p.ColorFondo;
                                 notaControl.ColorFuente = p.ColorFuente;
                                 notaControl.fechaCreacion = p.FechaCreacion;
+                                notaControl.MouseHover += (j, k) =>
+                                {
+                                    notaControl.Select();
+                                    actualizarPage();
+                                };
                                 pestañaLibro.Controls.Add(notaControl);
                             }
                             else
@@ -162,6 +200,11 @@ namespace noteBook.UNA.vistas
                                 notaPrivada.Nombre = p.Titulo;
                                 notaPrivada.ColorFondo = p.ColorFondo;
                                 notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
+                                notaPrivada.MouseHover += (j, k) =>
+                                {
+                                    notaPrivada.Select();
+                                    actualizarPage();
+                                };
                                 pestaña.Controls.Add(notaPrivada);
                             }
                         }
@@ -181,6 +224,11 @@ namespace noteBook.UNA.vistas
                             notaControl.ColorFuente = p.ColorFuente;
                             notaControl.fechaCreacion = p.FechaCreacion;
                             notaControl.Categoria = p.Categoria;
+                            notaControl.MouseHover += (j, k) =>
+                            {
+                                notaControl.Select();
+                                actualizarPage();
+                            };
                             pestañaLibro.Controls.Add(notaControl);
                         }
                         else
@@ -189,7 +237,11 @@ namespace noteBook.UNA.vistas
                             notaPrivada.Nombre = p.Titulo;
                             notaPrivada.ColorFondo = p.ColorFondo;
                             notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-
+                            notaPrivada.MouseHover += (j, k) =>
+                            {
+                                notaPrivada.Select();
+                                actualizarPage();
+                            };
                             pestañaLibro.Controls.Add(notaPrivada);
                         }
 
@@ -221,7 +273,7 @@ namespace noteBook.UNA.vistas
                 tab.Text = lib.Nombre;
                 tab.BackColor = Color.FromArgb(lib.Color);
                 Label q = new Label();
-                tab.MouseMove += (s, e) =>
+                tab.MouseHover += (s, e) =>
                 {
                     tab.Select();
                     actualizarPage();
@@ -253,6 +305,7 @@ namespace noteBook.UNA.vistas
                             notaControl.ColorNota = p.ColorFondo;
                             notaControl.ColorFuente = p.ColorFuente;
                             notaControl.fechaCreacion = p.FechaCreacion;
+                            
                             tab.Controls.Add(notaControl);
                         }
                         else
@@ -410,7 +463,7 @@ namespace noteBook.UNA.vistas
 
         private void MisLibros_MouseMove(object sender, MouseEventArgs e)
         {
-           
+            actualizarPage();
         }
     }
 }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UNA\Clases\ArchivoManager.cs" />
+    <Compile Include="UNA\Clases\Encriptacion.cs" />
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
     <Compile Include="UNA\Clases\Reportes.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UNA\vistas\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -209,8 +211,9 @@
       <Name>WindowsFormsControlLibrary1</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="UNA\Resources\" />
+    <None Include="UNA\Resources\cerrar_sesion_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
