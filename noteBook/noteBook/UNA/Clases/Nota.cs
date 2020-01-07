@@ -7,6 +7,7 @@ namespace noteBook
 {
     public class Nota
     {
+        public bool etidar { get; set; }
         public string UsuarioCreadorNota { get; set; }
         public string Titulo { get; set; }
         public bool Privacidad { get; set; }

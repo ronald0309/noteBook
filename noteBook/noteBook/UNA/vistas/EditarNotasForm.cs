@@ -120,6 +120,8 @@ namespace noteBook.UNA.vistas
                 {
                     if (notaAuxiliar.Titulo == nota.Titulo)
                     {
+                        nota.etidar = true;
+
                         informacion = informacion + $"{notaAuxiliar.Titulo}; ";
                         if (TXTTitulo.TextLength != 0)
                         {
@@ -218,8 +220,10 @@ namespace noteBook.UNA.vistas
                     {
                         ModificarNota();
                         MessageBox.Show("Se modifico la nota");
-
+                        
                         this.Close();
+                       
+
                     }
                 }
             }
@@ -232,8 +236,11 @@ namespace noteBook.UNA.vistas
             try
             {
                 ModificarNota();
+         
                 MessageBox.Show("Se modifico la nota");
                 this.Close();
+                Singlenton.Instance.miLibro.actualizarPage();
+
             }
             catch (Exception Ex)
             {

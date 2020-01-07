@@ -113,6 +113,7 @@
             this.MoverBoton.Size = new System.Drawing.Size(33, 34);
             this.MoverBoton.TabIndex = 5;
             this.MoverBoton.UseVisualStyleBackColor = true;
+            this.MoverBoton.Click += new System.EventHandler(this.MoverBoton_Click);
             this.MoverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
             this.MoverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
             this.MoverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
@@ -157,7 +158,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "NotaControl";
             this.Size = new System.Drawing.Size(155, 175);
-            
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

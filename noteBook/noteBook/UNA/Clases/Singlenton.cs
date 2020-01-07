@@ -1,4 +1,5 @@
-﻿using System;
+﻿using noteBook.UNA.vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace noteBook.UNA.Clases
         public List<Libro> librosAuxiliar = new List<Libro>();
         public List<Reportes> reportesAuxiliar = new List<Reportes>();
         public List<Usuario> usuariosAuxiliar = new List<Usuario>();
+        public MisLibros miLibro=null;
+
         public bool NotaEditada { get; set; }
         protected Singlenton() { }
         public static Singlenton Instance

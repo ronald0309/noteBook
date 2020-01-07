@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
@@ -40,9 +41,23 @@ namespace noteBook.UNA.vistas
 
         private void DesbloqueButton_Click(object sender, EventArgs e)
         {
-            AccesoNotaPrivada notaPrivada = new AccesoNotaPrivada(Nombre);
+                AccesoNotaPrivada notaPrivada = new AccesoNotaPrivada();
+            foreach (var libro in Singlenton.Instance.LibrosList)
+            {
+                foreach (var nota in libro.AgregarNota)
+                {
+                    if (nota.Titulo == this.nombre)
+                    {
+                        notaPrivada.Resivir(nota);
+                        notaPrivada.ShowDialog();
+                        // this.Refresh();
+                    }
+                }
+            }
 
-            notaPrivada.ShowDialog();
+            //AccesoNotaPrivada notaPrivada = new AccesoNotaPrivada();
+            //notaPrivada.ShowDialog();
+
         }
 
 

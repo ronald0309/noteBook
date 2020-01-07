@@ -20,7 +20,6 @@ namespace noteBook.UNA.vistas
 
             InitializeComponent();
 
-
         }
         public void CerrarLibro()
         {
@@ -204,12 +203,7 @@ namespace noteBook.UNA.vistas
             }
 
         }
-        public void LibrosUsados()
-        {
-
-
-        }
-
+     
         public void dibujar2()
         {
 
@@ -221,13 +215,10 @@ namespace noteBook.UNA.vistas
                 tab.Text = lib.Nombre;
                 tab.BackColor = Color.FromArgb(lib.Color);
                 Label q = new Label();
-                tab.MouseMove += (s, e) =>
-                {
-                    tab.Select();
-                    actualizarPage();
-                };
-                
-                    tab.MouseClick += (s, e) =>
+
+             
+
+                tab.MouseClick += (s, e) =>
                 {
                     int xx = e.X;
                     int yy = e.Y;
@@ -239,6 +230,7 @@ namespace noteBook.UNA.vistas
 
                     foreach (var p in lib.AgregarNota)
                     {
+                        
                         if (p.Privacidad == false)
                         {
 
@@ -254,6 +246,7 @@ namespace noteBook.UNA.vistas
                             notaControl.ColorFuente = p.ColorFuente;
                             notaControl.fechaCreacion = p.FechaCreacion;
                             tab.Controls.Add(notaControl);
+
                         }
                         else
                         {
@@ -263,7 +256,8 @@ namespace noteBook.UNA.vistas
                                 notaPrivada.Nombre = p.Titulo;
                                 notaPrivada.ColorFondo = p.ColorFondo;
                                 notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-                                tab.Controls.Add(notaPrivada);
+                                
+                                
                             }
 
                         }
@@ -302,7 +296,7 @@ namespace noteBook.UNA.vistas
 
                     }
                 }
-               
+                
 
                 tabControl1.Controls.Add(tab);
 
@@ -312,12 +306,12 @@ namespace noteBook.UNA.vistas
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+       ///     actualizarPage();
         }
         
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tabControl1.Controls.Clear();
+           // tabControl1.Controls.Clear();
             if (OrdenComboBox.Text == "Creciente")
             {
                 List<Libro> librosAuxiliar = new List<Libro>();
@@ -325,8 +319,8 @@ namespace noteBook.UNA.vistas
                 IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderBy(a => a.Nombre);
                 Singlenton.Instance.LibrosList.Clear();
                 Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
-
-                this.crearLibro();
+               // dibujar2();
+               this.crearLibro();
             }
             else
             {
@@ -337,11 +331,15 @@ namespace noteBook.UNA.vistas
                     IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderByDescending(a => a.Nombre);
                     Singlenton.Instance.LibrosList.Clear();
                     Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
-
+                   // dibujar2();
                     this.crearLibro();
 
                 }
             }
+            Singlenton.Instance.miLibro.crearLibro();
+
+
+
         }
 
 
@@ -411,6 +409,11 @@ namespace noteBook.UNA.vistas
         private void MisLibros_MouseMove(object sender, MouseEventArgs e)
         {
            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -261,13 +261,16 @@ namespace noteBook.UNA.vistas
                     {
                         editarNota.CargarDatos(nota);
                         editarNota.ShowDialog();
-                        this.Refresh();
+                       // this.Refresh();
                     }
                 }
             }
 
         }
 
-        
+        private void MoverBoton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

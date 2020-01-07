@@ -73,7 +73,7 @@ namespace noteBook.UNA.vistas
             this.panelVistas.Tag = h;
             /// se pinta la vista
             h.Show();
-        }
+        } 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.labelTitulo.Text = "Agregar Libro";
@@ -84,8 +84,9 @@ namespace noteBook.UNA.vistas
         {
             MisLibros miLibros = new MisLibros();
             this.labelTitulo.Text = "Mis libros";
-            miLibros.crearLibro();
-
+             miLibros.crearLibro();
+           // miLibros.dibujar2();
+            Singlenton.Instance.miLibro = miLibros;
             this.abrirForma(miLibros);
         }
 
