@@ -189,6 +189,9 @@ namespace noteBook.UNA.Clases
                             }
                             nota.ColorFuente = Convert.ToInt32(datosNota[7].ToString());
                             nota.ColorFondo = Convert.ToInt32(datosNota[8].ToString());
+                            nota.FechaCreacion = datosNota[9].ToString();
+
+
                             nota.PosicionX = Convert.ToInt32(datosNota[11]);
                             nota.PosicionY = Convert.ToInt32(datosNota[12]);
                             nota.Width = Convert.ToInt32(datosNota[13]);

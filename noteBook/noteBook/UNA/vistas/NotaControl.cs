@@ -130,7 +130,15 @@ namespace noteBook.UNA.vistas
             {
 
                 colorNota = value;
-                CategoriarichTextBox.BackColor = Color.Red;
+                if (colorNota == 0)
+                {
+                    CategoriarichTextBox.BackColor = Color.Blue;
+
+                }
+                else
+                {
+                    CategoriarichTextBox.BackColor = Color.FromArgb(colorNota);
+                }
 
                 String co = colorNota.ToString();
                 panel1.BackColor = Color.FromArgb(colorNota);
@@ -268,6 +276,14 @@ namespace noteBook.UNA.vistas
 
         }
 
-        
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FechaCreacion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

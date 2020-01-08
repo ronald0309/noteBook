@@ -104,12 +104,14 @@ namespace noteBook.UNA.vistas
 
         private void Busquedabtn_Click(object sender, EventArgs e)
         {
+            this.labelTitulo.Text = "Busqueda";
             Busqueda busqueda = new Busqueda();
             this.abrirForma(busqueda);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
+            this.labelTitulo.Text = "Reportes";
             ReportesForm reporteForm = new ReportesForm();
             this.abrirForma(reporteForm);
         }

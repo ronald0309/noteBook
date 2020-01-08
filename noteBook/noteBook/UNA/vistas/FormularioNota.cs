@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
             VisualizarNota.Categoria = "Categoria";
             DateTime hoy = DateTime.Now;
 
-            VisualizarNota.fechaCreacion = hoy.ToString("hh:mm:ss tt");
+            VisualizarNota.fechaCreacion = hoy.ToString("dd-MM-yyy");
             VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
             VisualizarNota.ColorFuente = colorDialog2.Color.ToArgb();
 
@@ -111,8 +111,8 @@ namespace noteBook.UNA.vistas
                         nota.ColorFondo = colorDialog1.Color.ToArgb();
                         nota.UsuarioCreadorNota = usuario;
                         DateTime hoy = DateTime.Now;
-
-                        nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
+                       // yyyyMMddT
+                        nota.FechaCreacion = hoy.ToString("dd-MM-yyy");
                         libroGuardados.AgregarNota.Add(nota);
 
                         Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);

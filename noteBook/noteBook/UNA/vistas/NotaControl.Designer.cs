@@ -55,18 +55,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(155, 175);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // CategoriarichTextBox
             // 
+            this.CategoriarichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CategoriarichTextBox.AutoWordSelection = true;
             this.CategoriarichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.CategoriarichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CategoriarichTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.CategoriarichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CategoriarichTextBox.HideSelection = false;
             this.CategoriarichTextBox.Location = new System.Drawing.Point(0, 36);
+            this.CategoriarichTextBox.Multiline = false;
             this.CategoriarichTextBox.Name = "CategoriarichTextBox";
             this.CategoriarichTextBox.ReadOnly = true;
-            this.CategoriarichTextBox.Size = new System.Drawing.Size(155, 36);
+            this.CategoriarichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.CategoriarichTextBox.Size = new System.Drawing.Size(155, 38);
             this.CategoriarichTextBox.TabIndex = 7;
+            this.CategoriarichTextBox.TabStop = false;
             this.CategoriarichTextBox.Text = "";
             // 
             // btnEditar
@@ -133,15 +140,17 @@
             // 
             // FechaCreacion
             // 
-            this.FechaCreacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FechaCreacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaCreacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaCreacion.Location = new System.Drawing.Point(2, 116);
+            this.FechaCreacion.Location = new System.Drawing.Point(2, 77);
             this.FechaCreacion.Name = "FechaCreacion";
-            this.FechaCreacion.Size = new System.Drawing.Size(150, 22);
+            this.FechaCreacion.Size = new System.Drawing.Size(153, 50);
             this.FechaCreacion.TabIndex = 1;
             this.FechaCreacion.Text = "FechaCreacion";
-            this.FechaCreacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.FechaCreacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FechaCreacion.Click += new System.EventHandler(this.FechaCreacion_Click);
             // 
             // imageList1
             // 
@@ -157,7 +166,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "NotaControl";
             this.Size = new System.Drawing.Size(155, 175);
-            
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

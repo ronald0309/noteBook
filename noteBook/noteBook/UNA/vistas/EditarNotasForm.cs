@@ -48,19 +48,19 @@ namespace noteBook.UNA.vistas
 
             mensajeEditarNotas.SetToolTip(TXTTitulo, "Ingrese el nuevo titulo");
 
-            mensajeEditarNotas.SetToolTip(SelectorColoresNotas, "Color de fondo actual de la nota");
+          //  mensajeEditarNotas.SetToolTip(SelectorColoresNotas, "Color de fondo actual de la nota");
 
             mensajeEditarNotas.SetToolTip(PBColorFondo, "Ingrese el nuevo color de fondo de la nota");
 
-            mensajeEditarNotas.SetToolTip(colorFuente, "Color de fuente actual de la nota");
+            //mensajeEditarNotas.SetToolTip(colorFuente, "Color de fuente actual de la nota");
 
             mensajeEditarNotas.SetToolTip(PBColorFuente, "Ingrese el nuevo color de fondo");
 
-            mensajeEditarNotas.SetToolTip(lblFuente, "Estilo de la fuente actual de la nota");
+        
 
             mensajeEditarNotas.SetToolTip(CBXFuente, "Ingrese el nuevo estilo de fuente");
 
-            mensajeEditarNotas.SetToolTip(lblPrivacidad, "Privacidad actual de la nota");
+         //   mensajeEditarNotas.SetToolTip(lblPrivacidad, "Privacidad actual de la nota");
 
             mensajeEditarNotas.SetToolTip(CBXPrivacidad, "Ingrese la nueva privacidad de la nota");
 
@@ -77,33 +77,28 @@ namespace noteBook.UNA.vistas
         public void CargarDatos(Object nota)
 
         {
-
             notaAuxiliar = (Nota)nota;
-
             lblTitulo.Text = notaAuxiliar.Titulo;
-
-            lblFuente.Text = notaAuxiliar.Fuente;
-
+           
+         
             colorDialog1.Color = Color.FromArgb(notaAuxiliar.ColorFondo);
 
             colorDialog2.Color = Color.FromArgb(notaAuxiliar.ColorFuente);
 
-            SelectorColoresNotas.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
-
-            colorFuente.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
+        
 
             PBColorFondo.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
 
             PBColorFuente.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
 
-            if (notaAuxiliar.Privacidad)
+          if (notaAuxiliar.Privacidad==false)
             {
-                lblPrivacidad.Text = "Privado";
+               lblPrivacidad.Text = "Privado";
             }
             else
             {
-                lblPrivacidad.Text = "Publico";
-            }
+             lblPrivacidad.Text= "Publico";
+           }
             foreach (FontFamily font in FontFamily.Families)
             {
                 CBXFuente.Items.Add(font.Name.ToString());
@@ -222,7 +217,7 @@ namespace noteBook.UNA.vistas
             }
             else
             {
-                MessageBox.Show($"{TXTTitulo.Text.Length},{TXTCategoria.Text.Length},{CBXPrivacidad.SelectedIndex },{CBXPrivacidad.SelectedIndex},{notaAuxiliar.ColorFuente},{ colorDialog2.Color.ToArgb()},{notaAuxiliar.ColorFondo},{colorDialog1.Color.ToArgb()},{CBXFuente.SelectedIndex}");
+             
                 return true;
             }
         }
@@ -303,6 +298,20 @@ namespace noteBook.UNA.vistas
             }
         }
 
+        private void EditarNotasForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFuente_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

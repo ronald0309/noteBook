@@ -1,0 +1,11 @@
+x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,03:35:36,Se crea una nueva nota de nombre casa; con la fuente Algerian; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,04:06:23,Se crea una nueva nota de nombre Lalo; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,04:52:41,Se crea una nueva nota de nombre Mate; con la fuente Candara; el color de la fuente en rgb es -16711936 y el color del fondo en rgb es -8388544 
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,08 - 01 - 2020,05:04:13,Se crea un nuevo libro de nombre AS; del genero <ZXC; de color  -65536 (en rgb) y de orden  1  
+x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,05:10:31,Se crea una nueva nota de nombre AS; con la fuente Brush Script MT; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se modifico la nota casa,Nota casa,08 - 01 - 2020,05:18:26,se modifico la nota casa; la categoria csc se modifico por qaws;se modifico en al fecha08/01/2020 17:18:26 ;
+x,Se modifico la nota casazx,Nota casazx,08 - 01 - 2020,05:58:16,se modifico la nota casa; el nombre casa por el nombre casazx;se modifico en al fecha08/01/2020 17:58:16 ;
+x,Se modifico la nota as,Nota as,08 - 01 - 2020,07:41:11,se modifico la nota casazx; el nombre casazx por el nombre as;se modifico en al fecha08/01/2020 19:41:11 ;
+x,Se modifico la nota asx,Nota asx,08 - 01 - 2020,07:47:28,se modifico la nota as; el nombre as por el nombre asx;se modifico en al fecha08/01/2020 19:47:28 ;
+x,Se modifico la nota pt,Nota pt,08 - 01 - 2020,07:47:40,se modifico la nota asx; el nombre asx por el nombre pt;se modifico en al fecha08/01/2020 19:47:40 ;
+x,Se modifico la nota >zxc,Nota >zxc,08 - 01 - 2020,07:48:14,se modifico la nota Mate; el nombre Mate por el nombre >zxc;la privacidad Candara se modifico por Bahnschrift;se modifico en al fecha08/01/2020 19:48:14 ;

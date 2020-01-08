@@ -410,6 +410,17 @@ namespace noteBook.UNA.vistas
         }
         public void actualizarPage()
         {
+            String nombreUsuario = "nombre";
+
+            foreach (var usuarioAc in Singlenton.Instance.usuarios)
+            {
+
+                if (usuarioAc.Activo == true)
+                {
+                    nombreUsuario = usuarioAc.NombreUsuario;
+                }
+
+            }
             if (Singlenton.Instance.NotaEditada)
             {
 
@@ -420,7 +431,7 @@ namespace noteBook.UNA.vistas
                         tabControl1.SelectedTab.Controls.Clear();
                         foreach (var p in libro.AgregarNota)
                         {
-                            if (p.Privacidad == false)
+                            if (p.Privacidad == false||p.UsuarioCreadorNota==nombreUsuario)
                             {
                                 NotaControl notaControl = new NotaControl();
                                 notaControl.Height = p.Heigh;

@@ -62,7 +62,6 @@
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "Colores";
-            
             // 
             // txtNombre
             // 
@@ -94,11 +93,11 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Mistral", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Blue;
-            this.lblTitulo.Location = new System.Drawing.Point(217, 36);
+            this.lblTitulo.Font = new System.Drawing.Font("Footlight MT Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Lavender;
+            this.lblTitulo.Location = new System.Drawing.Point(190, 48);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(159, 33);
+            this.lblTitulo.Size = new System.Drawing.Size(206, 29);
             this.lblTitulo.TabIndex = 24;
             this.lblTitulo.Text = "REGISTRO LIBRO";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,13 +137,13 @@
             // 
             this.toolTip1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.toolTip1.IsBalloon = true;
-            
             // 
             // RegistroLibro
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BackColor = System.Drawing.Color.MediumBlue;
             this.ClientSize = new System.Drawing.Size(567, 259);
             this.Controls.Add(this.GeneroComboBox);
             this.Controls.Add(this.SelectorColores);
@@ -157,7 +156,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
-            
             this.Resize += new System.EventHandler(this.RegistroLibro_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorGuardar)).EndInit();
