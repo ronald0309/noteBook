@@ -164,7 +164,9 @@ namespace noteBook.UNA.vistas
                         DateTime hoy = DateTime.Now;
                         nota.FechaModificacion = Convert.ToString(hoy);
                         informacion = informacion + $"se modifico en al fecha{nota.FechaModificacion} ;";
-                        Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, nota);
+
+                        Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, $"Nota { nota.Titulo}");
+
                         Singlenton.Instance.NotaEditada = true;
                     }
 
@@ -212,6 +214,18 @@ namespace noteBook.UNA.vistas
             }
             return respuesta;
         }
+        private bool verficarCampos()
+        {
+            if ((TXTTitulo.Text.Length == 0) && (TXTCategoria.Text.Length == 0) && (CBXPrivacidad.SelectedIndex == (-1)) && (notaAuxiliar.ColorFuente == colorDialog2.Color.ToArgb()) && (notaAuxiliar.ColorFondo == colorDialog1.Color.ToArgb()) && (CBXFuente.SelectedIndex == (-1)))
+            {
+                return false;
+            }
+            else
+            {
+                MessageBox.Show($"{TXTTitulo.Text.Length},{TXTCategoria.Text.Length},{CBXPrivacidad.SelectedIndex },{CBXPrivacidad.SelectedIndex},{notaAuxiliar.ColorFuente},{ colorDialog2.Color.ToArgb()},{notaAuxiliar.ColorFondo},{colorDialog1.Color.ToArgb()},{CBXFuente.SelectedIndex}");
+                return true;
+            }
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
 
         {
@@ -233,12 +247,21 @@ namespace noteBook.UNA.vistas
                     {
                         if (ValidarModificarNota())
                         {
-                            ModificarNota();
-                            MessageBox.Show("Se modifico la nota");
+                            if (verficarCampos())
+                            {
+                                ModificarNota();
+                                MessageBox.Show("Se modifico la nota");
 
-                            this.Close();
-                            Singlenton.Instance.miLibro.actualizarPage();
-                        } else
+                                this.Close();
+                                Singlenton.Instance.miLibro.actualizarPage();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Todos los campos estan en blanco");
+                            }
+
+                        }
+                        else
                         {
                             mensajeEditarNotas.SetToolTip(TXTTitulo, "El nommbre de la nota ya existe");
                         }
@@ -255,13 +278,19 @@ namespace noteBook.UNA.vistas
             {
                 if (ValidarModificarNota())
                 {
-                    ModificarNota();
-                    MessageBox.Show("Se modifico la nota");
 
-                    this.Close();
-                    Singlenton.Instance.miLibro.actualizarPage();
+                    if (verficarCampos())
+                    {
+                        ModificarNota();
+                        MessageBox.Show("Se modifico la nota");
 
-
+                        this.Close();
+                        Singlenton.Instance.miLibro.actualizarPage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Todos los campos estan en blanco");
+                    }
                 }
                 else
                 {

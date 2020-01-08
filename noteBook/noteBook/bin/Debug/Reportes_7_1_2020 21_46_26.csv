@@ -1,0 +1,9 @@
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,07 - 01 - 2020,09:07:46,Se crea un nuevo libro de nombre hola; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se crea una nueva nota ,noteBook.Nota,07 - 01 - 2020,09:07:59,Se crea una nueva nota de nombre hy; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se modifico la nota hy,noteBook.Nota,07 - 01 - 2020,09:08:03,se modifico la nota hy; se modifico en al fecha7/1/2020 21:08:03 ;
+x,Se modifico la nota hy,noteBook.Nota,07 - 01 - 2020,09:08:20,se modifico la nota hy; la privacidad False se modifico por Privado;se modifico en al fecha7/1/2020 21:08:20 ;
+x,Se crea una nueva nota ,noteBook.Nota,07 - 01 - 2020,09:10:43,Se crea una nueva nota de nombre nota; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se modifico la nota nota,noteBook.Nota,07 - 01 - 2020,09:10:57,se modifico la nota nota; se modifico en al fecha7/1/2020 21:10:57 ;
+x,Se modifico la nota hy,Nota hy,07 - 01 - 2020,09:37:51,se modifico la nota hy; se modifico en al fecha7/1/2020 21:37:51 ;
+x,Se modifico la nota nota,Nota nota,07 - 01 - 2020,09:38:01,se modifico la nota nota; se modifico en al fecha7/1/2020 21:38:01 ;
+x,Se modifico la nota hy,Nota hy,07 - 01 - 2020,09:44:25,se modifico la nota hy; se modifico en al fecha7/1/2020 21:44:25 ;
