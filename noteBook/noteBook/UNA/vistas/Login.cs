@@ -104,12 +104,12 @@ namespace noteBook
                             this.Hide();
 
                             menu.ShowDialog();
-
-                            if (menu.ShowDialog() == DialogResult.OK)
-                            {
-                                this.Close();
-                            }
-                            this.Show();
+                            this.Close();
+                            //if (menu.ShowDialog() == DialogResult.OK)
+                            //{
+                            //    this.Close();
+                            //}
+                            //this.Show();
                             
                         }
 

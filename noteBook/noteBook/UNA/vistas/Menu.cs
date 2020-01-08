@@ -176,7 +176,7 @@ namespace noteBook.UNA.vistas
             if (dr == DialogResult.Yes)
             {
                 guardarInformacion();
-                this.Hide();
+                //this.Hide();
             }
             else
             {
@@ -195,11 +195,11 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+        //private void button2_Click(object sender, EventArgs e)
+        //{
 
-            this.Hide();
+        //    this.Hide();
 
-        }
+        //}
     }
 }
