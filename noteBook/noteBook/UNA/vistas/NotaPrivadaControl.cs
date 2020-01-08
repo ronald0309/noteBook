@@ -53,7 +53,7 @@ namespace noteBook.UNA.vistas
                         // this.Refresh();
                     }
                 }
-                notaPrivada.ShowDialog();
+              
             }
 
 

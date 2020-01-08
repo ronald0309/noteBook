@@ -30,6 +30,17 @@ namespace noteBook.UNA.vistas
         }
         public void crearLibro()
         {
+            String nombreUsuario = "nombre";
+
+            foreach (var usuarioAc in Singlenton.Instance.usuarios)
+            {
+
+                if (usuarioAc.Activo == true)
+                {
+                    nombreUsuario = usuarioAc.NombreUsuario;
+                }
+
+            }
             LibroContenedorLayout.Controls.Clear();
             foreach (var libros in Singlenton.Instance.LibrosList)
             {
@@ -39,21 +50,7 @@ namespace noteBook.UNA.vistas
                 Libr.Genero = libros.Genero;
                 Libr.ColorLibro = libros.Color;
                 TabPage pestaña = new TabPage();
-                pestaña.MouseHover += (s, e) =>
-                {
-                    pestaña.Select();
-                    actualizarPage();
-                };
-                pestaña.MouseLeave += (s, e) =>
-                {
-                    pestaña.Select();
-                    actualizarPage();
-                };
-                Libr.MouseHover += (s, e) =>
-                {
-                    
-                    actualizarPage();
-                };
+              
                 Libr.MouseClick += (a, b) =>
                    {
 
@@ -73,9 +70,13 @@ namespace noteBook.UNA.vistas
                                formulario.setXY(x, y);
                                formulario.posicion = libros.Nombre;
                                formulario.ShowDialog();
+                              
+                               
                                foreach (var p in libros.AgregarNota)
                                {
-                                   if (p.Privacidad == false)
+                                 
+                               
+                                 if (p.Privacidad == false || (p.UsuarioCreadorNota == nombreUsuario))
                                    {
                                        NotaControl notaControl = new NotaControl();
 
@@ -115,7 +116,7 @@ namespace noteBook.UNA.vistas
                            {
                                foreach (var p in libros.AgregarNota)
                                {
-                                   if (p.Privacidad == false)
+                                   if (p.Privacidad == false||p.UsuarioCreadorNota==nombreUsuario)
                                    {
                                        NotaControl notaControl = new NotaControl();
                                        notaControl.Height = p.Heigh;
@@ -127,11 +128,7 @@ namespace noteBook.UNA.vistas
                                        notaControl.ColorFuente = p.ColorFuente;
                                        notaControl.fechaCreacion = p.FechaCreacion;
                                        notaControl.Categoria = p.Categoria;
-                                       notaControl.MouseHover += (j, k) =>
-                                       {
-                                           notaControl.Select();
-                                           actualizarPage();
-                                       };
+                                     
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
@@ -140,11 +137,7 @@ namespace noteBook.UNA.vistas
                                        notaPrivada.Nombre = p.Titulo;
                                        notaPrivada.ColorFondo = p.ColorFondo;
                                        notaPrivada.Location = new Point(p.PosicionX, p.PosicionY);
-                                       notaPrivada.MouseHover += (j, k) =>
-                                       {
-                                           notaPrivada.Select();
-                                           actualizarPage();
-                                       };
+                                      
                                        pestaña.Controls.Add(notaPrivada);
                                    }
 
