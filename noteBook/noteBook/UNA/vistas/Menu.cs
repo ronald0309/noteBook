@@ -86,7 +86,7 @@ namespace noteBook.UNA.vistas
             MisLibros miLibros = new MisLibros();
             this.labelTitulo.Text = "Mis libros";
             miLibros.crearLibro();
-
+            Singlenton.Instance.miLibro = miLibros;
             this.abrirForma(miLibros);
         }
 

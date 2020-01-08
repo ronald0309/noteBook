@@ -12,6 +12,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class AccesoNotaPrivada : Form
     {
+        private Nota notaAuxiliar;
         public AccesoNotaPrivada()
         {
             InitializeComponent();
@@ -23,6 +24,10 @@ namespace noteBook.UNA.vistas
 
             this.nombreNota = nombreNota;
         }
+        public void resibirNota(Object nota)
+        {
+            notaAuxiliar = (Nota)nota;
+        }
         private void Aceptarbtn_Click(object sender, EventArgs e)
         {
             // MessageBox.Show(nombreNota);
@@ -31,27 +36,17 @@ namespace noteBook.UNA.vistas
             {
                 if (Usuario.NombreUsuario == NombreUsuarioTxt.Text && Usuario.Contraseña == ContraseñaTxt.Text)
                 {
-                    MessageBox.Show("SI estoy");
+
                     datosUsario = true;
 
                 }
             }
             if (datosUsario == true)
             {
-                foreach (var libro in Singlenton.Instance.LibrosList)
-                {
-                    foreach (var nota in libro.AgregarNota)
-                    {
-                        if (nota.Titulo == nombreNota)
-                        {
-                            nota.Privacidad = false;
-                        }
-                    }
-                    MessageBox.Show("OLA");
-                }
-                MisLibros miLibro = new MisLibros();
-                miLibro.crearLibro();
-                this.Hide();
+                notaAuxiliar.Privacidad = false;
+                Singlenton.Instance.NotaEditada = true;
+                this.Close();
+                Singlenton.Instance.miLibro.actualizarPage();
             }
         }
     }

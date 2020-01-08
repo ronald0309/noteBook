@@ -1,0 +1,5 @@
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,08 - 01 - 2020,02:27:20,Se crea un nuevo libro de nombre Lalo; del genero Gótico; de color  -65536 (en rgb) y de orden  1  
+x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,02:27:37,Se crea una nueva nota de nombre casa; con la fuente Bahnschrift Light; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se modifico la nota casa,noteBook.Nota,08 - 01 - 2020,02:27:45,se modifico la nota casa; la privacidad False se modifico por Privado;se modifico en al fecha08/01/2020 2:27:45 ;
+x,Se modifico la nota casa,noteBook.Nota,08 - 01 - 2020,02:28:38,se modifico la nota casa; la privacidad False se modifico por Privado;se modifico en al fecha08/01/2020 2:28:38 ;
+x,Se modifico la nota casa,noteBook.Nota,08 - 01 - 2020,02:29:14,se modifico la nota casa; la privacidad False se modifico por Privado;se modifico en al fecha08/01/2020 2:29:14 ;

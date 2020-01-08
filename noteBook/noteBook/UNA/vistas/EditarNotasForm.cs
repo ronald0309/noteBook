@@ -237,6 +237,7 @@ namespace noteBook.UNA.vistas
                             MessageBox.Show("Se modifico la nota");
 
                             this.Close();
+                            Singlenton.Instance.miLibro.actualizarPage();
                         } else
                         {
                             mensajeEditarNotas.SetToolTip(TXTTitulo, "El nommbre de la nota ya existe");
@@ -258,6 +259,9 @@ namespace noteBook.UNA.vistas
                     MessageBox.Show("Se modifico la nota");
 
                     this.Close();
+                    Singlenton.Instance.miLibro.actualizarPage();
+
+
                 }
                 else
                 {
