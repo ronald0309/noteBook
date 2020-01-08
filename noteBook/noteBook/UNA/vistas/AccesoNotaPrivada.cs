@@ -32,9 +32,10 @@ namespace noteBook.UNA.vistas
         {
             // MessageBox.Show(nombreNota);
             bool datosUsario = false;
+           
             foreach (var Usuario in Singlenton.Instance.usuarios)
             {
-                if (Usuario.NombreUsuario == NombreUsuarioTxt.Text && Usuario.Contraseña == ContraseñaTxt.Text)
+                if (Usuario.NombreUsuario == NombreUsuarioTxt.Text && Usuario.Contraseña == ContraseñaTxt.Text&&notaAuxiliar.UsuarioCreadorNota==NombreUsuarioTxt.Text )
                 {
 
                     datosUsario = true;
