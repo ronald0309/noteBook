@@ -115,7 +115,7 @@ namespace noteBook.UNA.vistas
                         nota.FechaCreacion = hoy.ToString("hh:mm:ss tt");
                         libroGuardados.AgregarNota.Add(nota);
 
-                        Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
+                        Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ",$"Nota { nota.Titulo}");
 
                         this.Close();
 

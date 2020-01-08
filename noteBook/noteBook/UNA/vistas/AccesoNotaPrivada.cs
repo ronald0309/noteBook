@@ -24,7 +24,7 @@ namespace noteBook.UNA.vistas
 
             this.nombreNota = nombreNota;
         }
-        public void resibirNota(Object nota)
+        public void ResibirNota(Object nota)
         {
             notaAuxiliar = (Nota)nota;
         }

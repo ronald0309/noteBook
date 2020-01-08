@@ -35,7 +35,7 @@ namespace noteBook
             {
                 Singlenton.Instance.CrearUsuarios();
                 archivoManager.CargarUsuario();
-                Singlenton.Instance.desactivarUsuario();
+                Singlenton.Instance.DesactivarUsuario();
             }catch(Exception Ex)
             {
                 MessageBox.Show("Se produjo un error al cargar los usuarios");

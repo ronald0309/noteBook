@@ -57,7 +57,7 @@ namespace noteBook.UNA.vistas
                             Singlenton.Instance.usuarios.Add(usuario);
                             Singlenton.Instance.usuariosAuxiliar.Add(usuario);
                             string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
-                            Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", usuario);
+                            Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", $"Usuario {usuario.NombreUsuario}");
                             string nuevoArchivoreporte = archivoManager.CrearArchivoReportes();
                             return true;
                         }

@@ -35,26 +35,34 @@ namespace noteBook.UNA.Clases
         // se genera en esta clase para evitar que se generen cada ves de declarar una instancia de la clase usuario 
         public void CrearUsuarios()
         {
-            Usuario usuario1 = new Usuario();
-            usuario1.NombreUsuario = "Ronny";
-            usuario1.Contraseña = "123";
-            usuario1.Activo = false;
+            Usuario usuario1 = new Usuario
+            {
+                NombreUsuario = "Ronny",
+                Contraseña = "123",
+                Activo = false
+            };
             usuarios.Add(usuario1);
-            Usuario usuario2 = new Usuario();
-            usuario2.NombreUsuario = "Gerardo";
-            usuario2.Contraseña = "456";
+            Usuario usuario2 = new Usuario
+            {
+                NombreUsuario = "Gerardo",
+                Contraseña = "456"
+            };
             usuarios.Add(usuario2);
-            Usuario usuario3 = new Usuario();
-            usuario3.NombreUsuario = "Ruben";
-            usuario3.Contraseña = "789";
+            Usuario usuario3 = new Usuario
+            {
+                NombreUsuario = "Ruben",
+                Contraseña = "789"
+            };
             usuarios.Add(usuario3);
-            Usuario usuario4 = new Usuario();
-            usuario4.NombreUsuario = "x";
-            usuario4.Contraseña = "1";
+            Usuario usuario4 = new Usuario
+            {
+                NombreUsuario = "x",
+                Contraseña = "1"
+            };
             usuarios.Add(usuario4);
 
         }
-        public void CargarReporte(string accion, string informacion, Object objeto)
+        public void CargarReporte(string accion, string informacion, string objeto)
         {
             DateTime hoy = DateTime.Now;
             Reportes reporte = new Reportes();
@@ -63,7 +71,7 @@ namespace noteBook.UNA.Clases
 
 
         }
-        public void desactivarUsuario()
+        public void DesactivarUsuario()
         {
             foreach (Usuario usuario in usuarios)
             {

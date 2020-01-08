@@ -7,3 +7,4 @@ x,Se modifico la nota f,noteBook.Nota,07 - 01 - 2020,07:36:06,se modifico la not
 x,Se modifico la nota g,noteBook.Nota,07 - 01 - 2020,07:42:27,se modifico la nota f; el nombre f por el nombre g;se modifico en al fecha7/1/2020 19:42:27 ;
 x,Se modifico la nota gh,noteBook.Nota,07 - 01 - 2020,07:42:37,se modifico la nota g; el nombre g por el nombre gh;se modifico en al fecha7/1/2020 19:42:37 ;
 x,Se modifico la nota d,noteBook.Nota,07 - 01 - 2020,07:42:48,se modifico la nota gh; el nombre gh por el nombre d;se modifico en al fecha7/1/2020 19:42:48 ;
+x,Se crea una nueva nota ,Nota as,07 - 01 - 2020,08:28:04,Se crea una nueva nota de nombre as; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 

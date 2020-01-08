@@ -64,7 +64,7 @@ namespace noteBook.UNA.vistas
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);
                 txtNombre.Text = "";
-                Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", libro); ;
+                Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro {libro.Nombre}"); ;
                 this.Hide();
             }
         }
