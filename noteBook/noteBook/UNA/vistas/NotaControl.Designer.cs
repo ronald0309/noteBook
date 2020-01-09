@@ -38,12 +38,15 @@
             this.AgrandarBoton = new System.Windows.Forms.Button();
             this.fechaCreacionLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contendorPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // contendorPanel
             // 
             this.contendorPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contendorPanel.Controls.Add(this.pictureBox1);
             this.contendorPanel.Controls.Add(this.categoriarichTexBox);
             this.contendorPanel.Controls.Add(this.editarBtn);
             this.contendorPanel.Controls.Add(this.tituloRichTextBox);
@@ -85,6 +88,7 @@
             this.editarBtn.Name = "editarBtn";
             this.editarBtn.Size = new System.Drawing.Size(33, 34);
             this.editarBtn.TabIndex = 6;
+            this.editarBtn.Text = " ";
             this.editarBtn.UseVisualStyleBackColor = true;
             this.editarBtn.Click += new System.EventHandler(this.EditarBtn_Click);
             // 
@@ -145,9 +149,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechaCreacionLabel.Location = new System.Drawing.Point(2, 77);
+            this.fechaCreacionLabel.Image = ((System.Drawing.Image)(resources.GetObject("fechaCreacionLabel.Image")));
+            this.fechaCreacionLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fechaCreacionLabel.Location = new System.Drawing.Point(0, 77);
             this.fechaCreacionLabel.Name = "fechaCreacionLabel";
-            this.fechaCreacionLabel.Size = new System.Drawing.Size(153, 50);
+            this.fechaCreacionLabel.Size = new System.Drawing.Size(155, 50);
             this.fechaCreacionLabel.TabIndex = 1;
             this.fechaCreacionLabel.Text = "FechaCreacion";
             this.fechaCreacionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -159,6 +165,15 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 25);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // NotaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +183,7 @@
             this.Name = "NotaControl";
             this.Size = new System.Drawing.Size(155, 175);
             this.contendorPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,5 +198,6 @@
         private System.Windows.Forms.Button editarBtn;
         private System.Windows.Forms.RichTextBox categoriarichTexBox;
         private System.Windows.Forms.RichTextBox tituloRichTextBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -53,7 +53,7 @@
             // 
             // categoriaTxt
             // 
-            this.categoriaTxt.Location = new System.Drawing.Point(117, 29);
+            this.categoriaTxt.Location = new System.Drawing.Point(117, 40);
             this.categoriaTxt.Name = "categoriaTxt";
             this.categoriaTxt.Size = new System.Drawing.Size(84, 20);
             this.categoriaTxt.TabIndex = 4;
@@ -63,7 +63,7 @@
             // 
             this.categoriaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriaLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.categoriaLabel.Location = new System.Drawing.Point(113, 0);
+            this.categoriaLabel.Location = new System.Drawing.Point(113, 5);
             this.categoriaLabel.Name = "categoriaLabel";
             this.categoriaLabel.Size = new System.Drawing.Size(123, 26);
             this.categoriaLabel.TabIndex = 3;
@@ -73,7 +73,7 @@
             // 
             this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tituloLabel.Location = new System.Drawing.Point(19, 0);
+            this.tituloLabel.Location = new System.Drawing.Point(19, 5);
             this.tituloLabel.Name = "tituloLabel";
             this.tituloLabel.Size = new System.Drawing.Size(89, 21);
             this.tituloLabel.TabIndex = 2;
@@ -81,7 +81,7 @@
             // 
             // busquedaTxt
             // 
-            this.busquedaTxt.Location = new System.Drawing.Point(23, 29);
+            this.busquedaTxt.Location = new System.Drawing.Point(23, 40);
             this.busquedaTxt.Name = "busquedaTxt";
             this.busquedaTxt.Size = new System.Drawing.Size(69, 20);
             this.busquedaTxt.TabIndex = 0;
