@@ -65,17 +65,19 @@ namespace noteBook.UNA.vistas
 
             if (nombreTxt.Text.Length != 0 && generoComboBox.Text.Length != 0 && repetido == false)
             {
-                Libro libro = new Libro();
-                libro.Nombre = nombreTxt.Text;
-                libro.Genero = generoComboBox.Text;
-                libro.Orden = "1";
-                libro.Color = selectorColorImage.BackColor.ToArgb();
-                libro.pocision = contadorPosicion;
-                libro.UsuarioCreadorLibro = usuario;
+                Libro libro = new Libro
+                {
+                    Nombre = nombreTxt.Text,
+                    Genero = generoComboBox.Text,
+                    Orden = "1",
+                    Color = selectorColorImage.BackColor.ToArgb(),
+                    Pocision = contadorPosicion,
+                    UsuarioCreadorLibro = usuario
+                };
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);
                 nombreTxt.Text = "";
-                Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", libro); ;
+                Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro{libro.Nombre}"); ;
                 this.Hide();
             }
         }

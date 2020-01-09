@@ -24,7 +24,7 @@ namespace noteBook.UNA.vistas
         }
         private int x = 0;
         private int y = 0;
-        public void setXY(int x1, int y2)
+        public void SetXY(int x1, int y2)
         {
             x = x1;
             y = y2;
@@ -48,7 +48,7 @@ namespace noteBook.UNA.vistas
 
             }
         }
-        public string posicion
+        public string Posicion
         {
             get;
             set;
@@ -77,14 +77,14 @@ namespace noteBook.UNA.vistas
                     usuario = u.NombreUsuario;
                 }
             }
-            this.error();
+            this.Error();
 
             if (PrivacidadCombobox.Text.Length != 0 && TituloTxt.TextLength != 0 && CategoriaTxt.TextLength != 0 && notaCreada == false)
             {
                 foreach (var libroGuardados in Singlenton.Instance.LibrosList)
                 {
 
-                    if (libroGuardados.Nombre == posicion)
+                    if (libroGuardados.Nombre == Posicion)
                     {
                         int n = libroGuardados.AgregarNota.Count;
                         Nota nota = new Nota();
@@ -115,7 +115,7 @@ namespace noteBook.UNA.vistas
                         nota.FechaCreacion = hoy.ToString("dd-MM-yyy");
                         libroGuardados.AgregarNota.Add(nota);
 
-                        Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", nota);
+                        Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", $"Nota {nota.Titulo}");
 
                         this.Close();
 
@@ -134,7 +134,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void colorFuente_Click(object sender, EventArgs e)
+        private void ColorFuente_Click(object sender, EventArgs e)
         {
             if (colorDialog2.ShowDialog() == DialogResult.OK)
             {
@@ -154,7 +154,7 @@ namespace noteBook.UNA.vistas
         }
 
 
-        private void error()
+        private void Error()
         {
             errorDatosNota.Clear();
             foreach (var libro in Singlenton.Instance.LibrosList)

@@ -28,7 +28,7 @@ namespace noteBook.UNA.vistas
 
         private Nota notaAuxiliar;
 
-        private bool guardoDatos = false;
+        private readonly bool guardoDatos = false;
 
         public EditarNotasForm()
 
@@ -115,20 +115,20 @@ namespace noteBook.UNA.vistas
                 {
                     if (notaAuxiliar.Titulo == nota.Titulo)
                     {
-                        informacion = informacion + $"{notaAuxiliar.Titulo}; ";
+                        informacion += $"{notaAuxiliar.Titulo}; ";
                         if (tituloTxt.TextLength != 0)
                         {
-                            informacion = informacion + $"el nombre {notaAuxiliar.Titulo} por el nombre {tituloTxt.Text};";
+                            informacion += $"el nombre {notaAuxiliar.Titulo} por el nombre {tituloTxt.Text};";
                             nota.Titulo = tituloTxt.Text;
                         }
                         if (categoriaTxt.TextLength != 0)
                         {
-                            informacion = informacion + $"la categoria {notaAuxiliar.Categoria} se modifico por {categoriaTxt.Text};";
+                            informacion += $"la categoria {notaAuxiliar.Categoria} se modifico por {categoriaTxt.Text};";
                             nota.Categoria = categoriaTxt.Text;
                         }
                         if (privacidadCBX.SelectedIndex >= 0)
                         {
-                            informacion = informacion + $"la privacidad {notaAuxiliar.Privacidad} se modifico por {privacidadCBX.Text};";
+                            informacion += $"la privacidad {notaAuxiliar.Privacidad} se modifico por {privacidadCBX.Text};";
                             if (privacidadCBX.Text == "Publico")
                             {
                                 nota.Privacidad = false;
@@ -143,22 +143,22 @@ namespace noteBook.UNA.vistas
                         }
                         if (fuenteCBX.SelectedIndex >= 0)
                         {
-                            informacion = informacion + $"la privacidad {notaAuxiliar.Fuente} se modifico por {fuenteCBX.Text};";
+                            informacion += $"la privacidad {notaAuxiliar.Fuente} se modifico por {fuenteCBX.Text};";
                             nota.Fuente = fuenteCBX.Text;
                         }
                         if (nota.ColorFuente != colorFuenteDialog.Color.ToArgb())
                         {
-                            informacion = informacion + $"el color de fuente {nota.ColorFuente} se modifico por {colorFuenteDialog.Color.ToArgb()};";
+                            informacion += $"el color de fuente {nota.ColorFuente} se modifico por {colorFuenteDialog.Color.ToArgb()};";
                             nota.ColorFuente = colorFuenteDialog.Color.ToArgb();
                         }
                         if (nota.ColorFondo != colorFondoDialog.Color.ToArgb())
                         {
-                            informacion = informacion + $"el color de fondo {notaAuxiliar.ColorFondo} se modifico por {colorFondoDialog.Color.ToArgb()};";
+                            informacion += $"el color de fondo {notaAuxiliar.ColorFondo} se modifico por {colorFondoDialog.Color.ToArgb()};";
                             nota.ColorFondo = colorFondoDialog.Color.ToArgb();
                         }
                         DateTime hoy = DateTime.Now;
                         nota.FechaModificacion = Convert.ToString(hoy);
-                        informacion = informacion + $"se modifico en al fecha{nota.FechaModificacion} ;";
+                        informacion += $"se modifico en al fecha{nota.FechaModificacion} ;";
 
                         Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, $"Nota { nota.Titulo}");
 
@@ -209,7 +209,7 @@ namespace noteBook.UNA.vistas
             }
             return respuesta;
         }
-        private bool verficarCampos()
+        private bool VerficarCampos()
         {
             if ((tituloTxt.Text.Length == 0) && (categoriaTxt.Text.Length == 0) && (privacidadCBX.SelectedIndex == (-1)) && (notaAuxiliar.ColorFuente == colorFuenteDialog.Color.ToArgb()) && (notaAuxiliar.ColorFondo == colorFondoDialog.Color.ToArgb()) && (fuenteCBX.SelectedIndex == (-1)))
             {
@@ -242,7 +242,7 @@ namespace noteBook.UNA.vistas
                     {
                         if (ValidarModificarNota())
                         {
-                            if (verficarCampos())
+                            if (VerficarCampos())
                             {
                                 ModificarNota();
                                 MessageBox.Show("Se modifico la nota");
@@ -274,7 +274,7 @@ namespace noteBook.UNA.vistas
                 if (ValidarModificarNota())
                 {
 
-                    if (verficarCampos())
+                    if (VerficarCampos())
                     {
                         ModificarNota();
                         MessageBox.Show("Se modifico la nota");
@@ -303,15 +303,6 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFuente_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 

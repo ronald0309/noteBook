@@ -14,16 +14,10 @@ namespace noteBook.UNA.Clases
         public string UsuarioActual { get; set; }
         public string AccionRealizada { get; set; }
         public string InformacionAdicional { get; set; }
-        public Object Objeto { get; set; }
-        public void GenerarReporte(string accion, string fecha, string hora, string informacionAdicional, Object objeto)
+        public string Objeto { get; set; }
+        public void GenerarReporte(string accion, string fecha, string hora, string informacionAdicional, string objeto)
         {
-            foreach (Usuario usuario in Singlenton.Instance.usuarios)
-            {
-                if (usuario.Activo)
-                {
-                    this.UsuarioActual = usuario.NombreUsuario;
-                }
-            }
+            this.UsuarioActual = Singlenton.Instance.UsuarioActivo();
             AccionRealizada = accion;
             FechaCreacion = fecha;
             HoraCreacion = hora;

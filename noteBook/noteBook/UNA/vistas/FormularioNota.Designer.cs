@@ -145,7 +145,7 @@
             this.colorFuente.Size = new System.Drawing.Size(19, 20);
             this.colorFuente.TabIndex = 25;
             this.colorFuente.TabStop = false;
-            this.colorFuente.Click += new System.EventHandler(this.colorFuente_Click);
+            
             // 
             // PrivacidadCombobox
             // 

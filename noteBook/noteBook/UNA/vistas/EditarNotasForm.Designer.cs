@@ -146,7 +146,7 @@
             this.privacidadLabel.Size = new System.Drawing.Size(88, 16);
             this.privacidadLabel.TabIndex = 30;
             this.privacidadLabel.Text = "Privacidad";
-            this.privacidadLabel.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // formularioLabelTitulo
             // 

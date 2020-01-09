@@ -13,43 +13,36 @@ namespace noteBook.UNA.vistas
 {
     public partial class MenuForm : Form
     {
-        private RegistroLibro registroLibros = new RegistroLibro();
+        private readonly RegistroLibro registroLibros = new RegistroLibro();
 
-        private readonly string rutaPorDefecto = AppDomain.CurrentDomain.BaseDirectory;
+        
         private Timer tiempo;
         private Timer timer;
-        private ArchivoManager archivoManager = new ArchivoManager();
-        private Login login = new Login();
+        
+        private readonly Login login = new Login();
         private bool cerrar = true;
+
+        public Timer Tiempo { get => tiempo; set => tiempo = value; }
+        public Timer Timer { get => timer; set => timer = value; }
+
         public MenuForm()
         {
             InitializeComponent();
            
-            tiempo = new Timer();
-            tiempo.Tick += new EventHandler(timer1_Tick);
-            timer = new Timer();
-            timer.Interval = 60000;
-            timer.Tick += new EventHandler(timer2_Tick);
-            
-            
-            tiempo.Enabled = true;
-            timer.Enabled = true;
-            usuarioActivo();
-
-        }
-        private void usuarioActivo()
-        {
-            foreach (Usuario u in Singlenton.Instance.usuarios)
+            Tiempo = new Timer();
+            Tiempo.Tick += new EventHandler(Timer1_Tick);
+            Timer = new Timer
             {
-                if (u.Activo)
-                {
-                    lblUsuario.Text = u.NombreUsuario;
-                }
+                Interval = 60000
+            };
+            Timer.Tick += new EventHandler(Timer2_Tick);
+            
+            
+            Tiempo.Enabled = true;
+            Timer.Enabled = true;
+            
 
-            }
         }
-        
-
         private void AbrirFormulario(Object hija)
         {
             if (this.panelVistas.Controls.Count > 0)
@@ -69,7 +62,7 @@ namespace noteBook.UNA.vistas
             h.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
             horaLabel.Text = hoy.ToString("hh:mm:ss tt");
@@ -86,7 +79,7 @@ namespace noteBook.UNA.vistas
             {
 
                 string nombreNuevoArchivoReporte = archivoManager.CrearArchivoReportes();
-                string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros(rutaPorDefecto);
+                string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros();
                 DateTime fecha = DateTime.Now;
 
                 lblFechaGuardar.Text = $"{fecha.ToShortTimeString()}";
@@ -114,16 +107,16 @@ namespace noteBook.UNA.vistas
                 File.Delete(archivo);
             }
             ArchivoManager archivoManager = new ArchivoManager();
-            archivoManager.libros.AddRange(Singlenton.Instance.LibrosList);
+            archivoManager.Libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)
             {
-                archivoManager.notas.AddRange(item.AgregarNota);
+                archivoManager.Notas.AddRange(item.AgregarNota);
             }
             ConstruirElArchivo(archivoManager);
 
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void Timer2_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
             GuardarInformacion();
@@ -194,26 +187,7 @@ namespace noteBook.UNA.vistas
             ReportesForm reporteForm = new ReportesForm();
             this.AbrirFormulario(reporteForm);
         }
-        public string MostrarUsuarioActivo()
-        {
-            string usuarioActivo = "";
-            foreach (Usuario u in Singlenton.Instance.usuarios)
-            {
-
-                if (u.Activo)
-                {
-                    usuarioActivo = u.NombreUsuario;
-                }
-                else
-                {
-                    if (usuarioActivo == "" || usuarioActivo == "no hay usuarios activos")
-                    {
-                        usuarioActivo = "no hay usuarios activos";
-                    }
-                }
-            }
-            return usuarioActivo;
-        }
+        
         private void MenuForm_Load(object sender, EventArgs e)
         {
             
@@ -221,7 +195,7 @@ namespace noteBook.UNA.vistas
             {
                 this.Show();
 
-                lblUsuario.Text =MostrarUsuarioActivo();
+                lblUsuario.Text =Singlenton.Instance.UsuarioActivo();
             }
             else
             {
@@ -234,12 +208,13 @@ namespace noteBook.UNA.vistas
         private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
             login.LimpiarCampos();
+            Singlenton.Instance.DesactivarUsuario();
             this.Hide();
             if (login.ShowDialog() == DialogResult.OK)
             {
                 this.Show();
 
-                lblUsuario.Text = MostrarUsuarioActivo();
+                lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
             }
             else
             {

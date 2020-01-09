@@ -15,9 +15,9 @@ namespace noteBook
 {
     public partial class Login : Form
     {
-        RegistroUsuarioForms registroUsuario = new RegistroUsuarioForms();
-        ArchivoManager archivoManager = new ArchivoManager();
-       
+        
+        readonly ArchivoManager archivoManager = new ArchivoManager();
+        readonly RegistroUsuarioForms registroUsuario = new RegistroUsuarioForms();
         Usuario logearUsuario = new Usuario();
         public Login()
         {
@@ -29,6 +29,8 @@ namespace noteBook
             CargarDatos();
 
         }
+        
+        
         public void LimpiarCampos()
         {
             usuarioTxt.Text = "";
@@ -40,11 +42,11 @@ namespace noteBook
             {
                 Singlenton.Instance.CrearUsuarios();
                 archivoManager.CargarUsuario();
-                Singlenton.Instance.desactivarUsuario();
+               
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Se produjo un error al cargar los usuarios");
+                MessageBox.Show($"Se produjo un error al cargar los usuarios{Ex}");
             }
             try
             {
@@ -54,7 +56,7 @@ namespace noteBook
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Se produjo un error al cargar los libros");
+                MessageBox.Show($"Se produjo un error al cargar los libros{Ex}");
             }
         }
 

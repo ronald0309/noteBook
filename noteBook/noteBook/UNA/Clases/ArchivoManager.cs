@@ -10,28 +10,21 @@ namespace noteBook.UNA.Clases
     class ArchivoManager
     {
         private readonly string userPassword = "EL20PROYECTO20ESTABA20DIFICIL";
-        public List<Libro> libros { get; set; }
-        public List<Nota> notas { get; set; }
-        public List<Reportes> reportes { get; set; }
-        public List<Usuario> usuarios { get; set; }
-        private string usuarioActivo;
+        public List<Libro> Libros { get; set; }
+        public List<Nota> Notas { get; set; }
+        public List<Reportes> Reportes { get; set; }
+        public List<Usuario> Usuarios { get; set; }
         public ArchivoManager()
 
         {
-            libros = new List<Libro>();
-            reportes = new List<Reportes>();
-            notas = new List<Nota>();
-            usuarios = new List<Usuario>();
-            foreach (Usuario usuario in Singlenton.Instance.usuarios)
-            {
-                if (usuario.Activo)
-                {
-                    usuarioActivo = usuario.NombreUsuario;
-                }
-            }
+            Libros = new List<Libro>();
+            Reportes = new List<Reportes>();
+            Notas = new List<Nota>();
+            Usuarios = new List<Usuario>();
+            
 
         }
-        public string CrearArchivoLibros(string rutaBase)
+        public string CrearArchivoLibros()
         {
             string pathLibro = $"Libro_{DateTime.Now.ToString()}.csv";
             string pathNota = $"Nota_{DateTime.Now.ToString()}.csv";
@@ -45,9 +38,9 @@ namespace noteBook.UNA.Clases
             using (StreamWriter streamWriter = new StreamWriter(pathLibro))
             {
 
-                foreach (Libro libro in libros)
+                foreach (Libro libro in Libros)
                 {
-                    var line = $"{libro.UsuarioCreadorLibro},{libro.pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
+                    var line = $"{libro.UsuarioCreadorLibro},{libro.Pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
                     streamWriter.WriteLine(line);
                     auxNombre = libro.Nombre;
                 }
@@ -58,7 +51,7 @@ namespace noteBook.UNA.Clases
 
             using (StreamWriter streamWriter = new StreamWriter(pathNota))
             {
-                foreach (Libro libro in libros)
+                foreach (Libro libro in Libros)
                 {
                     auxNombre = libro.Nombre;
                     foreach (Nota nota in libro.AgregarNota)
@@ -81,13 +74,13 @@ namespace noteBook.UNA.Clases
             {
                 File.Delete(archivo);
             }
-            reportes.AddRange(Singlenton.Instance.Reportes);
+            Reportes.AddRange(Singlenton.Instance.Reportes);
             string pathReportes = $"Reportes_{DateTime.Now.ToString()}.csv";
             pathReportes = pathReportes.Replace("/", "_");
             pathReportes = pathReportes.Replace(":", "_");
             using (StreamWriter streamWriter = new StreamWriter(pathReportes))
             {
-                foreach (Reportes reporte in reportes)
+                foreach (Reportes reporte in Reportes)
                 {
                     var line = $"{reporte.UsuarioActual},{reporte.AccionRealizada},{reporte.Objeto},{reporte.FechaCreacion},{reporte.HoraCreacion},{reporte.InformacionAdicional}";
                     streamWriter.WriteLine(line);
@@ -100,13 +93,13 @@ namespace noteBook.UNA.Clases
         }
         public string CrearArchivoUsuario()
         {
-            usuarios.AddRange(Singlenton.Instance.usuariosAuxiliar);
+            Usuarios.AddRange(Singlenton.Instance.usuariosAuxiliar);
             string pathUsuarios = $"Usuario_{DateTime.Now.ToString()}.csv";
             pathUsuarios = pathUsuarios.Replace("/", "_");
             pathUsuarios = pathUsuarios.Replace(":", "_");
             using (StreamWriter streamWriter = new StreamWriter(pathUsuarios))
             {
-                foreach (Usuario usuario in usuarios)
+                foreach (Usuario usuario in Usuarios)
                 {
                     string contraseñaIncriptada = Encriptacion.EncriptarString(usuario.Contraseña,userPassword);
                     var line = $"{usuario.NombreUsuario},{contraseñaIncriptada}";
@@ -174,11 +167,13 @@ namespace noteBook.UNA.Clases
                     {
                         if (libro.Nombre == datosNota[1].ToString())
                         {
-                            Nota nota = new Nota();
-                            nota.UsuarioCreadorNota = datosNota[0];
-                            nota.Titulo = datosNota[2].ToString();
-                            nota.Categoria = datosNota[4].ToString();
-                            nota.Fuente = datosNota[6].ToString();
+                            Nota nota = new Nota
+                            {
+                                UsuarioCreadorNota = datosNota[0],
+                                Titulo = datosNota[2].ToString(),
+                                Categoria = datosNota[4].ToString(),
+                                Fuente = datosNota[6].ToString()
+                            };
                             if (datosNota[3] == "False")
                             {
                                 nota.Privacidad = false;
