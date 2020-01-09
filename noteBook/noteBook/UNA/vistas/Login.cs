@@ -8,26 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using noteBook.UNA.vistas;
-using menuPanel = noteBook.UNA.vistas.menuPanel;
+
 using noteBook.UNA.Clases;
 using System.IO;
 namespace noteBook
 {
-    public partial class login : Form
+    public partial class Login : Form
     {
         RegistroUsuarioForms registroUsuario = new RegistroUsuarioForms();
         ArchivoManager archivoManager = new ArchivoManager();
-        private menuPanel menu = new menuPanel();
+       
         Usuario logearUsuario = new Usuario();
-        public login()
+        public Login()
         {
 
             InitializeComponent();
-            menu.Hide();
+           
             mensajeLogin.SetToolTip(usuarioTxt, "Ingrese el nombre de usuario");
             mensajeLogin.SetToolTip(contraseñaTxt, "Ingrese la contraseña");
             CargarDatos();
-            
+
+        }
+        public void LimpiarCampos()
+        {
+            usuarioTxt.Text = "";
+            contraseñaTxt.Text = "";
         }
         private void CargarDatos()
         {
@@ -36,7 +41,8 @@ namespace noteBook
                 Singlenton.Instance.CrearUsuarios();
                 archivoManager.CargarUsuario();
                 Singlenton.Instance.desactivarUsuario();
-            }catch(Exception Ex)
+            }
+            catch (Exception Ex)
             {
                 MessageBox.Show("Se produjo un error al cargar los usuarios");
             }
@@ -63,13 +69,13 @@ namespace noteBook
             }
         }
 
-       
+
         private void LinkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             registroUsuario.ShowDialog();
         }
 
-
+        
         private void IngresarBtn_Click(object sender, EventArgs e)
         {
             if (usuarioTxt.TextLength == 0)
@@ -107,12 +113,10 @@ namespace noteBook
                                 }
                             }
 
-                            menu.MostrarUsuarioActivo();
-                            this.Hide();
-
-                            menu.ShowDialog();
+                            DialogResult = DialogResult.OK;
+                          
                             this.Close();
-                           
+
 
                         }
 

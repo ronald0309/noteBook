@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class menuPanel
+    partial class MenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuPanel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.superiorPanel = new System.Windows.Forms.Panel();
             this.nombreVistaLabel = new System.Windows.Forms.Label();
             this.panelVistas = new System.Windows.Forms.Panel();
@@ -49,6 +49,7 @@
             this.agregarBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.cambiarUsuarioBtn = new System.Windows.Forms.Button();
             this.superiorPanel.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -131,6 +132,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.cambiarUsuarioBtn);
             this.panelMenu.Controls.Add(this.lblFechaGuardar);
             this.panelMenu.Controls.Add(this.label3);
             this.panelMenu.Controls.Add(this.guardarBtn);
@@ -286,7 +288,25 @@
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // menuPanel
+            // cambiarUsuarioBtn
+            // 
+            this.cambiarUsuarioBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cambiarUsuarioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cambiarUsuarioBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cambiarUsuarioBtn.FlatAppearance.BorderSize = 0;
+            this.cambiarUsuarioBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarUsuarioBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cambiarUsuarioBtn.Image = ((System.Drawing.Image)(resources.GetObject("cambiarUsuarioBtn.Image")));
+            this.cambiarUsuarioBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cambiarUsuarioBtn.Location = new System.Drawing.Point(0, 336);
+            this.cambiarUsuarioBtn.Name = "cambiarUsuarioBtn";
+            this.cambiarUsuarioBtn.Size = new System.Drawing.Size(164, 57);
+            this.cambiarUsuarioBtn.TabIndex = 12;
+            this.cambiarUsuarioBtn.Text = "Cerrar sesión";
+            this.cambiarUsuarioBtn.UseVisualStyleBackColor = false;
+            this.cambiarUsuarioBtn.Click += new System.EventHandler(this.cambiarUsuarioBtn_Click);
+            // 
+            // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -297,9 +317,10 @@
             this.Controls.Add(this.panelMenu);
             this.MaximumSize = new System.Drawing.Size(1100, 600);
             this.MinimumSize = new System.Drawing.Size(816, 489);
-            this.Name = "menuPanel";
+            this.Name = "MenuForm";
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
+            this.Load += new System.EventHandler(this.MenuForm_Load);
             this.Resize += new System.EventHandler(this.Menu_Resize);
             this.superiorPanel.ResumeLayout(false);
             this.panelSuperio.ResumeLayout(false);
@@ -332,5 +353,6 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label lblFechaGuardar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button cambiarUsuarioBtn;
     }
 }

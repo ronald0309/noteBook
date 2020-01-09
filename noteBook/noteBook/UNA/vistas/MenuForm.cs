@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
-    public partial class menuPanel : Form
+    public partial class MenuForm : Form
     {
         private RegistroLibro registroLibros = new RegistroLibro();
 
@@ -19,15 +19,19 @@ namespace noteBook.UNA.vistas
         private Timer tiempo;
         private Timer timer;
         private ArchivoManager archivoManager = new ArchivoManager();
-        public menuPanel()
+        private Login login = new Login();
+        private bool cerrar = true;
+        public MenuForm()
         {
+            InitializeComponent();
+           
             tiempo = new Timer();
             tiempo.Tick += new EventHandler(timer1_Tick);
             timer = new Timer();
             timer.Interval = 60000;
             timer.Tick += new EventHandler(timer2_Tick);
-
-            InitializeComponent();
+            
+            
             tiempo.Enabled = true;
             timer.Enabled = true;
             usuarioActivo();
@@ -44,18 +48,7 @@ namespace noteBook.UNA.vistas
 
             }
         }
-        public void MostrarUsuarioActivo()
-        {
-
-            foreach (Usuario u in Singlenton.Instance.usuarios)
-            {
-                if (u.Activo)
-                {
-                    lblUsuario.Text = u.NombreUsuario;
-                }
-            }
-
-        }
+        
 
         private void AbrirFormulario(Object hija)
         {
@@ -139,25 +132,28 @@ namespace noteBook.UNA.vistas
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
-            DialogResult dr = MessageBox.Show("Guardar cambios realizados", "Alerta", botones, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            if (cerrar)
             {
-                GuardarInformacion();
-                //this.Hide();
-            }
-            else
-            {
-                if (dr == DialogResult.No)
-
+                MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
+                DialogResult dr = MessageBox.Show("Guardar cambios realizados", "Alerta", botones, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    e.Cancel = false;
+                    GuardarInformacion();
+                    //this.Hide();
                 }
                 else
                 {
-                    if (dr == DialogResult.Cancel)
+                    if (dr == DialogResult.No)
+
                     {
-                        e.Cancel = true;
+                        e.Cancel = false;
+                    }
+                    else
+                    {
+                        if (dr == DialogResult.Cancel)
+                        {
+                            e.Cancel = true;
+                        }
                     }
                 }
             }
@@ -177,6 +173,7 @@ namespace noteBook.UNA.vistas
 
         private void LibroBtn_Click(object sender, EventArgs e)
         {
+
             MisLibros miLibros = new MisLibros();
             this.nombreVistaLabel.Text = "Mis libros";
             miLibros.CrearLibro();
@@ -196,6 +193,60 @@ namespace noteBook.UNA.vistas
             this.nombreVistaLabel.Text = "Reportes";
             ReportesForm reporteForm = new ReportesForm();
             this.AbrirFormulario(reporteForm);
+        }
+        public string MostrarUsuarioActivo()
+        {
+            string usuarioActivo = "";
+            foreach (Usuario u in Singlenton.Instance.usuarios)
+            {
+
+                if (u.Activo)
+                {
+                    usuarioActivo = u.NombreUsuario;
+                }
+                else
+                {
+                    if (usuarioActivo == "" || usuarioActivo == "no hay usuarios activos")
+                    {
+                        usuarioActivo = "no hay usuarios activos";
+                    }
+                }
+            }
+            return usuarioActivo;
+        }
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+            
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+
+                lblUsuario.Text =MostrarUsuarioActivo();
+            }
+            else
+            {
+                cerrar = false;
+                this.Close();
+                
+            }
+        }
+
+        private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
+        {
+            login.LimpiarCampos();
+            this.Hide();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+
+                lblUsuario.Text = MostrarUsuarioActivo();
+            }
+            else
+            {
+                cerrar = false;
+                this.Close();
+                
+            }
         }
     }
 }

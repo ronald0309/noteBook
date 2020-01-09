@@ -89,11 +89,11 @@
     <Compile Include="UNA\vistas\LibroControl.Designer.cs">
       <DependentUpon>LibroControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\Menu.cs">
+    <Compile Include="UNA\vistas\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="UNA\vistas\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\vistas\Login.cs">
       <SubType>Form</SubType>
@@ -167,8 +167,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UNA\vistas\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\MisLibros.resx">
       <DependentUpon>MisLibros.cs</DependentUpon>

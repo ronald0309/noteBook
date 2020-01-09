@@ -7,7 +7,6 @@ D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.Properties.Res
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.GenerateResource.cache
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
-D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Menu.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.RegistroLibro.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.FormularioNota.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MisLibros.resources
@@ -72,3 +71,4 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.menuPanel.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MenuForm.resources

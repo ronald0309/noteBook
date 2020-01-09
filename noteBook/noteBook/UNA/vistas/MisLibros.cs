@@ -142,6 +142,8 @@ namespace noteBook.UNA.vistas
                            }
 
                            bibliotecaTabControl.Controls.Add(pestaña);
+                           bibliotecaTabControl.SelectedTab = pestaña;
+
                        }
 
                    };
@@ -219,6 +221,7 @@ namespace noteBook.UNA.vistas
 
                     }
                     bibliotecaTabControl.Controls.Add(pestañaLibro);
+                    bibliotecaTabControl.SelectedTab = pestañaLibro;
                 }
 
                 //   biblioteca.Size.

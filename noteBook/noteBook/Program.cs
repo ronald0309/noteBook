@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using noteBook.UNA.vistas;
 namespace noteBook
 {
     static class Program
@@ -16,7 +16,7 @@ namespace noteBook
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            Application.Run(new MenuForm());
         }
     }
 }
