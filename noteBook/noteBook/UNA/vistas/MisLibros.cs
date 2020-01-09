@@ -28,6 +28,32 @@ namespace noteBook.UNA.vistas
 
             }
         }
+        public NotaControl CrearNotaControl(Nota nota)
+        {
+            NotaControl notaControl = new NotaControl
+            {
+                Height = nota.Heigh,
+                Width = nota.Width,
+                Location = new Point(nota.PosicionX, nota.PosicionY),
+                FuenteTipo = nota.Fuente,
+                TituloNota = nota.Titulo,
+                ColorNota = nota.ColorFondo,
+                ColorFuente = nota.ColorFuente,
+                FechaCreacion = nota.FechaCreacion,
+                Categoria = nota.Categoria
+            };
+            return notaControl;
+        }
+        public NotaPrivadaControl CrearNotaPrivada(Nota nota)
+        {
+            NotaPrivadaControl notaPrivada = new NotaPrivadaControl
+            {
+                Nombre = nota.Titulo,
+                ColorFondo = nota.ColorFondo,
+                Location = new Point(nota.PosicionX, nota.PosicionY)
+            };
+            return notaPrivada;
+        }
         public void CrearLibro()
         {
             String nombreUsuario = Singlenton.Instance.UsuarioActivo();
@@ -70,37 +96,20 @@ namespace noteBook.UNA.vistas
                                formulario.SetXY(x, y);
                                formulario.Posicion = libro.Nombre;
                                formulario.ShowDialog();
-                              
-                               
+
+
                                foreach (var nota in libro.AgregarNota)
                                {
-                                 
-                               
-                                 if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
-                                   {
-                                       NotaControl notaControl = new NotaControl
-                                       {
-                                           Location = new Point(nota.PosicionX, nota.PosicionY),
-                                           Height = nota.Heigh,
-                                           Width = nota.Width,
-                                           Categoria = nota.Categoria,
 
-                                           FuenteTipo = nota.Fuente,
-                                           TituloNota = nota.Titulo,
-                                           ColorNota = nota.ColorFondo,
-                                           ColorFuente = nota.ColorFuente,
-                                           FechaCreacion = nota.FechaCreacion
-                                       };
+
+                                   if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
+                                   {
+                                       NotaControl notaControl = CrearNotaControl(nota);
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
                                    {
-                                       NotaPrivadaControl notaPrivada = new NotaPrivadaControl
-                                       {
-                                           Nombre = nota.Titulo,
-                                           ColorFondo = nota.ColorFondo,
-                                           Location = new Point(nota.PosicionX, nota.PosicionY)
-                                       };
+                                       NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
 
                                        pestaña.Controls.Add(notaPrivada);
                                    }
@@ -111,31 +120,15 @@ namespace noteBook.UNA.vistas
                            {
                                foreach (var nota in libro.AgregarNota)
                                {
-                                   if (nota.Privacidad == false||nota.UsuarioCreadorNota==nombreUsuario)
+                                   if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                                    {
-                                       NotaControl notaControl = new NotaControl
-                                       {
-                                           Height = nota.Heigh,
-                                           Width = nota.Width,
-                                           Location = new Point(nota.PosicionX, nota.PosicionY),
-                                           FuenteTipo = nota.Fuente,
-                                           TituloNota = nota.Titulo,
-                                           ColorNota = nota.ColorFondo,
-                                           ColorFuente = nota.ColorFuente,
-                                           FechaCreacion = nota.FechaCreacion,
-                                           Categoria = nota.Categoria
-                                       };
+                                       NotaControl notaControl = CrearNotaControl(nota);
 
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
                                    {
-                                       NotaPrivadaControl notaPrivada = new NotaPrivadaControl
-                                       {
-                                           Nombre = nota.Titulo,
-                                           ColorFondo = nota.ColorFondo,
-                                           Location = new Point(nota.PosicionX, nota.PosicionY)
-                                       };
+                                       NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
 
                                        pestaña.Controls.Add(notaPrivada);
                                    }
@@ -167,65 +160,32 @@ namespace noteBook.UNA.vistas
                         formulario.SetXY(x, y);
                         formulario.Posicion = libro.Nombre;
                         formulario.ShowDialog();
-                        foreach (var p in libro.AgregarNota)
+                        foreach (var nota in libro.AgregarNota)
                         {
-                            if (p.Privacidad == false)
+                            if (nota.Privacidad == false)
                             {
-                                NotaControl notaControl = new NotaControl
-                                {
-                                    Location = new Point(p.PosicionX, p.PosicionY),
-                                    Height = p.Heigh,
-                                    Width = p.Width,
-                                    Categoria = p.Categoria,
-
-                                    FuenteTipo = p.Fuente,
-                                    TituloNota = p.Titulo,
-                                    ColorNota = p.ColorFondo,
-                                    ColorFuente = p.ColorFuente,
-                                    FechaCreacion = p.FechaCreacion
-                                };
+                                NotaControl notaControl = CrearNotaControl(nota);
                                 pestañaLibro.Controls.Add(notaControl);
                             }
                             else
                             {
-                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl
-                                {
-                                    Nombre = p.Titulo,
-                                    ColorFondo = p.ColorFondo,
-                                    Location = new Point(p.PosicionX, p.PosicionY)
-                                };
+                                NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
                                 pestaña.Controls.Add(notaPrivada);
                             }
                         }
 
                     };
-                    foreach (var p in libro.AgregarNota)
+                    foreach (var nota in libro.AgregarNota)
                     {
-                        if (p.Privacidad == false)
+                        if (nota.Privacidad == false)
                         {
-                            NotaControl notaControl = new NotaControl
-                            {
-                                Height = p.Heigh,
-                                Width = p.Width,
-                                Location = new Point(p.PosicionX, p.PosicionY),
-                                FuenteTipo = p.Fuente,
-                                TituloNota = p.Titulo,
-                                ColorNota = p.ColorFondo,
-                                ColorFuente = p.ColorFuente,
-                                FechaCreacion = p.FechaCreacion,
-                                Categoria = p.Categoria
-                            };
+                            NotaControl notaControl = CrearNotaControl(nota);
 
                             pestañaLibro.Controls.Add(notaControl);
                         }
                         else
                         {
-                            NotaPrivadaControl notaPrivada = new NotaPrivadaControl
-                            {
-                                Nombre = p.Titulo,
-                                ColorFondo = p.ColorFondo,
-                                Location = new Point(p.PosicionX, p.PosicionY)
-                            };
+                            NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
 
                             pestañaLibro.Controls.Add(notaPrivada);
                         }
@@ -235,33 +195,32 @@ namespace noteBook.UNA.vistas
                     bibliotecaTabControl.SelectedTab = pestañaLibro;
                 }
 
-                //   biblioteca.Size.
-                contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width,bibliotecaTabControl.Size.Height);
+                
+                contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width, bibliotecaTabControl.Size.Height);
                 contenedorLibros.Controls.Add(libroControl);
                 contenedorLibros.AutoScroll = true;
-               // PRU.AutoSize = true;
+                
                 biblioteca.Controls.Add(contenedorLibros);
-              //  bibliotecaTabControl.Controls.Add(tab);
-               // libroContenedorLayout.Controls.Add(libroControl);
+                
 
 
             }
 
         }
-     
 
-      
 
-        
+
+
+
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // bibliotecaTabControl.Controls.Clear();
+            // bibliotecaTabControl.Controls.Clear();
             if (ordenComboBox.Text == "Creciente")
             {
                 List<Libro> librosAuxiliar = new List<Libro>();
                 librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
                 IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderBy(a => a.Nombre);
-               
+
                 Singlenton.Instance.LibrosList.Clear();
                 Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
 
@@ -274,7 +233,7 @@ namespace noteBook.UNA.vistas
                     List<Libro> librosAuxiliar = new List<Libro>();
                     librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
                     IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderByDescending(a => a.Nombre);
-            
+
                     Singlenton.Instance.LibrosList.Clear();
                     Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
 
@@ -282,11 +241,12 @@ namespace noteBook.UNA.vistas
 
                 }
             }
-          //  bibliotecaTabControl.Refresh();
+            //  bibliotecaTabControl.Refresh();
         }
-    
+
         public void ActualizarPage()
         {
+            DoubleBuffered = true;
             String nombreUsuario = "nombre";
 
             foreach (var usuarioAc in Singlenton.Instance.usuarios)
@@ -300,41 +260,25 @@ namespace noteBook.UNA.vistas
             }
             if (Singlenton.Instance.NotaEditada)
             {
-
+                
                 foreach (Libro libro in Singlenton.Instance.LibrosList)
                 {
                     if (libro.Nombre == bibliotecaTabControl.SelectedTab.Text)
                     {
                         bibliotecaTabControl.SelectedTab.Controls.Clear();
-                        foreach (var p in libro.AgregarNota)
+                        foreach (var nota in libro.AgregarNota)
                         {
-                            if (p.Privacidad == false||p.UsuarioCreadorNota==nombreUsuario)
+                            if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                             {
-                                NotaControl notaControl = new NotaControl
-                                {
-                                    Height = p.Heigh,
-                                    Width = p.Width,
-                                    Location = new Point(p.PosicionX, p.PosicionY),
-                                    Categoria = p.Categoria,
-                                    FuenteTipo = p.Fuente,
-                                    TituloNota = p.Titulo,
-                                    ColorNota = p.ColorFondo,
-                                    ColorFuente = p.ColorFuente,
-                                    FechaCreacion = p.FechaCreacion
-                                };
+                                NotaControl notaControl = CrearNotaControl(nota);
 
                                 bibliotecaTabControl.SelectedTab.Controls.Add(notaControl);
                             }
                             else
                             {
-                                if (p.Privacidad == true)
+                                if (nota.Privacidad == true)
                                 {
-                                    NotaPrivadaControl notaPrivada = new NotaPrivadaControl
-                                    {
-                                        Nombre = p.Titulo,
-                                        ColorFondo = p.ColorFondo,
-                                        Location = new Point(p.PosicionX, p.PosicionY)
-                                    };
+                                    NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
                                     bibliotecaTabControl.SelectedTab.Controls.Add(notaPrivada);
                                 }
 
@@ -347,6 +291,5 @@ namespace noteBook.UNA.vistas
         }
 
 
-       
     }
 }

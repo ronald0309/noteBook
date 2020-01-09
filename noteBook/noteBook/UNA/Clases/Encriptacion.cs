@@ -20,8 +20,10 @@ namespace noteBook.UNA.Clases
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             PasswordDeriveBytes password = new PasswordDeriveBytes(passPhrase, null);
             byte[] keyBytes = password.GetBytes(keysize / 8);
-            RijndaelManaged symmetricKey = new RijndaelManaged();
-            symmetricKey.Mode = CipherMode.CBC;
+            RijndaelManaged symmetricKey = new RijndaelManaged
+            {
+                Mode = CipherMode.CBC
+            };
             ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes);
             MemoryStream memoryStream = new MemoryStream();
             CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);

@@ -17,7 +17,8 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
         }
-        string nombreNota;
+
+        readonly string nombreNota;
         public AccesoNotaPrivada(string nombreNota)
         {
             InitializeComponent();

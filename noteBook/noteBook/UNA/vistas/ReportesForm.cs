@@ -14,8 +14,7 @@ namespace noteBook.UNA.vistas
 
     public partial class ReportesForm : Form
     {
-
-        ArchivoManager archivoManager = new ArchivoManager();
+        readonly ArchivoManager archivoManager = new ArchivoManager();
         public ReportesForm()
         {
             InitializeComponent();
