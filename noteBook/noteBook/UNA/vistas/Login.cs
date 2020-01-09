@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using noteBook.UNA.vistas;
-using Menu = noteBook.UNA.vistas.Menu;
+using menuPanel = noteBook.UNA.vistas.menuPanel;
 using noteBook.UNA.Clases;
 using System.IO;
 namespace noteBook
@@ -17,19 +17,19 @@ namespace noteBook
     {
         RegistroUsuarioForms registroUsuario = new RegistroUsuarioForms();
         ArchivoManager archivoManager = new ArchivoManager();
-        private Menu menu = new Menu();
+        private menuPanel menu = new menuPanel();
         Usuario logearUsuario = new Usuario();
         public login()
         {
 
             InitializeComponent();
             menu.Hide();
-            mensajeLogin.SetToolTip(txtUsuario, "Ingrese el nombre de usuario");
-            mensajeLogin.SetToolTip(txtContraseña, "Ingrese la contraseña");
-            cargarDatos();
+            mensajeLogin.SetToolTip(usuarioTxt, "Ingrese el nombre de usuario");
+            mensajeLogin.SetToolTip(contraseñaTxt, "Ingrese la contraseña");
+            CargarDatos();
             
         }
-        private void cargarDatos()
+        private void CargarDatos()
         {
             try
             {
@@ -56,41 +56,48 @@ namespace noteBook
         {
             foreach (Usuario u in Singlenton.Instance.usuarios)
             {
-                if (txtUsuario.Text == u.NombreUsuario)
+                if (usuarioTxt.Text == u.NombreUsuario)
                 {
                     logearUsuario = u;
                 }
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+       
+        private void LinkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (txtUsuario.TextLength == 0)
+            registroUsuario.ShowDialog();
+        }
+
+
+        private void IngresarBtn_Click(object sender, EventArgs e)
+        {
+            if (usuarioTxt.TextLength == 0)
             {
-                LoginErrorProvider.SetError(txtUsuario, "Falta Nombre Usuario");
+                LoginErrorProvider.SetError(usuarioTxt, "Falta Nombre Usuario");
             }
             else
             {
 
-                if (txtContraseña.TextLength == 0)
+                if (contraseñaTxt.TextLength == 0)
                 {
 
-                    LoginErrorProvider.SetError(txtContraseña, "Falta Contraseña Usuario");
+                    LoginErrorProvider.SetError(contraseñaTxt, "Falta Contraseña Usuario");
                 }
                 else
                 {
                     ValidarUsuario();
 
 
-                    if (txtUsuario.Text == logearUsuario.NombreUsuario)
+                    if (usuarioTxt.Text == logearUsuario.NombreUsuario)
                     {
 
 
-                        if (txtContraseña.Text == logearUsuario.Contraseña)
+                        if (contraseñaTxt.Text == logearUsuario.Contraseña)
                         {
                             foreach (Usuario u in Singlenton.Instance.usuarios)
                             {
-                                if (txtUsuario.Text == u.NombreUsuario)
+                                if (usuarioTxt.Text == u.NombreUsuario)
                                 {
                                     u.Activo = true;
                                 }
@@ -99,18 +106,14 @@ namespace noteBook
                                     u.Activo = false;
                                 }
                             }
-                          
+
                             menu.MostrarUsuarioActivo();
                             this.Hide();
 
                             menu.ShowDialog();
                             this.Close();
-                            //if (menu.ShowDialog() == DialogResult.OK)
-                            //{
-                            //    this.Close();
-                            //}
-                            //this.Show();
-                            
+                           
+
                         }
 
                         else
@@ -125,11 +128,6 @@ namespace noteBook
                     }
                 }
             }
-        }
-
-        private void LinkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            registroUsuario.ShowDialog();
         }
     }
 }

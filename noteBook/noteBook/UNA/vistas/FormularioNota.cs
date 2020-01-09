@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
             VisualizarNota.Categoria = "Categoria";
             DateTime hoy = DateTime.Now;
 
-            VisualizarNota.fechaCreacion = hoy.ToString("dd-MM-yyy");
+            VisualizarNota.FechaCreacion = hoy.ToString("dd-MM-yyy");
             VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
             VisualizarNota.ColorFuente = colorDialog2.Color.ToArgb();
 

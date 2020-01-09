@@ -29,46 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaPrivadaControl));
-            this.TituloLabel = new System.Windows.Forms.Label();
-            this.DesbloqueButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tituloLabel = new System.Windows.Forms.Label();
+            this.desbloqueoBtn = new System.Windows.Forms.Button();
+            this.contendorPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // TituloLabel
+            // tituloLabel
             // 
-            this.TituloLabel.Location = new System.Drawing.Point(0, 0);
-            this.TituloLabel.Name = "TituloLabel";
-            this.TituloLabel.Size = new System.Drawing.Size(92, 37);
-            this.TituloLabel.TabIndex = 0;
-            this.TituloLabel.Text = "Titulo";
-            this.TituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            
+            this.tituloLabel.Location = new System.Drawing.Point(0, 0);
+            this.tituloLabel.Name = "tituloLabel";
+            this.tituloLabel.Size = new System.Drawing.Size(92, 37);
+            this.tituloLabel.TabIndex = 0;
+            this.tituloLabel.Text = "Titulo";
+            this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // DesbloqueButton
+            // desbloqueoBtn
             // 
-            this.DesbloqueButton.Image = ((System.Drawing.Image)(resources.GetObject("DesbloqueButton.Image")));
-            this.DesbloqueButton.Location = new System.Drawing.Point(98, 3);
-            this.DesbloqueButton.Name = "DesbloqueButton";
-            this.DesbloqueButton.Size = new System.Drawing.Size(36, 33);
-            this.DesbloqueButton.TabIndex = 1;
-            this.DesbloqueButton.UseVisualStyleBackColor = true;
-            this.DesbloqueButton.Click += new System.EventHandler(this.DesbloqueButton_Click);
+            this.desbloqueoBtn.Image = ((System.Drawing.Image)(resources.GetObject("desbloqueoBtn.Image")));
+            this.desbloqueoBtn.Location = new System.Drawing.Point(98, 3);
+            this.desbloqueoBtn.Name = "desbloqueoBtn";
+            this.desbloqueoBtn.Size = new System.Drawing.Size(36, 33);
+            this.desbloqueoBtn.TabIndex = 1;
+            this.desbloqueoBtn.UseVisualStyleBackColor = true;
+            this.desbloqueoBtn.Click += new System.EventHandler(this.DesbloqueButton_Click);
             // 
-            // panel1
+            // contendorPanel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(137, 39);
-            this.panel1.TabIndex = 2;
+            this.contendorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contendorPanel.Location = new System.Drawing.Point(0, 0);
+            this.contendorPanel.Name = "contendorPanel";
+            this.contendorPanel.Size = new System.Drawing.Size(137, 39);
+            this.contendorPanel.TabIndex = 2;
             // 
             // NotaPrivadaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.DesbloqueButton);
-            this.Controls.Add(this.TituloLabel);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.desbloqueoBtn);
+            this.Controls.Add(this.tituloLabel);
+            this.Controls.Add(this.contendorPanel);
             this.Name = "NotaPrivadaControl";
             this.Size = new System.Drawing.Size(137, 39);
             this.ResumeLayout(false);
@@ -77,8 +76,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label TituloLabel;
-        private System.Windows.Forms.Button DesbloqueButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label tituloLabel;
+        private System.Windows.Forms.Button desbloqueoBtn;
+        private System.Windows.Forms.Panel contendorPanel;
     }
 }

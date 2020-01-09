@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
-    public partial class Menu : Form
+    public partial class menuPanel : Form
     {
         private RegistroLibro registroLibros = new RegistroLibro();
 
@@ -19,7 +19,7 @@ namespace noteBook.UNA.vistas
         private Timer tiempo;
         private Timer timer;
         private ArchivoManager archivoManager = new ArchivoManager();
-        public Menu()
+        public menuPanel()
         {
             tiempo = new Timer();
             tiempo.Tick += new EventHandler(timer1_Tick);
@@ -57,7 +57,7 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void abrirForma(Object hija)
+        private void AbrirFormulario(Object hija)
         {
             if (this.panelVistas.Controls.Count > 0)
             {
@@ -75,47 +75,17 @@ namespace noteBook.UNA.vistas
             /// se pinta la vista
             h.Show();
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            this.labelTitulo.Text = "Agregar Libro";
-            this.abrirForma(registroLibros);
-        }
-
-        private void btnMisLibros_Click(object sender, EventArgs e)
-        {
-            MisLibros miLibros = new MisLibros();
-            this.labelTitulo.Text = "Mis libros";
-            miLibros.crearLibro();
-            Singlenton.Instance.miLibro = miLibros;
-            this.abrirForma(miLibros);
-        }
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
-            HoraLabel.Text = hoy.ToString("hh:mm:ss tt");
+            horaLabel.Text = hoy.ToString("hh:mm:ss tt");
         }
 
         private void Menu_Resize(object sender, EventArgs e)
         {
             panelVistas.Height = this.Height - 136;
         }
-
-        private void Busquedabtn_Click(object sender, EventArgs e)
-        {
-            this.labelTitulo.Text = "Busqueda";
-            Busqueda busqueda = new Busqueda();
-            this.abrirForma(busqueda);
-        }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            this.labelTitulo.Text = "Reportes";
-            ReportesForm reporteForm = new ReportesForm();
-            this.abrirForma(reporteForm);
-        }
-
 
         private void ConstruirElArchivo(ArchivoManager archivoManager)
         {
@@ -135,12 +105,8 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            guardarInformacion();
-            MessageBox.Show("Se guardaron los cambios");
-        }
-        private void guardarInformacion()
+     
+        private void GuardarInformacion()
         {
             string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
 
@@ -167,7 +133,7 @@ namespace noteBook.UNA.vistas
         private void timer2_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-            guardarInformacion();
+            GuardarInformacion();
             timer1.Start();
         }
 
@@ -177,7 +143,7 @@ namespace noteBook.UNA.vistas
             DialogResult dr = MessageBox.Show("Guardar cambios realizados", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                guardarInformacion();
+                GuardarInformacion();
                 //this.Hide();
             }
             else
@@ -197,11 +163,39 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        //private void button2_Click(object sender, EventArgs e)
-        //{
+        private void AgregarBtn_Click(object sender, EventArgs e)
+        {
+            this.nombreVistaLabel.Text = "Agregar Libro";
+            this.AbrirFormulario(registroLibros);
+        }
 
-        //    this.Hide();
+        private void GuardarBtn_Click(object sender, EventArgs e)
+        {
+            GuardarInformacion();
+            MessageBox.Show("Se guardaron los cambios");
+        }
 
-        //}
+        private void LibroBtn_Click(object sender, EventArgs e)
+        {
+            MisLibros miLibros = new MisLibros();
+            this.nombreVistaLabel.Text = "Mis libros";
+            miLibros.CrearLibro();
+            Singlenton.Instance.miLibro = miLibros;
+            this.AbrirFormulario(miLibros);
+        }
+
+        private void BusquedaBtn_Click(object sender, EventArgs e)
+        {
+            this.nombreVistaLabel.Text = "Busqueda";
+            Busqueda busqueda = new Busqueda();
+            this.AbrirFormulario(busqueda);
+        }
+
+        private void ReportesBtn_Click(object sender, EventArgs e)
+        {
+            this.nombreVistaLabel.Text = "Reportes";
+            ReportesForm reporteForm = new ReportesForm();
+            this.AbrirFormulario(reporteForm);
+        }
     }
 }

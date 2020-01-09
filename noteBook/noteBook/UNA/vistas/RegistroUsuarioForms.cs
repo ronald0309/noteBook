@@ -28,9 +28,9 @@ namespace noteBook.UNA.vistas
             foreach (Usuario usuario in Singlenton.Instance.usuarios)
             {
 
-                if (TXTNombre.Text == usuario.NombreUsuario)
+                if (nombreUsuarioTxt.Text == usuario.NombreUsuario)
                 {
-                    RegistroUsuarioErrorProvider1.SetError(TXTNombre, "El usuario ya existe");
+                    registroUsuarioErrorProvider.SetError(nombreUsuarioTxt, "El usuario ya existe");
                     permiso = false;
                 }
                 else
@@ -40,20 +40,20 @@ namespace noteBook.UNA.vistas
             }
             return permiso;
         }
-        private bool guradarUsuario()
+        private bool GuardarUsuario()
         {
             Usuario usuario = new Usuario();
             try
             {
-                if (TXTContrasenna.Text.Length != 0)
+                if (contraseñaTxt.Text.Length != 0)
                 {
-                    if (TXTNombre.Text.Length != 0)
+                    if (nombreUsuarioTxt.Text.Length != 0)
                     {
 
                         if (ValidarUsuario())
                         {
-                            usuario.Contraseña = TXTContrasenna.Text;
-                            usuario.NombreUsuario = TXTNombre.Text;
+                            usuario.Contraseña = contraseñaTxt.Text;
+                            usuario.NombreUsuario = nombreUsuarioTxt.Text;
                             Singlenton.Instance.usuarios.Add(usuario);
                             Singlenton.Instance.usuariosAuxiliar.Add(usuario);
                             string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
@@ -70,13 +70,13 @@ namespace noteBook.UNA.vistas
                     }
                     else
                     {
-                        RegistroUsuarioErrorProvider1.SetError(TXTNombre, "Falta el nombre del usuario");
+                        registroUsuarioErrorProvider.SetError(nombreUsuarioTxt, "Falta el nombre del usuario");
                         return false;
                     }
                 }
                 else
                 {
-                    RegistroUsuarioErrorProvider1.SetError(TXTContrasenna, "Falta la comtraseña del usuario");
+                    registroUsuarioErrorProvider.SetError(contraseñaTxt, "Falta la comtraseña del usuario");
                     return false;
                 }
             }
@@ -87,11 +87,23 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+       
+
+        private void TXTNombre_TextChanged(object sender, EventArgs e)
+        {
+
+            if (ValidarUsuario())
+            {
+                registroUsuarioErrorProvider.Clear();
+
+            }
+        }
+
+        private void AceptarBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (guradarUsuario())
+                if (GuardarUsuario())
                 {
                     MessageBox.Show("Se creo el usuario");
                     this.Close();
@@ -101,10 +113,9 @@ namespace noteBook.UNA.vistas
             {
                 MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
             }
-
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void CancelarBtn_Click(object sender, EventArgs e)
         {
             if (!GuardoDatos)
 
@@ -120,7 +131,7 @@ namespace noteBook.UNA.vistas
                     if (dr == DialogResult.No)
 
                     {
-                        if (guradarUsuario())
+                        if (GuardarUsuario())
                         {
                             MessageBox.Show("Se creo el usuario");
                             this.Close();
@@ -129,16 +140,5 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-
-        private void TXTNombre_TextChanged(object sender, EventArgs e)
-        {
-
-            if (ValidarUsuario())
-            {
-                RegistroUsuarioErrorProvider1.Clear();
-
-            }
-        }
-
     }
 }

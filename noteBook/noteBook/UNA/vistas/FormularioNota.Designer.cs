@@ -175,7 +175,7 @@
             this.VisualizarNota.Categoria = null;
             this.VisualizarNota.ColorFuente = 0;
             this.VisualizarNota.ColorNota = 0;
-            this.VisualizarNota.fechaCreacion = null;
+           
             this.VisualizarNota.FuenteTipo = null;
             this.VisualizarNota.Location = new System.Drawing.Point(298, 25);
             this.VisualizarNota.Name = "VisualizarNota";

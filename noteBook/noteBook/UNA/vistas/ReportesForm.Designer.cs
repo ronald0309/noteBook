@@ -28,98 +28,96 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dGVReportes = new System.Windows.Forms.DataGridView();
-            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoraCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVReportes)).BeginInit();
+            this.reportesDgv = new System.Windows.Forms.DataGridView();
+            this.usuarioColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accionColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.objetoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacionColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horaCreacionColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.reportesDgv)).BeginInit();
             this.SuspendLayout();
             // 
-            // dGVReportes
+            // reportesDgv
             // 
-            this.dGVReportes.AllowUserToAddRows = false;
-            this.dGVReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVReportes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colUsuario,
-            this.colAccion,
-            this.colObjeto,
-            this.colFechaCreacion,
-            this.colHoraCreacion,
-            this.colDescripcion});
-            this.dGVReportes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dGVReportes.Location = new System.Drawing.Point(0, 0);
-            this.dGVReportes.Name = "dGVReportes";
-            this.dGVReportes.Size = new System.Drawing.Size(532, 295);
-            this.dGVReportes.TabIndex = 0;
-            
+            this.reportesDgv.AllowUserToAddRows = false;
+            this.reportesDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportesDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.usuarioColumna,
+            this.accionColumna,
+            this.objetoColumna,
+            this.fechaCreacionColumna,
+            this.horaCreacionColumna,
+            this.descripcionColumna});
+            this.reportesDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportesDgv.Location = new System.Drawing.Point(0, 0);
+            this.reportesDgv.Name = "reportesDgv";
+            this.reportesDgv.Size = new System.Drawing.Size(532, 295);
+            this.reportesDgv.TabIndex = 0;
             // 
-            // colUsuario
+            // usuarioColumna
             // 
-            this.colUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUsuario.HeaderText = "Usuario";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.Width = 68;
+            this.usuarioColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.usuarioColumna.HeaderText = "Usuario";
+            this.usuarioColumna.Name = "usuarioColumna";
+            this.usuarioColumna.Width = 68;
             // 
-            // colAccion
+            // accionColumna
             // 
-            this.colAccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colAccion.HeaderText = "Acción";
-            this.colAccion.Name = "colAccion";
-            this.colAccion.Width = 65;
+            this.accionColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.accionColumna.HeaderText = "Acción";
+            this.accionColumna.Name = "accionColumna";
+            this.accionColumna.Width = 65;
             // 
-            // colObjeto
+            // objetoColumna
             // 
-            this.colObjeto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colObjeto.HeaderText = "Objeto";
-            this.colObjeto.Name = "colObjeto";
-            this.colObjeto.Width = 63;
+            this.objetoColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.objetoColumna.HeaderText = "Objeto";
+            this.objetoColumna.Name = "objetoColumna";
+            this.objetoColumna.Width = 63;
             // 
-            // colFechaCreacion
+            // fechaCreacionColumna
             // 
-            this.colFechaCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colFechaCreacion.HeaderText = "Fecha creación ";
-            this.colFechaCreacion.Name = "colFechaCreacion";
+            this.fechaCreacionColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fechaCreacionColumna.HeaderText = "Fecha creación ";
+            this.fechaCreacionColumna.Name = "fechaCreacionColumna";
             // 
-            // colHoraCreacion
+            // horaCreacionColumna
             // 
-            this.colHoraCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colHoraCreacion.HeaderText = "Hora de creación";
-            this.colHoraCreacion.Name = "colHoraCreacion";
-            this.colHoraCreacion.Width = 105;
+            this.horaCreacionColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.horaCreacionColumna.HeaderText = "Hora de creación";
+            this.horaCreacionColumna.Name = "horaCreacionColumna";
+            this.horaCreacionColumna.Width = 105;
             // 
-            // colDescripcion
+            // descripcionColumna
             // 
-            this.colDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDescripcion.HeaderText = "Descripcion";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.Width = 88;
+            this.descripcionColumna.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.descripcionColumna.HeaderText = "Descripcion";
+            this.descripcionColumna.Name = "descripcionColumna";
+            this.descripcionColumna.Width = 88;
             // 
             // ReportesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 295);
-            this.Controls.Add(this.dGVReportes);
+            this.Controls.Add(this.reportesDgv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReportesForm";
             this.Text = "ReportesForm";
-            
-            ((System.ComponentModel.ISupportInitialize)(this.dGVReportes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportesDgv)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dGVReportes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObjeto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaCreacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHoraCreacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
+        private System.Windows.Forms.DataGridView reportesDgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accionColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objetoColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horaCreacionColumna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionColumna;
     }
 }

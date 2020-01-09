@@ -30,99 +30,100 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControl));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CategoriarichTextBox = new System.Windows.Forms.RichTextBox();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.TituloRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.MoverBoton = new System.Windows.Forms.Button();
+            this.contendorPanel = new System.Windows.Forms.Panel();
+            this.categoriarichTexBox = new System.Windows.Forms.RichTextBox();
+            this.editarBtn = new System.Windows.Forms.Button();
+            this.tituloRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.moverBoton = new System.Windows.Forms.Button();
             this.AgrandarBoton = new System.Windows.Forms.Button();
-            this.FechaCreacion = new System.Windows.Forms.Label();
+            this.fechaCreacionLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1.SuspendLayout();
+            this.contendorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // contendorPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.CategoriarichTextBox);
-            this.panel1.Controls.Add(this.btnEditar);
-            this.panel1.Controls.Add(this.TituloRichTextBox);
-            this.panel1.Controls.Add(this.MoverBoton);
-            this.panel1.Controls.Add(this.AgrandarBoton);
-            this.panel1.Controls.Add(this.FechaCreacion);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(155, 175);
-            this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.contendorPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contendorPanel.Controls.Add(this.categoriarichTexBox);
+            this.contendorPanel.Controls.Add(this.editarBtn);
+            this.contendorPanel.Controls.Add(this.tituloRichTextBox);
+            this.contendorPanel.Controls.Add(this.moverBoton);
+            this.contendorPanel.Controls.Add(this.AgrandarBoton);
+            this.contendorPanel.Controls.Add(this.fechaCreacionLabel);
+            this.contendorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contendorPanel.Location = new System.Drawing.Point(0, 0);
+            this.contendorPanel.Name = "contendorPanel";
+            this.contendorPanel.Size = new System.Drawing.Size(155, 175);
+            this.contendorPanel.TabIndex = 1;
+            this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // CategoriarichTextBox
+            // categoriarichTexBox
             // 
-            this.CategoriarichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.categoriarichTexBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CategoriarichTextBox.AutoWordSelection = true;
-            this.CategoriarichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.CategoriarichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CategoriarichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CategoriarichTextBox.HideSelection = false;
-            this.CategoriarichTextBox.Location = new System.Drawing.Point(0, 36);
-            this.CategoriarichTextBox.Multiline = false;
-            this.CategoriarichTextBox.Name = "CategoriarichTextBox";
-            this.CategoriarichTextBox.ReadOnly = true;
-            this.CategoriarichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.CategoriarichTextBox.Size = new System.Drawing.Size(155, 38);
-            this.CategoriarichTextBox.TabIndex = 7;
-            this.CategoriarichTextBox.TabStop = false;
-            this.CategoriarichTextBox.Text = "";
+            this.categoriarichTexBox.AutoWordSelection = true;
+            this.categoriarichTexBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.categoriarichTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.categoriarichTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriarichTexBox.HideSelection = false;
+            this.categoriarichTexBox.Location = new System.Drawing.Point(0, 36);
+            this.categoriarichTexBox.Multiline = false;
+            this.categoriarichTexBox.Name = "categoriarichTexBox";
+            this.categoriarichTexBox.ReadOnly = true;
+            this.categoriarichTexBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.categoriarichTexBox.Size = new System.Drawing.Size(155, 38);
+            this.categoriarichTexBox.TabIndex = 7;
+            this.categoriarichTexBox.TabStop = false;
+            this.categoriarichTexBox.Text = "";
             // 
-            // btnEditar
+            // editarBtn
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(44, 141);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(33, 34);
-            this.btnEditar.TabIndex = 6;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.editarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.editarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editarBtn.Image = ((System.Drawing.Image)(resources.GetObject("editarBtn.Image")));
+            this.editarBtn.Location = new System.Drawing.Point(44, 141);
+            this.editarBtn.Name = "editarBtn";
+            this.editarBtn.Size = new System.Drawing.Size(33, 34);
+            this.editarBtn.TabIndex = 6;
+            this.editarBtn.UseVisualStyleBackColor = true;
+            this.editarBtn.Click += new System.EventHandler(this.EditarBtn_Click);
             // 
-            // TituloRichTextBox
+            // tituloRichTextBox
             // 
-            this.TituloRichTextBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.TituloRichTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TituloRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TituloRichTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.TituloRichTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TituloRichTextBox.Enabled = false;
-            this.TituloRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TituloRichTextBox.HideSelection = false;
-            this.TituloRichTextBox.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.TituloRichTextBox.Location = new System.Drawing.Point(0, 0);
-            this.TituloRichTextBox.Multiline = false;
-            this.TituloRichTextBox.Name = "TituloRichTextBox";
-            this.TituloRichTextBox.ReadOnly = true;
-            this.TituloRichTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TituloRichTextBox.ShortcutsEnabled = false;
-            this.TituloRichTextBox.Size = new System.Drawing.Size(155, 36);
-            this.TituloRichTextBox.TabIndex = 6;
-            this.TituloRichTextBox.Text = "";
-            this.TituloRichTextBox.WordWrap = false;
+            this.tituloRichTextBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.tituloRichTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tituloRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tituloRichTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tituloRichTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tituloRichTextBox.Enabled = false;
+            this.tituloRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloRichTextBox.HideSelection = false;
+            this.tituloRichTextBox.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.tituloRichTextBox.Location = new System.Drawing.Point(0, 0);
+            this.tituloRichTextBox.Multiline = false;
+            this.tituloRichTextBox.Name = "tituloRichTextBox";
+            this.tituloRichTextBox.ReadOnly = true;
+            this.tituloRichTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tituloRichTextBox.ShortcutsEnabled = false;
+            this.tituloRichTextBox.Size = new System.Drawing.Size(155, 36);
+            this.tituloRichTextBox.TabIndex = 6;
+            this.tituloRichTextBox.Text = "";
+            this.tituloRichTextBox.WordWrap = false;
             // 
-            // MoverBoton
+            // moverBoton
             // 
-            this.MoverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.MoverBoton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MoverBoton.Image = ((System.Drawing.Image)(resources.GetObject("MoverBoton.Image")));
-            this.MoverBoton.Location = new System.Drawing.Point(83, 141);
-            this.MoverBoton.Name = "MoverBoton";
-            this.MoverBoton.Size = new System.Drawing.Size(33, 34);
-            this.MoverBoton.TabIndex = 5;
-            this.MoverBoton.UseVisualStyleBackColor = true;
-            this.MoverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
-            this.MoverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
-            this.MoverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
+            this.moverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.moverBoton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.moverBoton.Image = ((System.Drawing.Image)(resources.GetObject("moverBoton.Image")));
+            this.moverBoton.Location = new System.Drawing.Point(83, 141);
+            this.moverBoton.Name = "moverBoton";
+            this.moverBoton.Size = new System.Drawing.Size(33, 34);
+            this.moverBoton.TabIndex = 5;
+            this.moverBoton.UseVisualStyleBackColor = true;
+            this.moverBoton.Click += new System.EventHandler(this.MoverBtn_Click);
+            this.moverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
+            this.moverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
+            this.moverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
             // 
             // AgrandarBoton
             // 
@@ -138,19 +139,19 @@
             this.AgrandarBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseMove);
             this.AgrandarBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseUp);
             // 
-            // FechaCreacion
+            // fechaCreacionLabel
             // 
-            this.FechaCreacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FechaCreacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaCreacion.Location = new System.Drawing.Point(2, 77);
-            this.FechaCreacion.Name = "FechaCreacion";
-            this.FechaCreacion.Size = new System.Drawing.Size(153, 50);
-            this.FechaCreacion.TabIndex = 1;
-            this.FechaCreacion.Text = "FechaCreacion";
-            this.FechaCreacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.FechaCreacion.Click += new System.EventHandler(this.FechaCreacion_Click);
+            this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechaCreacionLabel.Location = new System.Drawing.Point(2, 77);
+            this.fechaCreacionLabel.Name = "fechaCreacionLabel";
+            this.fechaCreacionLabel.Size = new System.Drawing.Size(153, 50);
+            this.fechaCreacionLabel.TabIndex = 1;
+            this.fechaCreacionLabel.Text = "FechaCreacion";
+            this.fechaCreacionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fechaCreacionLabel.Click += new System.EventHandler(this.FechaCreacion_Click);
             // 
             // imageList1
             // 
@@ -163,23 +164,23 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.contendorPanel);
             this.Name = "NotaControl";
             this.Size = new System.Drawing.Size(155, 175);
-            this.panel1.ResumeLayout(false);
+            this.contendorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label FechaCreacion;
+        private System.Windows.Forms.Panel contendorPanel;
+        private System.Windows.Forms.Label fechaCreacionLabel;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button AgrandarBoton;
-        private System.Windows.Forms.Button MoverBoton;
+        private System.Windows.Forms.Button moverBoton;
 
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.RichTextBox CategoriarichTextBox;
-        private System.Windows.Forms.RichTextBox TituloRichTextBox;
+        private System.Windows.Forms.Button editarBtn;
+        private System.Windows.Forms.RichTextBox categoriarichTexBox;
+        private System.Windows.Forms.RichTextBox tituloRichTextBox;
     }
 }

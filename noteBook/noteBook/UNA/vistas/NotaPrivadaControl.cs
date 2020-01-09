@@ -26,7 +26,7 @@ namespace noteBook.UNA.vistas
             set
             {
                 nombre = value;
-                this.TituloLabel.Text = value;
+                this.tituloLabel.Text = value;
             }
         }
         public int ColorFondo

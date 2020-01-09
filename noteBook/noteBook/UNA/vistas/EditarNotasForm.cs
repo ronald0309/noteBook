@@ -36,41 +36,41 @@ namespace noteBook.UNA.vistas
 
             InitializeComponent();
 
-            mensajes();
+            Mensajes();
 
         }
 
-        private void mensajes()
+        private void Mensajes()
 
         {
 
-            mensajeEditarNotas.SetToolTip(lblTitulo, "Titulo actual de la nota");
+            mensajeEditarNotas.SetToolTip(tituloActualLabel, "Titulo actual de la nota");
 
-            mensajeEditarNotas.SetToolTip(TXTTitulo, "Ingrese el nuevo titulo");
+            mensajeEditarNotas.SetToolTip(tituloTxt, "Ingrese el nuevo titulo");
 
           //  mensajeEditarNotas.SetToolTip(SelectorColoresNotas, "Color de fondo actual de la nota");
 
-            mensajeEditarNotas.SetToolTip(PBColorFondo, "Ingrese el nuevo color de fondo de la nota");
+            mensajeEditarNotas.SetToolTip(colorFondoPB, "Ingrese el nuevo color de fondo de la nota");
 
             //mensajeEditarNotas.SetToolTip(colorFuente, "Color de fuente actual de la nota");
 
-            mensajeEditarNotas.SetToolTip(PBColorFuente, "Ingrese el nuevo color de fondo");
+            mensajeEditarNotas.SetToolTip(colorFuentePB, "Ingrese el nuevo color de fondo");
 
         
 
-            mensajeEditarNotas.SetToolTip(CBXFuente, "Ingrese el nuevo estilo de fuente");
+            mensajeEditarNotas.SetToolTip(fuenteCBX, "Ingrese el nuevo estilo de fuente");
 
          //   mensajeEditarNotas.SetToolTip(lblPrivacidad, "Privacidad actual de la nota");
 
-            mensajeEditarNotas.SetToolTip(CBXPrivacidad, "Ingrese la nueva privacidad de la nota");
+            mensajeEditarNotas.SetToolTip(privacidadCBX, "Ingrese la nueva privacidad de la nota");
 
-            mensajeEditarNotas.SetToolTip(lblCategoria, "Categoria actual de la nota");
+            mensajeEditarNotas.SetToolTip(categoriaActualLabel, "Categoria actual de la nota");
 
-            mensajeEditarNotas.SetToolTip(TXTCategoria, "Ingrese la nueva categoria de la nota");
+            mensajeEditarNotas.SetToolTip(categoriaTxt, "Ingrese la nueva categoria de la nota");
 
-            mensajeEditarNotas.SetToolTip(btnAceptar, "Guardar modificacion");
+            mensajeEditarNotas.SetToolTip(aceptarBtn, "Guardar modificacion");
 
-            mensajeEditarNotas.SetToolTip(btnCancelar, "Cancelar modificación");
+            mensajeEditarNotas.SetToolTip(cancelarBtn, "Cancelar modificación");
 
         }
 
@@ -78,30 +78,30 @@ namespace noteBook.UNA.vistas
 
         {
             notaAuxiliar = (Nota)nota;
-            lblTitulo.Text = notaAuxiliar.Titulo;
+            tituloActualLabel.Text = notaAuxiliar.Titulo;
            
          
-            colorDialog1.Color = Color.FromArgb(notaAuxiliar.ColorFondo);
+            colorFondoDialog.Color = Color.FromArgb(notaAuxiliar.ColorFondo);
 
-            colorDialog2.Color = Color.FromArgb(notaAuxiliar.ColorFuente);
+            colorFuenteDialog.Color = Color.FromArgb(notaAuxiliar.ColorFuente);
 
         
 
-            PBColorFondo.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
+            colorFondoPB.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
 
-            PBColorFuente.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
+            colorFuentePB.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
 
           if (notaAuxiliar.Privacidad==false)
             {
-               lblPrivacidad.Text = "Privado";
+               privacidadActualLabel.Text = "Privado";
             }
             else
             {
-             lblPrivacidad.Text= "Publico";
+             privacidadActualLabel.Text= "Publico";
            }
             foreach (FontFamily font in FontFamily.Families)
             {
-                CBXFuente.Items.Add(font.Name.ToString());
+                fuenteCBX.Items.Add(font.Name.ToString());
             }
 
         }
@@ -116,45 +116,45 @@ namespace noteBook.UNA.vistas
                     if (notaAuxiliar.Titulo == nota.Titulo)
                     {
                         informacion = informacion + $"{notaAuxiliar.Titulo}; ";
-                        if (TXTTitulo.TextLength != 0)
+                        if (tituloTxt.TextLength != 0)
                         {
-                            informacion = informacion + $"el nombre {notaAuxiliar.Titulo} por el nombre {TXTTitulo.Text};";
-                            nota.Titulo = TXTTitulo.Text;
+                            informacion = informacion + $"el nombre {notaAuxiliar.Titulo} por el nombre {tituloTxt.Text};";
+                            nota.Titulo = tituloTxt.Text;
                         }
-                        if (TXTCategoria.TextLength != 0)
+                        if (categoriaTxt.TextLength != 0)
                         {
-                            informacion = informacion + $"la categoria {notaAuxiliar.Categoria} se modifico por {TXTCategoria.Text};";
-                            nota.Categoria = TXTCategoria.Text;
+                            informacion = informacion + $"la categoria {notaAuxiliar.Categoria} se modifico por {categoriaTxt.Text};";
+                            nota.Categoria = categoriaTxt.Text;
                         }
-                        if (CBXPrivacidad.SelectedIndex >= 0)
+                        if (privacidadCBX.SelectedIndex >= 0)
                         {
-                            informacion = informacion + $"la privacidad {notaAuxiliar.Privacidad} se modifico por {CBXPrivacidad.Text};";
-                            if (CBXPrivacidad.Text == "Publico")
+                            informacion = informacion + $"la privacidad {notaAuxiliar.Privacidad} se modifico por {privacidadCBX.Text};";
+                            if (privacidadCBX.Text == "Publico")
                             {
                                 nota.Privacidad = false;
                             }
                             else
                             {
-                                if (CBXPrivacidad.Text == "Privado")
+                                if (privacidadCBX.Text == "Privado")
                                 {
                                     nota.Privacidad = true;
                                 }
                             }
                         }
-                        if (CBXFuente.SelectedIndex >= 0)
+                        if (fuenteCBX.SelectedIndex >= 0)
                         {
-                            informacion = informacion + $"la privacidad {notaAuxiliar.Fuente} se modifico por {CBXFuente.Text};";
-                            nota.Fuente = CBXFuente.Text;
+                            informacion = informacion + $"la privacidad {notaAuxiliar.Fuente} se modifico por {fuenteCBX.Text};";
+                            nota.Fuente = fuenteCBX.Text;
                         }
-                        if (nota.ColorFuente != colorDialog2.Color.ToArgb())
+                        if (nota.ColorFuente != colorFuenteDialog.Color.ToArgb())
                         {
-                            informacion = informacion + $"el color de fuente {nota.ColorFuente} se modifico por {colorDialog2.Color.ToArgb()};";
-                            nota.ColorFuente = colorDialog2.Color.ToArgb();
+                            informacion = informacion + $"el color de fuente {nota.ColorFuente} se modifico por {colorFuenteDialog.Color.ToArgb()};";
+                            nota.ColorFuente = colorFuenteDialog.Color.ToArgb();
                         }
-                        if (nota.ColorFondo != colorDialog1.Color.ToArgb())
+                        if (nota.ColorFondo != colorFondoDialog.Color.ToArgb())
                         {
-                            informacion = informacion + $"el color de fondo {notaAuxiliar.ColorFondo} se modifico por {colorDialog1.Color.ToArgb()};";
-                            nota.ColorFondo = colorDialog1.Color.ToArgb();
+                            informacion = informacion + $"el color de fondo {notaAuxiliar.ColorFondo} se modifico por {colorFondoDialog.Color.ToArgb()};";
+                            nota.ColorFondo = colorFondoDialog.Color.ToArgb();
                         }
                         DateTime hoy = DateTime.Now;
                         nota.FechaModificacion = Convert.ToString(hoy);
@@ -174,10 +174,10 @@ namespace noteBook.UNA.vistas
 
         {
 
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            if (colorFondoDialog.ShowDialog() == DialogResult.OK)
 
             {
-                PBColorFondo.BackColor = colorDialog1.Color;
+                colorFondoPB.BackColor = colorFondoDialog.Color;
 
             }
 
@@ -186,10 +186,10 @@ namespace noteBook.UNA.vistas
 
         {
 
-            if (colorDialog2.ShowDialog() == DialogResult.OK)
+            if (colorFuenteDialog.ShowDialog() == DialogResult.OK)
 
             {
-                PBColorFuente.BackColor = colorDialog2.Color;
+                colorFuentePB.BackColor = colorFuenteDialog.Color;
 
             }
 
@@ -201,7 +201,7 @@ namespace noteBook.UNA.vistas
             {
                 foreach (var nota in libro.AgregarNota)
                 {
-                    if (TXTTitulo.Text == nota.Titulo)
+                    if (tituloTxt.Text == nota.Titulo)
                     {
                         respuesta = false;
                     }
@@ -211,7 +211,7 @@ namespace noteBook.UNA.vistas
         }
         private bool verficarCampos()
         {
-            if ((TXTTitulo.Text.Length == 0) && (TXTCategoria.Text.Length == 0) && (CBXPrivacidad.SelectedIndex == (-1)) && (notaAuxiliar.ColorFuente == colorDialog2.Color.ToArgb()) && (notaAuxiliar.ColorFondo == colorDialog1.Color.ToArgb()) && (CBXFuente.SelectedIndex == (-1)))
+            if ((tituloTxt.Text.Length == 0) && (categoriaTxt.Text.Length == 0) && (privacidadCBX.SelectedIndex == (-1)) && (notaAuxiliar.ColorFuente == colorFuenteDialog.Color.ToArgb()) && (notaAuxiliar.ColorFondo == colorFondoDialog.Color.ToArgb()) && (fuenteCBX.SelectedIndex == (-1)))
             {
                 return false;
             }
@@ -248,7 +248,7 @@ namespace noteBook.UNA.vistas
                                 MessageBox.Show("Se modifico la nota");
 
                                 this.Close();
-                                Singlenton.Instance.miLibro.actualizarPage();
+                                Singlenton.Instance.miLibro.ActualizarPage();
                             }
                             else
                             {
@@ -258,7 +258,7 @@ namespace noteBook.UNA.vistas
                         }
                         else
                         {
-                            mensajeEditarNotas.SetToolTip(TXTTitulo, "El nommbre de la nota ya existe");
+                            mensajeEditarNotas.SetToolTip(tituloTxt, "El nommbre de la nota ya existe");
                         }
                     }
                 }
@@ -280,7 +280,7 @@ namespace noteBook.UNA.vistas
                         MessageBox.Show("Se modifico la nota");
 
                         this.Close();
-                        Singlenton.Instance.miLibro.actualizarPage();
+                        Singlenton.Instance.miLibro.ActualizarPage();
                     }
                     else
                     {
@@ -289,7 +289,7 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                    errorProviderEditarNotas.SetError(TXTTitulo, "El nommbre de la nota ya existe");
+                    errorProviderEditarNotas.SetError(tituloTxt, "El nommbre de la nota ya existe");
                 }
             }
             catch (Exception Ex)

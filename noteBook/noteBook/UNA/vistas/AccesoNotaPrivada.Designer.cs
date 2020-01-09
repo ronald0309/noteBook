@@ -28,65 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.NombreUsuarioTxt = new System.Windows.Forms.TextBox();
-            this.ContraseñaTxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Aceptarbtn = new System.Windows.Forms.Button();
+            this.UsuarioLabel = new System.Windows.Forms.Label();
+            this.nombreUsuarioTxt = new System.Windows.Forms.TextBox();
+            this.contraseñaUsuarioTxt = new System.Windows.Forms.TextBox();
+            this.contraseñaLabel = new System.Windows.Forms.Label();
+            this.acceptarBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // UsuarioLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario";
+            this.UsuarioLabel.AutoSize = true;
+            this.UsuarioLabel.Location = new System.Drawing.Point(36, 9);
+            this.UsuarioLabel.Name = "UsuarioLabel";
+            this.UsuarioLabel.Size = new System.Drawing.Size(43, 13);
+            this.UsuarioLabel.TabIndex = 0;
+            this.UsuarioLabel.Text = "Usuario";
             // 
-            // NombreUsuarioTxt
+            // nombreUsuarioTxt
             // 
-            this.NombreUsuarioTxt.Location = new System.Drawing.Point(12, 35);
-            this.NombreUsuarioTxt.Name = "NombreUsuarioTxt";
-            this.NombreUsuarioTxt.Size = new System.Drawing.Size(100, 20);
-            this.NombreUsuarioTxt.TabIndex = 1;
+            this.nombreUsuarioTxt.Location = new System.Drawing.Point(12, 35);
+            this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
+            this.nombreUsuarioTxt.Size = new System.Drawing.Size(100, 20);
+            this.nombreUsuarioTxt.TabIndex = 1;
             // 
-            // ContraseñaTxt
+            // contraseñaUsuarioTxt
             // 
-            this.ContraseñaTxt.Location = new System.Drawing.Point(118, 35);
-            this.ContraseñaTxt.Name = "ContraseñaTxt";
-            this.ContraseñaTxt.Size = new System.Drawing.Size(100, 20);
-            this.ContraseñaTxt.TabIndex = 2;
+            this.contraseñaUsuarioTxt.Location = new System.Drawing.Point(118, 35);
+            this.contraseñaUsuarioTxt.Name = "contraseñaUsuarioTxt";
+            this.contraseñaUsuarioTxt.Size = new System.Drawing.Size(100, 20);
+            this.contraseñaUsuarioTxt.TabIndex = 2;
             // 
-            // label2
+            // contraseñaLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
+            this.contraseñaLabel.AutoSize = true;
+            this.contraseñaLabel.Location = new System.Drawing.Point(136, 9);
+            this.contraseñaLabel.Name = "contraseñaLabel";
+            this.contraseñaLabel.Size = new System.Drawing.Size(61, 13);
+            this.contraseñaLabel.TabIndex = 3;
+            this.contraseñaLabel.Text = "Contraseña";
             // 
-            // Aceptarbtn
+            // acceptarBtn
             // 
-            this.Aceptarbtn.Location = new System.Drawing.Point(77, 71);
-            this.Aceptarbtn.Name = "Aceptarbtn";
-            this.Aceptarbtn.Size = new System.Drawing.Size(75, 23);
-            this.Aceptarbtn.TabIndex = 4;
-            this.Aceptarbtn.Text = "Acceptar";
-            this.Aceptarbtn.UseVisualStyleBackColor = true;
-            this.Aceptarbtn.Click += new System.EventHandler(this.Aceptarbtn_Click);
+            this.acceptarBtn.Location = new System.Drawing.Point(12, 71);
+            this.acceptarBtn.Name = "acceptarBtn";
+            this.acceptarBtn.Size = new System.Drawing.Size(206, 23);
+            this.acceptarBtn.TabIndex = 4;
+            this.acceptarBtn.Text = "Acceptar";
+            this.acceptarBtn.UseVisualStyleBackColor = true;
+            this.acceptarBtn.Click += new System.EventHandler(this.aceptarbtn_Click);
             // 
             // AccesoNotaPrivada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(248, 118);
-            this.Controls.Add(this.Aceptarbtn);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.ContraseñaTxt);
-            this.Controls.Add(this.NombreUsuarioTxt);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.acceptarBtn);
+            this.Controls.Add(this.contraseñaLabel);
+            this.Controls.Add(this.contraseñaUsuarioTxt);
+            this.Controls.Add(this.nombreUsuarioTxt);
+            this.Controls.Add(this.UsuarioLabel);
             this.Name = "AccesoNotaPrivada";
             this.Text = "AccesoNotaPrivada";
             this.ResumeLayout(false);
@@ -96,10 +96,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox NombreUsuarioTxt;
-        private System.Windows.Forms.TextBox ContraseñaTxt;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Aceptarbtn;
+        private System.Windows.Forms.Label UsuarioLabel;
+        private System.Windows.Forms.TextBox nombreUsuarioTxt;
+        private System.Windows.Forms.TextBox contraseñaUsuarioTxt;
+        private System.Windows.Forms.Label contraseñaLabel;
+        private System.Windows.Forms.Button acceptarBtn;
     }
 }

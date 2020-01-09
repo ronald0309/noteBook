@@ -58,7 +58,6 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Fo
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.LibroControl.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.login.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.Properties.Resources.resources
-E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Menu.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MisLibros.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaControl.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaPrivadaControl.resources
@@ -72,3 +71,4 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.menuPanel.resources

@@ -18,18 +18,29 @@ namespace noteBook.UNA.vistas
         {
 
             InitializeComponent();
-            toolTip1.SetToolTip(txtNombre, "Ingrese el nombre del libro");
-            colorDialog1.Color = Color.Red;
+            toolTip1.SetToolTip(nombreTxt, "Ingrese el nombre del libro");
+            colorLibro.Color = Color.Red;
         }
         private int contadorPosicion = 0;
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+        private void RegistroLibro_Resize(object sender, EventArgs e)
+        {
+            nombreTxt.Height = this.Height - 200;
+            nombreTxt.Width = this.Width - 500;
+            tituloVistaLabel.Height = this.Height - 116;
+            tituloVistaLabel.Width = this.Width - 800;
+            generoComboBox.Height = this.Height - 200;
+            generoComboBox.Width = this.Width - 500;
+        }
+
+        private void GuardarBtn_MouseClick(object sender, MouseEventArgs e)
         {
             bool repetido = false;
 
             errorGuardar.Clear();
-            if (txtNombre.Text.Length == 0)
+            if (nombreTxt.Text.Length == 0)
             {
-                errorGuardar.SetError(txtNombre, "Ingrese el nombre del libro");
+                errorGuardar.SetError(nombreTxt, "Ingrese el nombre del libro");
             }
             foreach (Usuario u in Singlenton.Instance.usuarios)
             {
@@ -40,54 +51,42 @@ namespace noteBook.UNA.vistas
             }
             foreach (var librosIguales in Singlenton.Instance.LibrosList)
             {
-                if (librosIguales.Nombre.ToLower() == txtNombre.Text.ToLower())
+                if (librosIguales.Nombre.ToLower() == nombreTxt.Text.ToLower())
                 {
-                    errorGuardar.SetError(txtNombre, "El libro ya existe");
+                    errorGuardar.SetError(nombreTxt, "El libro ya existe");
                     repetido = true;
                 }
             }
-            if (GeneroComboBox.Text.Length == 0)
+            if (generoComboBox.Text.Length == 0)
             {
-                errorGuardar.SetError(GeneroComboBox, "Escoja un genero Para el libro");
+                errorGuardar.SetError(generoComboBox, "Escoja un genero Para el libro");
 
             }
 
-            if (txtNombre.Text.Length != 0 && GeneroComboBox.Text.Length != 0 && repetido == false)
+            if (nombreTxt.Text.Length != 0 && generoComboBox.Text.Length != 0 && repetido == false)
             {
                 Libro libro = new Libro();
-                libro.Nombre = txtNombre.Text;
-                libro.Genero = GeneroComboBox.Text;
+                libro.Nombre = nombreTxt.Text;
+                libro.Genero = generoComboBox.Text;
                 libro.Orden = "1";
-                libro.Color = SelectorColores.BackColor.ToArgb();
+                libro.Color = selectorColorImage.BackColor.ToArgb();
                 libro.pocision = contadorPosicion;
                 libro.UsuarioCreadorLibro = usuario;
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);
-                txtNombre.Text = "";
+                nombreTxt.Text = "";
                 Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", libro); ;
                 this.Hide();
             }
         }
 
-        private void SelectorColores_Click(object sender, EventArgs e)
+        private void SelectorColorImage_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            if (colorLibro.ShowDialog() == DialogResult.OK)
             {
 
-                SelectorColores.BackColor = colorDialog1.Color;
+                selectorColorImage.BackColor = colorLibro.Color;
             }
         }
-
-        private void RegistroLibro_Resize(object sender, EventArgs e)
-        {
-            txtNombre.Height = this.Height - 200;
-            txtNombre.Width = this.Width - 500;
-            lblTitulo.Height = this.Height - 116;
-            lblTitulo.Width = this.Width - 800;
-            GeneroComboBox.Height = this.Height - 200;
-            GeneroComboBox.Width = this.Width - 500;
-        }
-
-
     }
 }

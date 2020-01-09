@@ -28,14 +28,14 @@ namespace noteBook.UNA.vistas
         {
             notaAuxiliar = (Nota)nota;
         }
-        private void Aceptarbtn_Click(object sender, EventArgs e)
+        private void aceptarbtn_Click(object sender, EventArgs e)
         {
             // MessageBox.Show(nombreNota);
             bool datosUsario = false;
            
             foreach (var Usuario in Singlenton.Instance.usuarios)
             {
-                if (Usuario.NombreUsuario == NombreUsuarioTxt.Text && Usuario.Contraseña == ContraseñaTxt.Text&&notaAuxiliar.UsuarioCreadorNota==NombreUsuarioTxt.Text )
+                if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.UsuarioCreadorNota==nombreUsuarioTxt.Text )
                 {
 
                     datosUsario = true;
@@ -47,8 +47,10 @@ namespace noteBook.UNA.vistas
                 notaAuxiliar.Privacidad = false;
                 Singlenton.Instance.NotaEditada = true;
                 this.Close();
-                Singlenton.Instance.miLibro.actualizarPage();
+                Singlenton.Instance.miLibro.ActualizarPage();
             }
         }
+
+      
     }
 }

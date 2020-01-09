@@ -14,7 +14,7 @@ namespace noteBook.UNA.vistas
     public partial class NotaControl : UserControl
     {
         bool mover = false;
-        bool allowResize = false;
+        bool modificarTamaño = false;
         Point inicial;
 
         public NotaControl()
@@ -49,25 +49,25 @@ namespace noteBook.UNA.vistas
                 categoria = value;
                 //  CategoriaLabel.Text = value;
 
-                CategoriarichTextBox.Text = value;
+                categoriarichTexBox.Text = value;
                 if (buscar == true)
                 {
 
 
-                    CategoriarichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    categoriarichTexBox.SelectionAlignment = HorizontalAlignment.Center;
 
-                    CategoriarichTextBox.Find(buscarCategoria.ToLower());
-                    CategoriarichTextBox.Find(buscarCategoria.ToUpper());
+                    categoriarichTexBox.Find(buscarCategoria.ToLower());
+                    categoriarichTexBox.Find(buscarCategoria.ToUpper());
 
                     //          TituloRichTextBox.Find(PalabraBus);
-                    CategoriarichTextBox.SelectionColor = Color.Blue;
+                    categoriarichTexBox.SelectionColor = Color.Blue;
                     AgrandarBoton.Hide();
-                    MoverBoton.Hide();
+                    moverBoton.Hide();
                 }
                 else
                 {
 
-                    CategoriarichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    categoriarichTexBox.SelectionAlignment = HorizontalAlignment.Center;
                 }
 
             }
@@ -88,13 +88,13 @@ namespace noteBook.UNA.vistas
             this.buscar = buscar;
 
         }
-        public string fechaCreacion
+        public string FechaCreacion
         {
             get { return fechaCrea; }
             set
             {
                 fechaCrea = value;
-                FechaCreacion.Text = value;
+                fechaCreacionLabel.Text = value;
             }
 
         }
@@ -104,7 +104,7 @@ namespace noteBook.UNA.vistas
             set
             {
                 fuenteTipo = value;
-                TituloRichTextBox.Font = new Font(fuenteTipo, TituloRichTextBox.Font.Size);
+                tituloRichTextBox.Font = new Font(fuenteTipo, tituloRichTextBox.Font.Size);
 
             }
         }
@@ -117,7 +117,7 @@ namespace noteBook.UNA.vistas
                 colorFuente = value;
                 if (buscar == false)
                 {
-                    TituloRichTextBox.ForeColor = Color.FromArgb(colorFuente);
+                    tituloRichTextBox.ForeColor = Color.FromArgb(colorFuente);
                 }
             }
 
@@ -132,27 +132,27 @@ namespace noteBook.UNA.vistas
                 colorNota = value;
                 if (colorNota == 0)
                 {
-                    CategoriarichTextBox.BackColor = Color.Blue;
+                    categoriarichTexBox.BackColor = Color.Blue;
 
                 }
                 else
                 {
-                    CategoriarichTextBox.BackColor = Color.FromArgb(colorNota);
+                    categoriarichTexBox.BackColor = Color.FromArgb(colorNota);
                 }
 
                 String co = colorNota.ToString();
-                panel1.BackColor = Color.FromArgb(colorNota);
+                contendorPanel.BackColor = Color.FromArgb(colorNota);
                 ///   CategoriarichTextBox.BackColor = Color.FromName(co);
-                MoverBoton.BackColor = Color.FromArgb(colorNota);
+                moverBoton.BackColor = Color.FromArgb(colorNota);
                 AgrandarBoton.BackColor = Color.FromArgb(colorNota);
 
             }
         }
         public void DesactivarBotones()
         {
-            btnEditar.Hide();
+            editarBtn.Hide();
             AgrandarBoton.Hide();
-            MoverBoton.Hide();
+            moverBoton.Hide();
         }
         public string TituloNota
         {
@@ -161,20 +161,20 @@ namespace noteBook.UNA.vistas
             {
                 tituloNota = value;
                 ///  TituloLabel.Text = value;
-                TituloRichTextBox.Text = value;
+                tituloRichTextBox.Text = value;
                 if (buscar == true)
                 {
-                    TituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
-                    TituloRichTextBox.Find(PalabraBus.ToLower());
-                    TituloRichTextBox.Find(PalabraBus.ToUpper());
+                    tituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    tituloRichTextBox.Find(PalabraBus.ToLower());
+                    tituloRichTextBox.Find(PalabraBus.ToUpper());
                     //          TituloRichTextBox.Find(PalabraBus);
-                    TituloRichTextBox.SelectionColor = Color.Blue;
+                    tituloRichTextBox.SelectionColor = Color.Blue;
                     AgrandarBoton.Hide();
-                    MoverBoton.Hide();
+                    moverBoton.Hide();
                 }
                 else
                 {
-                    TituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    tituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
                 }
 
             }
@@ -184,12 +184,12 @@ namespace noteBook.UNA.vistas
 
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
         {
-            allowResize = false;
+            modificarTamaño = false;
         }
 
         private void AgrandarBoton_MouseMove(object sender, MouseEventArgs e)
         {
-            if (allowResize)
+            if (modificarTamaño)
             {
                 if (155 < AgrandarBoton.Top + e.Y)
                 {
@@ -217,7 +217,7 @@ namespace noteBook.UNA.vistas
 
         private void AgrandarBoton_MouseDown(object sender, MouseEventArgs e)
         {
-            allowResize = true;
+           modificarTamaño = true;
 
         }
 
@@ -258,7 +258,17 @@ namespace noteBook.UNA.vistas
 
 
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FechaCreacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditarBtn_Click(object sender, EventArgs e)
         {
             EditarNotasForm editarNota = new EditarNotasForm();
             foreach (var libro in Singlenton.Instance.LibrosList)
@@ -273,15 +283,9 @@ namespace noteBook.UNA.vistas
                     }
                 }
             }
-
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FechaCreacion_Click(object sender, EventArgs e)
+        private void MoverBtn_Click(object sender, EventArgs e)
         {
 
         }

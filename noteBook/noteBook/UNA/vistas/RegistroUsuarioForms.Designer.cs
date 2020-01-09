@@ -29,91 +29,90 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.TXTContrasenna = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TXTNombre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.formularioLabelTitulo = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.RegistroUsuarioErrorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.RegistroUsuarioErrorProvider1)).BeginInit();
+            this.contraseñaTxt = new System.Windows.Forms.TextBox();
+            this.tituloVistaLabel = new System.Windows.Forms.Label();
+            this.nombreUsuarioTxt = new System.Windows.Forms.TextBox();
+            this.contraseñaLabel = new System.Windows.Forms.Label();
+            this.nombreUsuarioLabel = new System.Windows.Forms.Label();
+            this.cancelarBtn = new System.Windows.Forms.Button();
+            this.aceptarBtn = new System.Windows.Forms.Button();
+            this.registroUsuarioErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.registroUsuarioErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // TXTContrasenna
+            // contraseñaTxt
             // 
-            this.TXTContrasenna.Location = new System.Drawing.Point(216, 127);
-            this.TXTContrasenna.Name = "TXTContrasenna";
-            this.TXTContrasenna.Size = new System.Drawing.Size(142, 20);
-            this.TXTContrasenna.TabIndex = 71;
-            
+            this.contraseñaTxt.Location = new System.Drawing.Point(216, 127);
+            this.contraseñaTxt.Name = "contraseñaTxt";
+            this.contraseñaTxt.Size = new System.Drawing.Size(142, 20);
+            this.contraseñaTxt.TabIndex = 71;
             // 
-            // label1
+            // tituloVistaLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(126, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 24);
-            this.label1.TabIndex = 63;
-            this.label1.Text = "Registrar usuario";
+            this.tituloVistaLabel.AutoSize = true;
+            this.tituloVistaLabel.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloVistaLabel.Location = new System.Drawing.Point(126, 9);
+            this.tituloVistaLabel.Name = "tituloVistaLabel";
+            this.tituloVistaLabel.Size = new System.Drawing.Size(199, 24);
+            this.tituloVistaLabel.TabIndex = 63;
+            this.tituloVistaLabel.Text = "Registrar usuario";
             // 
-            // TXTNombre
+            // nombreUsuarioTxt
             // 
-            this.TXTNombre.BackColor = System.Drawing.SystemColors.Window;
-            this.TXTNombre.Location = new System.Drawing.Point(216, 78);
-            this.TXTNombre.Name = "TXTNombre";
-            this.TXTNombre.Size = new System.Drawing.Size(142, 20);
-            this.TXTNombre.TabIndex = 59;
-            this.TXTNombre.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
+            this.nombreUsuarioTxt.BackColor = System.Drawing.SystemColors.Window;
+            this.nombreUsuarioTxt.Location = new System.Drawing.Point(216, 78);
+            this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
+            this.nombreUsuarioTxt.Size = new System.Drawing.Size(142, 20);
+            this.nombreUsuarioTxt.TabIndex = 59;
+            this.nombreUsuarioTxt.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
             // 
-            // label3
+            // contraseñaLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.label3.Location = new System.Drawing.Point(102, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Contraseña";
+            this.contraseñaLabel.AutoSize = true;
+            this.contraseñaLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.contraseñaLabel.Location = new System.Drawing.Point(102, 127);
+            this.contraseñaLabel.Name = "contraseñaLabel";
+            this.contraseñaLabel.Size = new System.Drawing.Size(88, 16);
+            this.contraseñaLabel.TabIndex = 56;
+            this.contraseñaLabel.Text = "Contraseña";
             // 
-            // formularioLabelTitulo
+            // nombreUsuarioLabel
             // 
-            this.formularioLabelTitulo.AutoSize = true;
-            this.formularioLabelTitulo.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formularioLabelTitulo.Location = new System.Drawing.Point(102, 80);
-            this.formularioLabelTitulo.Name = "formularioLabelTitulo";
-            this.formularioLabelTitulo.Size = new System.Drawing.Size(56, 16);
-            this.formularioLabelTitulo.TabIndex = 55;
-            this.formularioLabelTitulo.Text = "Nombre";
+            this.nombreUsuarioLabel.AutoSize = true;
+            this.nombreUsuarioLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreUsuarioLabel.Location = new System.Drawing.Point(102, 80);
+            this.nombreUsuarioLabel.Name = "nombreUsuarioLabel";
+            this.nombreUsuarioLabel.Size = new System.Drawing.Size(56, 16);
+            this.nombreUsuarioLabel.TabIndex = 55;
+            this.nombreUsuarioLabel.Text = "Nombre";
             // 
-            // btnCancelar
+            // cancelarBtn
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(216, 255);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(109, 23);
-            this.btnCancelar.TabIndex = 54;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.cancelarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.cancelarBtn.Location = new System.Drawing.Point(216, 255);
+            this.cancelarBtn.Name = "cancelarBtn";
+            this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
+            this.cancelarBtn.TabIndex = 54;
+            this.cancelarBtn.Text = "Cancelar";
+            this.cancelarBtn.UseVisualStyleBackColor = false;
+            this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
             // 
-            // btnAceptar
+            // aceptarBtn
             // 
-            this.btnAceptar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnAceptar.Location = new System.Drawing.Point(346, 255);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(109, 23);
-            this.btnAceptar.TabIndex = 53;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.aceptarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.aceptarBtn.Location = new System.Drawing.Point(346, 255);
+            this.aceptarBtn.Name = "aceptarBtn";
+            this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
+            this.aceptarBtn.TabIndex = 53;
+            this.aceptarBtn.Text = "Aceptar";
+            this.aceptarBtn.UseVisualStyleBackColor = false;
+            this.aceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
             // 
-            // RegistroUsuarioErrorProvider1
+            // registroUsuarioErrorProvider
             // 
-            this.RegistroUsuarioErrorProvider1.ContainerControl = this;
+            this.registroUsuarioErrorProvider.ContainerControl = this;
             // 
             // RegistroUsuarioForms
             // 
@@ -121,32 +120,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(477, 290);
-            this.Controls.Add(this.TXTContrasenna);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TXTNombre);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.formularioLabelTitulo);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.contraseñaTxt);
+            this.Controls.Add(this.tituloVistaLabel);
+            this.Controls.Add(this.nombreUsuarioTxt);
+            this.Controls.Add(this.contraseñaLabel);
+            this.Controls.Add(this.nombreUsuarioLabel);
+            this.Controls.Add(this.cancelarBtn);
+            this.Controls.Add(this.aceptarBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroUsuarioForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
-            
-            ((System.ComponentModel.ISupportInitialize)(this.RegistroUsuarioErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroUsuarioErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox TXTContrasenna;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TXTNombre;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label formularioLabelTitulo;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.ErrorProvider RegistroUsuarioErrorProvider1;
+        private System.Windows.Forms.TextBox contraseñaTxt;
+        private System.Windows.Forms.Label tituloVistaLabel;
+        private System.Windows.Forms.TextBox nombreUsuarioTxt;
+        private System.Windows.Forms.Label contraseñaLabel;
+        private System.Windows.Forms.Label nombreUsuarioLabel;
+        private System.Windows.Forms.Button cancelarBtn;
+        private System.Windows.Forms.Button aceptarBtn;
+        private System.Windows.Forms.ErrorProvider registroUsuarioErrorProvider;
     }
 }

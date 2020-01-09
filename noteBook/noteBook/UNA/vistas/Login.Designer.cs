@@ -30,56 +30,45 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.contraseñaTxt = new System.Windows.Forms.TextBox();
+            this.usuarioTxt = new System.Windows.Forms.TextBox();
+            this.usarioImagen = new System.Windows.Forms.PictureBox();
             this.labelNomb = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lateralPanel = new System.Windows.Forms.Panel();
             this.LoginErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.mensajeLogin = new System.Windows.Forms.ToolTip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LinkRegistrarse = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.usuaroLabel = new System.Windows.Forms.Label();
+            this.contraseñaLabel = new System.Windows.Forms.Label();
+            this.linkRegistrarse = new System.Windows.Forms.LinkLabel();
+            this.ingresarBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.usarioImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnLogin
+            // contraseñaTxt
             // 
-            this.btnLogin.Location = new System.Drawing.Point(467, 295);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(143, 23);
-            this.btnLogin.TabIndex = 29;
-            this.btnLogin.Text = "Ingresar";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.contraseñaTxt.Location = new System.Drawing.Point(467, 259);
+            this.contraseñaTxt.Name = "contraseñaTxt";
+            this.contraseñaTxt.Size = new System.Drawing.Size(143, 20);
+            this.contraseñaTxt.TabIndex = 2;
             // 
-            // txtContraseña
+            // usuarioTxt
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(467, 259);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(143, 20);
-            this.txtContraseña.TabIndex = 28;
+            this.usuarioTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usuarioTxt.Location = new System.Drawing.Point(467, 208);
+            this.usuarioTxt.Name = "usuarioTxt";
+            this.usuarioTxt.Size = new System.Drawing.Size(143, 20);
+            this.usuarioTxt.TabIndex = 1;
             // 
-            // txtUsuario
+            // usarioImagen
             // 
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsuario.Location = new System.Drawing.Point(467, 208);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(143, 20);
-            this.txtUsuario.TabIndex = 27;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(467, 99);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(143, 73);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
-            
+            this.usarioImagen.Image = ((System.Drawing.Image)(resources.GetObject("usarioImagen.Image")));
+            this.usarioImagen.Location = new System.Drawing.Point(467, 99);
+            this.usarioImagen.Name = "usarioImagen";
+            this.usarioImagen.Size = new System.Drawing.Size(143, 73);
+            this.usarioImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.usarioImagen.TabIndex = 26;
+            this.usarioImagen.TabStop = false;
             // 
             // labelNomb
             // 
@@ -93,14 +82,14 @@
             this.labelNomb.TabIndex = 25;
             this.labelNomb.Text = "NoteBook";
             // 
-            // panel1
+            // lateralPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 450);
-            this.panel1.TabIndex = 24;
+            this.lateralPanel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lateralPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lateralPanel.Location = new System.Drawing.Point(0, 0);
+            this.lateralPanel.Name = "lateralPanel";
+            this.lateralPanel.Size = new System.Drawing.Size(252, 450);
+            this.lateralPanel.TabIndex = 0;
             // 
             // LoginErrorProvider
             // 
@@ -110,59 +99,67 @@
             // 
             this.mensajeLogin.IsBalloon = true;
             // 
-            // label1
+            // usuaroLabel
             // 
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(496, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 23);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Usuario";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            
+            this.usuaroLabel.Image = ((System.Drawing.Image)(resources.GetObject("usuaroLabel.Image")));
+            this.usuaroLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usuaroLabel.Location = new System.Drawing.Point(496, 182);
+            this.usuaroLabel.Name = "usuaroLabel";
+            this.usuaroLabel.Size = new System.Drawing.Size(64, 23);
+            this.usuaroLabel.TabIndex = 32;
+            this.usuaroLabel.Text = "Usuario";
+            this.usuaroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
+            // contraseñaLabel
             // 
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(496, 243);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Contraseña";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.contraseñaLabel.Image = ((System.Drawing.Image)(resources.GetObject("contraseñaLabel.Image")));
+            this.contraseñaLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.contraseñaLabel.Location = new System.Drawing.Point(496, 243);
+            this.contraseñaLabel.Name = "contraseñaLabel";
+            this.contraseñaLabel.Size = new System.Drawing.Size(106, 13);
+            this.contraseñaLabel.TabIndex = 33;
+            this.contraseñaLabel.Text = "Contraseña";
+            this.contraseñaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LinkRegistrarse
+            // linkRegistrarse
             // 
-            this.LinkRegistrarse.AutoSize = true;
-            this.LinkRegistrarse.Location = new System.Drawing.Point(521, 325);
-            this.LinkRegistrarse.Name = "LinkRegistrarse";
-            this.LinkRegistrarse.Size = new System.Drawing.Size(57, 13);
-            this.LinkRegistrarse.TabIndex = 34;
-            this.LinkRegistrarse.TabStop = true;
-            this.LinkRegistrarse.Text = "Registrase";
-            this.LinkRegistrarse.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkRegistrarse_LinkClicked);
+            this.linkRegistrarse.AutoSize = true;
+            this.linkRegistrarse.Location = new System.Drawing.Point(553, 337);
+            this.linkRegistrarse.Name = "linkRegistrarse";
+            this.linkRegistrarse.Size = new System.Drawing.Size(57, 13);
+            this.linkRegistrarse.TabIndex = 4;
+            this.linkRegistrarse.TabStop = true;
+            this.linkRegistrarse.Text = "Registrase";
+            this.linkRegistrarse.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkRegistrarse_LinkClicked);
+            // 
+            // ingresarBtn
+            // 
+            this.ingresarBtn.Location = new System.Drawing.Point(467, 296);
+            this.ingresarBtn.Name = "ingresarBtn";
+            this.ingresarBtn.Size = new System.Drawing.Size(143, 26);
+            this.ingresarBtn.TabIndex = 3;
+            this.ingresarBtn.Text = "Ingresar";
+            this.ingresarBtn.UseVisualStyleBackColor = true;
+            this.ingresarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);
             // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.LinkRegistrarse);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtContraseña);
-            this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.ingresarBtn);
+            this.Controls.Add(this.linkRegistrarse);
+            this.Controls.Add(this.contraseñaLabel);
+            this.Controls.Add(this.usuaroLabel);
+            this.Controls.Add(this.contraseñaTxt);
+            this.Controls.Add(this.usuarioTxt);
+            this.Controls.Add(this.usarioImagen);
             this.Controls.Add(this.labelNomb);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lateralPanel);
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "login";
-            
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usarioImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,17 +167,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox contraseñaTxt;
+        private System.Windows.Forms.TextBox usuarioTxt;
+        private System.Windows.Forms.PictureBox usarioImagen;
         private System.Windows.Forms.Label labelNomb;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel lateralPanel;
         private System.Windows.Forms.ErrorProvider LoginErrorProvider;
         private System.Windows.Forms.ToolTip mensajeLogin;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel LinkRegistrarse;
+        private System.Windows.Forms.Label contraseñaLabel;
+        private System.Windows.Forms.Label usuaroLabel;
+        private System.Windows.Forms.LinkLabel linkRegistrarse;
+        private System.Windows.Forms.Button ingresarBtn;
     }
 }
 

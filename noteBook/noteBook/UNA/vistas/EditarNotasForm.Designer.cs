@@ -58,94 +58,94 @@
 
         {
             this.components = new System.ComponentModel.Container();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.CBXPrivacidad = new System.Windows.Forms.ComboBox();
-            this.TXTTitulo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.aceptarBtn = new System.Windows.Forms.Button();
+            this.cancelarBtn = new System.Windows.Forms.Button();
+            this.privacidadCBX = new System.Windows.Forms.ComboBox();
+            this.tituloTxt = new System.Windows.Forms.TextBox();
+            this.colorFondoLabel = new System.Windows.Forms.Label();
+            this.privacidadLabel = new System.Windows.Forms.Label();
             this.formularioLabelTitulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PBColorFondo = new System.Windows.Forms.PictureBox();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.CBXFuente = new System.Windows.Forms.ComboBox();
-            this.PBColorFuente = new System.Windows.Forms.PictureBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tituloVistaLabel = new System.Windows.Forms.Label();
+            this.colorFondoPB = new System.Windows.Forms.PictureBox();
+            this.tituloActualLabel = new System.Windows.Forms.Label();
+            this.fuenteCBX = new System.Windows.Forms.ComboBox();
+            this.colorFuentePB = new System.Windows.Forms.PictureBox();
+            this.colorFondoDialog = new System.Windows.Forms.ColorDialog();
+            this.colorFuenteDialog = new System.Windows.Forms.ColorDialog();
+            this.fuenteLabel = new System.Windows.Forms.Label();
             this.mensajeEditarNotas = new System.Windows.Forms.ToolTip(this.components);
-            this.TXTCategoria = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.categoriaTxt = new System.Windows.Forms.TextBox();
+            this.catagoriaLabel = new System.Windows.Forms.Label();
             this.errorProviderEditarNotas = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.lblPrivacidad = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.PBColorFondo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBColorFuente)).BeginInit();
+            this.categoriaActualLabel = new System.Windows.Forms.Label();
+            this.privacidadActualLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.colorFondoPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorFuentePB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAceptar
+            // aceptarBtn
             // 
-            this.btnAceptar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnAceptar.Location = new System.Drawing.Point(174, 282);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(109, 23);
-            this.btnAceptar.TabIndex = 0;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.aceptarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.aceptarBtn.Location = new System.Drawing.Point(174, 282);
+            this.aceptarBtn.Name = "aceptarBtn";
+            this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
+            this.aceptarBtn.TabIndex = 0;
+            this.aceptarBtn.Text = "Aceptar";
+            this.aceptarBtn.UseVisualStyleBackColor = false;
+            this.aceptarBtn.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // btnCancelar
+            // cancelarBtn
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(59, 282);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(109, 23);
-            this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.cancelarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.cancelarBtn.Location = new System.Drawing.Point(59, 282);
+            this.cancelarBtn.Name = "cancelarBtn";
+            this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
+            this.cancelarBtn.TabIndex = 1;
+            this.cancelarBtn.Text = "Cancelar";
+            this.cancelarBtn.UseVisualStyleBackColor = false;
+            this.cancelarBtn.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // CBXPrivacidad
+            // privacidadCBX
             // 
-            this.CBXPrivacidad.FormattingEnabled = true;
-            this.CBXPrivacidad.Items.AddRange(new object[] {
+            this.privacidadCBX.FormattingEnabled = true;
+            this.privacidadCBX.Items.AddRange(new object[] {
             "Publico",
             "Privado"});
-            this.CBXPrivacidad.Location = new System.Drawing.Point(138, 194);
-            this.CBXPrivacidad.Name = "CBXPrivacidad";
-            this.CBXPrivacidad.Size = new System.Drawing.Size(145, 21);
-            this.CBXPrivacidad.TabIndex = 38;
+            this.privacidadCBX.Location = new System.Drawing.Point(138, 194);
+            this.privacidadCBX.Name = "privacidadCBX";
+            this.privacidadCBX.Size = new System.Drawing.Size(145, 21);
+            this.privacidadCBX.TabIndex = 38;
             // 
-            // TXTTitulo
+            // tituloTxt
             // 
-            this.TXTTitulo.Location = new System.Drawing.Point(138, 72);
-            this.TXTTitulo.Name = "TXTTitulo";
-            this.TXTTitulo.Size = new System.Drawing.Size(142, 20);
-            this.TXTTitulo.TabIndex = 33;
+            this.tituloTxt.Location = new System.Drawing.Point(138, 72);
+            this.tituloTxt.Name = "tituloTxt";
+            this.tituloTxt.Size = new System.Drawing.Size(142, 20);
+            this.tituloTxt.TabIndex = 33;
             // 
-            // label5
+            // colorFondoLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.label5.Location = new System.Drawing.Point(22, 227);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 16);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Color de fondo";
+            this.colorFondoLabel.AutoSize = true;
+            this.colorFondoLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.colorFondoLabel.Location = new System.Drawing.Point(30, 227);
+            this.colorFondoLabel.Name = "colorFondoLabel";
+            this.colorFondoLabel.Size = new System.Drawing.Size(120, 16);
+            this.colorFondoLabel.TabIndex = 32;
+            this.colorFondoLabel.Text = "Color de fondo";
             // 
-            // label3
+            // privacidadLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.label3.Location = new System.Drawing.Point(22, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Privacidad";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.privacidadLabel.AutoSize = true;
+            this.privacidadLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.privacidadLabel.Location = new System.Drawing.Point(30, 196);
+            this.privacidadLabel.Name = "privacidadLabel";
+            this.privacidadLabel.Size = new System.Drawing.Size(88, 16);
+            this.privacidadLabel.TabIndex = 30;
+            this.privacidadLabel.Text = "Privacidad";
+            this.privacidadLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // formularioLabelTitulo
             // 
@@ -157,101 +157,101 @@
             this.formularioLabelTitulo.TabIndex = 28;
             this.formularioLabelTitulo.Text = "Titulo";
             // 
-            // label1
+            // tituloVistaLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 24);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Editar nota";
+            this.tituloVistaLabel.AutoSize = true;
+            this.tituloVistaLabel.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloVistaLabel.Location = new System.Drawing.Point(145, 9);
+            this.tituloVistaLabel.Name = "tituloVistaLabel";
+            this.tituloVistaLabel.Size = new System.Drawing.Size(135, 24);
+            this.tituloVistaLabel.TabIndex = 40;
+            this.tituloVistaLabel.Text = "Editar nota";
             // 
-            // PBColorFondo
+            // colorFondoPB
             // 
-            this.PBColorFondo.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.PBColorFondo.Location = new System.Drawing.Point(144, 219);
-            this.PBColorFondo.Name = "PBColorFondo";
-            this.PBColorFondo.Size = new System.Drawing.Size(24, 24);
-            this.PBColorFondo.TabIndex = 41;
-            this.PBColorFondo.TabStop = false;
-            this.PBColorFondo.Click += new System.EventHandler(this.PBColorFondo_Click);
+            this.colorFondoPB.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.colorFondoPB.Location = new System.Drawing.Point(149, 221);
+            this.colorFondoPB.Name = "colorFondoPB";
+            this.colorFondoPB.Size = new System.Drawing.Size(24, 24);
+            this.colorFondoPB.TabIndex = 41;
+            this.colorFondoPB.TabStop = false;
+            this.colorFondoPB.Click += new System.EventHandler(this.PBColorFondo_Click);
             // 
-            // lblTitulo
+            // tituloActualLabel
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(135, 46);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(33, 13);
-            this.lblTitulo.TabIndex = 42;
-            this.lblTitulo.Text = "Titulo";
+            this.tituloActualLabel.AutoSize = true;
+            this.tituloActualLabel.Location = new System.Drawing.Point(135, 46);
+            this.tituloActualLabel.Name = "tituloActualLabel";
+            this.tituloActualLabel.Size = new System.Drawing.Size(33, 13);
+            this.tituloActualLabel.TabIndex = 42;
+            this.tituloActualLabel.Text = "Titulo";
             // 
-            // CBXFuente
+            // fuenteCBX
             // 
-            this.CBXFuente.FormattingEnabled = true;
-            this.CBXFuente.Location = new System.Drawing.Point(138, 102);
-            this.CBXFuente.Name = "CBXFuente";
-            this.CBXFuente.Size = new System.Drawing.Size(99, 21);
-            this.CBXFuente.TabIndex = 46;
+            this.fuenteCBX.FormattingEnabled = true;
+            this.fuenteCBX.Location = new System.Drawing.Point(138, 102);
+            this.fuenteCBX.Name = "fuenteCBX";
+            this.fuenteCBX.Size = new System.Drawing.Size(99, 21);
+            this.fuenteCBX.TabIndex = 46;
             // 
-            // PBColorFuente
+            // colorFuentePB
             // 
-            this.PBColorFuente.BackColor = System.Drawing.Color.DarkRed;
-            this.PBColorFuente.Location = new System.Drawing.Point(251, 102);
-            this.PBColorFuente.Name = "PBColorFuente";
-            this.PBColorFuente.Size = new System.Drawing.Size(29, 21);
-            this.PBColorFuente.TabIndex = 45;
-            this.PBColorFuente.TabStop = false;
-            this.PBColorFuente.Click += new System.EventHandler(this.PBColorFuente_Click);
+            this.colorFuentePB.BackColor = System.Drawing.Color.DarkRed;
+            this.colorFuentePB.Location = new System.Drawing.Point(251, 102);
+            this.colorFuentePB.Name = "colorFuentePB";
+            this.colorFuentePB.Size = new System.Drawing.Size(29, 21);
+            this.colorFuentePB.TabIndex = 45;
+            this.colorFuentePB.TabStop = false;
+            this.colorFuentePB.Click += new System.EventHandler(this.PBColorFuente_Click);
             // 
-            // label4
+            // fuenteLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.label4.Location = new System.Drawing.Point(30, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 16);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Fuente";
+            this.fuenteLabel.AutoSize = true;
+            this.fuenteLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.fuenteLabel.Location = new System.Drawing.Point(30, 104);
+            this.fuenteLabel.Name = "fuenteLabel";
+            this.fuenteLabel.Size = new System.Drawing.Size(56, 16);
+            this.fuenteLabel.TabIndex = 31;
+            this.fuenteLabel.Text = "Fuente";
             // 
-            // TXTCategoria
+            // categoriaTxt
             // 
-            this.TXTCategoria.Location = new System.Drawing.Point(138, 147);
-            this.TXTCategoria.Name = "TXTCategoria";
-            this.TXTCategoria.Size = new System.Drawing.Size(142, 20);
-            this.TXTCategoria.TabIndex = 51;
+            this.categoriaTxt.Location = new System.Drawing.Point(138, 147);
+            this.categoriaTxt.Name = "categoriaTxt";
+            this.categoriaTxt.Size = new System.Drawing.Size(142, 20);
+            this.categoriaTxt.TabIndex = 51;
             // 
-            // label6
+            // catagoriaLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 142);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 16);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "Categoria";
+            this.catagoriaLabel.AutoSize = true;
+            this.catagoriaLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.catagoriaLabel.Location = new System.Drawing.Point(30, 149);
+            this.catagoriaLabel.Name = "catagoriaLabel";
+            this.catagoriaLabel.Size = new System.Drawing.Size(80, 16);
+            this.catagoriaLabel.TabIndex = 50;
+            this.catagoriaLabel.Text = "Categoria";
             // 
             // errorProviderEditarNotas
             // 
             this.errorProviderEditarNotas.ContainerControl = this;
             // 
-            // lblCategoria
+            // categoriaActualLabel
             // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(140, 131);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
-            this.lblCategoria.TabIndex = 52;
-            this.lblCategoria.Text = "Categoria";
+            this.categoriaActualLabel.AutoSize = true;
+            this.categoriaActualLabel.Location = new System.Drawing.Point(140, 131);
+            this.categoriaActualLabel.Name = "categoriaActualLabel";
+            this.categoriaActualLabel.Size = new System.Drawing.Size(52, 13);
+            this.categoriaActualLabel.TabIndex = 52;
+            this.categoriaActualLabel.Text = "Categoria";
             // 
-            // lblPrivacidad
+            // privacidadActualLabel
             // 
-            this.lblPrivacidad.AutoSize = true;
-            this.lblPrivacidad.Location = new System.Drawing.Point(138, 175);
-            this.lblPrivacidad.Name = "lblPrivacidad";
-            this.lblPrivacidad.Size = new System.Drawing.Size(57, 13);
-            this.lblPrivacidad.TabIndex = 53;
-            this.lblPrivacidad.Text = "Privacidad";
+            this.privacidadActualLabel.AutoSize = true;
+            this.privacidadActualLabel.Location = new System.Drawing.Point(138, 175);
+            this.privacidadActualLabel.Name = "privacidadActualLabel";
+            this.privacidadActualLabel.Size = new System.Drawing.Size(57, 13);
+            this.privacidadActualLabel.TabIndex = 53;
+            this.privacidadActualLabel.Text = "Privacidad";
             // 
             // EditarNotasForm
             // 
@@ -259,30 +259,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(411, 361);
-            this.Controls.Add(this.lblPrivacidad);
-            this.Controls.Add(this.lblCategoria);
-            this.Controls.Add(this.TXTCategoria);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.CBXFuente);
-            this.Controls.Add(this.PBColorFuente);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.PBColorFondo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.CBXPrivacidad);
-            this.Controls.Add(this.TXTTitulo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.privacidadActualLabel);
+            this.Controls.Add(this.categoriaActualLabel);
+            this.Controls.Add(this.categoriaTxt);
+            this.Controls.Add(this.catagoriaLabel);
+            this.Controls.Add(this.fuenteCBX);
+            this.Controls.Add(this.colorFuentePB);
+            this.Controls.Add(this.tituloActualLabel);
+            this.Controls.Add(this.colorFondoPB);
+            this.Controls.Add(this.tituloVistaLabel);
+            this.Controls.Add(this.privacidadCBX);
+            this.Controls.Add(this.tituloTxt);
+            this.Controls.Add(this.colorFondoLabel);
+            this.Controls.Add(this.fuenteLabel);
+            this.Controls.Add(this.privacidadLabel);
             this.Controls.Add(this.formularioLabelTitulo);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.cancelarBtn);
+            this.Controls.Add(this.aceptarBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditarNotasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CargarLibrosForm";
             this.Load += new System.EventHandler(this.EditarNotasForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PBColorFondo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBColorFuente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorFondoPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorFuentePB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,44 +295,44 @@
 
 
 
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button aceptarBtn;
 
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button cancelarBtn;
 
-        private System.Windows.Forms.ComboBox CBXPrivacidad;
+        private System.Windows.Forms.ComboBox privacidadCBX;
 
-        private System.Windows.Forms.TextBox TXTTitulo;
+        private System.Windows.Forms.TextBox tituloTxt;
 
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label colorFondoLabel;
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label privacidadLabel;
 
         private System.Windows.Forms.Label formularioLabelTitulo;
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tituloVistaLabel;
 
-        private System.Windows.Forms.PictureBox PBColorFondo;
+        private System.Windows.Forms.PictureBox colorFondoPB;
 
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label tituloActualLabel;
 
-        private System.Windows.Forms.ComboBox CBXFuente;
+        private System.Windows.Forms.ComboBox fuenteCBX;
 
-        private System.Windows.Forms.PictureBox PBColorFuente;
+        private System.Windows.Forms.PictureBox colorFuentePB;
 
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog colorFondoDialog;
 
-        private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.ColorDialog colorFuenteDialog;
 
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label fuenteLabel;
 
         private System.Windows.Forms.ToolTip mensajeEditarNotas;
 
-        private System.Windows.Forms.TextBox TXTCategoria;
+        private System.Windows.Forms.TextBox categoriaTxt;
 
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label catagoriaLabel;
         private System.Windows.Forms.ErrorProvider errorProviderEditarNotas;
-        private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.Label lblPrivacidad;
+        private System.Windows.Forms.Label categoriaActualLabel;
+        private System.Windows.Forms.Label privacidadActualLabel;
     }
 
 }
