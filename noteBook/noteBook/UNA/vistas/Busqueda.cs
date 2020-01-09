@@ -18,7 +18,7 @@ namespace noteBook.UNA.vistas
         public Busqueda()
         {
             InitializeComponent();
-
+            BusquedaInicial();
 
         }
 
@@ -52,12 +52,45 @@ namespace noteBook.UNA.vistas
                             notaControl.TituloNota = busquedaNota.Titulo;
                             notaControl.ColorNota = busquedaNota.ColorFondo;
                             notaControl.ColorFuente = busquedaNota.ColorFuente;
-
+                            notaControl.FechaCreacion = busquedaNota.FechaCreacion;
                             busquedaNotasPanel.Controls.Add(notaControl);
 
                         }
                     }
                 }
+            }
+      
+
+        }
+        private void BusquedaInicial() {
+            if (busquedaTxt.Text.Length == 0 && categoriaTxt.Text.Length == 0)
+            {
+                busquedaNotasPanel.Controls.Clear();
+                foreach (var busquedaLibro in Singlenton.Instance.LibrosList)
+                {
+                    foreach (var busquedaNota in busquedaLibro.AgregarNota)
+                    {
+                        string tituloNota = busquedaNota.Titulo.ToLower();
+
+                        string categoria = busquedaNota.Categoria.ToLower();
+                        if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
+                        {
+                            NotaControl notaControl = new NotaControl();
+                            notaControl.FuenteTipo = busquedaNota.Fuente;
+                            notaControl.Buscar(true);
+                            notaControl.PalabraBus = busquedaTxt.Text;
+                            notaControl.BuscarCategoria = categoriaTxt.Text;
+                            notaControl.Categoria = busquedaNota.Categoria;
+                            notaControl.TituloNota = busquedaNota.Titulo;
+                            notaControl.ColorNota = busquedaNota.ColorFondo;
+                            notaControl.ColorFuente = busquedaNota.ColorFuente;
+                            notaControl.FechaCreacion = busquedaNota.FechaCreacion;
+                            busquedaNotasPanel.Controls.Add(notaControl);
+
+                        }
+                    }
+                }
+
             }
 
         }
