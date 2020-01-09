@@ -11,8 +11,10 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
+  
     public partial class NotaControl : UserControl
     {
+        
         bool mover = false;
         bool modificarTamaño = false;
         Point inicial;
@@ -183,6 +185,11 @@ namespace noteBook.UNA.vistas
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
         {
             modificarTamaño = false;
+
+            DoubleBuffered = true;
+            Singlenton.Instance.NotaEditada = true;
+            Singlenton.Instance.miLibro.ActualizarPage();
+
         }
 
         private void AgrandarBoton_MouseMove(object sender, MouseEventArgs e)
@@ -227,7 +234,12 @@ namespace noteBook.UNA.vistas
 
         private void MoverBoton_MouseUp(object sender, MouseEventArgs e)
         {
+
+            DoubleBuffered = true;
             mover = false;
+             Singlenton.Instance.NotaEditada = true;
+            Singlenton.Instance.miLibro.ActualizarPage();
+
         }
 
         private void MoverBoton_MouseMove(object sender, MouseEventArgs e)
@@ -244,6 +256,10 @@ namespace noteBook.UNA.vistas
                         {
                             if (nota.Titulo == this.TituloNota)
                             {
+
+                                this.Left = e.X + this.Left + inicial.X;
+                               this.Top = e.Y + this.Top + inicial.Y;
+
                                 nota.PosicionX = e.X + this.Left + inicial.X;
                                 nota.PosicionY = e.Y + this.Top + inicial.Y; ;
                             }
