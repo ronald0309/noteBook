@@ -243,7 +243,7 @@ namespace noteBook.UNA.vistas
         public void ActualizarPage()
         {
 
-            DoubleBuffered = true;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
             String nombreUsuario = "nombre";
 
@@ -269,7 +269,7 @@ namespace noteBook.UNA.vistas
 
                             DoubleBuffered = true;
 
-                            if (p.Privacidad == false||p.UsuarioCreadorNota==nombreUsuario)
+                            if (nota.Privacidad == false||nota.UsuarioCreadorNota==nombreUsuario)
 
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);
