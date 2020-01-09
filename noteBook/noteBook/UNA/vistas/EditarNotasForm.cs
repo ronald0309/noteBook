@@ -91,7 +91,7 @@ namespace noteBook.UNA.vistas
 
             colorFuentePB.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
 
-          if (notaAuxiliar.Privacidad==false)
+          if (notaAuxiliar.Privacidad)
             {
                privacidadActualLabel.Text = "Privado";
             }

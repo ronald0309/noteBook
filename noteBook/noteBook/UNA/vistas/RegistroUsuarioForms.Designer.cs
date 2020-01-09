@@ -70,6 +70,7 @@
             // 
             this.contraseñaLabel.AutoSize = true;
             this.contraseñaLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.contraseñaLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.contraseñaLabel.Location = new System.Drawing.Point(102, 127);
             this.contraseñaLabel.Name = "contraseñaLabel";
             this.contraseñaLabel.Size = new System.Drawing.Size(88, 16);
@@ -80,6 +81,7 @@
             // 
             this.nombreUsuarioLabel.AutoSize = true;
             this.nombreUsuarioLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreUsuarioLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.nombreUsuarioLabel.Location = new System.Drawing.Point(102, 80);
             this.nombreUsuarioLabel.Name = "nombreUsuarioLabel";
             this.nombreUsuarioLabel.Size = new System.Drawing.Size(56, 16);
@@ -90,7 +92,7 @@
             // 
             this.cancelarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.cancelarBtn.Location = new System.Drawing.Point(216, 255);
+            this.cancelarBtn.Location = new System.Drawing.Point(105, 177);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
             this.cancelarBtn.TabIndex = 54;
@@ -102,7 +104,7 @@
             // 
             this.aceptarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.aceptarBtn.Location = new System.Drawing.Point(346, 255);
+            this.aceptarBtn.Location = new System.Drawing.Point(249, 177);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
             this.aceptarBtn.TabIndex = 53;
@@ -118,8 +120,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(477, 290);
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ClientSize = new System.Drawing.Size(422, 248);
             this.Controls.Add(this.contraseñaTxt);
             this.Controls.Add(this.tituloVistaLabel);
             this.Controls.Add(this.nombreUsuarioTxt);

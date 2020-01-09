@@ -14,3 +14,17 @@ x,Se modifico la nota xx,Nota xx,09 - 01 - 2020,02:45:23,se modifico la nota pt;
 x,Se modifico la nota asdf,Nota asdf,09 - 01 - 2020,02:45:47,se modifico la nota Lalo; el nombre Lalo por el nombre asdf;se modifico en al fecha09/01/2020 2:45:47 ;
 x,Se modifico la nota zxcv,Nota zxcv,09 - 01 - 2020,02:45:56,se modifico la nota >zxc; el nombre >zxc por el nombre zxcv;se modifico en al fecha09/01/2020 2:45:56 ;
 x,Se modifico la nota as,Nota as,09 - 01 - 2020,02:46:28,se modifico la nota asdf; el nombre asdf por el nombre as;se modifico en al fecha09/01/2020 2:46:28 ;
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,03:23:01,Se crea una nueva nota de nombre asdf; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16711936 
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:23:05,Se crea un nuevo libro de nombre casa; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:23:12,Se crea un nuevo libro de nombre sdsf; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:23:22,Se crea un nuevo libro de nombre asds; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:23:32,Se crea un nuevo libro de nombre asdf; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:24:05,Se crea un nuevo libro de nombre asd; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:24:14,Se crea un nuevo libro de nombre wer; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Se modifico la nota asd,Nota asd,09 - 01 - 2020,05:27:22,se modifico la nota as; el nombre as por el nombre asd;la categoria qaws se modifico por zxc;la privacidad False se modifico por Publico;la privacidad  se modifico por Arial Rounded MT Bold;se modifico en al fecha09/01/2020 5:27:22 ;
+Gerardo,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,05:40:01,Se crea una nueva nota de nombre <zsx; con la fuente Arial Rounded MT Bold; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,05:40:42,Se crea una nueva nota de nombre asdas; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:53:41,Se crea un nuevo libro de nombre ASDSD; del genero ASDA; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:53:54,Se crea un nuevo libro de nombre ASDAS; del genero ASDA; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:54:00,Se crea un nuevo libro de nombre AQSD; del genero ASDA; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:56:43,Se crea un nuevo libro de nombre <Z; del genero Aventura; de color  -65536 (en rgb) y de orden  1  

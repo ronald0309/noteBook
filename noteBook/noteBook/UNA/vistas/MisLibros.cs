@@ -41,7 +41,12 @@ namespace noteBook.UNA.vistas
                 }
 
             }
-            libroContenedorLayout.Controls.Clear();
+            bibliotecaTabControl.Controls.Clear();
+            //libroContenedorLayout.Controls.Clear();
+            TabPage biblioteca = new TabPage();
+            biblioteca.Text = "Biblioteca";
+            bibliotecaTabControl.Controls.Add(biblioteca);
+            FlowLayoutPanel contenedorLibros= new FlowLayoutPanel();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
 
@@ -216,8 +221,14 @@ namespace noteBook.UNA.vistas
                     bibliotecaTabControl.Controls.Add(pestañaLibro);
                 }
 
-
-                libroContenedorLayout.Controls.Add(libroControl);
+                //   biblioteca.Size.
+                contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width,bibliotecaTabControl.Size.Height);
+                contenedorLibros.Controls.Add(libroControl);
+                contenedorLibros.AutoScroll = true;
+               // PRU.AutoSize = true;
+                biblioteca.Controls.Add(contenedorLibros);
+              //  bibliotecaTabControl.Controls.Add(tab);
+               // libroContenedorLayout.Controls.Add(libroControl);
 
 
             }
@@ -230,12 +241,13 @@ namespace noteBook.UNA.vistas
         
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bibliotecaTabControl.Controls.Clear();
+           // bibliotecaTabControl.Controls.Clear();
             if (ordenComboBox.Text == "Creciente")
             {
                 List<Libro> librosAuxiliar = new List<Libro>();
                 librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
                 IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderBy(a => a.Nombre);
+               
                 Singlenton.Instance.LibrosList.Clear();
                 Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
 
@@ -248,6 +260,7 @@ namespace noteBook.UNA.vistas
                     List<Libro> librosAuxiliar = new List<Libro>();
                     librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
                     IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderByDescending(a => a.Nombre);
+            
                     Singlenton.Instance.LibrosList.Clear();
                     Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
 
@@ -255,6 +268,7 @@ namespace noteBook.UNA.vistas
 
                 }
             }
+          //  bibliotecaTabControl.Refresh();
         }
     
         public void ActualizarPage()

@@ -130,15 +130,13 @@ namespace noteBook.UNA.vistas
             {
 
                 colorNota = value;
-                if (colorNota == 0)
-                {
-                    categoriarichTexBox.BackColor = Color.Blue;
-
-                }
-                else
+                if (colorNota!= 0)
                 {
                     categoriarichTexBox.BackColor = Color.FromArgb(colorNota);
                 }
+
+            
+                    
 
                 String co = colorNota.ToString();
                 contendorPanel.BackColor = Color.FromArgb(colorNota);

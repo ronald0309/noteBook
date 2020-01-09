@@ -38,7 +38,7 @@
             // UsuarioLabel
             // 
             this.UsuarioLabel.AutoSize = true;
-            this.UsuarioLabel.Location = new System.Drawing.Point(36, 9);
+            this.UsuarioLabel.Location = new System.Drawing.Point(39, 9);
             this.UsuarioLabel.Name = "UsuarioLabel";
             this.UsuarioLabel.Size = new System.Drawing.Size(43, 13);
             this.UsuarioLabel.TabIndex = 0;
@@ -61,7 +61,7 @@
             // contraseñaLabel
             // 
             this.contraseñaLabel.AutoSize = true;
-            this.contraseñaLabel.Location = new System.Drawing.Point(136, 9);
+            this.contraseñaLabel.Location = new System.Drawing.Point(138, 9);
             this.contraseñaLabel.Name = "contraseñaLabel";
             this.contraseñaLabel.Size = new System.Drawing.Size(61, 13);
             this.contraseñaLabel.TabIndex = 3;
@@ -81,13 +81,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(248, 118);
             this.Controls.Add(this.acceptarBtn);
             this.Controls.Add(this.contraseñaLabel);
             this.Controls.Add(this.contraseñaUsuarioTxt);
             this.Controls.Add(this.nombreUsuarioTxt);
             this.Controls.Add(this.UsuarioLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "AccesoNotaPrivada";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccesoNotaPrivada";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -86,11 +86,11 @@
             // 
             // aceptarBtn
             // 
-            this.aceptarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.aceptarBtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.aceptarBtn.Location = new System.Drawing.Point(174, 282);
+            this.aceptarBtn.Location = new System.Drawing.Point(157, 256);
             this.aceptarBtn.Name = "aceptarBtn";
-            this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
+            this.aceptarBtn.Size = new System.Drawing.Size(123, 23);
             this.aceptarBtn.TabIndex = 0;
             this.aceptarBtn.Text = "Aceptar";
             this.aceptarBtn.UseVisualStyleBackColor = false;
@@ -98,11 +98,11 @@
             // 
             // cancelarBtn
             // 
-            this.cancelarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cancelarBtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.cancelarBtn.Location = new System.Drawing.Point(59, 282);
+            this.cancelarBtn.Location = new System.Drawing.Point(33, 256);
             this.cancelarBtn.Name = "cancelarBtn";
-            this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
+            this.cancelarBtn.Size = new System.Drawing.Size(118, 23);
             this.cancelarBtn.TabIndex = 1;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
@@ -132,14 +132,15 @@
             this.colorFondoLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.colorFondoLabel.Location = new System.Drawing.Point(30, 227);
             this.colorFondoLabel.Name = "colorFondoLabel";
-            this.colorFondoLabel.Size = new System.Drawing.Size(120, 16);
+            this.colorFondoLabel.Size = new System.Drawing.Size(96, 16);
             this.colorFondoLabel.TabIndex = 32;
-            this.colorFondoLabel.Text = "Color de fondo";
+            this.colorFondoLabel.Text = "Color Fondo";
             // 
             // privacidadLabel
             // 
             this.privacidadLabel.AutoSize = true;
             this.privacidadLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.privacidadLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.privacidadLabel.Location = new System.Drawing.Point(30, 196);
             this.privacidadLabel.Name = "privacidadLabel";
             this.privacidadLabel.Size = new System.Drawing.Size(88, 16);
@@ -151,6 +152,7 @@
             // 
             this.formularioLabelTitulo.AutoSize = true;
             this.formularioLabelTitulo.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formularioLabelTitulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.formularioLabelTitulo.Location = new System.Drawing.Point(30, 74);
             this.formularioLabelTitulo.Name = "formularioLabelTitulo";
             this.formularioLabelTitulo.Size = new System.Drawing.Size(56, 16);
@@ -160,17 +162,18 @@
             // tituloVistaLabel
             // 
             this.tituloVistaLabel.AutoSize = true;
-            this.tituloVistaLabel.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloVistaLabel.Location = new System.Drawing.Point(145, 9);
+            this.tituloVistaLabel.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloVistaLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.tituloVistaLabel.Location = new System.Drawing.Point(97, 9);
             this.tituloVistaLabel.Name = "tituloVistaLabel";
-            this.tituloVistaLabel.Size = new System.Drawing.Size(135, 24);
+            this.tituloVistaLabel.Size = new System.Drawing.Size(119, 27);
             this.tituloVistaLabel.TabIndex = 40;
             this.tituloVistaLabel.Text = "Editar nota";
             // 
             // colorFondoPB
             // 
             this.colorFondoPB.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.colorFondoPB.Location = new System.Drawing.Point(149, 221);
+            this.colorFondoPB.Location = new System.Drawing.Point(141, 221);
             this.colorFondoPB.Name = "colorFondoPB";
             this.colorFondoPB.Size = new System.Drawing.Size(24, 24);
             this.colorFondoPB.TabIndex = 41;
@@ -180,7 +183,7 @@
             // tituloActualLabel
             // 
             this.tituloActualLabel.AutoSize = true;
-            this.tituloActualLabel.Location = new System.Drawing.Point(135, 46);
+            this.tituloActualLabel.Location = new System.Drawing.Point(140, 56);
             this.tituloActualLabel.Name = "tituloActualLabel";
             this.tituloActualLabel.Size = new System.Drawing.Size(33, 13);
             this.tituloActualLabel.TabIndex = 42;
@@ -208,6 +211,7 @@
             // 
             this.fuenteLabel.AutoSize = true;
             this.fuenteLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.fuenteLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.fuenteLabel.Location = new System.Drawing.Point(30, 104);
             this.fuenteLabel.Name = "fuenteLabel";
             this.fuenteLabel.Size = new System.Drawing.Size(56, 16);
@@ -225,6 +229,7 @@
             // 
             this.catagoriaLabel.AutoSize = true;
             this.catagoriaLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.catagoriaLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.catagoriaLabel.Location = new System.Drawing.Point(30, 149);
             this.catagoriaLabel.Name = "catagoriaLabel";
             this.catagoriaLabel.Size = new System.Drawing.Size(80, 16);
@@ -257,8 +262,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(411, 361);
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ClientSize = new System.Drawing.Size(336, 321);
             this.Controls.Add(this.privacidadActualLabel);
             this.Controls.Add(this.categoriaActualLabel);
             this.Controls.Add(this.categoriaTxt);
