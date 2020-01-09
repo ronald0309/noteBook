@@ -273,6 +273,9 @@ namespace noteBook.UNA.vistas
     
         public void ActualizarPage()
         {
+           
+            DoubleBuffered = true;
+      
             String nombreUsuario = "nombre";
 
             foreach (var usuarioAc in Singlenton.Instance.usuarios)
@@ -294,6 +297,8 @@ namespace noteBook.UNA.vistas
                         bibliotecaTabControl.SelectedTab.Controls.Clear();
                         foreach (var p in libro.AgregarNota)
                         {
+                            DoubleBuffered = true;
+
                             if (p.Privacidad == false||p.UsuarioCreadorNota==nombreUsuario)
                             {
                                 NotaControl notaControl = new NotaControl();
@@ -327,8 +332,5 @@ namespace noteBook.UNA.vistas
                 Singlenton.Instance.NotaEditada = false;
             }
         }
-
-
-       
     }
 }
