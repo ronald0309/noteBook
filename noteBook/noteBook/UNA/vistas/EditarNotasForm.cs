@@ -281,6 +281,7 @@ namespace noteBook.UNA.vistas
                     else
                     {
                         MessageBox.Show("Todos los campos estan en blanco");
+                        
                     }
                 }
                 else

@@ -79,7 +79,7 @@ namespace noteBook.UNA.vistas
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
 
-                LibroControl libroControl = new LibroControl
+                LibroControlForm libroControl = new LibroControlForm
                 {
                     Nombre = libro.Nombre,
                     Genero = libro.Genero,
@@ -102,7 +102,7 @@ namespace noteBook.UNA.vistas
                            {
                                int x = e.X;
                                int y = e.Y;
-                               FormularioNota formulario = new FormularioNota();
+                               FormularioNotaForm formulario = new FormularioNotaForm();
                                formulario.SetXY(x, y);
                                formulario.Posicion = libro.Nombre;
                                formulario.ShowDialog();
@@ -166,7 +166,7 @@ namespace noteBook.UNA.vistas
                     {
                         int x = e.X;
                         int y = e.Y;
-                        FormularioNota formulario = new FormularioNota();
+                        FormularioNotaForm formulario = new FormularioNotaForm();
                         formulario.SetXY(x, y);
                         formulario.Posicion = libro.Nombre;
                         formulario.ShowDialog();

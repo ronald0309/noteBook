@@ -8,7 +8,6 @@ D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.Generat
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.RegistroLibro.resources
-D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.FormularioNota.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MisLibros.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\noteBook.exe.config
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\bin\Debug\noteBook.exe
@@ -31,7 +30,6 @@ C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.csproj
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Busqueda.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\WindowsFormsControlLibrary1.dll
 D:\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\WindowsFormsControlLibrary1.pdb
-D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Busqueda.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaControl.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.UserControl1.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.CopyComplete
@@ -39,7 +37,6 @@ D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Rep
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.ReportesForm.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.EditarNotasForm.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.LibroControl.resources
-D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.LibroControl.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.EditarNotasForm.resources
 C:\Users\LordLalo\Documents\Notebook\NoteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaPrivadaControl.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaPrivadaControl.resources
@@ -69,6 +66,9 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.CopyCo
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
-D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MenuForm.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MenuForm.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivadaForm.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.BusquedaForm.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.FormularioNotaForm.resources
+D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.LibroControlForm.resources

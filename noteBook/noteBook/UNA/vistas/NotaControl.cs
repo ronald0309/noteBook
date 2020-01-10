@@ -65,6 +65,7 @@ namespace noteBook.UNA.vistas
                     categoriarichTexBox.SelectionColor = Color.Blue;
                     AgrandarBoton.Hide();
                     moverBoton.Hide();
+                    eliminarBtn.Hide();
                 }
                 else
                 {
@@ -148,6 +149,7 @@ namespace noteBook.UNA.vistas
             editarBtn.Hide();
             AgrandarBoton.Hide();
             moverBoton.Hide();
+            eliminarBtn.Hide();
         }
         public string TituloNota
         {

@@ -53,17 +53,17 @@
     <Compile Include="UNA\Clases\Reportes.cs" />
     <Compile Include="UNA\Clases\Singlenton.cs" />
     <Compile Include="UNA\Clases\Usuario.cs" />
-    <Compile Include="UNA\vistas\AccesoNotaPrivada.cs">
+    <Compile Include="UNA\vistas\AccesoNotaPrivadaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\AccesoNotaPrivada.Designer.cs">
-      <DependentUpon>AccesoNotaPrivada.cs</DependentUpon>
+    <Compile Include="UNA\vistas\AccesoNotaPrivadaForm.Designer.cs">
+      <DependentUpon>AccesoNotaPrivadaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\Busqueda.cs">
+    <Compile Include="UNA\vistas\BusquedaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\Busqueda.Designer.cs">
-      <DependentUpon>Busqueda.cs</DependentUpon>
+    <Compile Include="UNA\vistas\BusquedaForm.Designer.cs">
+      <DependentUpon>BusquedaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\vistas\EditarNotasForm.cs">
       <SubType>Form</SubType>
@@ -77,17 +77,17 @@
     <Compile Include="UNA\vistas\RegistroUsuarioForms.Designer.cs">
       <DependentUpon>RegistroUsuarioForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\FormularioNota.cs">
+    <Compile Include="UNA\vistas\FormularioNotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\FormularioNota.Designer.cs">
-      <DependentUpon>FormularioNota.cs</DependentUpon>
+    <Compile Include="UNA\vistas\FormularioNotaForm.Designer.cs">
+      <DependentUpon>FormularioNotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\LibroControl.cs">
+    <Compile Include="UNA\vistas\LibroControlForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\LibroControl.Designer.cs">
-      <DependentUpon>LibroControl.cs</DependentUpon>
+    <Compile Include="UNA\vistas\LibroControlForm.Designer.cs">
+      <DependentUpon>LibroControlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\vistas\MenuForm.cs">
       <SubType>Form</SubType>
@@ -95,11 +95,11 @@
     <Compile Include="UNA\vistas\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\Login.cs">
+    <Compile Include="UNA\vistas\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="UNA\vistas\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,23 +139,23 @@
     <Compile Include="UNA\vistas\UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UNA\vistas\AccesoNotaPrivada.resx">
-      <DependentUpon>AccesoNotaPrivada.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\AccesoNotaPrivadaForm.resx">
+      <DependentUpon>AccesoNotaPrivadaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\Busqueda.resx">
-      <DependentUpon>Busqueda.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\BusquedaForm.resx">
+      <DependentUpon>BusquedaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\EditarNotasForm.resx">
       <DependentUpon>EditarNotasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\FormularioNota.resx">
-      <DependentUpon>FormularioNota.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\FormularioNotaForm.resx">
+      <DependentUpon>FormularioNotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\LibroControl.resx">
-      <DependentUpon>LibroControl.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\LibroControlForm.resx">
+      <DependentUpon>LibroControlForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,6 +175,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\NotaControl.resx">
       <DependentUpon>NotaControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\NotaPrivadaControl.resx">
       <DependentUpon>NotaPrivadaControl.cs</DependentUpon>

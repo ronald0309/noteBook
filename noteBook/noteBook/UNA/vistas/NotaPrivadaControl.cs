@@ -41,7 +41,7 @@ namespace noteBook.UNA.vistas
 
         private void DesbloqueButton_Click(object sender, EventArgs e)
         {
-            AccesoNotaPrivada notaPrivada = new AccesoNotaPrivada();
+            AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
                 foreach (var nota in libro.AgregarNota)

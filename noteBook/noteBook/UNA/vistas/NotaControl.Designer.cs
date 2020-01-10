@@ -46,11 +46,9 @@
             // 
             // contendorPanel
             // 
-            this.contendorPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.contendorPanel.Controls.Add(this.eliminarBtn);
             this.contendorPanel.BackColor = System.Drawing.Color.SlateBlue;
+            this.contendorPanel.Controls.Add(this.eliminarBtn);
             this.contendorPanel.Controls.Add(this.notaIMG);
-
             this.contendorPanel.Controls.Add(this.categoriarichTexBox);
             this.contendorPanel.Controls.Add(this.editarBtn);
             this.contendorPanel.Controls.Add(this.tituloRichTextBox);
@@ -64,7 +62,6 @@
             this.contendorPanel.TabIndex = 1;
             this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-
             // eliminarBtn
             // 
             this.eliminarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -76,7 +73,7 @@
             this.eliminarBtn.TabIndex = 8;
             this.eliminarBtn.UseVisualStyleBackColor = true;
             this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
-
+            // 
             // notaIMG
             // 
             this.notaIMG.Image = ((System.Drawing.Image)(resources.GetObject("notaIMG.Image")));
@@ -86,7 +83,6 @@
             this.notaIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.notaIMG.TabIndex = 8;
             this.notaIMG.TabStop = false;
-
             // 
             // categoriarichTexBox
             // 
@@ -170,6 +166,9 @@
             // 
             // fechaCreacionLabel
             // 
+            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCreacionLabel.Image = ((System.Drawing.Image)(resources.GetObject("fechaCreacionLabel.Image")));
             this.fechaCreacionLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -87,6 +87,7 @@
             // aceptarBtn
             // 
             this.aceptarBtn.BackColor = System.Drawing.Color.White;
+            this.aceptarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.aceptarBtn.Location = new System.Drawing.Point(171, 256);
             this.aceptarBtn.Name = "aceptarBtn";
@@ -99,6 +100,7 @@
             // cancelarBtn
             // 
             this.cancelarBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cancelarBtn.Location = new System.Drawing.Point(33, 256);
             this.cancelarBtn.Name = "cancelarBtn";
@@ -260,9 +262,11 @@
             // 
             // EditarNotasForm
             // 
+            this.AcceptButton = this.aceptarBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
+            this.CancelButton = this.cancelarBtn;
             this.ClientSize = new System.Drawing.Size(336, 321);
             this.Controls.Add(this.privacidadActualLabel);
             this.Controls.Add(this.categoriaActualLabel);

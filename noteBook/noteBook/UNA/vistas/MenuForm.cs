@@ -179,7 +179,7 @@ namespace noteBook.UNA.vistas
         private void BusquedaBtn_Click(object sender, EventArgs e)
         {
             this.nombreVistaLabel.Text = "Busqueda";
-            Busqueda busqueda = new Busqueda();
+            BusquedaForm busqueda = new BusquedaForm();
             this.AbrirFormulario(busqueda);
         }
 

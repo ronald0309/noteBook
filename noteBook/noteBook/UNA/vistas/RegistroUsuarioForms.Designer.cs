@@ -91,6 +91,7 @@
             // cancelarBtn
             // 
             this.cancelarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.cancelarBtn.Location = new System.Drawing.Point(105, 177);
             this.cancelarBtn.Name = "cancelarBtn";
@@ -118,9 +119,11 @@
             // 
             // RegistroUsuarioForms
             // 
+            this.AcceptButton = this.aceptarBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
+            this.CancelButton = this.cancelarBtn;
             this.ClientSize = new System.Drawing.Size(422, 248);
             this.Controls.Add(this.contraseñaTxt);
             this.Controls.Add(this.tituloVistaLabel);
