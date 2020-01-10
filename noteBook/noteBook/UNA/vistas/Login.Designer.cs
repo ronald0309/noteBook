@@ -75,7 +75,7 @@
             this.labelNomb.AutoSize = true;
             this.labelNomb.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.labelNomb.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomb.ForeColor = System.Drawing.Color.DarkBlue;
+            this.labelNomb.ForeColor = System.Drawing.Color.DarkCyan;
             this.labelNomb.Location = new System.Drawing.Point(486, 62);
             this.labelNomb.Name = "labelNomb";
             this.labelNomb.Size = new System.Drawing.Size(110, 24);
@@ -84,7 +84,7 @@
             // 
             // lateralPanel
             // 
-            this.lateralPanel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(155)))), ((int)(((byte)(122)))));
             this.lateralPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.lateralPanel.Location = new System.Drawing.Point(0, 0);
             this.lateralPanel.Name = "lateralPanel";
@@ -124,7 +124,7 @@
             // linkRegistrarse
             // 
             this.linkRegistrarse.AutoSize = true;
-            this.linkRegistrarse.Location = new System.Drawing.Point(553, 337);
+            this.linkRegistrarse.Location = new System.Drawing.Point(553, 334);
             this.linkRegistrarse.Name = "linkRegistrarse";
             this.linkRegistrarse.Size = new System.Drawing.Size(57, 13);
             this.linkRegistrarse.TabIndex = 4;

@@ -70,5 +70,5 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.AccesoNotaPrivada.resources
-E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.menuPanel.resources
 D:\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MenuForm.resources
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MenuForm.resources

@@ -31,6 +31,7 @@
             this.bibliotecaTabControl = new System.Windows.Forms.TabControl();
             this.FondoPanel = new System.Windows.Forms.Panel();
             this.ordenComboBox = new System.Windows.Forms.ComboBox();
+            this.ordenLabel = new System.Windows.Forms.Label();
             this.FondoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             // 
             // FondoPanel
             // 
+            this.FondoPanel.Controls.Add(this.ordenLabel);
             this.FondoPanel.Controls.Add(this.ordenComboBox);
             this.FondoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FondoPanel.Location = new System.Drawing.Point(0, 0);
@@ -64,11 +66,20 @@
             this.ordenComboBox.Items.AddRange(new object[] {
             "Creciente",
             "Decreciente"});
-            this.ordenComboBox.Location = new System.Drawing.Point(84, 3);
+            this.ordenComboBox.Location = new System.Drawing.Point(691, 8);
             this.ordenComboBox.Name = "ordenComboBox";
-            this.ordenComboBox.Size = new System.Drawing.Size(256, 21);
+            this.ordenComboBox.Size = new System.Drawing.Size(97, 21);
             this.ordenComboBox.TabIndex = 0;
             this.ordenComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdenComboBox_SelectedIndexChanged);
+            // 
+            // ordenLabel
+            // 
+            this.ordenLabel.AutoSize = true;
+            this.ordenLabel.Location = new System.Drawing.Point(632, 11);
+            this.ordenLabel.Name = "ordenLabel";
+            this.ordenLabel.Size = new System.Drawing.Size(36, 13);
+            this.ordenLabel.TabIndex = 1;
+            this.ordenLabel.Text = "Orden";
             // 
             // MisLibros
             // 
@@ -81,6 +92,7 @@
             this.Name = "MisLibros";
             this.Text = "MisLibros";
             this.FondoPanel.ResumeLayout(false);
+            this.FondoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -90,5 +102,6 @@
         private System.Windows.Forms.TabControl bibliotecaTabControl;
         private System.Windows.Forms.Panel FondoPanel;
         private System.Windows.Forms.ComboBox ordenComboBox;
+        private System.Windows.Forms.Label ordenLabel;
     }
 }

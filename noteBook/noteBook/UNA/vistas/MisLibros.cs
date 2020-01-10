@@ -172,7 +172,7 @@ namespace noteBook.UNA.vistas
                         formulario.ShowDialog();
                         foreach (var nota in libro.AgregarNota)
                         {
-                            if (nota.Privacidad == false)
+                            if (nota.Privacidad == false||nota.UsuarioCreadorNota==nombreUsuario)
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);
                                 pestañaLibro.Controls.Add(notaControl);
@@ -187,7 +187,7 @@ namespace noteBook.UNA.vistas
                     };
                     foreach (var nota in libro.AgregarNota)
                     {
-                        if (nota.Privacidad == false)
+                        if (nota.Privacidad == false||nota.UsuarioCreadorNota == nombreUsuario)
                         {
                             NotaControl notaControl = CrearNotaControl(nota);
 

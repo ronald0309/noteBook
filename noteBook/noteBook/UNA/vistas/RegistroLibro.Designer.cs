@@ -48,7 +48,7 @@
             // 
             this.guardarBtn.Location = new System.Drawing.Point(223, 172);
             this.guardarBtn.Name = "guardarBtn";
-            this.guardarBtn.Size = new System.Drawing.Size(135, 23);
+            this.guardarBtn.Size = new System.Drawing.Size(103, 23);
             this.guardarBtn.TabIndex = 31;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
@@ -65,10 +65,12 @@
             // 
             // nombreTxt
             // 
+            this.nombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreTxt.Location = new System.Drawing.Point(223, 93);
             this.nombreTxt.MaxLength = 11;
             this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(135, 20);
+            this.nombreTxt.Size = new System.Drawing.Size(103, 20);
             this.nombreTxt.TabIndex = 27;
             this.nombreTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -94,13 +96,14 @@
             // 
             this.tituloVistaLabel.AutoSize = true;
             this.tituloVistaLabel.Font = new System.Drawing.Font("Footlight MT Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloVistaLabel.ForeColor = System.Drawing.Color.Lavender;
-            this.tituloVistaLabel.Location = new System.Drawing.Point(190, 48);
+            this.tituloVistaLabel.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.tituloVistaLabel.Location = new System.Drawing.Point(218, 47);
             this.tituloVistaLabel.Name = "tituloVistaLabel";
             this.tituloVistaLabel.Size = new System.Drawing.Size(206, 29);
             this.tituloVistaLabel.TabIndex = 24;
             this.tituloVistaLabel.Text = "REGISTRO LIBRO";
             this.tituloVistaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tituloVistaLabel.Click += new System.EventHandler(this.tituloVistaLabel_Click);
             // 
             // selectorColorImage
             // 
@@ -126,7 +129,7 @@
             "Infantiles"});
             this.generoComboBox.Location = new System.Drawing.Point(223, 119);
             this.generoComboBox.Name = "generoComboBox";
-            this.generoComboBox.Size = new System.Drawing.Size(135, 21);
+            this.generoComboBox.Size = new System.Drawing.Size(103, 21);
             this.generoComboBox.TabIndex = 33;
             // 
             // errorGuardar
@@ -143,7 +146,7 @@
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
             this.ClientSize = new System.Drawing.Size(567, 259);
             this.Controls.Add(this.generoComboBox);
             this.Controls.Add(this.selectorColorImage);

@@ -194,7 +194,7 @@ namespace noteBook.UNA.vistas
             if (modificarTamaño)
             {
                 /// 155; 175
-                if (175 < AgrandarBoton.Top + e.Y)
+                if (175 < AgrandarBoton.Top+e.Y )
                 {
 
                     banderaHeight = true;

@@ -40,7 +40,7 @@
             // 
             // contedorPanel
             // 
-            this.contedorPanel.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.contedorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(198)))), ((int)(((byte)(165)))));
             this.contedorPanel.Controls.Add(this.categoriaTxt);
             this.contedorPanel.Controls.Add(this.categoriaLabel);
             this.contedorPanel.Controls.Add(this.tituloLabel);
@@ -91,7 +91,7 @@
             // busquedaNotasPanel
             // 
             this.busquedaNotasPanel.AutoScroll = true;
-            this.busquedaNotasPanel.BackColor = System.Drawing.Color.RoyalBlue;
+            this.busquedaNotasPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
             this.busquedaNotasPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.busquedaNotasPanel.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.busquedaNotasPanel.Location = new System.Drawing.Point(-4, 66);
