@@ -44,8 +44,8 @@
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.PrivacidadCombobox = new System.Windows.Forms.ComboBox();
             this.FuenteComboBox = new System.Windows.Forms.ComboBox();
-            this.VisualizarNota = new noteBook.UNA.vistas.NotaControl();
             this.errorDatosNota = new System.Windows.Forms.ErrorProvider(this.components);
+            this.contenedorNotaPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorFuente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDatosNota)).BeginInit();
@@ -54,6 +54,7 @@
             // CategoriaTxt
             // 
             this.CategoriaTxt.Location = new System.Drawing.Point(85, 77);
+            this.CategoriaTxt.MaxLength = 9;
             this.CategoriaTxt.Name = "CategoriaTxt";
             this.CategoriaTxt.Size = new System.Drawing.Size(171, 20);
             this.CategoriaTxt.TabIndex = 20;
@@ -72,6 +73,7 @@
             // TituloTxt
             // 
             this.TituloTxt.Location = new System.Drawing.Point(85, 25);
+            this.TituloTxt.MaxLength = 10;
             this.TituloTxt.Name = "TituloTxt";
             this.TituloTxt.Size = new System.Drawing.Size(171, 20);
             this.TituloTxt.TabIndex = 18;
@@ -169,33 +171,25 @@
             this.FuenteComboBox.TabIndex = 27;
             this.FuenteComboBox.SelectedIndexChanged += new System.EventHandler(this.FuenteComboBox_SelectedIndexChanged);
             // 
-            // VisualizarNota
-            // 
-            this.VisualizarNota.AutoScroll = true;
-            this.VisualizarNota.Categoria = null;
-            this.VisualizarNota.ColorFuente = 0;
-            this.VisualizarNota.ColorNota = 0;
-
-            this.VisualizarNota.FuenteTipo = null;
-            this.VisualizarNota.Location = new System.Drawing.Point(298, 25);
-            this.VisualizarNota.Name = "VisualizarNota";
-            this.VisualizarNota.PalabraBus = null;
-            this.VisualizarNota.Size = new System.Drawing.Size(155, 175);
-            this.VisualizarNota.TabIndex = 28;
-            this.VisualizarNota.TituloNota = null;
-            // 
             // errorDatosNota
             // 
             this.errorDatosNota.ContainerControl = this;
             // 
-            // FormularioNota
+            // contenedorNotaPanel
+            // 
+            this.contenedorNotaPanel.Location = new System.Drawing.Point(285, 12);
+            this.contenedorNotaPanel.Name = "contenedorNotaPanel";
+            this.contenedorNotaPanel.Size = new System.Drawing.Size(224, 225);
+            this.contenedorNotaPanel.TabIndex = 28;
+            // 
+            // FormularioNotaForm
             // 
             this.AcceptButton = this.FormularioGuardarBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F); 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font; 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.ClientSize = new System.Drawing.Size(521, 249);
-            this.Controls.Add(this.VisualizarNota);
+            this.Controls.Add(this.contenedorNotaPanel);
             this.Controls.Add(this.FuenteComboBox);
             this.Controls.Add(this.PrivacidadCombobox);
             this.Controls.Add(this.colorFuente);
@@ -211,7 +205,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximumSize = new System.Drawing.Size(537, 288);
             this.MinimumSize = new System.Drawing.Size(537, 288);
-            this.Name = "FormularioNota";
+            this.Name = "FormularioNotaForm";
             this.Text = "FormularioNota";
             this.Load += new System.EventHandler(this.FormularioNota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SelectorColoresNotas)).EndInit();
@@ -240,5 +234,6 @@
         private System.Windows.Forms.ComboBox FuenteComboBox;
         private NotaControl VisualizarNota;
         private System.Windows.Forms.ErrorProvider errorDatosNota;
+        private System.Windows.Forms.Panel contenedorNotaPanel;
     }
 }
