@@ -305,5 +305,21 @@ namespace noteBook.UNA.vistas
             }
         }
 
+        private void cerrarLibroActual_Click(object sender, EventArgs e)
+        {
+            //bibliotecaTabControl.SelectedTab;
+            if (bibliotecaTabControl.SelectedTab.Text != "Biblioteca")
+            {
+                foreach (var cerrarLibro in Singlenton.Instance.LibrosList) {
+                    if (cerrarLibro.Nombre == bibliotecaTabControl.SelectedTab.Text)
+                    {
+                        cerrarLibro.Abrir = false;
+                    }
+                }
+                bibliotecaTabControl.Controls.Remove(bibliotecaTabControl.SelectedTab);
+            }
+
+
+        }
     }
 }

@@ -133,12 +133,6 @@
     <Compile Include="UNA\vistas\ReportesForm.Designer.cs">
       <DependentUpon>ReportesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UNA\vistas\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="UNA\vistas\AccesoNotaPrivadaForm.resx">
       <DependentUpon>AccesoNotaPrivadaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\ReportesForm.resx">
       <DependentUpon>ReportesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

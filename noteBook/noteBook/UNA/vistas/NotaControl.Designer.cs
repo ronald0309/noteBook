@@ -40,20 +40,20 @@
             this.AgrandarBoton = new System.Windows.Forms.Button();
             this.fechaCreacionLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.contedorBotonesPanel = new System.Windows.Forms.Panel();
             this.contendorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notaIMG)).BeginInit();
+            this.contedorBotonesPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // contendorPanel
             // 
             this.contendorPanel.BackColor = System.Drawing.Color.SlateBlue;
-            this.contendorPanel.Controls.Add(this.eliminarBtn);
+            this.contendorPanel.Controls.Add(this.contedorBotonesPanel);
             this.contendorPanel.Controls.Add(this.notaIMG);
             this.contendorPanel.Controls.Add(this.categoriarichTexBox);
-            this.contendorPanel.Controls.Add(this.editarBtn);
-            this.contendorPanel.Controls.Add(this.tituloRichTextBox);
-            this.contendorPanel.Controls.Add(this.moverBoton);
             this.contendorPanel.Controls.Add(this.AgrandarBoton);
+            this.contendorPanel.Controls.Add(this.tituloRichTextBox);
             this.contendorPanel.Controls.Add(this.fechaCreacionLabel);
             this.contendorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contendorPanel.Location = new System.Drawing.Point(0, 0);
@@ -67,7 +67,7 @@
             this.eliminarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.eliminarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eliminarBtn.Image = ((System.Drawing.Image)(resources.GetObject("eliminarBtn.Image")));
-            this.eliminarBtn.Location = new System.Drawing.Point(5, 141);
+            this.eliminarBtn.Location = new System.Drawing.Point(5, 3);
             this.eliminarBtn.Name = "eliminarBtn";
             this.eliminarBtn.Size = new System.Drawing.Size(33, 34);
             this.eliminarBtn.TabIndex = 8;
@@ -77,7 +77,7 @@
             // notaIMG
             // 
             this.notaIMG.Image = ((System.Drawing.Image)(resources.GetObject("notaIMG.Image")));
-            this.notaIMG.Location = new System.Drawing.Point(3, 42);
+            this.notaIMG.Location = new System.Drawing.Point(3, 36);
             this.notaIMG.Name = "notaIMG";
             this.notaIMG.Size = new System.Drawing.Size(25, 25);
             this.notaIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -86,6 +86,8 @@
             // 
             // categoriarichTexBox
             // 
+            this.categoriarichTexBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.categoriarichTexBox.AutoWordSelection = true;
             this.categoriarichTexBox.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.categoriarichTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -107,7 +109,7 @@
             this.editarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.editarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editarBtn.Image = ((System.Drawing.Image)(resources.GetObject("editarBtn.Image")));
-            this.editarBtn.Location = new System.Drawing.Point(44, 141);
+            this.editarBtn.Location = new System.Drawing.Point(44, 3);
             this.editarBtn.Name = "editarBtn";
             this.editarBtn.Size = new System.Drawing.Size(33, 34);
             this.editarBtn.TabIndex = 6;
@@ -141,7 +143,7 @@
             this.moverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.moverBoton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.moverBoton.Image = ((System.Drawing.Image)(resources.GetObject("moverBoton.Image")));
-            this.moverBoton.Location = new System.Drawing.Point(83, 141);
+            this.moverBoton.Location = new System.Drawing.Point(83, 3);
             this.moverBoton.Name = "moverBoton";
             this.moverBoton.Size = new System.Drawing.Size(33, 34);
             this.moverBoton.TabIndex = 5;
@@ -155,7 +157,7 @@
             this.AgrandarBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AgrandarBoton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AgrandarBoton.Image = ((System.Drawing.Image)(resources.GetObject("AgrandarBoton.Image")));
-            this.AgrandarBoton.Location = new System.Drawing.Point(122, 141);
+            this.AgrandarBoton.Location = new System.Drawing.Point(119, 135);
             this.AgrandarBoton.Name = "AgrandarBoton";
             this.AgrandarBoton.Size = new System.Drawing.Size(33, 34);
             this.AgrandarBoton.TabIndex = 4;
@@ -166,15 +168,14 @@
             // 
             // fechaCreacionLabel
             // 
-            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCreacionLabel.Image = ((System.Drawing.Image)(resources.GetObject("fechaCreacionLabel.Image")));
             this.fechaCreacionLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fechaCreacionLabel.Location = new System.Drawing.Point(0, 77);
             this.fechaCreacionLabel.Name = "fechaCreacionLabel";
-            this.fechaCreacionLabel.Size = new System.Drawing.Size(152, 30);
+            this.fechaCreacionLabel.Size = new System.Drawing.Size(152, 37);
             this.fechaCreacionLabel.TabIndex = 1;
             this.fechaCreacionLabel.Text = "FechaCreacion";
             this.fechaCreacionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -185,6 +186,18 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // contedorBotonesPanel
+            // 
+            this.contedorBotonesPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.contedorBotonesPanel.Controls.Add(this.eliminarBtn);
+            this.contedorBotonesPanel.Controls.Add(this.editarBtn);
+            this.contedorBotonesPanel.Controls.Add(this.moverBoton);
+            this.contedorBotonesPanel.Location = new System.Drawing.Point(3, 132);
+            this.contedorBotonesPanel.Name = "contedorBotonesPanel";
+            this.contedorBotonesPanel.Size = new System.Drawing.Size(119, 43);
+            this.contedorBotonesPanel.TabIndex = 9;
             // 
             // NotaControl
             // 
@@ -197,6 +210,7 @@
             this.contendorPanel.ResumeLayout(false);
             this.contendorPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notaIMG)).EndInit();
+            this.contedorBotonesPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -215,6 +229,6 @@
         private System.Windows.Forms.Button eliminarBtn;
 
         private System.Windows.Forms.PictureBox notaIMG;
-
+        private System.Windows.Forms.Panel contedorBotonesPanel;
     }
 }

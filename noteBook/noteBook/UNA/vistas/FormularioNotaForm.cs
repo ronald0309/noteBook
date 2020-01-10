@@ -13,6 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class FormularioNotaForm : Form
     {
+        NotaControl notaPrevia = new NotaControl();
         string usuario;
         public FormularioNotaForm()
         {
@@ -32,14 +33,14 @@ namespace noteBook.UNA.vistas
         private void FormularioNota_Load(object sender, EventArgs e)
         {
 
-            VisualizarNota.DesactivarBotones();
-            VisualizarNota.TituloNota = "Titulo";
-            VisualizarNota.Categoria = "Categoria";
+            notaPrevia.DesactivarBotones();
+            notaPrevia.TituloNota = "Titulo";
+            notaPrevia.Categoria = "Categoria";
             DateTime hoy = DateTime.Now;
 
-            VisualizarNota.FechaCreacion = hoy.ToString("dd-MM-yyy");
-            VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
-            VisualizarNota.ColorFuente = colorDialog2.Color.ToArgb();
+            notaPrevia.FechaCreacion = hoy.ToString("dd-MM-yyy");
+            notaPrevia.ColorNota = colorDialog1.Color.ToArgb();
+            notaPrevia.ColorFuente = colorDialog2.Color.ToArgb();
 
 
             foreach (FontFamily font in FontFamily.Families)
@@ -47,6 +48,7 @@ namespace noteBook.UNA.vistas
                 FuenteComboBox.Items.Add(font.Name.ToString());
 
             }
+            contenedorNotaPanel.Controls.Add(notaPrevia);
         }
         public string Posicion
         {
@@ -131,7 +133,7 @@ namespace noteBook.UNA.vistas
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 SelectorColoresNotas.BackColor = colorDialog1.Color;
-                VisualizarNota.ColorNota = colorDialog1.Color.ToArgb();
+                notaPrevia.ColorNota = colorDialog1.Color.ToArgb();
             }
         }
 
@@ -141,18 +143,18 @@ namespace noteBook.UNA.vistas
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 colorFuente.BackColor = colorDialog.Color;
-                VisualizarNota.ColorFuente = colorDialog.Color.ToArgb();
+                notaPrevia.ColorFuente = colorDialog.Color.ToArgb();
             }
         }
 
         private void TituloTxt_TextChanged(object sender, EventArgs e)
         {
-            VisualizarNota.TituloNota = TituloTxt.Text;
+            notaPrevia.TituloNota = TituloTxt.Text;
         }
 
         private void FuenteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            VisualizarNota.FuenteTipo = FuenteComboBox.Text;
+            notaPrevia.FuenteTipo = FuenteComboBox.Text;
         }
 
 
@@ -184,7 +186,7 @@ namespace noteBook.UNA.vistas
         }
         private void CategoriaTxt_TextChanged(object sender, EventArgs e)
         {
-            VisualizarNota.Categoria = CategoriaTxt.Text;
+            notaPrevia.Categoria = CategoriaTxt.Text;
         }
     }
 }
