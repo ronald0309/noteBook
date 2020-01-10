@@ -21,7 +21,7 @@ namespace noteBook.UNA.Clases
             Reportes = new List<Reportes>();
             Notas = new List<Nota>();
             Usuarios = new List<Usuario>();
-            
+
 
         }
         public string CrearArchivoLibros()
@@ -56,7 +56,7 @@ namespace noteBook.UNA.Clases
                     auxNombre = libro.Nombre;
                     foreach (Nota nota in libro.AgregarNota)
                     {
-                        var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh}";
+                        var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh},{nota.orden}";
                         streamWriter.WriteLine(line);
                     }
                 }
@@ -101,7 +101,7 @@ namespace noteBook.UNA.Clases
             {
                 foreach (Usuario usuario in Usuarios)
                 {
-                    string contraseñaIncriptada = Encriptacion.EncriptarString(usuario.Contraseña,userPassword);
+                    string contraseñaIncriptada = Encriptacion.EncriptarString(usuario.Contraseña, userPassword);
                     var line = $"{usuario.NombreUsuario},{contraseñaIncriptada}";
                     streamWriter.WriteLine(line);
                 }
@@ -126,10 +126,15 @@ namespace noteBook.UNA.Clases
                     Libro libro = new Libro();
                     datosLibro = tex.Split(',');
                     libro.UsuarioCreadorLibro = datosLibro[0];
+                    libro.Pocision = Convert.ToInt32(datosLibro[1].ToString());
                     libro.Nombre = datosLibro[2];
                     libro.Genero = datosLibro[3];
-                    libro.Color = Convert.ToInt32(datosLibro[5].ToString());
+                    libro.Orden = Convert.ToInt32(datosLibro[4].ToString());
+                    libro.Color = Convert.ToInt32(datosLibro[5].ToString()); 
+                    libro.CantidadNotas = Convert.ToInt32(datosLibro[7].ToString());
+                    
                     Singlenton.Instance.LibrosList.Add(libro);
+
                 }
             }
         }
@@ -147,7 +152,7 @@ namespace noteBook.UNA.Clases
                     Usuario usuario = new Usuario();
                     datosUsuario = tex.Split(',');
                     usuario.NombreUsuario = datosUsuario[0];
-                    usuario.Contraseña =Encriptacion.DesencriptarString( datosUsuario[1],userPassword);
+                    usuario.Contraseña = Encriptacion.DesencriptarString(datosUsuario[1], userPassword);
                     Singlenton.Instance.usuarios.Add(usuario);
                 }
             }
@@ -185,12 +190,13 @@ namespace noteBook.UNA.Clases
                             nota.ColorFuente = Convert.ToInt32(datosNota[7].ToString());
                             nota.ColorFondo = Convert.ToInt32(datosNota[8].ToString());
                             nota.FechaCreacion = datosNota[9].ToString();
-
-
+                            nota.Property = Convert.ToInt32(datosNota[5].ToString());
+                            nota.FechaModificacion = datosNota[10].ToString();
                             nota.PosicionX = Convert.ToInt32(datosNota[11]);
                             nota.PosicionY = Convert.ToInt32(datosNota[12]);
                             nota.Width = Convert.ToInt32(datosNota[13]);
                             nota.Heigh = Convert.ToInt32(datosNota[14]);
+                            nota.orden = Convert.ToInt32(datosNota[15]);
                             libro.AgregarNota.Add(nota);
                         }
                     }

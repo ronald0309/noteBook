@@ -110,6 +110,7 @@ namespace noteBook.UNA.vistas
                         nota.ColorFuente = colorDialog2.Color.ToArgb();
                         nota.ColorFondo = colorDialog1.Color.ToArgb();
                         nota.UsuarioCreadorNota = usuario;
+                        nota.orden = libroGuardados.AgregarNota.Count() + 1;
                         DateTime hoy = DateTime.Now;
                        // yyyyMMddT
                         nota.FechaCreacion = hoy.ToString("dd-MM-yyy");

@@ -21,5 +21,6 @@ namespace noteBook
         public int PosicionY { get; set; }
         public int Width { get; set; }
         public int Heigh { get; set; }
+        public int orden { get; set; }
     }
 }
