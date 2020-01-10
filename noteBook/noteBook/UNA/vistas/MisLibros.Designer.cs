@@ -30,8 +30,8 @@
         {
             this.bibliotecaTabControl = new System.Windows.Forms.TabControl();
             this.FondoPanel = new System.Windows.Forms.Panel();
-            this.ordenComboBox = new System.Windows.Forms.ComboBox();
             this.ordenLabel = new System.Windows.Forms.Label();
+            this.ordenComboBox = new System.Windows.Forms.ComboBox();
             this.FondoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,22 +55,7 @@
             this.FondoPanel.Location = new System.Drawing.Point(0, 0);
             this.FondoPanel.Name = "FondoPanel";
             this.FondoPanel.Size = new System.Drawing.Size(800, 32);
-            this.FondoPanel.TabIndex = 2;
-            // 
-            // ordenComboBox
-            // 
-            this.ordenComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ordenComboBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ordenComboBox.FormattingEnabled = true;
-            this.ordenComboBox.Items.AddRange(new object[] {
-            "Creciente",
-            "Decreciente"});
-            this.ordenComboBox.Location = new System.Drawing.Point(691, 8);
-            this.ordenComboBox.Name = "ordenComboBox";
-            this.ordenComboBox.Size = new System.Drawing.Size(97, 21);
-            this.ordenComboBox.TabIndex = 0;
-            this.ordenComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdenComboBox_SelectedIndexChanged);
+            this.FondoPanel.TabIndex = 0;
             // 
             // ordenLabel
             // 
@@ -78,8 +63,24 @@
             this.ordenLabel.Location = new System.Drawing.Point(632, 11);
             this.ordenLabel.Name = "ordenLabel";
             this.ordenLabel.Size = new System.Drawing.Size(36, 13);
-            this.ordenLabel.TabIndex = 1;
+            this.ordenLabel.TabIndex = 0;
             this.ordenLabel.Text = "Orden";
+            // 
+            // ordenComboBox
+            // 
+            this.ordenComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ordenComboBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ordenComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ordenComboBox.FormattingEnabled = true;
+            this.ordenComboBox.Items.AddRange(new object[] {
+            "Creciente",
+            "Decreciente"});
+            this.ordenComboBox.Location = new System.Drawing.Point(691, 8);
+            this.ordenComboBox.Name = "ordenComboBox";
+            this.ordenComboBox.Size = new System.Drawing.Size(97, 21);
+            this.ordenComboBox.TabIndex = 1;
+            this.ordenComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdenComboBox_SelectedIndexChanged);
             // 
             // MisLibros
             // 

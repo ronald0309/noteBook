@@ -118,6 +118,7 @@
             // 
             // generoComboBox
             // 
+            this.generoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.generoComboBox.FormattingEnabled = true;
             this.generoComboBox.Items.AddRange(new object[] {
             "Romance",

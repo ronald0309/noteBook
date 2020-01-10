@@ -56,7 +56,7 @@
             this.categoriaTxt.Location = new System.Drawing.Point(117, 29);
             this.categoriaTxt.Name = "categoriaTxt";
             this.categoriaTxt.Size = new System.Drawing.Size(84, 20);
-            this.categoriaTxt.TabIndex = 4;
+            this.categoriaTxt.TabIndex = 2;
             this.categoriaTxt.TextChanged += new System.EventHandler(this.CategoriaTxt_TextChanged_1);
             // 
             // categoriaLabel
@@ -76,7 +76,7 @@
             this.tituloLabel.Location = new System.Drawing.Point(19, 0);
             this.tituloLabel.Name = "tituloLabel";
             this.tituloLabel.Size = new System.Drawing.Size(89, 21);
-            this.tituloLabel.TabIndex = 2;
+            this.tituloLabel.TabIndex = 3;
             this.tituloLabel.Text = "Titulo";
             // 
             // busquedaTxt
@@ -84,7 +84,7 @@
             this.busquedaTxt.Location = new System.Drawing.Point(23, 29);
             this.busquedaTxt.Name = "busquedaTxt";
             this.busquedaTxt.Size = new System.Drawing.Size(69, 20);
-            this.busquedaTxt.TabIndex = 0;
+            this.busquedaTxt.TabIndex = 1;
             this.busquedaTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.busquedaTxt.TextChanged += new System.EventHandler(this.BusquedaTxt_TextChanged);
             // 
@@ -101,7 +101,7 @@
             this.busquedaNotasPanel.Size = new System.Drawing.Size(638, 268);
             this.busquedaNotasPanel.TabIndex = 1;
             // 
-            // Busqueda
+            // BusquedaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.busquedaNotasPanel);
             this.Controls.Add(this.contedorPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Busqueda";
+            this.Name = "BusquedaForm";
             this.Text = "Busqueda";
             this.contedorPanel.ResumeLayout(false);
             this.contedorPanel.PerformLayout();

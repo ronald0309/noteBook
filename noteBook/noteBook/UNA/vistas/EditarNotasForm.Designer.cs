@@ -92,7 +92,7 @@
             this.aceptarBtn.Location = new System.Drawing.Point(171, 256);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(132, 23);
-            this.aceptarBtn.TabIndex = 0;
+            this.aceptarBtn.TabIndex = 5;
             this.aceptarBtn.Text = "Aceptar";
             this.aceptarBtn.UseVisualStyleBackColor = false;
             this.aceptarBtn.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -105,13 +105,14 @@
             this.cancelarBtn.Location = new System.Drawing.Point(33, 256);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(132, 23);
-            this.cancelarBtn.TabIndex = 1;
+            this.cancelarBtn.TabIndex = 4;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
             this.cancelarBtn.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // privacidadCBX
             // 
+            this.privacidadCBX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.privacidadCBX.FormattingEnabled = true;
             this.privacidadCBX.Items.AddRange(new object[] {
             "Publico",
@@ -119,14 +120,14 @@
             this.privacidadCBX.Location = new System.Drawing.Point(138, 194);
             this.privacidadCBX.Name = "privacidadCBX";
             this.privacidadCBX.Size = new System.Drawing.Size(145, 21);
-            this.privacidadCBX.TabIndex = 38;
+            this.privacidadCBX.TabIndex = 3;
             // 
             // tituloTxt
             // 
             this.tituloTxt.Location = new System.Drawing.Point(138, 72);
             this.tituloTxt.Name = "tituloTxt";
             this.tituloTxt.Size = new System.Drawing.Size(142, 20);
-            this.tituloTxt.TabIndex = 33;
+            this.tituloTxt.TabIndex = 0;
             // 
             // colorFondoLabel
             // 
@@ -193,11 +194,12 @@
             // 
             // fuenteCBX
             // 
+            this.fuenteCBX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fuenteCBX.FormattingEnabled = true;
             this.fuenteCBX.Location = new System.Drawing.Point(138, 102);
             this.fuenteCBX.Name = "fuenteCBX";
             this.fuenteCBX.Size = new System.Drawing.Size(99, 21);
-            this.fuenteCBX.TabIndex = 46;
+            this.fuenteCBX.TabIndex = 1;
             // 
             // colorFuentePB
             // 
@@ -225,7 +227,7 @@
             this.categoriaTxt.Location = new System.Drawing.Point(138, 147);
             this.categoriaTxt.Name = "categoriaTxt";
             this.categoriaTxt.Size = new System.Drawing.Size(142, 20);
-            this.categoriaTxt.TabIndex = 51;
+            this.categoriaTxt.TabIndex = 2;
             // 
             // catagoriaLabel
             // 
@@ -288,7 +290,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditarNotasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CargarLibrosForm";
+            this.Text = "2";
             this.Load += new System.EventHandler(this.EditarNotasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.colorFondoPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorFuentePB)).EndInit();

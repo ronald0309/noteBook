@@ -274,14 +274,13 @@ namespace noteBook.UNA.vistas
                     {
                         ModificarNota();
                         MessageBox.Show("Se modifico la nota");
-
                         this.Close();
                         Singlenton.Instance.miLibro.ActualizarPage();
                     }
                     else
                     {
                         MessageBox.Show("Todos los campos estan en blanco");
-                        
+                      
                     }
                 }
                 else

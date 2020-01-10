@@ -45,7 +45,7 @@
             this.contraseñaTxt.Location = new System.Drawing.Point(216, 127);
             this.contraseñaTxt.Name = "contraseñaTxt";
             this.contraseñaTxt.Size = new System.Drawing.Size(142, 20);
-            this.contraseñaTxt.TabIndex = 71;
+            this.contraseñaTxt.TabIndex = 2;
             // 
             // tituloVistaLabel
             // 
@@ -63,7 +63,7 @@
             this.nombreUsuarioTxt.Location = new System.Drawing.Point(216, 78);
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
             this.nombreUsuarioTxt.Size = new System.Drawing.Size(142, 20);
-            this.nombreUsuarioTxt.TabIndex = 59;
+            this.nombreUsuarioTxt.TabIndex = 1;
             this.nombreUsuarioTxt.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
             // 
             // contraseñaLabel
@@ -96,7 +96,7 @@
             this.cancelarBtn.Location = new System.Drawing.Point(105, 177);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
-            this.cancelarBtn.TabIndex = 54;
+            this.cancelarBtn.TabIndex = 3;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
             this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
@@ -108,7 +108,7 @@
             this.aceptarBtn.Location = new System.Drawing.Point(249, 177);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
-            this.aceptarBtn.TabIndex = 53;
+            this.aceptarBtn.TabIndex = 4;
             this.aceptarBtn.Text = "Aceptar";
             this.aceptarBtn.UseVisualStyleBackColor = false;
             this.aceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);

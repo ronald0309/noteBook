@@ -44,7 +44,7 @@
             this.UsuarioLabel.Location = new System.Drawing.Point(39, 9);
             this.UsuarioLabel.Name = "UsuarioLabel";
             this.UsuarioLabel.Size = new System.Drawing.Size(43, 13);
-            this.UsuarioLabel.TabIndex = 0;
+            this.UsuarioLabel.TabIndex = 4;
             this.UsuarioLabel.Text = "Usuario";
             // 
             // nombreUsuarioTxt
@@ -52,14 +52,14 @@
             this.nombreUsuarioTxt.Location = new System.Drawing.Point(12, 35);
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
             this.nombreUsuarioTxt.Size = new System.Drawing.Size(100, 20);
-            this.nombreUsuarioTxt.TabIndex = 1;
+            this.nombreUsuarioTxt.TabIndex = 0;
             // 
             // contraseñaUsuarioTxt
             // 
             this.contraseñaUsuarioTxt.Location = new System.Drawing.Point(136, 35);
             this.contraseñaUsuarioTxt.Name = "contraseñaUsuarioTxt";
             this.contraseñaUsuarioTxt.Size = new System.Drawing.Size(100, 20);
-            this.contraseñaUsuarioTxt.TabIndex = 2;
+            this.contraseñaUsuarioTxt.TabIndex = 1;
             // 
             // contraseñaLabel
             // 
@@ -75,7 +75,7 @@
             this.acceptarBtn.Location = new System.Drawing.Point(12, 71);
             this.acceptarBtn.Name = "acceptarBtn";
             this.acceptarBtn.Size = new System.Drawing.Size(224, 23);
-            this.acceptarBtn.TabIndex = 4;
+            this.acceptarBtn.TabIndex = 2;
             this.acceptarBtn.Text = "Acceptar";
             this.acceptarBtn.UseVisualStyleBackColor = true;
             this.acceptarBtn.Click += new System.EventHandler(this.aceptarbtn_Click);
