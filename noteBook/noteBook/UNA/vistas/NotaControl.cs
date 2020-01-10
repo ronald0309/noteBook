@@ -329,7 +329,7 @@ namespace noteBook.UNA.vistas
 
                     }
                 }
-                Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota} cerro sesion", $"Nota {this.tituloNota}");
+                Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
 
             }
             else

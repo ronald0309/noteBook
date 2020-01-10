@@ -54,6 +54,10 @@ namespace noteBook.UNA.vistas
             };
             return notaControl;
         }
+        public void seleccionarBiblioteca()
+        {
+
+        }
         public NotaPrivadaControl CrearNotaPrivada(Nota nota)
         {
             NotaPrivadaControl notaPrivada = new NotaPrivadaControl
@@ -64,6 +68,7 @@ namespace noteBook.UNA.vistas
             };
             return notaPrivada;
         }
+        
         public void CrearLibro()
         {
             String nombreUsuario = Singlenton.Instance.UsuarioActivo();
@@ -74,7 +79,9 @@ namespace noteBook.UNA.vistas
             {
                 Text = "Biblioteca"
             };
+            
             bibliotecaTabControl.Controls.Add(biblioteca);
+           
             FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
@@ -147,7 +154,7 @@ namespace noteBook.UNA.vistas
                            }
 
                            bibliotecaTabControl.Controls.Add(pestaña);
-                           bibliotecaTabControl.SelectedTab = pestaña;
+                          
 
                        }
 
@@ -215,6 +222,10 @@ namespace noteBook.UNA.vistas
 
 
             }
+            if (Singlenton.Instance.NotaEditada==false)
+            {
+                bibliotecaTabControl.SelectedTab = biblioteca;
+            }
 
         }
 
@@ -255,17 +266,9 @@ namespace noteBook.UNA.vistas
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
-            String nombreUsuario = "nombre";
+            String nombreUsuario = Singlenton.Instance.UsuarioActivo(); ;
 
-            foreach (var usuarioAc in Singlenton.Instance.usuarios)
-            {
-
-                if (usuarioAc.Activo == true)
-                {
-                    nombreUsuario = usuarioAc.NombreUsuario;
-                }
-
-            }
+            
             if (Singlenton.Instance.NotaEditada)
             {
 

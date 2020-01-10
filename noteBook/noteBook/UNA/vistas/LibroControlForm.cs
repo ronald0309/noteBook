@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
     public partial class LibroControlForm : UserControl
@@ -68,6 +68,34 @@ namespace noteBook.UNA.vistas
         {
             this.BackColor = Color.FromArgb(color);
             this.Size = new Size(139, 142);
+        }
+
+        private void eliminarBtn_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("Seguro que desea eliminar el libro", "Alerta", botones, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                foreach (Libro libro in Singlenton.Instance.LibrosList)
+                {
+
+                        if (libro.Nombre == this.TituloLabel.Text)
+                        {
+                        Singlenton.Instance.LibrosList.Remove(libro);
+                            Singlenton.Instance.NotaEditada = false;
+                            Singlenton.Instance.miLibro.CrearLibro();
+
+                            break;
+                        }
+                }
+                Singlenton.Instance.CargarReporte("Libro eliminado", $"Se elimino la libro {this.TituloLabel.Text}", $"Libro {this.TituloLabel.Text}");
+
+            }
+        }
+
+        private void editarBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

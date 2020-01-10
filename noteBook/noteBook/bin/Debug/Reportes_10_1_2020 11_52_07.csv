@@ -56,3 +56,12 @@ x,Inicio de sesión,Usuariox,10 - 01 - 2020,09:15:02,El usuario x inicion sesion
 x,Se crea una nueva nota ,Nota libr,10 - 01 - 2020,09:15:29,Se crea una nueva nota de nombre libr; con la fuente Bernard MT Condensed; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
 x,Se crea una nueva nota ,Nota qw,10 - 01 - 2020,09:15:56,Se crea una nueva nota de nombre qw; con la fuente Agency FB; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
 x,Inicio de sesión,Usuariox,10 - 01 - 2020,09:18:35,El usuario x inicion sesion
+x,Inicio de sesión,Usuariox,10 - 01 - 2020,11:40:48,El usuario x inicion sesion
+x,Libro eliminado,Libro Lalo,10 - 01 - 2020,11:40:54,Se elimino la libro Lalo
+x,Inicio de sesión,Usuariox,10 - 01 - 2020,11:49:14,El usuario x inicion sesion
+x,Se crea un nuevo libro ,Librosa,10 - 01 - 2020,11:49:19,Se crea un nuevo libro de nombre sa; del genero Romance; de color  -65536 (en rgb) y de orden  1  
+x,Libro eliminado,Libro sa,10 - 01 - 2020,11:49:32,Se elimino la libro sa
+x,Inicio de sesión,Usuariox,10 - 01 - 2020,11:51:38,El usuario x inicion sesion
+x,Se crea un nuevo libro ,Libroaf,10 - 01 - 2020,11:51:44,Se crea un nuevo libro de nombre af; del genero Romance; de color  -65536 (en rgb) y de orden  1  
+x,Se crea un nuevo libro ,Libroad,10 - 01 - 2020,11:51:49,Se crea un nuevo libro de nombre ad; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
+x,Libro eliminado,Libro af,10 - 01 - 2020,11:52:01,Se elimino la libro af
