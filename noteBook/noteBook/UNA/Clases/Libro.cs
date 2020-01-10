@@ -14,7 +14,7 @@ namespace noteBook.UNA.Clases
         public string Nombre { get; set; }
         public string Genero { get; set; }
         public bool Abrir { get; set; }
-        public string Orden { get; set; }
+        public int Orden { get; set; }
         public int Color { get; set; }
         public Nota Nota { get => default; set { } }
         public int CantidadNotas { get; set; }

@@ -154,7 +154,7 @@ namespace noteBook.UNA.vistas
                            }
 
                            bibliotecaTabControl.Controls.Add(pestaña);
-                          
+                           bibliotecaTabControl.SelectedTab = pestaña;
 
                        }
 

@@ -33,7 +33,6 @@
             this.GeneroLabel = new System.Windows.Forms.Label();
             this.TituloLabel = new System.Windows.Forms.Label();
             this.eliminarBtn = new System.Windows.Forms.Button();
-            this.editarBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PastaLibro
@@ -82,18 +81,6 @@
             this.eliminarBtn.UseVisualStyleBackColor = true;
             this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
             // 
-            // editarBtn
-            // 
-            this.editarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editarBtn.Image = ((System.Drawing.Image)(resources.GetObject("editarBtn.Image")));
-            this.editarBtn.Location = new System.Drawing.Point(86, 114);
-            this.editarBtn.Name = "editarBtn";
-            this.editarBtn.Size = new System.Drawing.Size(24, 29);
-            this.editarBtn.TabIndex = 9;
-            this.editarBtn.UseVisualStyleBackColor = true;
-            this.editarBtn.Click += new System.EventHandler(this.editarBtn_Click);
-            // 
             // LibroControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,7 +88,6 @@
             this.BackColor = System.Drawing.Color.Lime;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.eliminarBtn);
-            this.Controls.Add(this.editarBtn);
             this.Controls.Add(this.GeneroLabel);
             this.Controls.Add(this.TituloLabel);
             this.Controls.Add(this.PastaLibro);
@@ -119,6 +105,5 @@
         private System.Windows.Forms.Label GeneroLabel;
         private System.Windows.Forms.Label TituloLabel;
         private System.Windows.Forms.Button eliminarBtn;
-        private System.Windows.Forms.Button editarBtn;
     }
 }

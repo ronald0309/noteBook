@@ -69,7 +69,7 @@ namespace noteBook.UNA.vistas
                 {
                     Nombre = nombreTxt.Text,
                     Genero = generoComboBox.Text,
-                    Orden = "1",
+                    Orden = Singlenton.Instance.LibrosList.Count()+1,
                     Color = selectorColorImage.BackColor.ToArgb(),
                     Pocision = contadorPosicion,
                     UsuarioCreadorLibro = usuario

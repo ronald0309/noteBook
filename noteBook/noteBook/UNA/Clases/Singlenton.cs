@@ -15,8 +15,6 @@ namespace noteBook.UNA.Clases
         public List<Libro> LibrosList = new List<Libro>();
         public List<Reportes> Reportes = new List<Reportes>();
         public List<Usuario> usuarios = new List<Usuario>();
-        public List<Libro> librosAuxiliar = new List<Libro>();
-        public List<Reportes> reportesAuxiliar = new List<Reportes>();
         public List<Usuario> usuariosAuxiliar = new List<Usuario>();
         public MisLibros miLibro = null;
         public bool NotaEditada { get; set; }

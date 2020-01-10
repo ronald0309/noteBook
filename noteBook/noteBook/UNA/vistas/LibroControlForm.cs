@@ -79,23 +79,21 @@ namespace noteBook.UNA.vistas
                 foreach (Libro libro in Singlenton.Instance.LibrosList)
                 {
 
-                        if (libro.Nombre == this.TituloLabel.Text)
-                        {
+                    if (libro.Nombre == this.TituloLabel.Text)
+                    {
                         Singlenton.Instance.LibrosList.Remove(libro);
-                            Singlenton.Instance.NotaEditada = false;
-                            Singlenton.Instance.miLibro.CrearLibro();
+                        Singlenton.Instance.NotaEditada = false;
+                        Singlenton.Instance.miLibro.CrearLibro();
 
-                            break;
-                        }
+                        break;
+                    }
                 }
                 Singlenton.Instance.CargarReporte("Libro eliminado", $"Se elimino la libro {this.TituloLabel.Text}", $"Libro {this.TituloLabel.Text}");
 
             }
         }
 
-        private void editarBtn_Click(object sender, EventArgs e)
-        {
+        
 
-        }
     }
 }
