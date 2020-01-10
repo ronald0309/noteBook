@@ -28,6 +28,16 @@ namespace noteBook.UNA.vistas
 
             }
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
         public NotaControl CrearNotaControl(Nota nota)
         {
             NotaControl notaControl = new NotaControl
@@ -195,13 +205,13 @@ namespace noteBook.UNA.vistas
                     bibliotecaTabControl.SelectedTab = pestañaLibro;
                 }
 
-                
+
                 contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width, bibliotecaTabControl.Size.Height);
                 contenedorLibros.Controls.Add(libroControl);
                 contenedorLibros.AutoScroll = true;
-                
+
                 biblioteca.Controls.Add(contenedorLibros);
-                
+
 
 
             }
@@ -258,7 +268,7 @@ namespace noteBook.UNA.vistas
             }
             if (Singlenton.Instance.NotaEditada)
             {
-                
+
                 foreach (Libro libro in Singlenton.Instance.LibrosList)
                 {
                     if (libro.Nombre == bibliotecaTabControl.SelectedTab.Text)
@@ -269,7 +279,7 @@ namespace noteBook.UNA.vistas
 
                             DoubleBuffered = true;
 
-                            if (nota.Privacidad == false||nota.UsuarioCreadorNota==nombreUsuario)
+                            if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
 
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);

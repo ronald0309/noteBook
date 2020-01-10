@@ -38,6 +38,7 @@
             this.noteBookLabel = new System.Windows.Forms.Label();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.cambiarUsuarioBtn = new System.Windows.Forms.Button();
             this.lblFechaGuardar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guardarBtn = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.agregarBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.cambiarUsuarioBtn = new System.Windows.Forms.Button();
             this.superiorPanel.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -64,7 +64,7 @@
             this.superiorPanel.Location = new System.Drawing.Point(166, 52);
             this.superiorPanel.MaximumSize = new System.Drawing.Size(0, 50);
             this.superiorPanel.Name = "superiorPanel";
-            this.superiorPanel.Size = new System.Drawing.Size(634, 34);
+            this.superiorPanel.Size = new System.Drawing.Size(918, 34);
             this.superiorPanel.TabIndex = 8;
             // 
             // nombreVistaLabel
@@ -83,7 +83,7 @@
             this.panelVistas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelVistas.Location = new System.Drawing.Point(166, 86);
             this.panelVistas.Name = "panelVistas";
-            this.panelVistas.Size = new System.Drawing.Size(634, 364);
+            this.panelVistas.Size = new System.Drawing.Size(918, 475);
             this.panelVistas.TabIndex = 7;
             // 
             // panelSuperio
@@ -93,7 +93,7 @@
             this.panelSuperio.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperio.Location = new System.Drawing.Point(166, 0);
             this.panelSuperio.Name = "panelSuperio";
-            this.panelSuperio.Size = new System.Drawing.Size(634, 52);
+            this.panelSuperio.Size = new System.Drawing.Size(918, 52);
             this.panelSuperio.TabIndex = 6;
             // 
             // horaLabel
@@ -146,14 +146,32 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(166, 450);
+            this.panelMenu.Size = new System.Drawing.Size(166, 561);
             this.panelMenu.TabIndex = 5;
+            // 
+            // cambiarUsuarioBtn
+            // 
+            this.cambiarUsuarioBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cambiarUsuarioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cambiarUsuarioBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cambiarUsuarioBtn.FlatAppearance.BorderSize = 0;
+            this.cambiarUsuarioBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarUsuarioBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cambiarUsuarioBtn.Image = ((System.Drawing.Image)(resources.GetObject("cambiarUsuarioBtn.Image")));
+            this.cambiarUsuarioBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cambiarUsuarioBtn.Location = new System.Drawing.Point(0, 336);
+            this.cambiarUsuarioBtn.Name = "cambiarUsuarioBtn";
+            this.cambiarUsuarioBtn.Size = new System.Drawing.Size(164, 57);
+            this.cambiarUsuarioBtn.TabIndex = 12;
+            this.cambiarUsuarioBtn.Text = "Cerrar sesión";
+            this.cambiarUsuarioBtn.UseVisualStyleBackColor = false;
+            this.cambiarUsuarioBtn.Click += new System.EventHandler(this.cambiarUsuarioBtn_Click);
             // 
             // lblFechaGuardar
             // 
             this.lblFechaGuardar.AutoSize = true;
             this.lblFechaGuardar.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.lblFechaGuardar.Location = new System.Drawing.Point(124, 424);
+            this.lblFechaGuardar.Location = new System.Drawing.Point(122, 533);
             this.lblFechaGuardar.Name = "lblFechaGuardar";
             this.lblFechaGuardar.Size = new System.Drawing.Size(30, 13);
             this.lblFechaGuardar.TabIndex = 11;
@@ -163,7 +181,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 424);
+            this.label3.Location = new System.Drawing.Point(3, 533);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 10;
@@ -191,7 +209,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.lblUsuario.Location = new System.Drawing.Point(111, 437);
+            this.lblUsuario.Location = new System.Drawing.Point(122, 546);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 7;
@@ -201,7 +219,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.label2.Location = new System.Drawing.Point(3, 437);
+            this.label2.Location = new System.Drawing.Point(3, 546);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 6;
@@ -288,36 +306,19 @@
             this.timer2.Interval = 60000;
             this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
-            // cambiarUsuarioBtn
-            // 
-            this.cambiarUsuarioBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.cambiarUsuarioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cambiarUsuarioBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cambiarUsuarioBtn.FlatAppearance.BorderSize = 0;
-            this.cambiarUsuarioBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cambiarUsuarioBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cambiarUsuarioBtn.Image = ((System.Drawing.Image)(resources.GetObject("cambiarUsuarioBtn.Image")));
-            this.cambiarUsuarioBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cambiarUsuarioBtn.Location = new System.Drawing.Point(0, 336);
-            this.cambiarUsuarioBtn.Name = "cambiarUsuarioBtn";
-            this.cambiarUsuarioBtn.Size = new System.Drawing.Size(164, 57);
-            this.cambiarUsuarioBtn.TabIndex = 12;
-            this.cambiarUsuarioBtn.Text = "Cerrar sesión";
-            this.cambiarUsuarioBtn.UseVisualStyleBackColor = false;
-            this.cambiarUsuarioBtn.Click += new System.EventHandler(this.cambiarUsuarioBtn_Click);
-            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.panelVistas);
             this.Controls.Add(this.superiorPanel);
             this.Controls.Add(this.panelSuperio);
             this.Controls.Add(this.panelMenu);
             this.MaximumSize = new System.Drawing.Size(1100, 600);
-            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "MenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.MenuForm_Load);

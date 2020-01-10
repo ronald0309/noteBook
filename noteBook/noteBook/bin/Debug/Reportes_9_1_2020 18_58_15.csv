@@ -1,3 +1,14 @@
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:26:34,Se crea un nuevo libro de nombre lALSOA; del genero Romance; de color  -65536 (en rgb) y de orden  1  
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,05:26:44,Se crea una nueva nota de nombre ASD; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,05:34:38,Se crea una nueva nota de nombre AS; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -256 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,05:41:08,Se crea una nueva nota de nombre A; con la fuente Arial Black; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,06:29:23,Se crea una nueva nota de nombre zsx; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,10:17:04,Se crea una nueva nota de nombre x; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,10:27:59,Se crea una nueva nota de nombre ASA; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,10:37:12,Se crea un nuevo libro de nombre >azx; del genero <asx; de color  -65536 (en rgb) y de orden  1  
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,10:37:27,Se crea una nueva nota de nombre zx; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,10:38:04,Se crea una nueva nota de nombre xz; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16711936 
+x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,11:04:18,Se crea una nueva nota de nombre Zxx; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
 x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,03:35:36,Se crea una nueva nota de nombre casa; con la fuente Algerian; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
 x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,04:06:23,Se crea una nueva nota de nombre Lalo; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
 x,Se crea una nueva nota ,noteBook.Nota,08 - 01 - 2020,04:52:41,Se crea una nueva nota de nombre Mate; con la fuente Candara; el color de la fuente en rgb es -16711936 y el color del fondo en rgb es -8388544 
@@ -29,3 +40,21 @@ x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:53:54,Se c
 x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:54:00,Se crea un nuevo libro de nombre AQSD; del genero ASDA; de color  -65536 (en rgb) y de orden  1  
 x,Se crea un nuevo libro ,noteBook.UNA.Clases.Libro,09 - 01 - 2020,05:56:43,Se crea un nuevo libro de nombre <Z; del genero Aventura; de color  -65536 (en rgb) y de orden  1  
 x,Se crea una nueva nota ,noteBook.Nota,09 - 01 - 2020,11:07:57,Se crea una nueva nota de nombre lj; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se modifico la nota AS,Nota AS,09 - 01 - 2020,06:11:48,se modifico la nota AS; el color de fondo -256 se modifico por -32768;se modifico en al fecha9/1/2020 18:11:48 ;
+x,Se modifico la nota AS,Nota AS,09 - 01 - 2020,06:11:48,se modifico la nota AS; el color de fondo -256 se modifico por -32768;se modifico en al fecha9/1/2020 18:11:48 ;AS; el color de fondo -32768 se modifico por -32768;se modifico en al fecha9/1/2020 18:11:48 ;
+x,Se modifico la nota as,Nota as,09 - 01 - 2020,06:11:55,se modifico la nota AS; el nombre AS por el nombre as;se modifico en al fecha9/1/2020 18:11:55 ;
+x,Se modifico la nota as,Nota as,09 - 01 - 2020,06:11:55,se modifico la nota AS; el nombre AS por el nombre as;se modifico en al fecha9/1/2020 18:11:55 ;AS; el nombre AS por el nombre as;se modifico en al fecha9/1/2020 18:11:55 ;
+x,Se modifico la nota s,Nota s,09 - 01 - 2020,06:12:28,se modifico la nota ASA; el nombre ASA por el nombre s;se modifico en al fecha9/1/2020 18:12:28 ;
+x,Inicio de sesión,Usuariox,09 - 01 - 2020,06:49:14,El usuario x inicion sesion
+x,Se crea una nueva nota ,Nota nombre,09 - 01 - 2020,06:49:40,Se crea una nueva nota de nombre nombre; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,Nota sa,09 - 01 - 2020,06:50:02,Se crea una nueva nota de nombre sa; con la fuente ; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Se crea una nueva nota ,Nota dea,09 - 01 - 2020,06:50:21,Se crea una nueva nota de nombre dea; con la fuente Algerian; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Ingreso a nota privada,Nota privada sa,09 - 01 - 2020,06:50:47,El usuario x ingreso a la nota sa
+x,Ingreso a nota privada,Nota privada dea,09 - 01 - 2020,06:50:59,El usuario x ingreso a la nota dea
+x,Inicio de sesión,Usuariox,09 - 01 - 2020,06:51:51,El usuario x inicion sesion
+x,Se crea una nueva nota ,Nota uh,09 - 01 - 2020,06:52:16,Se crea una nueva nota de nombre uh; con la fuente Algerian; el color de la fuente en rgb es -7667712 y el color del fondo en rgb es -16776961 
+x,Inicio de sesión,Usuariox,09 - 01 - 2020,06:57:56,El usuario x inicion sesion
+x,Cierre de sesión,Usuariox,09 - 01 - 2020,06:57:58,El usuario x cerro sesion
+x,Inicio de sesión,Usuariox,09 - 01 - 2020,06:58:03,El usuario x inicion sesion
+x,Cierre de sesión,Usuariox,09 - 01 - 2020,06:58:05,El usuario x cerro sesion
+x,Inicio de sesión,Usuariox,09 - 01 - 2020,06:58:09,El usuario x inicion sesion

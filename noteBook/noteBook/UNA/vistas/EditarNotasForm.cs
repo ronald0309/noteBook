@@ -82,11 +82,7 @@ namespace noteBook.UNA.vistas
            
          
             colorFondoDialog.Color = Color.FromArgb(notaAuxiliar.ColorFondo);
-
             colorFuenteDialog.Color = Color.FromArgb(notaAuxiliar.ColorFuente);
-
-        
-
             colorFondoPB.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
 
             colorFuentePB.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
@@ -201,7 +197,7 @@ namespace noteBook.UNA.vistas
             {
                 foreach (var nota in libro.AgregarNota)
                 {
-                    if (tituloTxt.Text == nota.Titulo)
+                    if (tituloTxt.Text.ToLower() == nota.Titulo.ToLower())
                     {
                         respuesta = false;
                     }
@@ -258,7 +254,7 @@ namespace noteBook.UNA.vistas
                         }
                         else
                         {
-                            mensajeEditarNotas.SetToolTip(tituloTxt, "El nommbre de la nota ya existe");
+                            mensajeEditarNotas.SetToolTip(tituloTxt, "El nombre de la nota ya existe");
                         }
                     }
                 }
@@ -289,7 +285,7 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                    errorProviderEditarNotas.SetError(tituloTxt, "El nommbre de la nota ya existe");
+                    errorProviderEditarNotas.SetError(tituloTxt, "El no mbre de la nota ya existe");
                 }
             }
             catch (Exception Ex)

@@ -120,7 +120,7 @@
             this.moverBoton.Size = new System.Drawing.Size(33, 34);
             this.moverBoton.TabIndex = 5;
             this.moverBoton.UseVisualStyleBackColor = true;
-            this.moverBoton.Click += new System.EventHandler(this.MoverBtn_Click);
+            
             this.moverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
             this.moverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
             this.moverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
@@ -135,6 +135,7 @@
             this.AgrandarBoton.Size = new System.Drawing.Size(33, 34);
             this.AgrandarBoton.TabIndex = 4;
             this.AgrandarBoton.UseVisualStyleBackColor = true;
+            
             this.AgrandarBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseDown);
             this.AgrandarBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseMove);
             this.AgrandarBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseUp);

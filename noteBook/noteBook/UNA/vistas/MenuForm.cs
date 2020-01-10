@@ -132,14 +132,16 @@ namespace noteBook.UNA.vistas
                 if (dr == DialogResult.Yes)
                 {
                     GuardarInformacion();
-                    //this.Hide();
+                    Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} cerro sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
+                    
                 }
                 else
                 {
                     if (dr == DialogResult.No)
 
                     {
-                        e.Cancel = false;
+                        
+                        Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} cerro sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
                     }
                     else
                     {
@@ -193,6 +195,7 @@ namespace noteBook.UNA.vistas
             
             if (login.ShowDialog() == DialogResult.OK)
             {
+                Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
                 this.Show();
 
                 lblUsuario.Text =Singlenton.Instance.UsuarioActivo();
@@ -207,6 +210,8 @@ namespace noteBook.UNA.vistas
 
         private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
+            string usuario = Singlenton.Instance.UsuarioActivo();
+            Singlenton.Instance.CargarReporte("Cierre de sesión",$"El usuario {usuario} cerro sesion",$"Usuario{usuario}");
             login.LimpiarCampos();
             Singlenton.Instance.DesactivarUsuario();
             this.Hide();
@@ -215,6 +220,7 @@ namespace noteBook.UNA.vistas
                 this.Show();
 
                 lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
+                Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {usuario} inicion sesion", $"Usuario{usuario}");
             }
             else
             {

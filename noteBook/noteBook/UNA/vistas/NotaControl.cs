@@ -136,11 +136,6 @@ namespace noteBook.UNA.vistas
                 {
                     categoriarichTexBox.BackColor = Color.FromArgb(colorNota);
                 }
-
-            
-                    
-
-                
                 contendorPanel.BackColor = Color.FromArgb(colorNota);
                 ///   CategoriarichTextBox.BackColor = Color.FromName(co);
                 moverBoton.BackColor = Color.FromArgb(colorNota);
@@ -194,15 +189,20 @@ namespace noteBook.UNA.vistas
 
         private void AgrandarBoton_MouseMove(object sender, MouseEventArgs e)
         {
+            bool banderaHeight = false;
+            bool banderaWidth = false;
             if (modificarTamaño)
             {
-                if (155 < AgrandarBoton.Top + e.Y)
+                /// 155; 175
+                if (175 < AgrandarBoton.Top + e.Y)
                 {
-                    this.Height = AgrandarBoton.Top + e.Y;
+
+                    banderaHeight = true;
                 }
-                if (152 < AgrandarBoton.Left + e.X)
+                if (155 < AgrandarBoton.Left + e.X)
                 {
-                    this.Width = AgrandarBoton.Left + e.X;
+                    banderaWidth = true;
+
                 }
                 foreach (var libro in Singlenton.Instance.LibrosList)
                 {
@@ -210,8 +210,16 @@ namespace noteBook.UNA.vistas
                     {
                         if (nota.Titulo == this.TituloNota)
                         {
-                            nota.Heigh = AgrandarBoton.Top + e.Y;
-                            nota.Width = AgrandarBoton.Left + e.X;
+                            if (banderaHeight == true)
+                            {
+                                this.Height = AgrandarBoton.Top + e.Y;
+                                nota.Heigh = this.Height;
+                            }
+                            if (banderaWidth == true)
+                            {
+                                this.Width = AgrandarBoton.Left + e.X;
+                                nota.Width = this.Width;
+                            }
                         }
                     }
 
@@ -248,26 +256,24 @@ namespace noteBook.UNA.vistas
             {
                 if (mover)
                 {
-                    this.Left = e.X + this.Left + inicial.X;
-                    this.Top = e.Y + this.Top + inicial.Y;
+
                     foreach (var libro in Singlenton.Instance.LibrosList)
                     {
                         foreach (var nota in libro.AgregarNota)
                         {
                             if (nota.Titulo == this.TituloNota)
                             {
-
                                 this.Left = e.X + this.Left + inicial.X;
-                               this.Top = e.Y + this.Top + inicial.Y;
-
-                                nota.PosicionX = e.X + this.Left + inicial.X;
-                                nota.PosicionY = e.Y + this.Top + inicial.Y; ;
+                                this.Top = e.Y + this.Top + inicial.Y;
+                                nota.PosicionX = this.Location.X;
+                                nota.PosicionY = this.Location.Y;
                             }
                         }
 
                     }
                 }
             }
+
         }
 
 
@@ -299,9 +305,8 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void MoverBtn_Click(object sender, EventArgs e)
-        {
+        
 
-        }
+       
     }
 }

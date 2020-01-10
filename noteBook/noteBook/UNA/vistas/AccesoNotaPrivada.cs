@@ -38,7 +38,7 @@ namespace noteBook.UNA.vistas
             {
                 if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.UsuarioCreadorNota==nombreUsuarioTxt.Text )
                 {
-
+                    Singlenton.Instance.CargarReporte("Ingreso a nota privada", $"El usuario {Singlenton.Instance.UsuarioActivo()} ingreso a la nota { notaAuxiliar.Titulo}", $"Nota privada { notaAuxiliar.Titulo}");
                     datosUsario = true;
 
                 }
