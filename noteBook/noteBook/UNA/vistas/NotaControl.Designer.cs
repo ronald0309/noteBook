@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControl));
             this.contendorPanel = new System.Windows.Forms.Panel();
+            this.eliminarBtn = new System.Windows.Forms.Button();
             this.categoriarichTexBox = new System.Windows.Forms.RichTextBox();
             this.editarBtn = new System.Windows.Forms.Button();
             this.tituloRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -44,6 +45,7 @@
             // contendorPanel
             // 
             this.contendorPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contendorPanel.Controls.Add(this.eliminarBtn);
             this.contendorPanel.Controls.Add(this.categoriarichTexBox);
             this.contendorPanel.Controls.Add(this.editarBtn);
             this.contendorPanel.Controls.Add(this.tituloRichTextBox);
@@ -56,6 +58,18 @@
             this.contendorPanel.Size = new System.Drawing.Size(155, 175);
             this.contendorPanel.TabIndex = 1;
             this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // eliminarBtn
+            // 
+            this.eliminarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.eliminarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eliminarBtn.Image = ((System.Drawing.Image)(resources.GetObject("eliminarBtn.Image")));
+            this.eliminarBtn.Location = new System.Drawing.Point(5, 141);
+            this.eliminarBtn.Name = "eliminarBtn";
+            this.eliminarBtn.Size = new System.Drawing.Size(33, 34);
+            this.eliminarBtn.TabIndex = 8;
+            this.eliminarBtn.UseVisualStyleBackColor = true;
+            this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
             // 
             // categoriarichTexBox
             // 
@@ -120,7 +134,6 @@
             this.moverBoton.Size = new System.Drawing.Size(33, 34);
             this.moverBoton.TabIndex = 5;
             this.moverBoton.UseVisualStyleBackColor = true;
-            
             this.moverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
             this.moverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
             this.moverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
@@ -135,7 +148,6 @@
             this.AgrandarBoton.Size = new System.Drawing.Size(33, 34);
             this.AgrandarBoton.TabIndex = 4;
             this.AgrandarBoton.UseVisualStyleBackColor = true;
-            
             this.AgrandarBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseDown);
             this.AgrandarBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseMove);
             this.AgrandarBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseUp);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.Button editarBtn;
         private System.Windows.Forms.RichTextBox categoriarichTexBox;
         private System.Windows.Forms.RichTextBox tituloRichTextBox;
+        private System.Windows.Forms.Button eliminarBtn;
     }
 }

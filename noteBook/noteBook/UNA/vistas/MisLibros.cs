@@ -34,7 +34,7 @@ namespace noteBook.UNA.vistas
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;  
                 return cp;
             }
         }

@@ -15,10 +15,10 @@ namespace noteBook.UNA.vistas
     {
         private readonly RegistroLibro registroLibros = new RegistroLibro();
 
-        
+
         private Timer tiempo;
         private Timer timer;
-        
+
         private readonly Login login = new Login();
         private bool cerrar = true;
 
@@ -28,7 +28,7 @@ namespace noteBook.UNA.vistas
         public MenuForm()
         {
             InitializeComponent();
-           
+
             Tiempo = new Timer();
             Tiempo.Tick += new EventHandler(Timer1_Tick);
             Timer = new Timer
@@ -36,11 +36,11 @@ namespace noteBook.UNA.vistas
                 Interval = 60000
             };
             Timer.Tick += new EventHandler(Timer2_Tick);
-            
-            
+
+
             Tiempo.Enabled = true;
             Timer.Enabled = true;
-            
+
 
         }
         private void AbrirFormulario(Object hija)
@@ -91,7 +91,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-     
+
         private void GuardarInformacion()
         {
             string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
@@ -133,14 +133,14 @@ namespace noteBook.UNA.vistas
                 {
                     GuardarInformacion();
                     Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} cerro sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
-                    
+
                 }
                 else
                 {
                     if (dr == DialogResult.No)
 
                     {
-                        
+
                         Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} cerro sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
                     }
                     else
@@ -189,29 +189,33 @@ namespace noteBook.UNA.vistas
             ReportesForm reporteForm = new ReportesForm();
             this.AbrirFormulario(reporteForm);
         }
-        
+
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            
+
             if (login.ShowDialog() == DialogResult.OK)
             {
                 Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
+                
                 this.Show();
-
-                lblUsuario.Text =Singlenton.Instance.UsuarioActivo();
+                
+                lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
             }
             else
             {
                 cerrar = false;
                 this.Close();
-                
+
             }
         }
 
         private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
+            panelVistas.Controls.Clear();
+            MisLibros miLibro = new MisLibros();
+            miLibro.CerrarLibro();
             string usuario = Singlenton.Instance.UsuarioActivo();
-            Singlenton.Instance.CargarReporte("Cierre de sesión",$"El usuario {usuario} cerro sesion",$"Usuario{usuario}");
+            Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {usuario} cerro sesion", $"Usuario{usuario}");
             login.LimpiarCampos();
             Singlenton.Instance.DesactivarUsuario();
             this.Hide();
@@ -226,7 +230,7 @@ namespace noteBook.UNA.vistas
             {
                 cerrar = false;
                 this.Close();
-                
+
             }
         }
     }

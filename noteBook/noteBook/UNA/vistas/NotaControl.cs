@@ -11,10 +11,10 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
-  
+
     public partial class NotaControl : UserControl
     {
-        
+
         bool mover = false;
         bool modificarTamaño = false;
         Point inicial;
@@ -132,7 +132,7 @@ namespace noteBook.UNA.vistas
             {
 
                 colorNota = value;
-                if (colorNota!= 0)
+                if (colorNota != 0)
                 {
                     categoriarichTexBox.BackColor = Color.FromArgb(colorNota);
                 }
@@ -230,7 +230,7 @@ namespace noteBook.UNA.vistas
 
         private void AgrandarBoton_MouseDown(object sender, MouseEventArgs e)
         {
-           modificarTamaño = true;
+            modificarTamaño = true;
 
         }
 
@@ -245,7 +245,7 @@ namespace noteBook.UNA.vistas
 
             DoubleBuffered = true;
             mover = false;
-             Singlenton.Instance.NotaEditada = true;
+            Singlenton.Instance.NotaEditada = true;
             Singlenton.Instance.miLibro.ActualizarPage();
 
         }
@@ -305,8 +305,42 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        
+        private void eliminarBtn_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons botones = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                foreach (Libro libro in Singlenton.Instance.LibrosList)
+                {
 
-       
+                    foreach (Nota nota in libro.AgregarNota)
+                    {
+                        if (nota.Titulo == this.tituloNota)
+                        {
+                            libro.AgregarNota.Remove(nota);
+                            Singlenton.Instance.NotaEditada = true;
+                            Singlenton.Instance.miLibro.ActualizarPage();
+                            break;
+                        }
+
+
+                    }
+                }
+                Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota} cerro sesion", $"Nota {this.tituloNota}");
+
+            }
+            else
+            {
+                if (dr == DialogResult.No)
+
+                {
+
+
+                }
+
+            }
+        }
     }
 }
+
