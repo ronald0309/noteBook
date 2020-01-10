@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControl));
             this.contendorPanel = new System.Windows.Forms.Panel();
             this.eliminarBtn = new System.Windows.Forms.Button();
+            this.notaIMG = new System.Windows.Forms.PictureBox();
             this.categoriarichTexBox = new System.Windows.Forms.RichTextBox();
             this.editarBtn = new System.Windows.Forms.Button();
             this.tituloRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -40,12 +41,16 @@
             this.fechaCreacionLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.contendorPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notaIMG)).BeginInit();
             this.SuspendLayout();
             // 
             // contendorPanel
             // 
             this.contendorPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.contendorPanel.Controls.Add(this.eliminarBtn);
+            this.contendorPanel.BackColor = System.Drawing.Color.SlateBlue;
+            this.contendorPanel.Controls.Add(this.notaIMG);
+
             this.contendorPanel.Controls.Add(this.categoriarichTexBox);
             this.contendorPanel.Controls.Add(this.editarBtn);
             this.contendorPanel.Controls.Add(this.tituloRichTextBox);
@@ -59,6 +64,7 @@
             this.contendorPanel.TabIndex = 1;
             this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+
             // eliminarBtn
             // 
             this.eliminarBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -70,17 +76,27 @@
             this.eliminarBtn.TabIndex = 8;
             this.eliminarBtn.UseVisualStyleBackColor = true;
             this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
+
+            // notaIMG
+            // 
+            this.notaIMG.Image = ((System.Drawing.Image)(resources.GetObject("notaIMG.Image")));
+            this.notaIMG.Location = new System.Drawing.Point(3, 42);
+            this.notaIMG.Name = "notaIMG";
+            this.notaIMG.Size = new System.Drawing.Size(25, 25);
+            this.notaIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.notaIMG.TabIndex = 8;
+            this.notaIMG.TabStop = false;
+
             // 
             // categoriarichTexBox
             // 
-            this.categoriarichTexBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.categoriarichTexBox.AutoWordSelection = true;
-            this.categoriarichTexBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.categoriarichTexBox.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.categoriarichTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.categoriarichTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriarichTexBox.HideSelection = false;
             this.categoriarichTexBox.Location = new System.Drawing.Point(0, 36);
+            this.categoriarichTexBox.MaxLength = 10;
             this.categoriarichTexBox.Multiline = false;
             this.categoriarichTexBox.Name = "categoriarichTexBox";
             this.categoriarichTexBox.ReadOnly = true;
@@ -154,13 +170,12 @@
             // 
             // fechaCreacionLabel
             // 
-            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechaCreacionLabel.Location = new System.Drawing.Point(2, 77);
+            this.fechaCreacionLabel.Image = ((System.Drawing.Image)(resources.GetObject("fechaCreacionLabel.Image")));
+            this.fechaCreacionLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fechaCreacionLabel.Location = new System.Drawing.Point(0, 77);
             this.fechaCreacionLabel.Name = "fechaCreacionLabel";
-            this.fechaCreacionLabel.Size = new System.Drawing.Size(153, 50);
+            this.fechaCreacionLabel.Size = new System.Drawing.Size(152, 30);
             this.fechaCreacionLabel.TabIndex = 1;
             this.fechaCreacionLabel.Text = "FechaCreacion";
             this.fechaCreacionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,6 +196,8 @@
             this.Name = "NotaControl";
             this.Size = new System.Drawing.Size(155, 175);
             this.contendorPanel.ResumeLayout(false);
+            this.contendorPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notaIMG)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,6 +212,10 @@
         private System.Windows.Forms.Button editarBtn;
         private System.Windows.Forms.RichTextBox categoriarichTexBox;
         private System.Windows.Forms.RichTextBox tituloRichTextBox;
+
         private System.Windows.Forms.Button eliminarBtn;
+
+        private System.Windows.Forms.PictureBox notaIMG;
+
     }
 }

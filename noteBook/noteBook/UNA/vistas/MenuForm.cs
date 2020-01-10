@@ -233,5 +233,68 @@ namespace noteBook.UNA.vistas
 
             }
         }
+
+      
+
+        private void LibroBtn_MouseHover(object sender, EventArgs e)
+        {
+            libroBtn.BackColor= Color.Blue;
+
+        }
+
+        private void LibroBtn_MouseLeave(object sender, EventArgs e)
+        {
+            libroBtn.BackColor = Color.FromArgb(12, 135, 109);
+        }
+
+        private void agregarBtn_MouseHover(object sender, EventArgs e)
+        {
+            agregarBtn.BackColor = Color.Blue;
+        }
+
+        private void agregarBtn_MouseLeave(object sender, EventArgs e)
+        {
+           agregarBtn.BackColor = Color.FromArgb(12, 135, 109);
+        }
+
+        private void busquedaBtn_MouseHover(object sender, EventArgs e)
+        {
+           busquedaBtn.BackColor = Color.Blue;
+        }
+
+        private void busquedaBtn_MouseLeave(object sender, EventArgs e)
+        {
+            busquedaBtn.BackColor = Color.FromArgb(12, 135, 109);
+        }
+
+        private void btnReportes_MouseHover(object sender, EventArgs e)
+        {
+            btnReportes.BackColor = Color.Blue;
+        }
+
+        private void btnReportes_MouseLeave(object sender, EventArgs e)
+        {
+            btnReportes.BackColor= Color.FromArgb(12, 135, 109);
+        }
+
+        private void guardarBtn_MouseHover(object sender, EventArgs e)
+        {
+         guardarBtn.BackColor = Color.Blue;
+        }
+
+        private void guardarBtn_MouseLeave(object sender, EventArgs e)
+        {
+            guardarBtn.BackColor=Color.FromArgb(12, 135, 109);
+        }
+
+        private void cambiarUsuarioBtn_MouseHover(object sender, EventArgs e)
+        {
+            cambiarUsuarioBtn.BackColor = Color.Blue;
+        }
+
+        private void cambiarUsuarioBtn_MouseLeave(object sender, EventArgs e)
+        {
+            cambiarUsuarioBtn.BackColor= Color.FromArgb(12, 135, 109);
+        }
     }
 }

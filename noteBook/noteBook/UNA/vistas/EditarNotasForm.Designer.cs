@@ -86,11 +86,11 @@
             // 
             // aceptarBtn
             // 
-            this.aceptarBtn.BackColor = System.Drawing.Color.DodgerBlue;
-            this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.aceptarBtn.Location = new System.Drawing.Point(157, 256);
+            this.aceptarBtn.BackColor = System.Drawing.Color.White;
+            this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.aceptarBtn.Location = new System.Drawing.Point(171, 256);
             this.aceptarBtn.Name = "aceptarBtn";
-            this.aceptarBtn.Size = new System.Drawing.Size(123, 23);
+            this.aceptarBtn.Size = new System.Drawing.Size(132, 23);
             this.aceptarBtn.TabIndex = 0;
             this.aceptarBtn.Text = "Aceptar";
             this.aceptarBtn.UseVisualStyleBackColor = false;
@@ -98,11 +98,11 @@
             // 
             // cancelarBtn
             // 
-            this.cancelarBtn.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.cancelarBtn.BackColor = System.Drawing.Color.AliceBlue;
+            this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cancelarBtn.Location = new System.Drawing.Point(33, 256);
             this.cancelarBtn.Name = "cancelarBtn";
-            this.cancelarBtn.Size = new System.Drawing.Size(118, 23);
+            this.cancelarBtn.Size = new System.Drawing.Size(132, 23);
             this.cancelarBtn.TabIndex = 1;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
@@ -130,6 +130,7 @@
             // 
             this.colorFondoLabel.AutoSize = true;
             this.colorFondoLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.colorFondoLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.colorFondoLabel.Location = new System.Drawing.Point(30, 227);
             this.colorFondoLabel.Name = "colorFondoLabel";
             this.colorFondoLabel.Size = new System.Drawing.Size(96, 16);
@@ -146,7 +147,6 @@
             this.privacidadLabel.Size = new System.Drawing.Size(88, 16);
             this.privacidadLabel.TabIndex = 30;
             this.privacidadLabel.Text = "Privacidad";
-            
             // 
             // formularioLabelTitulo
             // 
@@ -243,7 +243,7 @@
             // categoriaActualLabel
             // 
             this.categoriaActualLabel.AutoSize = true;
-            this.categoriaActualLabel.Location = new System.Drawing.Point(140, 131);
+            this.categoriaActualLabel.Location = new System.Drawing.Point(135, 131);
             this.categoriaActualLabel.Name = "categoriaActualLabel";
             this.categoriaActualLabel.Size = new System.Drawing.Size(52, 13);
             this.categoriaActualLabel.TabIndex = 52;
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.ClientSize = new System.Drawing.Size(336, 321);
             this.Controls.Add(this.privacidadActualLabel);
             this.Controls.Add(this.categoriaActualLabel);

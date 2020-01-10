@@ -31,6 +31,7 @@ namespace noteBook.UNA.vistas
         }
         private void aceptarbtn_Click(object sender, EventArgs e)
         {
+            this.Mensajes();
             // MessageBox.Show(nombreNota);
             bool datosUsario = false;
            
@@ -52,6 +53,35 @@ namespace noteBook.UNA.vistas
             }
         }
 
+        private void Mensajes() {
+            datosUsuarioError.Clear();
+            if (contraseñaUsuarioTxt.TextLength == 0) {
+                datosUsuarioError.SetError(contraseñaUsuarioTxt, "Ingrese una contraseña");
+            }
+            
+            if (nombreUsuarioTxt.TextLength == 0)
+            {
+                datosUsuarioError.SetError(nombreUsuarioTxt, "Ingrese un usario");
+            }
+            else
+            {
+                bool existeUsuario = false;
+                foreach (var Usuario in Singlenton.Instance.usuarios)
+                {
+                    if (Usuario.NombreUsuario == nombreUsuarioTxt.Text)
+                    {
+                        existeUsuario = true;
+
+                    }
+
+                }
+                if (existeUsuario == false) {
+                    datosUsuarioError.SetError(nombreUsuarioTxt, "El usuario no existe");
+                }
+
+            }
+        
+        }
       
     }
 }

@@ -90,5 +90,10 @@ namespace noteBook.UNA.vistas
                 selectorColorImage.BackColor = colorLibro.Color;
             }
         }
+
+        private void tituloVistaLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

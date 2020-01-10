@@ -58,7 +58,7 @@
             // 
             // superiorPanel
             // 
-            this.superiorPanel.BackColor = System.Drawing.Color.Blue;
+            this.superiorPanel.BackColor = System.Drawing.Color.DarkCyan;
             this.superiorPanel.Controls.Add(this.nombreVistaLabel);
             this.superiorPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.superiorPanel.Location = new System.Drawing.Point(166, 52);
@@ -88,7 +88,7 @@
             // 
             // panelSuperio
             // 
-            this.panelSuperio.BackColor = System.Drawing.Color.Blue;
+            this.panelSuperio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.panelSuperio.Controls.Add(this.horaLabel);
             this.panelSuperio.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperio.Location = new System.Drawing.Point(166, 0);
@@ -100,9 +100,9 @@
             // 
             this.horaLabel.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.horaLabel.Location = new System.Drawing.Point(21, 9);
+            this.horaLabel.Location = new System.Drawing.Point(767, 16);
             this.horaLabel.Name = "horaLabel";
-            this.horaLabel.Size = new System.Drawing.Size(173, 27);
+            this.horaLabel.Size = new System.Drawing.Size(148, 27);
             this.horaLabel.TabIndex = 0;
             this.horaLabel.Text = "Hora";
             // 
@@ -120,7 +120,7 @@
             // 
             // panelTitulo
             // 
-            this.panelTitulo.BackColor = System.Drawing.Color.Blue;
+            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.panelTitulo.Controls.Add(this.noteBookLabel);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
@@ -130,7 +130,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Controls.Add(this.cambiarUsuarioBtn);
             this.panelMenu.Controls.Add(this.lblFechaGuardar);
@@ -151,7 +151,7 @@
             // 
             // cambiarUsuarioBtn
             // 
-            this.cambiarUsuarioBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cambiarUsuarioBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.cambiarUsuarioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cambiarUsuarioBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.cambiarUsuarioBtn.FlatAppearance.BorderSize = 0;
@@ -166,6 +166,8 @@
             this.cambiarUsuarioBtn.Text = "Cerrar sesión";
             this.cambiarUsuarioBtn.UseVisualStyleBackColor = false;
             this.cambiarUsuarioBtn.Click += new System.EventHandler(this.cambiarUsuarioBtn_Click);
+            this.cambiarUsuarioBtn.MouseLeave += new System.EventHandler(this.cambiarUsuarioBtn_MouseLeave);
+            this.cambiarUsuarioBtn.MouseHover += new System.EventHandler(this.cambiarUsuarioBtn_MouseHover);
             // 
             // lblFechaGuardar
             // 
@@ -189,7 +191,7 @@
             // 
             // guardarBtn
             // 
-            this.guardarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.guardarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.guardarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardarBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.guardarBtn.FlatAppearance.BorderSize = 0;
@@ -204,6 +206,8 @@
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = false;
             this.guardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
+            this.guardarBtn.MouseLeave += new System.EventHandler(this.guardarBtn_MouseLeave);
+            this.guardarBtn.MouseHover += new System.EventHandler(this.guardarBtn_MouseHover);
             // 
             // lblUsuario
             // 
@@ -227,7 +231,7 @@
             // 
             // btnReportes
             // 
-            this.btnReportes.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportes.FlatAppearance.BorderSize = 0;
@@ -242,10 +246,12 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.ReportesBtn_Click);
+            this.btnReportes.MouseLeave += new System.EventHandler(this.btnReportes_MouseLeave);
+            this.btnReportes.MouseHover += new System.EventHandler(this.btnReportes_MouseHover);
             // 
             // busquedaBtn
             // 
-            this.busquedaBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.busquedaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.busquedaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.busquedaBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.busquedaBtn.FlatAppearance.BorderSize = 0;
@@ -260,10 +266,12 @@
             this.busquedaBtn.Text = "Busqueda";
             this.busquedaBtn.UseVisualStyleBackColor = false;
             this.busquedaBtn.Click += new System.EventHandler(this.BusquedaBtn_Click);
+            this.busquedaBtn.MouseLeave += new System.EventHandler(this.busquedaBtn_MouseLeave);
+            this.busquedaBtn.MouseHover += new System.EventHandler(this.busquedaBtn_MouseHover);
             // 
             // libroBtn
             // 
-            this.libroBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.libroBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.libroBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.libroBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.libroBtn.FlatAppearance.BorderSize = 0;
@@ -278,10 +286,12 @@
             this.libroBtn.Text = "Mis Libros";
             this.libroBtn.UseVisualStyleBackColor = false;
             this.libroBtn.Click += new System.EventHandler(this.LibroBtn_Click);
+            this.libroBtn.MouseLeave += new System.EventHandler(this.LibroBtn_MouseLeave);
+            this.libroBtn.MouseHover += new System.EventHandler(this.LibroBtn_MouseHover);
             // 
             // agregarBtn
             // 
-            this.agregarBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.agregarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.agregarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.agregarBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.agregarBtn.FlatAppearance.BorderSize = 0;
@@ -296,6 +306,8 @@
             this.agregarBtn.Text = "Agregar";
             this.agregarBtn.UseVisualStyleBackColor = false;
             this.agregarBtn.Click += new System.EventHandler(this.AgregarBtn_Click);
+            this.agregarBtn.MouseLeave += new System.EventHandler(this.agregarBtn_MouseLeave);
+            this.agregarBtn.MouseHover += new System.EventHandler(this.agregarBtn_MouseHover);
             // 
             // timer1
             // 
@@ -319,7 +331,7 @@
             this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Menu";
+            this.Text = "NoteBook";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.MenuForm_Load);
             this.Resize += new System.EventHandler(this.Menu_Resize);
