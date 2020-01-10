@@ -11,10 +11,10 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
-    public partial class RegistroLibro : Form
+    public partial class RegistroLibroForm : Form
     {
         private string usuario;
-        public RegistroLibro()
+        public RegistroLibroForm()
         {
 
             InitializeComponent();

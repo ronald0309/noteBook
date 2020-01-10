@@ -12,14 +12,14 @@ using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
 
-    public partial class NotaControl : UserControl
+    public partial class NotaControlForm : UserControl
     {
 
         bool mover = false;
         bool modificarTamaño = false;
         Point inicial;
 
-        public NotaControl()
+        public NotaControlForm()
         {
 
             InitializeComponent();

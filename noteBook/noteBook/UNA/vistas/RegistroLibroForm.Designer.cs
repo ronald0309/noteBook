@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class RegistroLibro
+    partial class RegistroLibroForm
     {
         /// <summary>
         /// Required designer variable.

@@ -11,9 +11,9 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
-    public partial class NotaPrivadaControl : UserControl
+    public partial class NotaPrivadaControlForm : UserControl
     {
-        public NotaPrivadaControl()
+        public NotaPrivadaControlForm()
         {
             InitializeComponent();
         }

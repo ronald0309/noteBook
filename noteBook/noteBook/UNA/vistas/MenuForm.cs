@@ -13,7 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class MenuForm : Form
     {
-        private readonly RegistroLibro registroLibros = new RegistroLibro();
+        private readonly RegistroLibroForm registroLibros = new RegistroLibroForm();
 
 
         private Timer tiempo;
@@ -169,7 +169,7 @@ namespace noteBook.UNA.vistas
         private void LibroBtn_Click(object sender, EventArgs e)
         {
 
-            MisLibros miLibros = new MisLibros();
+            MisLibrosForm miLibros = new MisLibrosForm();
             this.nombreVistaLabel.Text = "Mis libros";
             miLibros.CrearLibro();
             Singlenton.Instance.miLibro = miLibros;
@@ -212,7 +212,7 @@ namespace noteBook.UNA.vistas
         private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
             panelVistas.Controls.Clear();
-            MisLibros miLibro = new MisLibros();
+            MisLibrosForm miLibro = new MisLibrosForm();
             miLibro.CerrarLibro();
             string usuario = Singlenton.Instance.UsuarioActivo();
             Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {usuario} cerro sesion", $"Usuario{usuario}");

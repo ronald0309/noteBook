@@ -12,10 +12,10 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
-    public partial class MisLibros : Form
+    public partial class MisLibrosForm : Form
     {
 
-        public MisLibros()
+        public MisLibrosForm()
         {
             InitializeComponent();
 
@@ -38,9 +38,9 @@ namespace noteBook.UNA.vistas
                 return cp;
             }
         }
-        public NotaControl CrearNotaControl(Nota nota)
+        public NotaControlForm CrearNotaControl(Nota nota)
         {
-            NotaControl notaControl = new NotaControl
+            NotaControlForm notaControl = new NotaControlForm
             {
                 Height = nota.Heigh,
                 Width = nota.Width,
@@ -58,9 +58,9 @@ namespace noteBook.UNA.vistas
         {
 
         }
-        public NotaPrivadaControl CrearNotaPrivada(Nota nota)
+        public NotaPrivadaControlForm CrearNotaPrivada(Nota nota)
         {
-            NotaPrivadaControl notaPrivada = new NotaPrivadaControl
+            NotaPrivadaControlForm notaPrivada = new NotaPrivadaControlForm
             {
                 Nombre = nota.Titulo,
                 ColorFondo = nota.ColorFondo,
@@ -121,12 +121,12 @@ namespace noteBook.UNA.vistas
 
                                    if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
                                    {
-                                       NotaControl notaControl = CrearNotaControl(nota);
+                                       NotaControlForm notaControl = CrearNotaControl(nota);
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
                                    {
-                                       NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                                       NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
 
                                        pestaña.Controls.Add(notaPrivada);
                                    }
@@ -139,13 +139,13 @@ namespace noteBook.UNA.vistas
                                {
                                    if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                                    {
-                                       NotaControl notaControl = CrearNotaControl(nota);
+                                       NotaControlForm notaControl = CrearNotaControl(nota);
 
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
                                    {
-                                       NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                                       NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
 
                                        pestaña.Controls.Add(notaPrivada);
                                    }
@@ -181,12 +181,12 @@ namespace noteBook.UNA.vistas
                         {
                             if (nota.Privacidad == false||nota.UsuarioCreadorNota==nombreUsuario)
                             {
-                                NotaControl notaControl = CrearNotaControl(nota);
+                                NotaControlForm notaControl = CrearNotaControl(nota);
                                 pestañaLibro.Controls.Add(notaControl);
                             }
                             else
                             {
-                                NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                                NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
                                 pestaña.Controls.Add(notaPrivada);
                             }
                         }
@@ -196,13 +196,13 @@ namespace noteBook.UNA.vistas
                     {
                         if (nota.Privacidad == false||nota.UsuarioCreadorNota == nombreUsuario)
                         {
-                            NotaControl notaControl = CrearNotaControl(nota);
+                            NotaControlForm notaControl = CrearNotaControl(nota);
 
                             pestañaLibro.Controls.Add(notaControl);
                         }
                         else
                         {
-                            NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                            NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
 
                             pestañaLibro.Controls.Add(notaPrivada);
                         }
@@ -285,7 +285,7 @@ namespace noteBook.UNA.vistas
                             if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
 
                             {
-                                NotaControl notaControl = CrearNotaControl(nota);
+                                NotaControlForm notaControl = CrearNotaControl(nota);
 
                                 bibliotecaTabControl.SelectedTab.Controls.Add(notaControl);
                             }
@@ -293,7 +293,7 @@ namespace noteBook.UNA.vistas
                             {
                                 if (nota.Privacidad == true)
                                 {
-                                    NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                                    NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
                                     bibliotecaTabControl.SelectedTab.Controls.Add(notaPrivada);
                                 }
 

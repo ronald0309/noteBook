@@ -35,7 +35,7 @@ namespace noteBook.UNA.vistas
                         string categoria = busquedaNota.Categoria.ToLower();
                         if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
                         {
-                            NotaControl notaControl = new NotaControl();
+                            NotaControlForm notaControl = new NotaControlForm();
                             notaControl.FuenteTipo = busquedaNota.Fuente;
                             notaControl.Buscar(true);
                             notaControl.PalabraBus = busquedaTxt.Text;
@@ -83,7 +83,7 @@ namespace noteBook.UNA.vistas
                         string categoria = busquedaNota.Categoria.ToLower();
                         if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
                         {
-                            NotaControl notaControl = new NotaControl
+                            NotaControlForm notaControl = new NotaControlForm
                             {
                                 FuenteTipo = busquedaNota.Fuente
                             };
