@@ -69,13 +69,13 @@
             // 
             // nombreVistaLabel
             // 
-            this.nombreVistaLabel.Font = new System.Drawing.Font("Myanmar Text", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreVistaLabel.Font = new System.Drawing.Font("Myanmar Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreVistaLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.nombreVistaLabel.Location = new System.Drawing.Point(6, 3);
             this.nombreVistaLabel.Name = "nombreVistaLabel";
             this.nombreVistaLabel.Size = new System.Drawing.Size(209, 28);
             this.nombreVistaLabel.TabIndex = 0;
-            this.nombreVistaLabel.Text = "l";
+            this.nombreVistaLabel.Text = "Bienvenido";
             // 
             // panelVistas
             // 

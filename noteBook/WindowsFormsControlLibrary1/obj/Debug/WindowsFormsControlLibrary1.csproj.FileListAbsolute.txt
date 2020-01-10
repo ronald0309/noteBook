@@ -11,3 +11,4 @@ D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\note
 D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csproj.GenerateResource.cache
 D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
 D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb
+D:\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache

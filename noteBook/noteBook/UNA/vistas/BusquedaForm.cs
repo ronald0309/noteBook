@@ -59,15 +59,21 @@ namespace noteBook.UNA.vistas
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;  
                 return cp;
             }
         }
 
         private void BusquedaTxt_TextChanged(object sender, EventArgs e)
         {
-
-            this.BusquedaNotas();
+            if(busquedaTxt.TextLength==0&& categoriaTxt.TextLength==0)
+            {
+                BusquedaInicial();
+            }else
+            {
+                this.BusquedaNotas();
+            }
+            
         }
         private void BusquedaNotas()
         {
@@ -106,7 +112,14 @@ namespace noteBook.UNA.vistas
 
         private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)
         {
-            this.BusquedaNotas();
+            if (busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0)
+            {
+                BusquedaInicial();
+            }
+            else
+            {
+                this.BusquedaNotas();
+            }
         }
     }
 }
