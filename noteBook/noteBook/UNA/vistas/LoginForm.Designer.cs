@@ -33,7 +33,6 @@
             this.contraseñaTxt = new System.Windows.Forms.TextBox();
             this.usuarioTxt = new System.Windows.Forms.TextBox();
             this.usarioImagen = new System.Windows.Forms.PictureBox();
-            this.labelNomb = new System.Windows.Forms.Label();
             this.lateralPanel = new System.Windows.Forms.Panel();
             this.LoginErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.mensajeLogin = new System.Windows.Forms.ToolTip(this.components);
@@ -63,24 +62,12 @@
             // usarioImagen
             // 
             this.usarioImagen.Image = ((System.Drawing.Image)(resources.GetObject("usarioImagen.Image")));
-            this.usarioImagen.Location = new System.Drawing.Point(467, 99);
+            this.usarioImagen.Location = new System.Drawing.Point(423, 19);
             this.usarioImagen.Name = "usarioImagen";
-            this.usarioImagen.Size = new System.Drawing.Size(143, 73);
+            this.usarioImagen.Size = new System.Drawing.Size(228, 160);
             this.usarioImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.usarioImagen.TabIndex = 26;
             this.usarioImagen.TabStop = false;
-            // 
-            // labelNomb
-            // 
-            this.labelNomb.AutoSize = true;
-            this.labelNomb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.labelNomb.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomb.ForeColor = System.Drawing.Color.DarkCyan;
-            this.labelNomb.Location = new System.Drawing.Point(486, 62);
-            this.labelNomb.Name = "labelNomb";
-            this.labelNomb.Size = new System.Drawing.Size(110, 24);
-            this.labelNomb.TabIndex = 25;
-            this.labelNomb.Text = "NoteBook";
             // 
             // lateralPanel
             // 
@@ -155,12 +142,12 @@
             this.Controls.Add(this.contraseñaTxt);
             this.Controls.Add(this.usuarioTxt);
             this.Controls.Add(this.usarioImagen);
-            this.Controls.Add(this.labelNomb);
             this.Controls.Add(this.lateralPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Login";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.usarioImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -172,7 +159,6 @@
         private System.Windows.Forms.TextBox contraseñaTxt;
         private System.Windows.Forms.TextBox usuarioTxt;
         private System.Windows.Forms.PictureBox usarioImagen;
-        private System.Windows.Forms.Label labelNomb;
         private System.Windows.Forms.Panel lateralPanel;
         private System.Windows.Forms.ErrorProvider LoginErrorProvider;
         private System.Windows.Forms.ToolTip mensajeLogin;

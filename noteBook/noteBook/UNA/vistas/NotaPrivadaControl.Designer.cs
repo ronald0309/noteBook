@@ -29,19 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaPrivadaControl));
-            this.tituloLabel = new System.Windows.Forms.Label();
             this.desbloqueoBtn = new System.Windows.Forms.Button();
             this.contendorPanel = new System.Windows.Forms.Panel();
+            this.nombreRTB = new System.Windows.Forms.RichTextBox();
+            this.contendorPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tituloLabel
-            // 
-            this.tituloLabel.Location = new System.Drawing.Point(0, 0);
-            this.tituloLabel.Name = "tituloLabel";
-            this.tituloLabel.Size = new System.Drawing.Size(92, 37);
-            this.tituloLabel.TabIndex = 0;
-            this.tituloLabel.Text = "Titulo";
-            this.tituloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // desbloqueoBtn
             // 
@@ -55,29 +47,38 @@
             // 
             // contendorPanel
             // 
+            this.contendorPanel.Controls.Add(this.nombreRTB);
             this.contendorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contendorPanel.Location = new System.Drawing.Point(0, 0);
             this.contendorPanel.Name = "contendorPanel";
             this.contendorPanel.Size = new System.Drawing.Size(137, 39);
             this.contendorPanel.TabIndex = 2;
             // 
+            // nombreRTB
+            // 
+            this.nombreRTB.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.nombreRTB.Location = new System.Drawing.Point(3, 3);
+            this.nombreRTB.Name = "nombreRTB";
+            this.nombreRTB.Size = new System.Drawing.Size(100, 31);
+            this.nombreRTB.TabIndex = 3;
+            this.nombreRTB.Text = "";
+            // 
             // NotaPrivadaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.desbloqueoBtn);
-            this.Controls.Add(this.tituloLabel);
             this.Controls.Add(this.contendorPanel);
             this.Name = "NotaPrivadaControl";
             this.Size = new System.Drawing.Size(137, 39);
+            this.contendorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label tituloLabel;
         private System.Windows.Forms.Button desbloqueoBtn;
         private System.Windows.Forms.Panel contendorPanel;
+        private System.Windows.Forms.RichTextBox nombreRTB;
     }
 }

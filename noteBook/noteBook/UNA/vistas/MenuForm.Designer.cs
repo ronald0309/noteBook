@@ -263,7 +263,7 @@
             this.busquedaBtn.Name = "busquedaBtn";
             this.busquedaBtn.Size = new System.Drawing.Size(164, 57);
             this.busquedaBtn.TabIndex = 3;
-            this.busquedaBtn.Text = "Busqueda";
+            this.busquedaBtn.Text = "Buscar";
             this.busquedaBtn.UseVisualStyleBackColor = false;
             this.busquedaBtn.Click += new System.EventHandler(this.BusquedaBtn_Click);
             this.busquedaBtn.MouseLeave += new System.EventHandler(this.busquedaBtn_MouseLeave);
@@ -327,10 +327,11 @@
             this.Controls.Add(this.superiorPanel);
             this.Controls.Add(this.panelSuperio);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1100, 600);
             this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "MenuForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteBook";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.MenuForm_Load);

@@ -28,16 +28,6 @@ namespace noteBook.UNA.vistas
 
             }
         }
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  
-                return cp;
-            }
-        }
         public NotaControl CrearNotaControl(Nota nota)
         {
             NotaControl notaControl = new NotaControl
@@ -54,10 +44,7 @@ namespace noteBook.UNA.vistas
             };
             return notaControl;
         }
-        public void seleccionarBiblioteca()
-        {
 
-        }
         public NotaPrivadaControl CrearNotaPrivada(Nota nota)
         {
             NotaPrivadaControl notaPrivada = new NotaPrivadaControl
@@ -68,20 +55,20 @@ namespace noteBook.UNA.vistas
             };
             return notaPrivada;
         }
-        
+
         public void CrearLibro()
         {
             String nombreUsuario = Singlenton.Instance.UsuarioActivo();
 
             bibliotecaTabControl.Controls.Clear();
-            //libroContenedorLayout.Controls.Clear();
+
             TabPage biblioteca = new TabPage
             {
                 Text = "Biblioteca"
             };
-            
+
             bibliotecaTabControl.Controls.Add(biblioteca);
-           
+
             FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
@@ -179,7 +166,7 @@ namespace noteBook.UNA.vistas
                         formulario.ShowDialog();
                         foreach (var nota in libro.AgregarNota)
                         {
-                            if (nota.Privacidad == false||nota.UsuarioCreadorNota==nombreUsuario)
+                            if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);
                                 pestañaLibro.Controls.Add(notaControl);
@@ -194,7 +181,7 @@ namespace noteBook.UNA.vistas
                     };
                     foreach (var nota in libro.AgregarNota)
                     {
-                        if (nota.Privacidad == false||nota.UsuarioCreadorNota == nombreUsuario)
+                        if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                         {
                             NotaControl notaControl = CrearNotaControl(nota);
 
@@ -211,27 +198,20 @@ namespace noteBook.UNA.vistas
                     bibliotecaTabControl.Controls.Add(pestañaLibro);
                     bibliotecaTabControl.SelectedTab = pestañaLibro;
                 }
-
-
                 contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width, bibliotecaTabControl.Size.Height);
                 contenedorLibros.Controls.Add(libroControl);
                 contenedorLibros.AutoScroll = true;
 
                 biblioteca.Controls.Add(contenedorLibros);
-
-
-
             }
-            if (Singlenton.Instance.NotaEditada==false)
+            if (Singlenton.Instance.NotaEditada == false)
             {
                 bibliotecaTabControl.SelectedTab = biblioteca;
             }
-
         }
-
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // bibliotecaTabControl.Controls.Clear();
+
             if (ordenComboBox.Text == "Creciente")
             {
                 List<Libro> librosAuxiliar = new List<Libro>();
@@ -258,7 +238,7 @@ namespace noteBook.UNA.vistas
 
                 }
             }
-            //  bibliotecaTabControl.Refresh();
+
         }
 
         public void ActualizarPage()
@@ -268,37 +248,45 @@ namespace noteBook.UNA.vistas
 
             String nombreUsuario = Singlenton.Instance.UsuarioActivo(); ;
 
-            
+
             if (Singlenton.Instance.NotaEditada)
             {
 
                 foreach (Libro libro in Singlenton.Instance.LibrosList)
                 {
+                    List<NotaControl> notasControl = new List<NotaControl>();
+                    List<NotaPrivadaControl> notasPrivadasControl = new List<NotaPrivadaControl>();
                     if (libro.Nombre == bibliotecaTabControl.SelectedTab.Text)
                     {
-                        bibliotecaTabControl.SelectedTab.Controls.Clear();
                         foreach (var nota in libro.AgregarNota)
                         {
-
-                            DoubleBuffered = true;
-
                             if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
 
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);
 
-                                bibliotecaTabControl.SelectedTab.Controls.Add(notaControl);
+                                notasControl.Add(notaControl);
                             }
                             else
                             {
                                 if (nota.Privacidad == true)
                                 {
                                     NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
-                                    bibliotecaTabControl.SelectedTab.Controls.Add(notaPrivada);
+                                    notasPrivadasControl.Add(notaPrivada);
+                                    
                                 }
 
                             }
                         }
+                    }
+                    bibliotecaTabControl.SelectedTab.Controls.Clear();
+                    foreach (NotaControl nota in notasControl)
+                    {
+                        bibliotecaTabControl.SelectedTab.Controls.Add(nota);
+                    }
+                    foreach (NotaPrivadaControl notaPrivada in notasPrivadasControl)
+                    {
+                        bibliotecaTabControl.SelectedTab.Controls.Add(notaPrivada);
                     }
                 }
                 Singlenton.Instance.NotaEditada = false;
@@ -307,10 +295,11 @@ namespace noteBook.UNA.vistas
 
         private void cerrarLibroActual_Click(object sender, EventArgs e)
         {
-            //bibliotecaTabControl.SelectedTab;
+
             if (bibliotecaTabControl.SelectedTab.Text != "Biblioteca")
             {
-                foreach (var cerrarLibro in Singlenton.Instance.LibrosList) {
+                foreach (var cerrarLibro in Singlenton.Instance.LibrosList)
+                {
                     if (cerrarLibro.Nombre == bibliotecaTabControl.SelectedTab.Text)
                     {
                         cerrarLibro.Abrir = false;
@@ -318,8 +307,6 @@ namespace noteBook.UNA.vistas
                 }
                 bibliotecaTabControl.Controls.Remove(bibliotecaTabControl.SelectedTab);
             }
-
-
         }
     }
 }

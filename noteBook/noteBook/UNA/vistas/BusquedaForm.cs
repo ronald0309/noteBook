@@ -31,21 +31,38 @@ namespace noteBook.UNA.vistas
                     foreach (var busquedaNota in busquedaLibro.AgregarNota)
                     {
                         string tituloNota = busquedaNota.Titulo.ToLower();
-
+                        bool privacidad = busquedaNota.Privacidad;
                         string categoria = busquedaNota.Categoria.ToLower();
                         if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
                         {
-                            NotaControl notaControl = new NotaControl();
-                            notaControl.FuenteTipo = busquedaNota.Fuente;
-                            notaControl.Buscar(true);
-                            notaControl.PalabraBus = busquedaTxt.Text;
-                            notaControl.BuscarCategoria = categoriaTxt.Text;
-                            notaControl.Categoria = busquedaNota.Categoria;
-                            notaControl.TituloNota = busquedaNota.Titulo;
-                            notaControl.ColorNota = busquedaNota.ColorFondo;
-                            notaControl.ColorFuente = busquedaNota.ColorFuente;
-                            notaControl.FechaCreacion = busquedaNota.FechaCreacion;
-                            busquedaNotasPanel.Controls.Add(notaControl);
+                            if (privacidad)
+                            {
+                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl
+                                {
+                                    Nombre = tituloNota,
+                                    ColorFondo = busquedaNota.ColorFondo
+                                };
+
+                                busquedaNotasPanel.Controls.Add(notaPrivada);
+                            }
+                            else
+                            {
+                                NotaControl notaControl = new NotaControl
+                                {
+                                    FuenteTipo = busquedaNota.Fuente,
+                                };
+                                notaControl.Buscar(true);
+                                notaControl.PalabraBus = busquedaTxt.Text;
+                                notaControl.BuscarCategoria = categoriaTxt.Text;
+                                notaControl.Categoria = busquedaNota.Categoria;
+                                notaControl.TituloNota = busquedaNota.Titulo;
+                                notaControl.ColorNota = busquedaNota.ColorFondo;
+                                notaControl.ColorFuente = busquedaNota.ColorFuente;
+                                notaControl.FechaCreacion = busquedaNota.FechaCreacion;
+
+
+                                busquedaNotasPanel.Controls.Add(notaControl);
+                            }
 
                         }
                     }
@@ -59,7 +76,7 @@ namespace noteBook.UNA.vistas
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;
                 return cp;
             }
         }
@@ -79,23 +96,39 @@ namespace noteBook.UNA.vistas
                     foreach (var busquedaNota in busquedaLibro.AgregarNota)
                     {
                         string tituloNota = busquedaNota.Titulo.ToLower();
-
+                        bool privacidad = busquedaNota.Privacidad;
                         string categoria = busquedaNota.Categoria.ToLower();
                         if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
                         {
-                            NotaControl notaControl = new NotaControl
+                            if (privacidad)
                             {
-                                FuenteTipo = busquedaNota.Fuente
-                            };
-                            notaControl.Buscar(true);
-                            notaControl.PalabraBus = busquedaTxt.Text;
-                            notaControl.BuscarCategoria = categoriaTxt.Text;
-                            notaControl.Categoria = busquedaNota.Categoria;
-                            notaControl.TituloNota = busquedaNota.Titulo;
-                            notaControl.ColorNota = busquedaNota.ColorFondo;
-                            notaControl.ColorFuente = busquedaNota.ColorFuente;
+                                NotaPrivadaControl notaPrivada = new NotaPrivadaControl
+                                {
+                                    Nombre = tituloNota
+                                   
+                                };
+                                notaPrivada.Buscar(true);
+                                notaPrivada.PalabraBuscar = busquedaTxt.Text;
+                                notaPrivada.ColorFondo = busquedaNota.ColorFondo;
+                                busquedaNotasPanel.Controls.Add(notaPrivada);
+                            }
+                            else
+                            {
 
-                            busquedaNotasPanel.Controls.Add(notaControl);
+                                NotaControl notaControl = new NotaControl
+                                {
+                                    FuenteTipo = busquedaNota.Fuente,
+                                };
+                                notaControl.Buscar(true);
+                                notaControl.PalabraBus = busquedaTxt.Text;
+                                notaControl.BuscarCategoria = categoriaTxt.Text;
+                                notaControl.Categoria = busquedaNota.Categoria;
+                                notaControl.TituloNota = busquedaNota.Titulo;
+                                notaControl.ColorNota = busquedaNota.ColorFondo;
+                                notaControl.ColorFuente = busquedaNota.ColorFuente;
+                                notaControl.FechaCreacion = busquedaNota.FechaCreacion;
+                                busquedaNotasPanel.Controls.Add(notaControl);
+                            }
 
                         }
                     }

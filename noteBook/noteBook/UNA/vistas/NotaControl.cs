@@ -157,14 +157,13 @@ namespace noteBook.UNA.vistas
             set
             {
                 tituloNota = value;
-                ///  TituloLabel.Text = value;
+               
                 tituloRichTextBox.Text = value;
                 if (buscar == true)
                 {
                     tituloRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
                     tituloRichTextBox.Find(PalabraBus.ToLower());
                     tituloRichTextBox.Find(PalabraBus.ToUpper());
-                    //          TituloRichTextBox.Find(PalabraBus);
                     tituloRichTextBox.SelectionColor = Color.Blue;
                     AgrandarBoton.Hide();
                     moverBoton.Hide();

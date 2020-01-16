@@ -19,15 +19,44 @@ namespace noteBook.UNA.vistas
         }
 
         private string nombre;
+        string palabra;
         private int colorFondo;
+        private bool buscar = false;
+        public string PalabraBuscar
+        {
+            get { return palabra; }
+            set
+            {
+                palabra = value;
+
+            }
+        } 
         public string Nombre
         {
             get { return nombre; }
             set
             {
                 nombre = value;
-                this.tituloLabel.Text = value;
+
+                nombreRTB.Text = value;
+                if (buscar == true)
+                {
+                    nombreRTB.SelectionAlignment = HorizontalAlignment.Center;
+                    nombreRTB.Find(palabra.ToLower());
+                    nombreRTB.Find(palabra.ToUpper());
+                    nombreRTB.SelectionColor = Color.Blue;
+                    
+                }
+                else
+                {
+                    nombreRTB.SelectionAlignment = HorizontalAlignment.Center;
+                }
             }
+        }
+            public void Buscar(bool buscar)
+        {
+            this.buscar = buscar;
+
         }
         public int ColorFondo
         {
@@ -46,7 +75,7 @@ namespace noteBook.UNA.vistas
             {
                 foreach (var nota in libro.AgregarNota)
                 {
-                    if (nota.Titulo == this.nombre)
+                    if (nota.Titulo == this.Nombre)
                     {
                         notaPrivada.resibirNota(nota);
                         notaPrivada.ShowDialog();

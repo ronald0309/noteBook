@@ -14,7 +14,7 @@ namespace noteBook.UNA.vistas
     public partial class MenuForm : Form
     {
         private readonly RegistroLibro registroLibros = new RegistroLibro();
-
+        private readonly InformacionMenuForm informacionMenu = new InformacionMenuForm();
 
         private Timer tiempo;
         private Timer timer;
@@ -36,29 +36,22 @@ namespace noteBook.UNA.vistas
                 Interval = 60000
             };
             Timer.Tick += new EventHandler(Timer2_Tick);
-
-
             Tiempo.Enabled = true;
             Timer.Enabled = true;
-
+            AbrirFormulario(informacionMenu);
 
         }
         private void AbrirFormulario(Object hija)
         {
             if (this.panelVistas.Controls.Count > 0)
             {
-                /// Si el contenedor no esta vacio lo limpia sirve para cualquier contenedor 
-                /// Contenedor es el nombre que lleva el contenedor donde se desea cargar la vista
                 this.panelVistas.Controls.RemoveAt(0);
             }
-            /// se declara una variable de tipo Form y se le asigna la vista que se desea cargar 
             Form h = hija as Form;
             h.TopLevel = false;
             h.Dock = DockStyle.Fill;
-            /// se carga la vista al contenedor 
             this.panelVistas.Controls.Add(h);
             this.panelVistas.Tag = h;
-            /// se pinta la vista
             h.Show();
         }
 
@@ -90,8 +83,6 @@ namespace noteBook.UNA.vistas
                 MessageBox.Show($"Se ha presentado el siguiente inconveniente al crear el archivo: {exception.Message}", "Atención", MessageBoxButtons.OK);
             }
         }
-
-
         private void GuardarInformacion()
         {
             string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
@@ -153,11 +144,11 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
             this.nombreVistaLabel.Text = "Agregar Libro";
             this.AbrirFormulario(registroLibros);
+           
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
@@ -211,7 +202,7 @@ namespace noteBook.UNA.vistas
 
         private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
-            panelVistas.Controls.Clear();
+            AbrirFormulario(informacionMenu);
             MisLibros miLibro = new MisLibros();
             miLibro.CerrarLibro();
             string usuario = Singlenton.Instance.UsuarioActivo();
@@ -233,9 +224,6 @@ namespace noteBook.UNA.vistas
 
             }
         }
-
-      
-
         private void LibroBtn_MouseHover(object sender, EventArgs e)
         {
             libroBtn.BackColor= Color.Blue;
