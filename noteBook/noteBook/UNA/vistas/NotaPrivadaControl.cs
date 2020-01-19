@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using noteBook.UNA.Clases;
 
@@ -13,9 +14,16 @@ namespace noteBook.UNA.vistas
 {
     public partial class NotaPrivadaControl : UserControl
     {
+        [DllImport("user32.dll")]
+        static extern bool HideCaret(IntPtr hWnd);
         public NotaPrivadaControl()
         {
             InitializeComponent();
+            RichTextBox[] texts = { nombreRTB };
+            foreach (RichTextBox item in texts)
+                item.GotFocus += delegate { HideCaret(item.Handle); };
+            nombreRTB.GotFocus += delegate { HideCaret(nombreRTB.Handle); };
+
         }
 
         private string nombre;
@@ -30,7 +38,7 @@ namespace noteBook.UNA.vistas
                 palabra = value;
 
             }
-        } 
+        }
         public string Nombre
         {
             get { return nombre; }
@@ -45,7 +53,6 @@ namespace noteBook.UNA.vistas
                     nombreRTB.Find(palabra.ToLower());
                     nombreRTB.Find(palabra.ToUpper());
                     nombreRTB.SelectionColor = Color.Blue;
-                    
                 }
                 else
                 {
@@ -53,7 +60,7 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-            public void Buscar(bool buscar)
+        public void Buscar(bool buscar)
         {
             this.buscar = buscar;
 
@@ -64,7 +71,8 @@ namespace noteBook.UNA.vistas
             set
             {
                 colorFondo = value;
-                this.BackColor = Color.FromArgb(colorFondo);
+
+                nombreRTB.BackColor = Color.FromArgb(colorFondo);
             }
         }
 
@@ -82,9 +90,14 @@ namespace noteBook.UNA.vistas
                         // this.Refresh();
                     }
                 }
-              
+
             }
 
+
+        }
+
+        private void contendorPanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

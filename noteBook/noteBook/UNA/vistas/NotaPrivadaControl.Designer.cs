@@ -53,12 +53,15 @@
             this.contendorPanel.Name = "contendorPanel";
             this.contendorPanel.Size = new System.Drawing.Size(137, 39);
             this.contendorPanel.TabIndex = 2;
+            this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.contendorPanel_Paint);
             // 
             // nombreRTB
             // 
             this.nombreRTB.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.nombreRTB.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.nombreRTB.Location = new System.Drawing.Point(3, 3);
             this.nombreRTB.Name = "nombreRTB";
+            this.nombreRTB.ReadOnly = true;
             this.nombreRTB.Size = new System.Drawing.Size(100, 31);
             this.nombreRTB.TabIndex = 3;
             this.nombreRTB.Text = "";

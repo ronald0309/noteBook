@@ -148,7 +148,6 @@ namespace noteBook.UNA.vistas
         {
             this.nombreVistaLabel.Text = "Agregar Libro";
             this.AbrirFormulario(registroLibros);
-           
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)

@@ -33,19 +33,24 @@ namespace noteBook.UNA.vistas
                         string tituloNota = busquedaNota.Titulo.ToLower();
                         bool privacidad = busquedaNota.Privacidad;
                         string categoria = busquedaNota.Categoria.ToLower();
-                        if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
+                        if ((privacidad) && (busquedaNota.UsuarioCreadorNota != Singlenton.Instance.UsuarioActivo()))
                         {
-                            if (privacidad)
+                            if (tituloNota.Contains(busquedaTxt.Text.ToLower()))
                             {
                                 NotaPrivadaControl notaPrivada = new NotaPrivadaControl
                                 {
-                                    Nombre = tituloNota,
-                                    ColorFondo = busquedaNota.ColorFondo
-                                };
+                                    Nombre = tituloNota
 
+                                };
+                                notaPrivada.Buscar(true);
+                                notaPrivada.PalabraBuscar = busquedaTxt.Text;
+                                notaPrivada.ColorFondo = busquedaNota.ColorFondo;
                                 busquedaNotasPanel.Controls.Add(notaPrivada);
                             }
-                            else
+                        }
+                        else
+                        {
+                            if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
                             {
                                 NotaControl notaControl = new NotaControl
                                 {
@@ -59,12 +64,13 @@ namespace noteBook.UNA.vistas
                                 notaControl.ColorNota = busquedaNota.ColorFondo;
                                 notaControl.ColorFuente = busquedaNota.ColorFuente;
                                 notaControl.FechaCreacion = busquedaNota.FechaCreacion;
-
-
                                 busquedaNotasPanel.Controls.Add(notaControl);
+
                             }
 
                         }
+
+                    
                     }
                 }
 
@@ -83,8 +89,14 @@ namespace noteBook.UNA.vistas
 
         private void BusquedaTxt_TextChanged(object sender, EventArgs e)
         {
-
-            this.BusquedaNotas();
+            if (busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0)
+            {
+                BusquedaInicial();
+            }
+            else
+            {
+                this.BusquedaNotas();
+            }
         }
         private void BusquedaNotas()
         {
@@ -98,23 +110,26 @@ namespace noteBook.UNA.vistas
                         string tituloNota = busquedaNota.Titulo.ToLower();
                         bool privacidad = busquedaNota.Privacidad;
                         string categoria = busquedaNota.Categoria.ToLower();
-                        if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
+
+                        if ((privacidad)&&( busquedaNota.UsuarioCreadorNota!=Singlenton.Instance.UsuarioActivo()))
                         {
-                            if (privacidad)
+                            if (tituloNota.Contains(busquedaTxt.Text.ToLower()))
                             {
                                 NotaPrivadaControl notaPrivada = new NotaPrivadaControl
                                 {
                                     Nombre = tituloNota
-                                   
+
                                 };
                                 notaPrivada.Buscar(true);
                                 notaPrivada.PalabraBuscar = busquedaTxt.Text;
                                 notaPrivada.ColorFondo = busquedaNota.ColorFondo;
                                 busquedaNotasPanel.Controls.Add(notaPrivada);
                             }
-                            else
+                        }
+                        else
+                        {
+                            if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
                             {
-
                                 NotaControl notaControl = new NotaControl
                                 {
                                     FuenteTipo = busquedaNota.Fuente,
@@ -128,6 +143,7 @@ namespace noteBook.UNA.vistas
                                 notaControl.ColorFuente = busquedaNota.ColorFuente;
                                 notaControl.FechaCreacion = busquedaNota.FechaCreacion;
                                 busquedaNotasPanel.Controls.Add(notaControl);
+
                             }
 
                         }
@@ -139,7 +155,14 @@ namespace noteBook.UNA.vistas
 
         private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)
         {
-            this.BusquedaNotas();
+            if (busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0)
+            {
+                BusquedaInicial();
+            }
+            else
+            {
+                this.BusquedaNotas();
+            }
         }
     }
 }
