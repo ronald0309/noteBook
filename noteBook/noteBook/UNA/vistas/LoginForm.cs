@@ -51,8 +51,8 @@ namespace noteBook
             try
             {
                 archivoManager.CargarLibros();
-                archivoManager.CargarNotas();
-                archivoManager.CargarReportes();
+            //    archivoManager.CargarNotas();
+          //      archivoManager.CargarReportes();
             }
             catch (Exception Ex)
             {
@@ -77,7 +77,7 @@ namespace noteBook
             registroUsuario.ShowDialog();
         }
 
-        
+
         private void IngresarBtn_Click(object sender, EventArgs e)
         {
             if (usuarioTxt.TextLength == 0)
@@ -94,44 +94,79 @@ namespace noteBook
                 }
                 else
                 {
-                    ValidarUsuario();
 
-
-                    if (usuarioTxt.Text == logearUsuario.NombreUsuario)
+                    MySqlDb mySqlDb = new MySqlDb();
+                    mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                    mySqlDb.OpenConnection();
+                    string query = String.Format("Select nombre from usuarios where nombre='" + usuarioTxt.Text + "'and contraseña='" + contraseñaTxt.Text + "'");
+                    if (mySqlDb.QuerySQL(query).Rows.Count == 1)
                     {
-
-
-                        if (contraseñaTxt.Text == logearUsuario.Contraseña)
-                        {
-                            foreach (Usuario u in Singlenton.Instance.usuarios)
-                            {
-                                if (usuarioTxt.Text == u.NombreUsuario)
-                                {
-                                    u.Activo = true;
-                                }
-                                else
-                                {
-                                    u.Activo = false;
-                                }
-                            }
-
+                        Usuario usuario = new Usuario();
+                        usuario.Activo = true;
+                        usuario.NombreUsuario = mySqlDb.QuerySQL(query).Rows[0][0].ToString();
+                        Singlenton.Instance.usuarios.Add(usuario);
                             DialogResult = DialogResult.OK;
-                          
-                            this.Close();
-
-
-                        }
-
-                        else
-                        {
-                            MessageBox.Show("Contraseña incorrecta");
-                        }
-
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Usuario incorrecto");
+                        query = String.Format("Select nombre from usuarios where nombre='" + usuarioTxt.Text + "'and contraseña!='" + contraseñaTxt.Text + "'");
+                        if (mySqlDb.QuerySQL(query).Rows.Count == 1)
+                        {
+                            MessageBox.Show("Contraseña incorrecta");
+                        }
+                        else
+                        {
+                            query = String.Format("Select nombre from usuarios where nombre!='" + usuarioTxt.Text + "'");
+                            if (mySqlDb.QuerySQL(query).Rows.Count != 0)
+                            {
+                                MessageBox.Show("El usuario no existe");
+                            }
+                        }
                     }
+
+
+                    //    else
+                    //    {
+                    //        ValidarUsuario();
+
+
+                    //        if (usuarioTxt.Text == logearUsuario.NombreUsuario)
+                    //        {
+
+
+                    //            if (contraseñaTxt.Text == logearUsuario.Contraseña)
+                    //            {
+                    //                foreach (Usuario u in Singlenton.Instance.usuarios)
+                    //                {
+                    //                    if (usuarioTxt.Text == u.NombreUsuario)
+                    //                    {
+                    //                        u.Activo = true;
+                    //                    }
+                    //                    else
+                    //                    {
+                    //                        u.Activo = false;
+                    //                    }
+                    //                }
+
+                    //                DialogResult = DialogResult.OK;
+
+                    //                this.Close();
+
+
+                    //            }
+
+                    //            else
+                    //            {
+                    //                MessageBox.Show("Contraseña incorrecta");
+                    //            }
+
+                    //        }
+                    //        else
+                    //        {
+                    //            MessageBox.Show("Usuario incorrecto");
+                    //        }
+                    //    }
                 }
             }
         }

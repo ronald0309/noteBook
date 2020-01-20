@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -114,29 +115,49 @@ namespace noteBook.UNA.Clases
         }
         public void CargarLibros()
         {
-            string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string query = String.Format("Select *from libros ");
+         
+            DataTable data = mySqlDb.QuerySQL(query);
+            for (int x = 0; x <data.Rows.Count; x++) {
 
-            foreach (string archivo in cargarLibros)
-            {
-
-                string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] datosLibro = null;
-                foreach (string tex in texto)
+                Libro libro = new Libro
                 {
-                    Libro libro = new Libro();
-                    datosLibro = tex.Split(',');
-                    libro.UsuarioCreadorLibro = datosLibro[0];
-                    libro.Pocision = Convert.ToInt32(datosLibro[1].ToString());
-                    libro.Nombre = datosLibro[2];
-                    libro.Genero = datosLibro[3];
-                    libro.Orden = Convert.ToInt32(datosLibro[4].ToString());
-                    libro.Color = Convert.ToInt32(datosLibro[5].ToString()); 
-                    libro.CantidadNotas = Convert.ToInt32(datosLibro[7].ToString());
-                    
-                    Singlenton.Instance.LibrosList.Add(libro);
+                    Nombre = data.Rows[x][1].ToString(),
+                    Genero = data.Rows[x][2].ToString(),
+                    Color=Convert.ToInt32(data.Rows[x][3])
+                };
+                Singlenton.Instance.LibrosList.Add(libro);
 
-                }
             }
+
+
+
+            //string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
+
+            //foreach (string archivo in cargarLibros)
+            //{
+
+            //    string[] texto = Sys;tem.IO.File.ReadAllLines(archivo);
+            //    string[] datosLibro = null;
+            //    foreach (string tex in texto)
+            //    {
+            //        Libro libro = new Libro();
+            //        datosLibro = tex.Split(',');
+            //        libro.UsuarioCreadorLibro = datosLibro[0];
+            //        libro.Pocision = Convert.ToInt32(datosLibro[1].ToString());
+            //        libro.Nombre = datosLibro[2];
+            //        libro.Genero = datosLibro[3];
+            //        libro.Orden = Convert.ToInt32(datosLibro[4].ToString());
+            //        libro.Color = Convert.ToInt32(datosLibro[5].ToString()); 
+            //        libro.CantidadNotas = Convert.ToInt32(datosLibro[7].ToString());
+
+            //        Singlenton.Instance.LibrosList.Add(libro);
+
+            //    }
+            //  }
         }
         public void CargarUsuario()
         {

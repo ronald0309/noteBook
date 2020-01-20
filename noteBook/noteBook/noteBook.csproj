@@ -68,7 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbAccess.cs" />
+    <Compile Include="UNA\AdministarBaseDeDatos\DbAccess.cs" />
+    <Compile Include="UNA\AdministarBaseDeDatos\MySqlDb.cs" />
     <Compile Include="UNA\Clases\ArchivoManager.cs" />
     <Compile Include="UNA\Clases\Encriptacion.cs" />
     <Compile Include="UNA\Clases\Nota.cs" />

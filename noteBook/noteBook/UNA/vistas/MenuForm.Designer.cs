@@ -102,7 +102,7 @@
             this.horaLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.horaLabel.Location = new System.Drawing.Point(767, 16);
             this.horaLabel.Name = "horaLabel";
-            this.horaLabel.Size = new System.Drawing.Size(148, 27);
+            this.horaLabel.Size = new System.Drawing.Size(114, 27);
             this.horaLabel.TabIndex = 0;
             this.horaLabel.Text = "Hora";
             // 

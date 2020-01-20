@@ -32,9 +32,57 @@ namespace noteBook.UNA.vistas
             generoComboBox.Height = this.Height - 200;
             generoComboBox.Width = this.Width - 500;
         }
-
-        private void GuardarBtn_MouseClick(object sender, MouseEventArgs e)
+        public void guardarLibroBD()
         {
+            if (nombreTxt.Text.Length == 0)
+            {
+                errorGuardar.SetError(nombreTxt, "Ingrese el nombre del libro");
+            }
+            if (generoComboBox.Text.Length == 0)
+            {
+                errorGuardar.SetError(generoComboBox, "Escoja un genero Para el libro");
+
+            }
+            if (nombreTxt.Text.Length != 0 && generoComboBox.Text.Length != 0)
+            {
+                
+
+                MySqlDb mySqlDb = new MySqlDb();
+                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                mySqlDb.OpenConnection();
+                string queryLibros=String.Format("SELECT nombre from libros where nombre='"+nombreTxt.Text+"'");
+                if (mySqlDb.QuerySQL(queryLibros).Rows.Count == 1)
+                {
+                    MessageBox.Show("El libro ya existe");
+
+                }
+                else {
+                    string queryU = string.Format("Select idusuarios from usuarios where nombre='" + Singlenton.Instance.UsuarioActivo() + "'");
+                    mySqlDb.QuerySQL(queryU);
+                    queryLibros = string.Format("INSERT INTO libros (nombre,categoria,color,usuarios_idusuarios)VALUES('{0}','{1}','{2}','{3}')",
+                   nombreTxt.Text, generoComboBox.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                    mySqlDb.EjectSQL(queryLibros);
+                    Libro libro = new Libro
+                    {
+                        Nombre = nombreTxt.Text,
+                        Genero = generoComboBox.Text,
+                        Orden = Singlenton.Instance.LibrosList.Count() + 1,
+                        Color = selectorColorImage.BackColor.ToArgb(),
+                        Pocision = contadorPosicion,
+                        UsuarioCreadorLibro = usuario
+                    };
+                    Singlenton.Instance.LibrosList.Add(libro);
+                    contadorPosicion++;
+                }
+
+            
+            }
+
+
+       
+
+        }
+        public void crearLibro() {
             bool repetido = false;
 
             errorGuardar.Clear();
@@ -49,6 +97,7 @@ namespace noteBook.UNA.vistas
                     usuario = u.NombreUsuario;
                 }
             }
+
             foreach (var librosIguales in Singlenton.Instance.LibrosList)
             {
                 if (librosIguales.Nombre.ToLower() == nombreTxt.Text.ToLower())
@@ -69,7 +118,7 @@ namespace noteBook.UNA.vistas
                 {
                     Nombre = nombreTxt.Text,
                     Genero = generoComboBox.Text,
-                    Orden = Singlenton.Instance.LibrosList.Count()+1,
+                    Orden = Singlenton.Instance.LibrosList.Count() + 1,
                     Color = selectorColorImage.BackColor.ToArgb(),
                     Pocision = contadorPosicion,
                     UsuarioCreadorLibro = usuario
@@ -80,6 +129,10 @@ namespace noteBook.UNA.vistas
                 Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro{libro.Nombre}"); ;
                 this.Hide();
             }
+        }
+        private void GuardarBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            guardarLibroBD();
         }
 
         private void SelectorColorImage_Click(object sender, EventArgs e)
@@ -92,6 +145,16 @@ namespace noteBook.UNA.vistas
         }
 
         private void tituloVistaLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistroLibro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guardarBtn_Click(object sender, EventArgs e)
         {
 
         }
