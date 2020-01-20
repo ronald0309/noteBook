@@ -58,6 +58,7 @@ namespace noteBook.UNA.vistas
 
         public void CrearLibro()
         {
+           
             String nombreUsuario = Singlenton.Instance.UsuarioActivo();
 
             bibliotecaTabControl.Controls.Clear();
@@ -78,9 +79,16 @@ namespace noteBook.UNA.vistas
                     Nombre = libro.Nombre,
                     Genero = libro.Genero,
                     ColorLibro = libro.Color
+
                 };
                 TabPage pestaña = new TabPage();
 
+                Label informacionLabel = new Label();
+                informacionLabel.Location = new Point(10, 380);
+                informacionLabel.Size = new Size(300, 20);
+                informacionLabel.Text = "Precione para agregar nota.";
+                informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
+                pestaña.Controls.Add(informacionLabel);
                 libroControl.MouseClick += (a, b) =>
                    {
 
@@ -155,6 +163,8 @@ namespace noteBook.UNA.vistas
                         Text = libro.Nombre,
                         BackColor = Color.FromArgb(libro.Color)
                     };
+                    
+                    pestañaLibro.Controls.Add(informacionLabel);
                     pestañaLibro.Select();
                     pestañaLibro.MouseClick += (s, e) =>
                     {
@@ -247,8 +257,13 @@ namespace noteBook.UNA.vistas
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
             String nombreUsuario = Singlenton.Instance.UsuarioActivo(); ;
-
-
+            bibliotecaTabControl.SelectedTab.Controls.Clear();
+            Label informacionLabel = new Label();
+            informacionLabel.Location = new Point(10, 380);
+            informacionLabel.Size = new Size(300, 20);
+            informacionLabel.Text = "Precione para agregar nota.";
+            informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
+            bibliotecaTabControl.SelectedTab.Controls.Add(informacionLabel);
             if (Singlenton.Instance.NotaEditada)
             {
 
@@ -273,13 +288,13 @@ namespace noteBook.UNA.vistas
                                 {
                                     NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
                                     notasPrivadasControl.Add(notaPrivada);
-                                    
+
                                 }
 
                             }
                         }
                     }
-                    bibliotecaTabControl.SelectedTab.Controls.Clear();
+
                     foreach (NotaControl nota in notasControl)
                     {
                         bibliotecaTabControl.SelectedTab.Controls.Add(nota);

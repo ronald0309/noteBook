@@ -13,7 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class MenuForm : Form
     {
-        private readonly RegistroLibro registroLibros = new RegistroLibro();
+        
         private readonly InformacionMenuForm informacionMenu = new InformacionMenuForm();
 
         private Timer tiempo;
@@ -21,6 +21,8 @@ namespace noteBook.UNA.vistas
 
         private readonly Login login = new Login();
         private bool cerrar = true;
+
+        private int pantallaActiva=0;
 
         public Timer Tiempo { get => tiempo; set => tiempo = value; }
         public Timer Timer { get => timer; set => timer = value; }
@@ -50,9 +52,52 @@ namespace noteBook.UNA.vistas
             Form h = hija as Form;
             h.TopLevel = false;
             h.Dock = DockStyle.Fill;
+            h.FormClosed += H_FormClosed;
             this.panelVistas.Controls.Add(h);
             this.panelVistas.Tag = h;
+            
             h.Show();
+            
+
+        }
+
+        private void H_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (pantallaActiva == 0)
+            {
+                this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA";
+                AbrirFormulario(informacionMenu);
+            }
+            else
+            {
+                if (pantallaActiva==1)
+                {
+                    MisLibros miLibros = new MisLibros();
+                    this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
+                    miLibros.CrearLibro();
+                    Singlenton.Instance.miLibro = miLibros;
+                    this.AbrirFormulario(miLibros);
+
+                }
+                else
+                {
+                    if (pantallaActiva == 2)
+                    {
+                        this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
+                        BusquedaForm busqueda = new BusquedaForm();
+                        this.AbrirFormulario(busqueda);
+                    }
+                    else
+                    {
+                        if (pantallaActiva == 3)
+                        {
+                            this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
+                            ReportesForm reporteForm = new ReportesForm();
+                            this.AbrirFormulario(reporteForm);
+                        }
+                    }
+                }
+            }
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -146,21 +191,25 @@ namespace noteBook.UNA.vistas
         }
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
-            this.nombreVistaLabel.Text = "Agregar Libro";
+
+            RegistroLibro registroLibros = new RegistroLibro();
+            this.nombreVistaLabel.Text = "Agregar Libro(Formulario 01)";
             this.AbrirFormulario(registroLibros);
+            
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
+            
             GuardarInformacion();
             MessageBox.Show("Se guardaron los cambios");
         }
 
         private void LibroBtn_Click(object sender, EventArgs e)
         {
-
+            pantallaActiva = 1;
             MisLibros miLibros = new MisLibros();
-            this.nombreVistaLabel.Text = "Mis libros";
+            this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
             miLibros.CrearLibro();
             Singlenton.Instance.miLibro = miLibros;
             this.AbrirFormulario(miLibros);
@@ -168,14 +217,16 @@ namespace noteBook.UNA.vistas
 
         private void BusquedaBtn_Click(object sender, EventArgs e)
         {
-            this.nombreVistaLabel.Text = "Busqueda";
+            pantallaActiva = 2;
+            this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
             BusquedaForm busqueda = new BusquedaForm();
             this.AbrirFormulario(busqueda);
         }
 
         private void ReportesBtn_Click(object sender, EventArgs e)
         {
-            this.nombreVistaLabel.Text = "Reportes";
+            pantallaActiva = 3;
+            this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
             ReportesForm reporteForm = new ReportesForm();
             this.AbrirFormulario(reporteForm);
         }
@@ -283,5 +334,6 @@ namespace noteBook.UNA.vistas
         {
             cambiarUsuarioBtn.BackColor= Color.FromArgb(12, 135, 109);
         }
+
     }
 }
