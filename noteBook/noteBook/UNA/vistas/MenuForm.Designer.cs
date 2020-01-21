@@ -99,9 +99,9 @@
             this.nombreVistaLabel.Location = new System.Drawing.Point(8, 4);
             this.nombreVistaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nombreVistaLabel.Name = "nombreVistaLabel";
-            this.nombreVistaLabel.Size = new System.Drawing.Size(507, 34);
+            this.nombreVistaLabel.Size = new System.Drawing.Size(616, 34);
             this.nombreVistaLabel.TabIndex = 0;
-            this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA";
+            this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA (Formulario 08)";
             // 
             // panelVistas
             // 
@@ -196,9 +196,9 @@
             this.cambiarUsuarioBtn.TabIndex = 12;
             this.cambiarUsuarioBtn.Text = "Cerrar sesión";
             this.cambiarUsuarioBtn.UseVisualStyleBackColor = false;
-            this.cambiarUsuarioBtn.Click += new System.EventHandler(this.cambiarUsuarioBtn_Click);
-            this.cambiarUsuarioBtn.MouseLeave += new System.EventHandler(this.cambiarUsuarioBtn_MouseLeave);
-            this.cambiarUsuarioBtn.MouseHover += new System.EventHandler(this.cambiarUsuarioBtn_MouseHover);
+            this.cambiarUsuarioBtn.Click += new System.EventHandler(this.CambiarUsuarioBtn_Click);
+            this.cambiarUsuarioBtn.MouseLeave += new System.EventHandler(this.CambiarUsuarioBtn_MouseLeave);
+            this.cambiarUsuarioBtn.MouseHover += new System.EventHandler(this.CambiarUsuarioBtn_MouseHover);
             // 
             // lblFechaGuardar
             // 
@@ -240,8 +240,8 @@
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = false;
             this.guardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
-            this.guardarBtn.MouseLeave += new System.EventHandler(this.guardarBtn_MouseLeave);
-            this.guardarBtn.MouseHover += new System.EventHandler(this.guardarBtn_MouseHover);
+            this.guardarBtn.MouseLeave += new System.EventHandler(this.GuardarBtn_MouseLeave);
+            this.guardarBtn.MouseHover += new System.EventHandler(this.GuardarBtn_MouseHover);
             // 
             // btnReportes
             // 
@@ -261,8 +261,8 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.ReportesBtn_Click);
-            this.btnReportes.MouseLeave += new System.EventHandler(this.btnReportes_MouseLeave);
-            this.btnReportes.MouseHover += new System.EventHandler(this.btnReportes_MouseHover);
+            this.btnReportes.MouseLeave += new System.EventHandler(this.BtnReportes_MouseLeave);
+            this.btnReportes.MouseHover += new System.EventHandler(this.BtnReportes_MouseHover);
             // 
             // busquedaBtn
             // 
@@ -282,8 +282,8 @@
             this.busquedaBtn.Text = "Buscar";
             this.busquedaBtn.UseVisualStyleBackColor = false;
             this.busquedaBtn.Click += new System.EventHandler(this.BusquedaBtn_Click);
-            this.busquedaBtn.MouseLeave += new System.EventHandler(this.busquedaBtn_MouseLeave);
-            this.busquedaBtn.MouseHover += new System.EventHandler(this.busquedaBtn_MouseHover);
+            this.busquedaBtn.MouseLeave += new System.EventHandler(this.BusquedaBtn_MouseLeave);
+            this.busquedaBtn.MouseHover += new System.EventHandler(this.BusquedaBtn_MouseHover);
             // 
             // libroBtn
             // 
@@ -324,8 +324,8 @@
             this.agregarBtn.Text = "Agregar";
             this.agregarBtn.UseVisualStyleBackColor = false;
             this.agregarBtn.Click += new System.EventHandler(this.AgregarBtn_Click);
-            this.agregarBtn.MouseLeave += new System.EventHandler(this.agregarBtn_MouseLeave);
-            this.agregarBtn.MouseHover += new System.EventHandler(this.agregarBtn_MouseHover);
+            this.agregarBtn.MouseLeave += new System.EventHandler(this.AgregarBtn_MouseLeave);
+            this.agregarBtn.MouseHover += new System.EventHandler(this.AgregarBtn_MouseHover);
             // 
             // timer1
             // 

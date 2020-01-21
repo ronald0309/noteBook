@@ -13,7 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class MenuForm : Form
     {
-        
+
         private readonly InformacionMenuForm informacionMenu = new InformacionMenuForm();
 
         private Timer tiempo;
@@ -22,7 +22,7 @@ namespace noteBook.UNA.vistas
         private readonly Login login = new Login();
         private bool cerrar = true;
 
-        private int pantallaActiva=0;
+        private int pantallaActiva = 0;
 
         public Timer Tiempo { get => tiempo; set => tiempo = value; }
         public Timer Timer { get => timer; set => timer = value; }
@@ -55,9 +55,9 @@ namespace noteBook.UNA.vistas
             h.FormClosed += H_FormClosed;
             this.panelVistas.Controls.Add(h);
             this.panelVistas.Tag = h;
-            
+
             h.Show();
-            
+
 
         }
 
@@ -70,7 +70,7 @@ namespace noteBook.UNA.vistas
             }
             else
             {
-                if (pantallaActiva==1)
+                if (pantallaActiva == 1)
                 {
                     MisLibros miLibros = new MisLibros();
                     this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
@@ -146,7 +146,7 @@ namespace noteBook.UNA.vistas
             archivoManager.Libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)
             {
-                archivoManager.Notas.AddRange(item.AgregarNota);
+                archivoManager.Notas.AddRange(item.Notas);
             }
             ConstruirElArchivo(archivoManager);
 
@@ -195,12 +195,11 @@ namespace noteBook.UNA.vistas
             RegistroLibro registroLibros = new RegistroLibro();
             this.nombreVistaLabel.Text = "Agregar Libro(Formulario 01)";
             this.AbrirFormulario(registroLibros);
-            
+
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            
             GuardarInformacion();
             MessageBox.Show("Se guardaron los cambios");
         }
@@ -237,9 +236,9 @@ namespace noteBook.UNA.vistas
             if (login.ShowDialog() == DialogResult.OK)
             {
                 Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
-                
+
                 this.Show();
-                
+
                 lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
             }
             else
@@ -250,7 +249,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
+        private void CambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
             AbrirFormulario(informacionMenu);
             MisLibros miLibro = new MisLibros();
@@ -276,7 +275,7 @@ namespace noteBook.UNA.vistas
         }
         private void LibroBtn_MouseHover(object sender, EventArgs e)
         {
-            libroBtn.BackColor= Color.Blue;
+            libroBtn.BackColor = Color.Blue;
 
         }
 
@@ -285,54 +284,54 @@ namespace noteBook.UNA.vistas
             libroBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void agregarBtn_MouseHover(object sender, EventArgs e)
+        private void AgregarBtn_MouseHover(object sender, EventArgs e)
         {
             agregarBtn.BackColor = Color.Blue;
         }
 
-        private void agregarBtn_MouseLeave(object sender, EventArgs e)
+        private void AgregarBtn_MouseLeave(object sender, EventArgs e)
         {
-           agregarBtn.BackColor = Color.FromArgb(12, 135, 109);
+            agregarBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void busquedaBtn_MouseHover(object sender, EventArgs e)
+        private void BusquedaBtn_MouseHover(object sender, EventArgs e)
         {
-           busquedaBtn.BackColor = Color.Blue;
+            busquedaBtn.BackColor = Color.Blue;
         }
 
-        private void busquedaBtn_MouseLeave(object sender, EventArgs e)
+        private void BusquedaBtn_MouseLeave(object sender, EventArgs e)
         {
             busquedaBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void btnReportes_MouseHover(object sender, EventArgs e)
+        private void BtnReportes_MouseHover(object sender, EventArgs e)
         {
             btnReportes.BackColor = Color.Blue;
         }
 
-        private void btnReportes_MouseLeave(object sender, EventArgs e)
+        private void BtnReportes_MouseLeave(object sender, EventArgs e)
         {
-            btnReportes.BackColor= Color.FromArgb(12, 135, 109);
+            btnReportes.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void guardarBtn_MouseHover(object sender, EventArgs e)
+        private void GuardarBtn_MouseHover(object sender, EventArgs e)
         {
-         guardarBtn.BackColor = Color.Blue;
+            guardarBtn.BackColor = Color.Blue;
         }
 
-        private void guardarBtn_MouseLeave(object sender, EventArgs e)
+        private void GuardarBtn_MouseLeave(object sender, EventArgs e)
         {
-            guardarBtn.BackColor=Color.FromArgb(12, 135, 109);
+            guardarBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void cambiarUsuarioBtn_MouseHover(object sender, EventArgs e)
+        private void CambiarUsuarioBtn_MouseHover(object sender, EventArgs e)
         {
             cambiarUsuarioBtn.BackColor = Color.Blue;
         }
 
-        private void cambiarUsuarioBtn_MouseLeave(object sender, EventArgs e)
+        private void CambiarUsuarioBtn_MouseLeave(object sender, EventArgs e)
         {
-            cambiarUsuarioBtn.BackColor= Color.FromArgb(12, 135, 109);
+            cambiarUsuarioBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
     }

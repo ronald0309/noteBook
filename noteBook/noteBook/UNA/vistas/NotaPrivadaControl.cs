@@ -81,11 +81,11 @@ namespace noteBook.UNA.vistas
             AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
-                foreach (var nota in libro.AgregarNota)
+                foreach (var nota in libro.Notas)
                 {
                     if (nota.Titulo == this.Nombre)
                     {
-                        notaPrivada.resibirNota(nota);
+                        notaPrivada.ResibirNota(nota);
                         notaPrivada.ShowDialog();
                         // this.Refresh();
                     }
@@ -96,7 +96,7 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void contendorPanel_Paint(object sender, PaintEventArgs e)
+        private void ContendorPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

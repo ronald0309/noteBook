@@ -92,7 +92,7 @@
             this.cerrarLibroActual.TabIndex = 2;
             this.cerrarLibroActual.Text = "Cerrar";
             this.cerrarLibroActual.UseVisualStyleBackColor = true;
-            this.cerrarLibroActual.Click += new System.EventHandler(this.cerrarLibroActual_Click);
+            this.cerrarLibroActual.Click += new System.EventHandler(this.CerrarLibroActual_Click);
             // 
             // MisLibros
             // 

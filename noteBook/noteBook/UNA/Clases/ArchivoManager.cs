@@ -54,7 +54,7 @@ namespace noteBook.UNA.Clases
                 foreach (Libro libro in Libros)
                 {
                     auxNombre = libro.Nombre;
-                    foreach (Nota nota in libro.AgregarNota)
+                    foreach (Nota nota in libro.Notas)
                     {
                         var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh},{nota.orden}";
                         streamWriter.WriteLine(line);
@@ -197,7 +197,7 @@ namespace noteBook.UNA.Clases
                             nota.Width = Convert.ToInt32(datosNota[13]);
                             nota.Heigh = Convert.ToInt32(datosNota[14]);
                             nota.orden = Convert.ToInt32(datosNota[15]);
-                            libro.AgregarNota.Add(nota);
+                            libro.Notas.Add(nota);
                         }
                     }
                 }

@@ -35,6 +35,7 @@
             this.contraseñaLabel = new System.Windows.Forms.Label();
             this.acceptarBtn = new System.Windows.Forms.Button();
             this.datosUsuarioError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.formulario05Lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datosUsuarioError)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,11 +84,21 @@
             this.acceptarBtn.TabIndex = 2;
             this.acceptarBtn.Text = "Acceptar";
             this.acceptarBtn.UseVisualStyleBackColor = true;
-            this.acceptarBtn.Click += new System.EventHandler(this.aceptarbtn_Click);
+            this.acceptarBtn.Click += new System.EventHandler(this.Aceptarbtn_Click);
             // 
             // datosUsuarioError
             // 
             this.datosUsuarioError.ContainerControl = this;
+            // 
+            // formulario05Lbl
+            // 
+            this.formulario05Lbl.AutoSize = true;
+            this.formulario05Lbl.Location = new System.Drawing.Point(235, 128);
+            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario05Lbl.Name = "formulario05Lbl";
+            this.formulario05Lbl.Size = new System.Drawing.Size(95, 17);
+            this.formulario05Lbl.TabIndex = 5;
+            this.formulario05Lbl.Text = "Formulario 05";
             // 
             // AccesoNotaPrivadaForm
             // 
@@ -96,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.ClientSize = new System.Drawing.Size(331, 145);
+            this.Controls.Add(this.formulario05Lbl);
             this.Controls.Add(this.acceptarBtn);
             this.Controls.Add(this.contraseñaLabel);
             this.Controls.Add(this.contraseñaUsuarioTxt);
@@ -120,5 +132,6 @@
         private System.Windows.Forms.Label contraseñaLabel;
         private System.Windows.Forms.Button acceptarBtn;
         private System.Windows.Forms.ErrorProvider datosUsuarioError;
+        private System.Windows.Forms.Label formulario05Lbl;
     }
 }

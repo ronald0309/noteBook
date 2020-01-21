@@ -91,7 +91,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void tituloVistaLabel_Click(object sender, EventArgs e)
+        private void TituloVistaLabel_Click(object sender, EventArgs e)
         {
 
         }

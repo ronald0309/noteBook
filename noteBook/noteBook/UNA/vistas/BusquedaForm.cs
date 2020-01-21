@@ -28,7 +28,7 @@ namespace noteBook.UNA.vistas
                 busquedaNotasPanel.Controls.Clear();
                 foreach (var busquedaLibro in Singlenton.Instance.LibrosList)
                 {
-                    foreach (var busquedaNota in busquedaLibro.AgregarNota)
+                    foreach (var busquedaNota in busquedaLibro.Notas)
                     {
                         string tituloNota = busquedaNota.Titulo.ToLower();
                         bool privacidad = busquedaNota.Privacidad;
@@ -98,14 +98,19 @@ namespace noteBook.UNA.vistas
                 this.BusquedaNotas();
             }
         }
+        private void EnableDoubleBuffering()
+        {
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+        }
         private void BusquedaNotas()
         {
+            EnableDoubleBuffering();
             if (busquedaTxt.Text.Length > 0 || categoriaTxt.Text.Length > 0)
             {
                 busquedaNotasPanel.Controls.Clear();
                 foreach (var busquedaLibro in Singlenton.Instance.LibrosList)
                 {
-                    foreach (var busquedaNota in busquedaLibro.AgregarNota)
+                    foreach (var busquedaNota in busquedaLibro.Notas)
                     {
                         string tituloNota = busquedaNota.Titulo.ToLower();
                         bool privacidad = busquedaNota.Privacidad;

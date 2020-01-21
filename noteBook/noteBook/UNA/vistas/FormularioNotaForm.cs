@@ -13,7 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class FormularioNotaForm : Form
     {
-        NotaControl notaPrevia = new NotaControl();
+        readonly NotaControl notaPrevia = new NotaControl();
         string usuario;
         public FormularioNotaForm()
         {
@@ -33,7 +33,7 @@ namespace noteBook.UNA.vistas
         private void FormularioNota_Load(object sender, EventArgs e)
         {
 
-            notaPrevia.DesactivarBotones();
+            
             notaPrevia.TituloNota = "Titulo";
             notaPrevia.Categoria = "Categoria";
             DateTime hoy = DateTime.Now;
@@ -62,7 +62,7 @@ namespace noteBook.UNA.vistas
 
             foreach (var libros in Singlenton.Instance.LibrosList)
             {
-                foreach (var notasIguales in libros.AgregarNota)
+                foreach (var notasIguales in libros.Notas)
                 {
                     if (notasIguales.Titulo.ToLower() == TituloTxt.Text.ToLower())
                     {
@@ -88,7 +88,8 @@ namespace noteBook.UNA.vistas
 
                     if (libroGuardados.Nombre == Posicion)
                     {
-                        int n = libroGuardados.AgregarNota.Count;
+                        int count = libroGuardados.Notas.Count;
+                        int n = count;
                         Nota nota = new Nota();
                         if (PrivacidadCombobox.Text == "Publico")
                         {
@@ -112,11 +113,11 @@ namespace noteBook.UNA.vistas
                         nota.ColorFuente = colorDialog2.Color.ToArgb();
                         nota.ColorFondo = colorDialog1.Color.ToArgb();
                         nota.UsuarioCreadorNota = usuario;
-                        nota.orden = libroGuardados.AgregarNota.Count() + 1;
+                        nota.orden = libroGuardados.Notas.Count() + 1;
                         DateTime hoy = DateTime.Now;
                        // yyyyMMddT
                         nota.FechaCreacion = hoy.ToString("dd-MM-yyy");
-                        libroGuardados.AgregarNota.Add(nota);
+                        libroGuardados.Notas.Add(nota);
 
                         Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", $"Nota {nota.Titulo}");
 
@@ -163,7 +164,7 @@ namespace noteBook.UNA.vistas
             errorDatosNota.Clear();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
-                foreach (var nota in libro.AgregarNota)
+                foreach (var nota in libro.Notas)
                 {
                     if (nota.Titulo == TituloTxt.Text)
                     {

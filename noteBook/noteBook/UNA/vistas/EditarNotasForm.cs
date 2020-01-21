@@ -28,6 +28,7 @@ namespace noteBook.UNA.vistas
 
         private Nota notaAuxiliar;
 
+
         private readonly bool guardoDatos = false;
 
         public EditarNotasForm()
@@ -107,7 +108,7 @@ namespace noteBook.UNA.vistas
             string informacion = "se modifico la nota ";
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
-                foreach (var nota in libro.AgregarNota)
+                foreach (var nota in libro.Notas)
                 {
                     if (notaAuxiliar.Titulo == nota.Titulo)
                     {
@@ -195,7 +196,7 @@ namespace noteBook.UNA.vistas
             bool respuesta = true;
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
-                foreach (var nota in libro.AgregarNota)
+                foreach (var nota in libro.Notas)
                 {
                     if (tituloTxt.Text.ToLower() == nota.Titulo.ToLower())
                     {
@@ -217,7 +218,7 @@ namespace noteBook.UNA.vistas
                 return true;
             }
         }
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
 
         {
 
@@ -244,7 +245,7 @@ namespace noteBook.UNA.vistas
                                 MessageBox.Show("Se modifico la nota");
 
                                 this.Close();
-                                Singlenton.Instance.miLibro.ActualizarPage();
+                               
                             }
                             else
                             {
@@ -261,7 +262,7 @@ namespace noteBook.UNA.vistas
             }
 
         }
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void BtnAceptar_Click(object sender, EventArgs e)
 
         {
 

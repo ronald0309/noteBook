@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +20,15 @@ namespace noteBook.UNA.vistas
         public MisLibros()
         {
             InitializeComponent();
-
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
         public void CerrarLibro()
         {
@@ -58,7 +68,7 @@ namespace noteBook.UNA.vistas
 
         public void CrearLibro()
         {
-           
+
             String nombreUsuario = Singlenton.Instance.UsuarioActivo();
 
             bibliotecaTabControl.Controls.Clear();
@@ -83,12 +93,15 @@ namespace noteBook.UNA.vistas
                 };
                 TabPage pestaña = new TabPage();
 
-                Label informacionLabel = new Label();
-                informacionLabel.Location = new Point(10, 380);
-                informacionLabel.Size = new Size(300, 20);
-                informacionLabel.Text = "Precione para agregar nota.";
+                Label informacionLabel = new Label
+                {
+                    Location = new Point(10, 380),
+                    Size = new Size(300, 20),
+                    Text = "Precione para agregar nota."
+                };
                 informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
                 pestaña.Controls.Add(informacionLabel);
+                
                 libroControl.MouseClick += (a, b) =>
                    {
 
@@ -110,7 +123,7 @@ namespace noteBook.UNA.vistas
                                formulario.ShowDialog();
 
 
-                               foreach (var nota in libro.AgregarNota)
+                               foreach (var nota in libro.Notas)
                                {
 
 
@@ -130,7 +143,7 @@ namespace noteBook.UNA.vistas
                            };
                            if (libro.Abrir == true)
                            {
-                               foreach (var nota in libro.AgregarNota)
+                               foreach (var nota in libro.Notas)
                                {
                                    if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                                    {
@@ -163,7 +176,7 @@ namespace noteBook.UNA.vistas
                         Text = libro.Nombre,
                         BackColor = Color.FromArgb(libro.Color)
                     };
-                    
+
                     pestañaLibro.Controls.Add(informacionLabel);
                     pestañaLibro.Select();
                     pestañaLibro.MouseClick += (s, e) =>
@@ -174,7 +187,7 @@ namespace noteBook.UNA.vistas
                         formulario.SetXY(x, y);
                         formulario.Posicion = libro.Nombre;
                         formulario.ShowDialog();
-                        foreach (var nota in libro.AgregarNota)
+                        foreach (var nota in libro.Notas)
                         {
                             if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                             {
@@ -189,7 +202,7 @@ namespace noteBook.UNA.vistas
                         }
 
                     };
-                    foreach (var nota in libro.AgregarNota)
+                    foreach (var nota in libro.Notas)
                     {
                         if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                         {
@@ -253,15 +266,15 @@ namespace noteBook.UNA.vistas
 
         public void ActualizarPage()
         {
-
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-
+            
             String nombreUsuario = Singlenton.Instance.UsuarioActivo(); ;
             bibliotecaTabControl.SelectedTab.Controls.Clear();
-            Label informacionLabel = new Label();
-            informacionLabel.Location = new Point(10, 380);
-            informacionLabel.Size = new Size(300, 20);
-            informacionLabel.Text = "Precione para agregar nota.";
+            Label informacionLabel = new Label
+            {
+                Location = new Point(10, 380),
+                Size = new Size(300, 20),
+                Text = "Precione para agregar nota."
+            };
             informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
             bibliotecaTabControl.SelectedTab.Controls.Add(informacionLabel);
             if (Singlenton.Instance.NotaEditada)
@@ -273,7 +286,7 @@ namespace noteBook.UNA.vistas
                     List<NotaPrivadaControl> notasPrivadasControl = new List<NotaPrivadaControl>();
                     if (libro.Nombre == bibliotecaTabControl.SelectedTab.Text)
                     {
-                        foreach (var nota in libro.AgregarNota)
+                        foreach (var nota in libro.Notas)
                         {
                             if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
 
@@ -308,7 +321,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void cerrarLibroActual_Click(object sender, EventArgs e)
+        private void CerrarLibroActual_Click(object sender, EventArgs e)
         {
 
             if (bibliotecaTabControl.SelectedTab.Text != "Biblioteca")

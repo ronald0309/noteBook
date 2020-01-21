@@ -18,18 +18,18 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
         }
 
-        readonly string nombreNota;
+        private readonly string nombreNota;
         public AccesoNotaPrivadaForm(string nombreNota)
         {
             InitializeComponent();
 
             this.nombreNota = nombreNota;
         }
-        public void resibirNota(Object nota)
+        public void ResibirNota(Object nota)
         {
             notaAuxiliar = (Nota)nota;
         }
-        private void aceptarbtn_Click(object sender, EventArgs e)
+        private void Aceptarbtn_Click(object sender, EventArgs e)
         {
             this.Mensajes();
             // MessageBox.Show(nombreNota);

@@ -46,9 +46,10 @@
             // 
             // guardarBtn
             // 
-            this.guardarBtn.Location = new System.Drawing.Point(223, 172);
+            this.guardarBtn.Location = new System.Drawing.Point(297, 227);
+            this.guardarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guardarBtn.Name = "guardarBtn";
-            this.guardarBtn.Size = new System.Drawing.Size(103, 23);
+            this.guardarBtn.Size = new System.Drawing.Size(137, 28);
             this.guardarBtn.TabIndex = 31;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
@@ -57,9 +58,10 @@
             // colorLabel
             // 
             this.colorLabel.AutoSize = true;
-            this.colorLabel.Location = new System.Drawing.Point(149, 152);
+            this.colorLabel.Location = new System.Drawing.Point(199, 202);
+            this.colorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(31, 13);
+            this.colorLabel.Size = new System.Drawing.Size(41, 17);
             this.colorLabel.TabIndex = 30;
             this.colorLabel.Text = "Color";
             // 
@@ -67,51 +69,56 @@
             // 
             this.nombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nombreTxt.Location = new System.Drawing.Point(223, 93);
+            this.nombreTxt.Location = new System.Drawing.Point(297, 129);
+            this.nombreTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nombreTxt.MaxLength = 11;
             this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(103, 20);
+            this.nombreTxt.Size = new System.Drawing.Size(136, 22);
             this.nombreTxt.TabIndex = 27;
             this.nombreTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // generoLabel
             // 
             this.generoLabel.AutoSize = true;
-            this.generoLabel.Location = new System.Drawing.Point(146, 122);
+            this.generoLabel.Location = new System.Drawing.Point(195, 165);
+            this.generoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.generoLabel.Name = "generoLabel";
-            this.generoLabel.Size = new System.Drawing.Size(42, 13);
+            this.generoLabel.Size = new System.Drawing.Size(56, 17);
             this.generoLabel.TabIndex = 26;
             this.generoLabel.Text = "Genero";
             // 
             // nombreLabel
             // 
             this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(146, 96);
+            this.nombreLabel.Location = new System.Drawing.Point(195, 133);
+            this.nombreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nombreLabel.Name = "nombreLabel";
-            this.nombreLabel.Size = new System.Drawing.Size(44, 13);
+            this.nombreLabel.Size = new System.Drawing.Size(58, 17);
             this.nombreLabel.TabIndex = 25;
             this.nombreLabel.Text = "Nombre";
             // 
             // tituloVistaLabel
             // 
             this.tituloVistaLabel.AutoSize = true;
-            this.tituloVistaLabel.Font = new System.Drawing.Font("Footlight MT Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloVistaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloVistaLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.tituloVistaLabel.Location = new System.Drawing.Point(218, 47);
+            this.tituloVistaLabel.Location = new System.Drawing.Point(365, 59);
+            this.tituloVistaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tituloVistaLabel.Name = "tituloVistaLabel";
-            this.tituloVistaLabel.Size = new System.Drawing.Size(206, 29);
+            this.tituloVistaLabel.Size = new System.Drawing.Size(308, 39);
             this.tituloVistaLabel.TabIndex = 24;
             this.tituloVistaLabel.Text = "REGISTRO LIBRO";
             this.tituloVistaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tituloVistaLabel.Click += new System.EventHandler(this.tituloVistaLabel_Click);
+            this.tituloVistaLabel.Click += new System.EventHandler(this.TituloVistaLabel_Click);
             // 
             // selectorColorImage
             // 
             this.selectorColorImage.BackColor = System.Drawing.Color.Red;
             this.selectorColorImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.selectorColorImage.Location = new System.Drawing.Point(223, 146);
+            this.selectorColorImage.Location = new System.Drawing.Point(297, 195);
+            this.selectorColorImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectorColorImage.Name = "selectorColorImage";
-            this.selectorColorImage.Size = new System.Drawing.Size(33, 24);
+            this.selectorColorImage.Size = new System.Drawing.Size(43, 29);
             this.selectorColorImage.TabIndex = 32;
             this.selectorColorImage.TabStop = false;
             this.selectorColorImage.Click += new System.EventHandler(this.SelectorColorImage_Click);
@@ -128,9 +135,10 @@
             "Paranormal",
             "Drama",
             "Infantiles"});
-            this.generoComboBox.Location = new System.Drawing.Point(223, 119);
+            this.generoComboBox.Location = new System.Drawing.Point(297, 161);
+            this.generoComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.generoComboBox.Name = "generoComboBox";
-            this.generoComboBox.Size = new System.Drawing.Size(103, 21);
+            this.generoComboBox.Size = new System.Drawing.Size(136, 24);
             this.generoComboBox.TabIndex = 33;
             // 
             // errorGuardar
@@ -146,10 +154,10 @@
             // 
             this.AcceptButton = this.guardarBtn;
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(567, 259);
+            this.ClientSize = new System.Drawing.Size(756, 319);
             this.Controls.Add(this.generoComboBox);
             this.Controls.Add(this.selectorColorImage);
             this.Controls.Add(this.guardarBtn);
@@ -159,6 +167,7 @@
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.tituloVistaLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
             this.Resize += new System.EventHandler(this.RegistroLibro_Resize);
