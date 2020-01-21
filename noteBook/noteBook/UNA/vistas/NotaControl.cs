@@ -270,7 +270,8 @@ namespace noteBook.UNA.vistas
 
                         editarNota.CargarDatos(nota);
                         editarNota.ShowDialog();
-                        
+                        RefrescarcarNotaControl(editarNota.GetNota());
+                        editarNota.Close();
                         this.Refresh();
                     }
                 }
@@ -292,6 +293,7 @@ namespace noteBook.UNA.vistas
                         {
                             libro.Notas.Remove(nota);
                             Singlenton.Instance.NotaEditada = true;
+                            
                             Singlenton.Instance.miLibro.ActualizarPage();
                             break;
                         }
@@ -315,7 +317,18 @@ namespace noteBook.UNA.vistas
         }
 
 
-
+        private void RefrescarcarNotaControl(Nota nota)
+        {
+            Height = nota.Heigh;
+            Width = nota.Width;
+            Location = new Point(nota.PosicionX, nota.PosicionY);
+            FuenteTipo = nota.Fuente;
+            TituloNota = nota.Titulo;
+            ColorNota = nota.ColorFondo;
+            ColorFuente = nota.ColorFuente;
+            FechaCreacion = nota.FechaCreacion;
+            Categoria = nota.Categoria;
+        }
         private void EditarBtn_MouseHover(object sender, EventArgs e)
         {
             this.Show();

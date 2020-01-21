@@ -52,8 +52,22 @@ namespace noteBook.UNA.vistas
                 FechaCreacion = nota.FechaCreacion,
                 Categoria = nota.Categoria
             };
+            notaControl.MouseHover += NotaControl_MouseHover;
+            notaControl.MouseMove += NotaControl_MouseMove;
             return notaControl;
         }
+
+        private void NotaControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            ActualizarPage();
+        }
+
+        private void NotaControl_MouseHover(object sender, EventArgs e)
+        {
+            ActualizarPage();
+        }
+
+       
 
         public NotaPrivadaControl CrearNotaPrivada(Nota nota)
         {
@@ -89,10 +103,9 @@ namespace noteBook.UNA.vistas
                     Nombre = libro.Nombre,
                     Genero = libro.Genero,
                     ColorLibro = libro.Color
-
                 };
                 TabPage pestaña = new TabPage();
-
+                
                 Label informacionLabel = new Label
                 {
                     Location = new Point(10, 380),
@@ -101,7 +114,8 @@ namespace noteBook.UNA.vistas
                 };
                 informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
                 pestaña.Controls.Add(informacionLabel);
-                
+                pestaña.MouseHover += Pestaña_MouseHover;
+                pestaña.MouseMove += Pestaña_MouseMove;
                 libroControl.MouseClick += (a, b) =>
                    {
 
@@ -130,6 +144,8 @@ namespace noteBook.UNA.vistas
                                    if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
                                    {
                                        NotaControl notaControl = CrearNotaControl(nota);
+                                       notaControl.MouseHover += NotaControl_MouseHover;
+                                       notaControl.MouseMove += NotaControl_MouseMove;
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
@@ -148,7 +164,8 @@ namespace noteBook.UNA.vistas
                                    if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                                    {
                                        NotaControl notaControl = CrearNotaControl(nota);
-
+                                       notaControl.MouseHover += NotaControl_MouseHover;
+                                       notaControl.MouseMove += NotaControl_MouseMove;
                                        pestaña.Controls.Add(notaControl);
                                    }
                                    else
@@ -179,6 +196,9 @@ namespace noteBook.UNA.vistas
 
                     pestañaLibro.Controls.Add(informacionLabel);
                     pestañaLibro.Select();
+                    pestañaLibro.DragDrop += PestañaLibro_DragDrop;
+                    pestañaLibro.MouseHover += Pestaña_MouseHover;
+                    pestañaLibro.MouseMove += Pestaña_MouseMove;
                     pestañaLibro.MouseClick += (s, e) =>
                     {
                         int x = e.X;
@@ -192,6 +212,8 @@ namespace noteBook.UNA.vistas
                             if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);
+                                notaControl.MouseHover += NotaControl_MouseHover;
+                                notaControl.MouseMove += NotaControl_MouseMove;
                                 pestañaLibro.Controls.Add(notaControl);
                             }
                             else
@@ -207,7 +229,8 @@ namespace noteBook.UNA.vistas
                         if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
                         {
                             NotaControl notaControl = CrearNotaControl(nota);
-
+                            notaControl.MouseHover += NotaControl_MouseHover;
+                            notaControl.MouseMove += NotaControl_MouseMove;
                             pestañaLibro.Controls.Add(notaControl);
                         }
                         else
@@ -232,6 +255,22 @@ namespace noteBook.UNA.vistas
                 bibliotecaTabControl.SelectedTab = biblioteca;
             }
         }
+
+        private void Pestaña_MouseHover(object sender, EventArgs e)
+        {
+            ActualizarPage();
+        }
+
+        private void Pestaña_MouseMove(object sender, MouseEventArgs e)
+        {
+            ActualizarPage();
+        }
+
+        private void PestañaLibro_DragDrop(object sender, DragEventArgs e)
+        {
+            ActualizarPage();
+        }
+
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -266,8 +305,9 @@ namespace noteBook.UNA.vistas
 
         public void ActualizarPage()
         {
-            
-            String nombreUsuario = Singlenton.Instance.UsuarioActivo(); ;
+            if (Singlenton.Instance.NotaEditada)
+            {
+                String nombreUsuario = Singlenton.Instance.UsuarioActivo(); ;
             bibliotecaTabControl.SelectedTab.Controls.Clear();
             Label informacionLabel = new Label
             {
@@ -277,8 +317,7 @@ namespace noteBook.UNA.vistas
             };
             informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
             bibliotecaTabControl.SelectedTab.Controls.Add(informacionLabel);
-            if (Singlenton.Instance.NotaEditada)
-            {
+            
 
                 foreach (Libro libro in Singlenton.Instance.LibrosList)
                 {

@@ -28,7 +28,7 @@ namespace noteBook.UNA.vistas
 
         private Nota notaAuxiliar;
 
-
+        private Nota notaModificada;
         private readonly bool guardoDatos = false;
 
         public EditarNotasForm()
@@ -49,11 +49,11 @@ namespace noteBook.UNA.vistas
 
             mensajeEditarNotas.SetToolTip(tituloTxt, "Ingrese el nuevo titulo");
 
-          //  mensajeEditarNotas.SetToolTip(SelectorColoresNotas, "Color de fondo actual de la nota");
+         
 
             mensajeEditarNotas.SetToolTip(colorFondoPB, "Ingrese el nuevo color de fondo de la nota");
 
-            //mensajeEditarNotas.SetToolTip(colorFuente, "Color de fuente actual de la nota");
+           
 
             mensajeEditarNotas.SetToolTip(colorFuentePB, "Ingrese el nuevo color de fondo");
 
@@ -61,7 +61,7 @@ namespace noteBook.UNA.vistas
 
             mensajeEditarNotas.SetToolTip(fuenteCBX, "Ingrese el nuevo estilo de fuente");
 
-         //   mensajeEditarNotas.SetToolTip(lblPrivacidad, "Privacidad actual de la nota");
+        
 
             mensajeEditarNotas.SetToolTip(privacidadCBX, "Ingrese la nueva privacidad de la nota");
 
@@ -75,9 +75,10 @@ namespace noteBook.UNA.vistas
 
         }
 
-        public void CargarDatos(Object nota)
+        public void CargarDatos(Nota nota)
 
         {
+            notaModificada = nota;
             notaAuxiliar = (Nota)nota;
             tituloActualLabel.Text = notaAuxiliar.Titulo;
            
@@ -154,18 +155,23 @@ namespace noteBook.UNA.vistas
                             nota.ColorFondo = colorFondoDialog.Color.ToArgb();
                         }
                         DateTime hoy = DateTime.Now;
-                        nota.FechaModificacion = Convert.ToString(hoy);
+                        nota.FechaModificacion = Convert.ToString(hoy); 
+                        notaModificada = nota;
                         informacion += $"se modifico en al fecha{nota.FechaModificacion} ;";
 
                         Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, $"Nota { nota.Titulo}");
-
-                        Singlenton.Instance.NotaEditada = true;
+                       
+                       
                     }
 
                 }
 
             }
 
+        }
+        public Nota GetNota()
+        {
+            return notaModificada;
         }
         private void PBColorFondo_Click(object sender, EventArgs e)
 
@@ -244,7 +250,7 @@ namespace noteBook.UNA.vistas
                                 ModificarNota();
                                 MessageBox.Show("Se modifico la nota");
 
-                                this.Close();
+                                this.Hide();
                                
                             }
                             else
@@ -275,8 +281,8 @@ namespace noteBook.UNA.vistas
                     {
                         ModificarNota();
                         MessageBox.Show("Se modifico la nota");
-                        this.Close();
-                        Singlenton.Instance.miLibro.ActualizarPage();
+                        this.Hide();
+                       // Singlenton.Instance.miLibro.ActualizarPage();
                     }
                     else
                     {
