@@ -14,7 +14,7 @@ namespace noteBook.UNA.vistas
     public partial class FormularioNotaForm : Form
     {
 
-        readonly NotaControl notaPrevia = new NotaControl();
+        readonly NotaControlForm notaPrevia = new NotaControlForm();
 
         string usuario;
         public FormularioNotaForm()

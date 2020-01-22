@@ -30,7 +30,7 @@
         {
 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaPrivadaControlForm));
-            this.tituloLabel = new System.Windows.Forms.Label();
+            
 
             this.desbloqueoBtn = new System.Windows.Forms.Button();
             this.contendorPanel = new System.Windows.Forms.Panel();

@@ -203,7 +203,7 @@ namespace noteBook.UNA.Clases
                         Categoria = data2.Rows[x][2].ToString(),
                         Privacidad=false
                     };
-                    libro.AgregarNota.Add(nota);
+                    libro.Notas.Add(nota);
 
                 }
             }

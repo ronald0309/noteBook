@@ -40,24 +40,20 @@
             this.contraseñaLabel = new System.Windows.Forms.Label();
             this.linkRegistrarse = new System.Windows.Forms.LinkLabel();
             this.ingresarBtn = new System.Windows.Forms.Button();
-
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ContraseñaCambioTxt = new System.Windows.Forms.LinkLabel();
-
             ((System.ComponentModel.ISupportInitialize)(this.usarioImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // contraseñaTxt
             // 
-            this.contraseñaTxt.Location = new System.Drawing.Point(628, 344);
+            this.contraseñaTxt.Location = new System.Drawing.Point(628, 327);
             this.contraseñaTxt.Margin = new System.Windows.Forms.Padding(4);
             this.contraseñaTxt.Name = "contraseñaTxt";
             this.contraseñaTxt.PasswordChar = '*';
-
-            this.contraseñaTxt.Size = new System.Drawing.Size(161, 20);
-
+            this.contraseñaTxt.Size = new System.Drawing.Size(161, 22);
             this.contraseñaTxt.TabIndex = 2;
             // 
             // usuarioTxt
@@ -66,11 +62,7 @@
             this.usuarioTxt.Location = new System.Drawing.Point(628, 281);
             this.usuarioTxt.Margin = new System.Windows.Forms.Padding(4);
             this.usuarioTxt.Name = "usuarioTxt";
-
-
-
-            this.usuarioTxt.Size = new System.Drawing.Size(161, 20);
-
+            this.usuarioTxt.Size = new System.Drawing.Size(161, 22);
             this.usuarioTxt.TabIndex = 1;
             // 
             // usarioImagen
@@ -118,7 +110,7 @@
             // 
             this.contraseñaLabel.Image = ((System.Drawing.Image)(resources.GetObject("contraseñaLabel.Image")));
             this.contraseñaLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.contraseñaLabel.Location = new System.Drawing.Point(666, 324);
+            this.contraseñaLabel.Location = new System.Drawing.Point(666, 307);
             this.contraseñaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.contraseñaLabel.Name = "contraseñaLabel";
             this.contraseñaLabel.Size = new System.Drawing.Size(141, 16);
@@ -129,11 +121,8 @@
             // linkRegistrarse
             // 
             this.linkRegistrarse.AutoSize = true;
-
+            this.linkRegistrarse.Location = new System.Drawing.Point(603, 387);
             this.linkRegistrarse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-
-            this.linkRegistrarse.Location = new System.Drawing.Point(464, 325);
-
             this.linkRegistrarse.Name = "linkRegistrarse";
             this.linkRegistrarse.Size = new System.Drawing.Size(76, 17);
             this.linkRegistrarse.TabIndex = 4;
@@ -143,18 +132,15 @@
             // 
             // ingresarBtn
             // 
-            this.ingresarBtn.Location = new System.Drawing.Point(628, 389);
+            this.ingresarBtn.Location = new System.Drawing.Point(628, 357);
             this.ingresarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ingresarBtn.Name = "ingresarBtn";
-
             this.ingresarBtn.Size = new System.Drawing.Size(161, 26);
-
             this.ingresarBtn.TabIndex = 3;
             this.ingresarBtn.Text = "Ingresar";
             this.ingresarBtn.UseVisualStyleBackColor = true;
             this.ingresarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);
             // 
-
             // label1
             // 
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,32 +163,27 @@
             this.label2.TabIndex = 35;
             this.label2.Text = "Login";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
+            // 
             // ContraseñaCambioTxt
             // 
             this.ContraseñaCambioTxt.AutoSize = true;
-            this.ContraseñaCambioTxt.Location = new System.Drawing.Point(527, 325);
+            this.ContraseñaCambioTxt.Location = new System.Drawing.Point(666, 387);
             this.ContraseñaCambioTxt.Name = "ContraseñaCambioTxt";
-            this.ContraseñaCambioTxt.Size = new System.Drawing.Size(101, 13);
+            this.ContraseñaCambioTxt.Size = new System.Drawing.Size(135, 17);
             this.ContraseñaCambioTxt.TabIndex = 34;
             this.ContraseñaCambioTxt.TabStop = true;
             this.ContraseñaCambioTxt.Text = "Cambiar contraseña";
             this.ContraseñaCambioTxt.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ContraseñaCambioTxt_LinkClicked);
-
             // 
             // Login
             // 
             this.AcceptButton = this.ingresarBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-
+            this.ClientSize = new System.Drawing.Size(1064, 544);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ContraseñaCambioTxt);
-
             this.Controls.Add(this.ingresarBtn);
             this.Controls.Add(this.linkRegistrarse);
             this.Controls.Add(this.contraseñaLabel);

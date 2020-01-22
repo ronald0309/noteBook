@@ -89,11 +89,11 @@
     <Compile Include="UNA\vistas\BusquedaForm.Designer.cs">
       <DependentUpon>BusquedaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\Contraseña.cs">
+    <Compile Include="UNA\vistas\ContraseñaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\Contraseña.Designer.cs">
-      <DependentUpon>Contraseña.cs</DependentUpon>
+    <Compile Include="UNA\vistas\ContraseñaForm.Designer.cs">
+      <DependentUpon>ContraseñaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\vistas\EditarNotasForm.cs">
       <SubType>Form</SubType>
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="UNA\vistas\BusquedaForm.resx">
       <DependentUpon>BusquedaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\Contraseña.resx">
-      <DependentUpon>Contraseña.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\ContraseñaForm.resx">
+      <DependentUpon>ContraseñaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\EditarNotasForm.resx">
       <DependentUpon>EditarNotasForm.cs</DependentUpon>

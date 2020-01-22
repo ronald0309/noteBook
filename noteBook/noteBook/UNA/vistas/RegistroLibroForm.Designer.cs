@@ -111,7 +111,7 @@
             this.tituloVistaLabel.Text = "REGISTRO LIBRO";
             this.tituloVistaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
-            this.tituloVistaLabel.Click += new System.EventHandler(this.TituloVistaLabel_Click);
+           
 
             // 
             // selectorColorImage

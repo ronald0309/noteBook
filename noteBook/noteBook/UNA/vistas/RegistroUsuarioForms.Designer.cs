@@ -136,7 +136,7 @@
             this.aceptarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
 
-;
+
             this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 
             this.aceptarBtn.Location = new System.Drawing.Point(249, 213);

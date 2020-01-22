@@ -73,7 +73,7 @@ namespace noteBook.UNA.vistas
             {
                 if (pantallaActiva == 1)
                 {
-                    MisLibros miLibros = new MisLibros();
+                    MisLibrosForm miLibros = new MisLibrosForm();
                     this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
                     miLibros.CrearLibro();
                     Singlenton.Instance.miLibro = miLibros;
@@ -194,7 +194,7 @@ namespace noteBook.UNA.vistas
         {
 
 
-            RegistroLibro registroLibros = new RegistroLibro();
+            RegistroLibroForm registroLibros = new RegistroLibroForm();
             this.nombreVistaLabel.Text = "Agregar Libro(Formulario 01)";
 
             this.AbrirFormulario(registroLibros);
@@ -213,7 +213,7 @@ namespace noteBook.UNA.vistas
 
 
             pantallaActiva = 1;
-            MisLibros miLibros = new MisLibros();
+            MisLibrosForm miLibros = new MisLibrosForm();
 
             this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
 
