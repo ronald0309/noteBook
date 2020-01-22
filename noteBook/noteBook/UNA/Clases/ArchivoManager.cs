@@ -42,7 +42,7 @@ namespace noteBook.UNA.Clases
 
                 foreach (Libro libro in Libros)
                 {
-                    var line = $"{libro.UsuarioCreadorLibro},{libro.Pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
+                    var line = $"{libro.Usuario},{libro.Pocision},{libro.Nombre},{libro.Genero},{libro.Orden},{libro.Color},{libro.Nota},{libro.CantidadNotas}";
                     streamWriter.WriteLine(line);
                     auxNombre = libro.Nombre;
                 }
@@ -56,9 +56,9 @@ namespace noteBook.UNA.Clases
                 foreach (Libro libro in Libros)
                 {
                     auxNombre = libro.Nombre;
-                    foreach (Nota nota in libro.AgregarNota)
+                    foreach (Nota nota in libro.Notas)
                     {
-                        var line = $"{nota.UsuarioCreadorNota},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh},{nota.orden}";
+                        var line = $"{nota.Usuario},{auxNombre},{nota.Titulo},{nota.Privacidad},{nota.Categoria},{nota.Property},{nota.Fuente},{nota.ColorFuente},{nota.ColorFondo},{nota.FechaCreacion},{nota.FechaModificacion},{nota.PosicionX},{nota.PosicionY},{nota.Width},{nota.Heigh},{nota.orden}";
                         streamWriter.WriteLine(line);
                     }
                 }
@@ -126,11 +126,13 @@ namespace noteBook.UNA.Clases
 
                 Libro libro = new Libro
                 {
+
                     Nombre = data.Rows[x][1].ToString(),
                     Genero = data.Rows[x][2].ToString(),
                     Color=Convert.ToInt32(data.Rows[x][3])
                 };
                 Singlenton.Instance.LibrosList.Add(libro);
+
 
             }
 
@@ -196,14 +198,13 @@ namespace noteBook.UNA.Clases
                     for (int x = 0; x < data2.Rows.Count; x++) {
                     Nota nota = new Nota
                     {
+
                         Titulo = data2.Rows[x][1].ToString(),
                         Categoria = data2.Rows[x][2].ToString(),
                         Privacidad=false
                     };
-                    libro.AgregarNota.Add(nota);
+                    libro.Notas.Add(nota);
 
-                    
-                
                 }
             }
 

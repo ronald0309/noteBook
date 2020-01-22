@@ -17,3 +17,10 @@ E:\Documentos\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\not
 E:\Documentos\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csproj.GenerateResource.cache
 E:\Documentos\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
 E:\Documentos\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\bin\Debug\WindowsFormsControlLibrary1.dll
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\bin\Debug\WindowsFormsControlLibrary1.pdb
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\noteBook.UNA.vistas.UserControl1.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csproj.GenerateResource.cache
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb

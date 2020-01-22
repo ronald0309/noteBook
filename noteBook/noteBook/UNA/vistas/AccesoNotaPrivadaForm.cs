@@ -29,7 +29,7 @@ namespace noteBook.UNA.vistas
         {
             notaAuxiliar = (Nota)nota;
         }
-        private void aceptarbtn_Click(object sender, EventArgs e)
+        private void Aceptarbtn_Click(object sender, EventArgs e)
         {
             this.Mensajes();
             // MessageBox.Show(nombreNota);
@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
            
             foreach (var Usuario in Singlenton.Instance.usuarios)
             {
-                if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.UsuarioCreadorNota==nombreUsuarioTxt.Text )
+                if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.Usuario == nombreUsuarioTxt.Text )
                 {
                     Singlenton.Instance.CargarReporte("Ingreso a nota privada", $"El usuario {Singlenton.Instance.UsuarioActivo()} ingreso a la nota { notaAuxiliar.Titulo}", $"Nota privada { notaAuxiliar.Titulo}");
                     datosUsario = true;

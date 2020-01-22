@@ -47,9 +47,10 @@
             // logoImagen
             // 
             this.logoImagen.Image = ((System.Drawing.Image)(resources.GetObject("logoImagen.Image")));
-            this.logoImagen.Location = new System.Drawing.Point(284, 12);
+            this.logoImagen.Location = new System.Drawing.Point(379, 15);
+            this.logoImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoImagen.Name = "logoImagen";
-            this.logoImagen.Size = new System.Drawing.Size(356, 255);
+            this.logoImagen.Size = new System.Drawing.Size(475, 314);
             this.logoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImagen.TabIndex = 27;
             this.logoImagen.TabStop = false;
@@ -58,9 +59,10 @@
             // 
             this.informacionLbl.AutoSize = true;
             this.informacionLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informacionLbl.Location = new System.Drawing.Point(257, 274);
+            this.informacionLbl.Location = new System.Drawing.Point(343, 337);
+            this.informacionLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionLbl.Name = "informacionLbl";
-            this.informacionLbl.Size = new System.Drawing.Size(82, 23);
+            this.informacionLbl.Size = new System.Drawing.Size(109, 30);
             this.informacionLbl.TabIndex = 28;
             this.informacionLbl.Text = "Informacion:";
             // 
@@ -68,9 +70,10 @@
             // 
             this.informacionReporteLbl.AutoSize = true;
             this.informacionReporteLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informacionReporteLbl.Location = new System.Drawing.Point(341, 405);
+            this.informacionReporteLbl.Location = new System.Drawing.Point(455, 498);
+            this.informacionReporteLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionReporteLbl.Name = "informacionReporteLbl";
-            this.informacionReporteLbl.Size = new System.Drawing.Size(283, 23);
+            this.informacionReporteLbl.Size = new System.Drawing.Size(363, 30);
             this.informacionReporteLbl.TabIndex = 29;
             this.informacionReporteLbl.Text = "Muestra la activada realizada por los usuarios.";
             // 
@@ -78,9 +81,10 @@
             // 
             this.informacionBuscarLbl.AutoSize = true;
             this.informacionBuscarLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informacionBuscarLbl.Location = new System.Drawing.Point(341, 373);
+            this.informacionBuscarLbl.Location = new System.Drawing.Point(455, 459);
+            this.informacionBuscarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionBuscarLbl.Name = "informacionBuscarLbl";
-            this.informacionBuscarLbl.Size = new System.Drawing.Size(299, 23);
+            this.informacionBuscarLbl.Size = new System.Drawing.Size(393, 30);
             this.informacionBuscarLbl.TabIndex = 30;
             this.informacionBuscarLbl.Text = "Permite buscar notas, mediante titulo y categoria.";
             // 
@@ -88,9 +92,10 @@
             // 
             this.informacionMisLibrosLbl.AutoSize = true;
             this.informacionMisLibrosLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informacionMisLibrosLbl.Location = new System.Drawing.Point(341, 339);
+            this.informacionMisLibrosLbl.Location = new System.Drawing.Point(455, 417);
+            this.informacionMisLibrosLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionMisLibrosLbl.Name = "informacionMisLibrosLbl";
-            this.informacionMisLibrosLbl.Size = new System.Drawing.Size(268, 23);
+            this.informacionMisLibrosLbl.Size = new System.Drawing.Size(342, 30);
             this.informacionMisLibrosLbl.TabIndex = 31;
             this.informacionMisLibrosLbl.Text = "Permite ver los libros de todos los usuarios.";
             // 
@@ -98,9 +103,10 @@
             // 
             this.informacionAgregarLbl.AutoSize = true;
             this.informacionAgregarLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informacionAgregarLbl.Location = new System.Drawing.Point(341, 306);
+            this.informacionAgregarLbl.Location = new System.Drawing.Point(455, 377);
+            this.informacionAgregarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionAgregarLbl.Name = "informacionAgregarLbl";
-            this.informacionAgregarLbl.Size = new System.Drawing.Size(145, 23);
+            this.informacionAgregarLbl.Size = new System.Drawing.Size(186, 30);
             this.informacionAgregarLbl.TabIndex = 32;
             this.informacionAgregarLbl.Text = "Permite agregar libros.";
             // 
@@ -108,9 +114,10 @@
             // 
             this.reportesLbl.AutoSize = true;
             this.reportesLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportesLbl.Location = new System.Drawing.Point(274, 396);
+            this.reportesLbl.Location = new System.Drawing.Point(365, 487);
+            this.reportesLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.reportesLbl.Name = "reportesLbl";
-            this.reportesLbl.Size = new System.Drawing.Size(66, 23);
+            this.reportesLbl.Size = new System.Drawing.Size(84, 30);
             this.reportesLbl.TabIndex = 33;
             this.reportesLbl.Text = "Reportes:";
             // 
@@ -118,9 +125,10 @@
             // 
             this.buscarLbl.AutoSize = true;
             this.buscarLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarLbl.Location = new System.Drawing.Point(274, 361);
+            this.buscarLbl.Location = new System.Drawing.Point(365, 444);
+            this.buscarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.buscarLbl.Name = "buscarLbl";
-            this.buscarLbl.Size = new System.Drawing.Size(51, 23);
+            this.buscarLbl.Size = new System.Drawing.Size(67, 30);
             this.buscarLbl.TabIndex = 34;
             this.buscarLbl.Text = "Buscar:";
             // 
@@ -128,9 +136,10 @@
             // 
             this.misLibrosLbl.AutoSize = true;
             this.misLibrosLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.misLibrosLbl.Location = new System.Drawing.Point(274, 329);
+            this.misLibrosLbl.Location = new System.Drawing.Point(365, 405);
+            this.misLibrosLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.misLibrosLbl.Name = "misLibrosLbl";
-            this.misLibrosLbl.Size = new System.Drawing.Size(71, 23);
+            this.misLibrosLbl.Size = new System.Drawing.Size(89, 30);
             this.misLibrosLbl.TabIndex = 35;
             this.misLibrosLbl.Text = "Mis libros:";
             // 
@@ -138,9 +147,10 @@
             // 
             this.agrgarLbl.AutoSize = true;
             this.agrgarLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agrgarLbl.Location = new System.Drawing.Point(274, 297);
+            this.agrgarLbl.Location = new System.Drawing.Point(365, 366);
+            this.agrgarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.agrgarLbl.Name = "agrgarLbl";
-            this.agrgarLbl.Size = new System.Drawing.Size(61, 23);
+            this.agrgarLbl.Size = new System.Drawing.Size(78, 30);
             this.agrgarLbl.TabIndex = 36;
             this.agrgarLbl.Text = "Agregar:";
             // 
@@ -148,9 +158,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(274, 428);
+            this.label5.Location = new System.Drawing.Point(365, 527);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 23);
+            this.label5.Size = new System.Drawing.Size(79, 30);
             this.label5.TabIndex = 38;
             this.label5.Text = "Guardar:";
             // 
@@ -158,18 +169,19 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(341, 438);
+            this.label6.Location = new System.Drawing.Point(455, 539);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(194, 23);
+            this.label6.Size = new System.Drawing.Size(248, 30);
             this.label6.TabIndex = 37;
             this.label6.Text = "Guarda los cambios realizados.";
             // 
             // InformacionMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(918, 475);
+            this.ClientSize = new System.Drawing.Size(1224, 585);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.agrgarLbl);
@@ -183,6 +195,7 @@
             this.Controls.Add(this.informacionLbl);
             this.Controls.Add(this.logoImagen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "InformacionMenuForm";
             this.Text = "InformacionMenuForm";
             ((System.ComponentModel.ISupportInitialize)(this.logoImagen)).EndInit();

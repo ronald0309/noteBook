@@ -9,8 +9,8 @@ namespace noteBook.UNA.Clases
 {
     public class Libro
     {
-        public List<Nota> AgregarNota = new List<Nota>();
-        public string UsuarioCreadorLibro { get; set; }
+        public List<Nota> Notas = new List<Nota>();
+        public string Usuario { get; set; }
         public int Pocision { get; set; }
         public string Nombre { get; set; }
         public string Genero { get; set; }

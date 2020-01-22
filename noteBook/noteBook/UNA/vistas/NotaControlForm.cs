@@ -18,11 +18,13 @@ namespace noteBook.UNA.vistas
         bool mover = false;
         bool modificarTamaño = false;
         Point inicial;
+        private readonly Nota notaEditada;
 
         public NotaControlForm()
         {
 
             InitializeComponent();
+
         }
         private string tituloNota;
         private string fuenteTipo;
@@ -49,8 +51,6 @@ namespace noteBook.UNA.vistas
             set
             {
                 categoria = value;
-                //  CategoriaLabel.Text = value;
-
                 categoriarichTexBox.Text = value;
                 if (buscar == true)
                 {
@@ -60,10 +60,8 @@ namespace noteBook.UNA.vistas
 
                     categoriarichTexBox.Find(buscarCategoria.ToLower());
                     categoriarichTexBox.Find(buscarCategoria.ToUpper());
-
-                    //          TituloRichTextBox.Find(PalabraBus);
                     categoriarichTexBox.SelectionColor = Color.Blue;
-                    AgrandarBoton.Hide();
+                    AgrandarBtn.Hide();
                     moverBoton.Hide();
                     eliminarBtn.Hide();
                 }
@@ -89,7 +87,6 @@ namespace noteBook.UNA.vistas
         public void Buscar(bool buscar)
         {
             this.buscar = buscar;
-
         }
         public string FechaCreacion
         {
@@ -138,26 +135,19 @@ namespace noteBook.UNA.vistas
                     categoriarichTexBox.BackColor = Color.FromArgb(colorNota);
                 }
                 contendorPanel.BackColor = Color.FromArgb(colorNota);
-                ///   CategoriarichTextBox.BackColor = Color.FromName(co);
                 moverBoton.BackColor = Color.FromArgb(colorNota);
-                AgrandarBoton.BackColor = Color.FromArgb(colorNota);
+                AgrandarBtn.BackColor = Color.FromArgb(colorNota);
 
             }
         }
-        public void DesactivarBotones()
-        {
-            editarBtn.Hide();
-            AgrandarBoton.Hide();
-            moverBoton.Hide();
-            eliminarBtn.Hide();
-        }
+
         public string TituloNota
         {
             get { return tituloNota; }
             set
             {
                 tituloNota = value;
-               
+
                 tituloRichTextBox.Text = value;
                 if (buscar == true)
                 {
@@ -165,7 +155,7 @@ namespace noteBook.UNA.vistas
                     tituloRichTextBox.Find(PalabraBus.ToLower());
                     tituloRichTextBox.Find(PalabraBus.ToUpper());
                     tituloRichTextBox.SelectionColor = Color.Blue;
-                    AgrandarBoton.Hide();
+                    AgrandarBtn.Hide();
                     moverBoton.Hide();
                 }
                 else
@@ -175,16 +165,11 @@ namespace noteBook.UNA.vistas
 
             }
         }
-
-        // }
-
         private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
         {
             modificarTamaño = false;
 
             DoubleBuffered = true;
-            Singlenton.Instance.NotaEditada = true;
-            Singlenton.Instance.miLibro.ActualizarPage();
 
         }
 
@@ -194,32 +179,31 @@ namespace noteBook.UNA.vistas
             bool banderaWidth = false;
             if (modificarTamaño)
             {
-                /// 155; 175
-               
-                if (174 <= AgrandarBoton.Top+e.Y )
+
+                if (174 <= AgrandarBtn.Top + e.Y)
                 {
 
                     banderaHeight = true;
                 }
-                if (154 <= AgrandarBoton.Left + e.X &&Location.X<800)
+                if (154 <= AgrandarBtn.Left + e.X && Location.X < 800)
                 {
                     banderaWidth = true;
 
                 }
                 foreach (var libro in Singlenton.Instance.LibrosList)
                 {
-                    foreach (var nota in libro.AgregarNota)
+                    foreach (var nota in libro.Notas)
                     {
                         if (nota.Titulo == this.TituloNota)
                         {
                             if (banderaHeight == true)
                             {
-                                this.Height = AgrandarBoton.Top + e.Y;
+                                this.Height = AgrandarBtn.Top + e.Y;
                                 nota.Heigh = this.Height;
                             }
                             if (banderaWidth == true)
                             {
-                                this.Width = AgrandarBoton.Left + e.X;
+                                this.Width = AgrandarBtn.Left + e.X;
                                 nota.Width = this.Width;
                             }
                         }
@@ -247,9 +231,6 @@ namespace noteBook.UNA.vistas
 
             DoubleBuffered = true;
             mover = false;
-            Singlenton.Instance.NotaEditada = true;
-            Singlenton.Instance.miLibro.ActualizarPage();
-
         }
 
         private void MoverBoton_MouseMove(object sender, MouseEventArgs e)
@@ -261,7 +242,7 @@ namespace noteBook.UNA.vistas
 
                     foreach (var libro in Singlenton.Instance.LibrosList)
                     {
-                        foreach (var nota in libro.AgregarNota)
+                        foreach (var nota in libro.Notas)
                         {
                             if (nota.Titulo == this.TituloNota)
                             {
@@ -277,47 +258,38 @@ namespace noteBook.UNA.vistas
             }
 
         }
-
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FechaCreacion_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void EditarBtn_Click(object sender, EventArgs e)
         {
             EditarNotasForm editarNota = new EditarNotasForm();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
-                foreach (var nota in libro.AgregarNota)
+                foreach (var nota in libro.Notas)
                 {
                     if (nota.Titulo == this.tituloNota)
                     {
+
                         editarNota.CargarDatos(nota);
                         editarNota.ShowDialog();
+                        RefrescarNotaControl(editarNota.GetNota());
+                        editarNota.Close();
                         this.Refresh();
                     }
                 }
             }
         }
 
-        private void eliminarBtn_Click(object sender, EventArgs e)
+        private void EliminarBtn_Click(object sender, EventArgs e)
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
             DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
+
                 MySqlDb mySqlDb = new MySqlDb();
                 mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
                 mySqlDb.OpenConnection();
                 // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
-                string query = String.Format("delete from notas where titulo='"+TituloNota+"'");
+                string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
                 mySqlDb.EjectSQL(query);
                 //foreach (Libro libro in Singlenton.Instance.LibrosList)
                 //{
@@ -337,6 +309,7 @@ namespace noteBook.UNA.vistas
                 //}
                 //Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
 
+
             }
             else
             {
@@ -349,6 +322,44 @@ namespace noteBook.UNA.vistas
 
             }
         }
+        private void BorrarNota()
+        {
+            foreach (Libro libro in Singlenton.Instance.LibrosList)
+            {
+
+                foreach (Nota nota in libro.Notas)
+                {
+                    if (nota.Titulo == this.tituloNota)
+                    {
+                        libro.Notas.Remove(nota);
+                        Singlenton.Instance.NotaEditada = true;
+                        Singlenton.Instance.miLibro.ActualizarPage();
+                        break;
+                    }
+                }
+            }
+            Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
+
+        }
+
+        private void RefrescarNotaControl(Nota nota)
+        {
+            Height = nota.Heigh;
+            Width = nota.Width;
+            Location = new Point(nota.PosicionX, nota.PosicionY);
+            FuenteTipo = nota.Fuente;
+            TituloNota = nota.Titulo;
+            ColorNota = nota.ColorFondo;
+            ColorFuente = nota.ColorFuente;
+            FechaCreacion = nota.FechaCreacion;
+            Categoria = nota.Categoria;
+        }
+        private void EditarBtn_MouseHover(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+
     }
 }
 

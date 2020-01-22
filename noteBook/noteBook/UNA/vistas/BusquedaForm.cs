@@ -23,8 +23,10 @@ namespace noteBook.UNA.vistas
         }
         private void BusquedaInicial()
         {
-            if (busquedaTxt.Text.Length == 0 && categoriaTxt.Text.Length == 0) {
+            if (busquedaTxt.Text.Length == 0 && categoriaTxt.Text.Length == 0)
+            {
                 busquedaNotasPanel.Controls.Clear();
+
                 MySqlDb mySqlDb = new MySqlDb();
                 string n = "2";
                 mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
@@ -33,13 +35,15 @@ namespace noteBook.UNA.vistas
                 //    "(select id_usuario from libros='"+id+"'))";
                 string query = "Select titulo,categoria,color_fondo from notas where(id_libro=(select id_libro from libros))";
                 foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query))) {
+
                     NotaControlForm notaC = new NotaControlForm();
                     notaC.TituloNota = notas.Titulo;
                     notaC.Categoria = notas.Categoria;
                     notaC.ColorNota = notas.ColorFondo;
-                  busquedaNotasPanel.Controls.Add(notaC);
+                    busquedaNotasPanel.Controls.Add(notaC);
+
                 }
-               
+
             }
 
             //if (busquedaTxt.Text.Length == 0 && categoriaTxt.Text.Length == 0)
@@ -60,40 +64,40 @@ namespace noteBook.UNA.vistas
             //                    {
             //                        Nombre = tituloNota
 
-                //                    };
-                //                    notaPrivada.Buscar(true);
-                //                    notaPrivada.PalabraBuscar = busquedaTxt.Text;
-                //                    notaPrivada.ColorFondo = busquedaNota.ColorFondo;
-                //                    busquedaNotasPanel.Controls.Add(notaPrivada);
-                //                }
-                //            }
-                //            else
-                //            {
-                //                if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
-                //                {
-                //                    NotaControl notaControl = new NotaControl
-                //                    {
-                //                        FuenteTipo = busquedaNota.Fuente,
-                //                    };
-                //                    notaControl.Buscar(true);
-                //                    notaControl.PalabraBus = busquedaTxt.Text;
-                //                    notaControl.BuscarCategoria = categoriaTxt.Text;
-                //                    notaControl.Categoria = busquedaNota.Categoria;
-                //                    notaControl.TituloNota = busquedaNota.Titulo;
-                //                    notaControl.ColorNota = busquedaNota.ColorFondo;
-                //                    notaControl.ColorFuente = busquedaNota.ColorFuente;
-                //                    notaControl.FechaCreacion = busquedaNota.FechaCreacion;
-                //                    busquedaNotasPanel.Controls.Add(notaControl);
+            //                    };
+            //                    notaPrivada.Buscar(true);
+            //                    notaPrivada.PalabraBuscar = busquedaTxt.Text;
+            //                    notaPrivada.ColorFondo = busquedaNota.ColorFondo;
+            //                    busquedaNotasPanel.Controls.Add(notaPrivada);
+            //                }
+            //            }
+            //            else
+            //            {
+            //                if (tituloNota.Contains(busquedaTxt.Text.ToLower()) && categoria.Contains(categoriaTxt.Text.ToLower()))
+            //                {
+            //                    NotaControl notaControl = new NotaControl
+            //                    {
+            //                        FuenteTipo = busquedaNota.Fuente,
+            //                    };
+            //                    notaControl.Buscar(true);
+            //                    notaControl.PalabraBus = busquedaTxt.Text;
+            //                    notaControl.BuscarCategoria = categoriaTxt.Text;
+            //                    notaControl.Categoria = busquedaNota.Categoria;
+            //                    notaControl.TituloNota = busquedaNota.Titulo;
+            //                    notaControl.ColorNota = busquedaNota.ColorFondo;
+            //                    notaControl.ColorFuente = busquedaNota.ColorFuente;
+            //                    notaControl.FechaCreacion = busquedaNota.FechaCreacion;
+            //                    busquedaNotasPanel.Controls.Add(notaControl);
 
-                //                }
+            //                }
 
-                //            }
+            //            }
 
 
-                //        }
-                //    }
+            //        }
+            //    }
 
-                //}
+            //}
 
         }
         protected override CreateParams CreateParams
@@ -102,12 +106,14 @@ namespace noteBook.UNA.vistas
             {
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;
+
                 return cp;
             }
         }
 
         private void BusquedaTxt_TextChanged(object sender, EventArgs e)
         {
+
             if (busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0)
             {
                 BusquedaInicial();
@@ -117,14 +123,22 @@ namespace noteBook.UNA.vistas
                 this.BusquedaNotas();
             }
         }
+        private void EnableDoubleBuffering()
+        {
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+
+        }
         private void BusquedaNotas()
         {
-            if (busquedaTxt.Text.Length > 0 || categoriaTxt.Text.Length>0) {
+
+            if (busquedaTxt.Text.Length > 0 || categoriaTxt.Text.Length > 0)
+            {
+
                 busquedaNotasPanel.Controls.Clear();
                 MySqlDb mySqlDb = new MySqlDb();
                 mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
                 mySqlDb.OpenConnection();
-                String query=string.Format("Select titulo,categoria,color_fondo from notas where titulo like'%{0}%' and categoria like '%{1}%'",busquedaTxt.Text,categoriaTxt.Text);
+                String query = string.Format("Select titulo,categoria,color_fondo from notas where titulo like'%{0}%' and categoria like '%{1}%'", busquedaTxt.Text, categoriaTxt.Text);
                 foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
                 {
                     NotaControlForm notaC = new NotaControlForm();
@@ -134,8 +148,9 @@ namespace noteBook.UNA.vistas
                     notaC.TituloNota = notas.Titulo;
                     notaC.Categoria = notas.Categoria;
                     notaC.ColorNota = notas.ColorFondo;
-                    
+
                     busquedaNotasPanel.Controls.Add(notaC);
+
                 }
             }
             //if (busquedaTxt.Text.Length > 0 || categoriaTxt.Text.Length > 0)

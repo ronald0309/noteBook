@@ -14,15 +14,11 @@ namespace noteBook.UNA.vistas
 {
     public partial class NotaPrivadaControlForm : UserControl
     {
-        [DllImport("user32.dll")]
-        static extern bool HideCaret(IntPtr hWnd);
+
+
         public NotaPrivadaControlForm()
         {
             InitializeComponent();
-            RichTextBox[] texts = { nombreRTB };
-            foreach (RichTextBox item in texts)
-                item.GotFocus += delegate { HideCaret(item.Handle); };
-            nombreRTB.GotFocus += delegate { HideCaret(nombreRTB.Handle); };
 
         }
 
@@ -81,7 +77,7 @@ namespace noteBook.UNA.vistas
             AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
             foreach (var libro in Singlenton.Instance.LibrosList)
             {
-                foreach (var nota in libro.AgregarNota)
+                foreach (var nota in libro.Notas)
                 {
                     if (nota.Titulo == this.Nombre)
                     {
@@ -96,7 +92,7 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void contendorPanel_Paint(object sender, PaintEventArgs e)
+        private void ContendorPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
