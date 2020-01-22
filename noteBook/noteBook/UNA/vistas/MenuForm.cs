@@ -214,9 +214,13 @@ namespace noteBook.UNA.vistas
 
             pantallaActiva = 1;
             MisLibros miLibros = new MisLibros();
+
             this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
 
-            miLibros.CrearLibro();
+
+           // miLibros.CrearLibro();
+            miLibros.CrearLibroDB();
+
             Singlenton.Instance.miLibro = miLibros;
             this.AbrirFormulario(miLibros);
         }

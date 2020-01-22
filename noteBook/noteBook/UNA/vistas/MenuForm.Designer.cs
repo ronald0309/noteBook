@@ -135,7 +135,9 @@
             this.horaLabel.Location = new System.Drawing.Point(985, 20);
             this.horaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.horaLabel.Name = "horaLabel";
+
             this.horaLabel.Size = new System.Drawing.Size(233, 33);
+
             this.horaLabel.TabIndex = 0;
             this.horaLabel.Text = "Hora";
             // 

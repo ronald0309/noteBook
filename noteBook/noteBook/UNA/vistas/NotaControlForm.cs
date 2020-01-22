@@ -284,7 +284,32 @@ namespace noteBook.UNA.vistas
             DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                BorrarNota();
+
+                MySqlDb mySqlDb = new MySqlDb();
+                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                mySqlDb.OpenConnection();
+                // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
+                string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
+                mySqlDb.EjectSQL(query);
+                //foreach (Libro libro in Singlenton.Instance.LibrosList)
+                //{
+
+                //    foreach (Nota nota in libro.AgregarNota)
+                //    {
+                //        if (nota.Titulo == this.tituloNota)
+                //        {
+                //            libro.AgregarNota.Remove(nota);
+                //            Singlenton.Instance.NotaEditada = true;
+                //            Singlenton.Instance.miLibro.ActualizarPage();
+                //            break;
+                //        }
+
+
+                //    }
+                //}
+                //Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
+
+
             }
             else
             {
@@ -297,8 +322,8 @@ namespace noteBook.UNA.vistas
 
             }
         }
-        private void  BorrarNota()
-            {
+        private void BorrarNota()
+        {
             foreach (Libro libro in Singlenton.Instance.LibrosList)
             {
 
@@ -307,7 +332,7 @@ namespace noteBook.UNA.vistas
                     if (nota.Titulo == this.tituloNota)
                     {
                         libro.Notas.Remove(nota);
-                       Singlenton.Instance.NotaEditada = true;
+                        Singlenton.Instance.NotaEditada = true;
                         Singlenton.Instance.miLibro.ActualizarPage();
                         break;
                     }
@@ -334,7 +359,7 @@ namespace noteBook.UNA.vistas
             this.Show();
         }
 
-      
+
     }
 }
 

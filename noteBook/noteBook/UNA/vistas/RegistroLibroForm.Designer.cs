@@ -53,6 +53,7 @@
             this.guardarBtn.TabIndex = 31;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
+            this.guardarBtn.Click += new System.EventHandler(this.guardarBtn_Click);
             this.guardarBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GuardarBtn_MouseClick);
             // 
             // colorLabel
@@ -109,7 +110,9 @@
             this.tituloVistaLabel.TabIndex = 24;
             this.tituloVistaLabel.Text = "REGISTRO LIBRO";
             this.tituloVistaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
             this.tituloVistaLabel.Click += new System.EventHandler(this.TituloVistaLabel_Click);
+
             // 
             // selectorColorImage
             // 

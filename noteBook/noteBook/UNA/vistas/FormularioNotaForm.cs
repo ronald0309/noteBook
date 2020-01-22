@@ -57,9 +57,7 @@ namespace noteBook.UNA.vistas
             get;
             set;
         }
-
-        private void FormularioGuardarBtn_Click(object sender, EventArgs e)
-        {
+        public void guardar() {
             bool notaCreada = false;
 
             foreach (var libros in Singlenton.Instance.LibrosList)
@@ -117,7 +115,7 @@ namespace noteBook.UNA.vistas
                         nota.Usuario = usuario;
                         nota.orden = libroGuardados.Notas.Count() + 1;
                         DateTime hoy = DateTime.Now;
-                       // yyyyMMddT
+                        // yyyyMMddT
                         nota.FechaCreacion = hoy.ToString("dd-MM-yyy");
                         libroGuardados.Notas.Add(nota);
 
@@ -129,6 +127,24 @@ namespace noteBook.UNA.vistas
                     }
                 }
             }
+
+        }
+        private void FormularioGuardarBtn_Click(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Now;
+           
+            
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            //string queryLibros = string.Format("INSERT INTO notas (id_libro,titulo,categoria,privavidad,fuente,color_fuente,color_fondo,fecha_creacion,posicion_x,posicion_y,width,heigh,orden)VALUES('{0}','{1}','{2}','{3}','{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
+            //    "2", TituloTxt.Text, CategoriaTxt.Text, 'a', FuenteComboBox.Text, colorDialog2.Color.ToArgb(), colorDialog1.Color.ToArgb(), hoy.ToString("dd-MM-yyy"), x - 77,y-76,155,152,"1");
+            string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo)VALUES('{0}','{1}','{2}','{3}','{4}')", "1",
+                TituloTxt.Text, CategoriaTxt.Text, FuenteComboBox.Text, colorDialog1.Color.ToArgb()) ;
+            mySqlDb.EjectSQL(queryLibros);
+
+            this.Close();
+
         }
 
         private void SelectorColoresNotas_Click(object sender, EventArgs e)

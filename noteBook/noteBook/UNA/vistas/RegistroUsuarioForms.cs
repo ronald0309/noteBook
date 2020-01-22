@@ -39,6 +39,41 @@ namespace noteBook.UNA.vistas
             }
             return permiso;
         }
+        public bool crearUsuario() {
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select nombre from usuarios where avatar='" + NickTxt.Text + "'");
+            if (mySqlDb.QuerySQL(query).Rows.Count == 1)
+            {
+                MessageBox.Show("El usuario ya existe");
+                mySqlDb.CommitTransaction();
+                mySqlDb.CloseConnection();
+                return false;
+
+            }
+            else
+            {
+
+
+
+
+
+                string contrasenaEncrip= Encriptacion.EncriptarString(contraseñaTxt.Text, "contraseña");
+                string[] apellido;
+                apellido = ApellidosTxt.Text.Split(' ');
+                query = string.Format("INSERT INTO usuarios (nombre,apellido_primero,apellido_segundo,avatar,contrasena)VALUES('{0}','{1}','{2}','{3}','{4}')",
+                nombreUsuarioTxt.Text,"araya","cecliano",NickTxt.Text,contrasenaEncrip);
+            
+                mySqlDb.EjectSQL(query);
+                mySqlDb.CommitTransaction();
+                mySqlDb.CloseConnection();
+                return true;
+
+            }
+           
+        }
         private bool GuardarUsuario()
         {
             Usuario usuario = new Usuario();
@@ -102,16 +137,29 @@ namespace noteBook.UNA.vistas
         {
             try
             {
-                if (GuardarUsuario())
+                if (crearUsuario())
                 {
                     MessageBox.Show("Se creo el usuario");
                     this.Close();
                 }
             }
-            catch (Exception Ex)
-            {
-                MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
+            catch {
+                MessageBox.Show($"Se produjo un error al guardar el usuario");
             }
+            //try
+            //{
+            //    if (GuardarUsuario())
+            //    {
+            //        MessageBox.Show("Se creo el usuario");
+            //        this.Close();
+            //    }
+            //}
+            //catch (Exception Ex)
+            //{
+            //    MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
+            //}
+          //  crearUsuario();
+
         }
 
         private void CancelarBtn_Click(object sender, EventArgs e)
@@ -139,5 +187,7 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
+
+       
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace noteBook.UNA.Clases
 {
@@ -114,29 +116,51 @@ namespace noteBook.UNA.Clases
         }
         public void CargarLibros()
         {
-            string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string query = String.Format("Select *from libros ");
+         
+            DataTable data = mySqlDb.QuerySQL(query);
+            for (int x = 0; x <data.Rows.Count; x++) {
 
-            foreach (string archivo in cargarLibros)
-            {
-
-                string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] datosLibro = null;
-                foreach (string tex in texto)
+                Libro libro = new Libro
                 {
-                    Libro libro = new Libro();
-                    datosLibro = tex.Split(',');
-                    libro.Usuario = datosLibro[0];
-                    libro.Pocision = Convert.ToInt32(datosLibro[1].ToString());
-                    libro.Nombre = datosLibro[2];
-                    libro.Genero = datosLibro[3];
-                    libro.Orden = Convert.ToInt32(datosLibro[4].ToString());
-                    libro.Color = Convert.ToInt32(datosLibro[5].ToString()); 
-                    libro.CantidadNotas = Convert.ToInt32(datosLibro[7].ToString());
-                    
-                    Singlenton.Instance.LibrosList.Add(libro);
 
-                }
+                    Nombre = data.Rows[x][1].ToString(),
+                    Genero = data.Rows[x][2].ToString(),
+                    Color=Convert.ToInt32(data.Rows[x][3])
+                };
+                Singlenton.Instance.LibrosList.Add(libro);
+
+
             }
+
+
+
+            //string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
+
+            //foreach (string archivo in cargarLibros)
+            //{
+
+            //    string[] texto = Sys;tem.IO.File.ReadAllLines(archivo);
+            //    string[] datosLibro = null;
+            //    foreach (string tex in texto)
+            //    {
+            //        Libro libro = new Libro();
+            //        datosLibro = tex.Split(',');
+            //        libro.UsuarioCreadorLibro = datosLibro[0];
+            //        libro.Pocision = Convert.ToInt32(datosLibro[1].ToString());
+            //        libro.Nombre = datosLibro[2];
+            //        libro.Genero = datosLibro[3];
+            //        libro.Orden = Convert.ToInt32(datosLibro[4].ToString());
+            //        libro.Color = Convert.ToInt32(datosLibro[5].ToString()); 
+            //        libro.CantidadNotas = Convert.ToInt32(datosLibro[7].ToString());
+
+            //        Singlenton.Instance.LibrosList.Add(libro);
+
+            //    }
+            //  }
         }
         public void CargarUsuario()
         {
@@ -159,49 +183,74 @@ namespace noteBook.UNA.Clases
         }
         public void CargarNotas()
         {
-            string[] CargarNotas = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota*");
-
-            foreach (string archivo in CargarNotas)
-            {
-                string[] texto = System.IO.File.ReadAllLines(archivo);
-                string[] datosNota = null;
-                foreach (string tex in texto)
-                {
-                    datosNota = tex.Split(',');
-                    foreach (var libro in Singlenton.Instance.LibrosList)
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string query = String.Format("Select *from notas");
+            foreach(var libro in Singlenton.Instance.LibrosList) {
+              string queryLibro=" Select idlibros from libros where nombre = '" +libro.Nombre+ "'";
+              
+             DataTable data = mySqlDb.QuerySQL(queryLibro);
+                //MessageBox.Show(data.Rows[0][0].ToString()) ;
+                DataTable data2 = mySqlDb.QuerySQL("Select *from notas where libros_idlibros='" + data.Rows[0][0].ToString() + "'");
+               // MessageBox.Show(data2.Rows[0][1].ToString());
+               
+                    for (int x = 0; x < data2.Rows.Count; x++) {
+                    Nota nota = new Nota
                     {
-                        if (libro.Nombre == datosNota[1].ToString())
-                        {
-                            Nota nota = new Nota
-                            {
-                                Usuario = datosNota[0],
-                                Titulo = datosNota[2].ToString(),
-                                Categoria = datosNota[4].ToString(),
-                                Fuente = datosNota[6].ToString()
-                            };
-                            if (datosNota[3] == "False")
-                            {
-                                nota.Privacidad = false;
-                            }
-                            else
-                            {
-                                nota.Privacidad = true;
-                            }
-                            nota.ColorFuente = Convert.ToInt32(datosNota[7].ToString());
-                            nota.ColorFondo = Convert.ToInt32(datosNota[8].ToString());
-                            nota.FechaCreacion = datosNota[9].ToString();
-                            nota.Property = Convert.ToInt32(datosNota[5].ToString());
-                            nota.FechaModificacion = datosNota[10].ToString();
-                            nota.PosicionX = Convert.ToInt32(datosNota[11]);
-                            nota.PosicionY = Convert.ToInt32(datosNota[12]);
-                            nota.Width = Convert.ToInt32(datosNota[13]);
-                            nota.Heigh = Convert.ToInt32(datosNota[14]);
-                            nota.orden = Convert.ToInt32(datosNota[15]);
-                            libro.Notas.Add(nota);
-                        }
-                    }
+
+                        Titulo = data2.Rows[x][1].ToString(),
+                        Categoria = data2.Rows[x][2].ToString(),
+                        Privacidad=false
+                    };
+                    libro.AgregarNota.Add(nota);
+
                 }
             }
+
+            //string[] CargarNotas = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota*");
+
+            //foreach (string archivo in CargarNotas)
+            //{
+            //    string[] texto = System.IO.File.ReadAllLines(archivo);
+            //    string[] datosNota = null;
+            //    foreach (string tex in texto)
+            //    {
+            //        datosNota = tex.Split(',');
+            //        foreach (var libro in Singlenton.Instance.LibrosList)
+            //        {
+            //            if (libro.Nombre == datosNota[1].ToString())
+            //            {
+            //                Nota nota = new Nota
+            //                {
+            //                    UsuarioCreadorNota = datosNota[0],
+            //                    Titulo = datosNota[2].ToString(),
+            //                    Categoria = datosNota[4].ToString(),
+            //                    Fuente = datosNota[6].ToString()
+            //                };
+            //                if (datosNota[3] == "False")
+            //                {
+            //                    nota.Privacidad = false;
+            //                }
+            //                else
+            //                {
+            //                    nota.Privacidad = true;
+            //                }
+            //                nota.ColorFuente = Convert.ToInt32(datosNota[7].ToString());
+            //                nota.ColorFondo = Convert.ToInt32(datosNota[8].ToString());
+            //                nota.FechaCreacion = datosNota[9].ToString();
+            //                nota.Property = Convert.ToInt32(datosNota[5].ToString());
+            //                nota.FechaModificacion = datosNota[10].ToString();
+            //                nota.PosicionX = Convert.ToInt32(datosNota[11]);
+            //                nota.PosicionY = Convert.ToInt32(datosNota[12]);
+            //                nota.Width = Convert.ToInt32(datosNota[13]);
+            //                nota.Heigh = Convert.ToInt32(datosNota[14]);
+            //                nota.orden = Convert.ToInt32(datosNota[15]);
+            //                libro.AgregarNota.Add(nota);
+            //            }
+            //        }
+            //    }
+            //}
         }
         public void CargarReportes()
         {

@@ -93,4 +93,14 @@ C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.cs
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.CopyComplete
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.pdb
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.InformacionMenuForm.resources
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\BouncyCastle.Crypto.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Google.Protobuf.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\MySql.Data.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Renci.SshNet.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Ubiety.Dns.Core.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Google.Protobuf.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\MySql.Data.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Renci.SshNet.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Contraseña.resources
 

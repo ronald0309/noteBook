@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data;
 
 namespace noteBook.UNA.Clases
 {
@@ -18,5 +19,17 @@ namespace noteBook.UNA.Clases
         public int Color { get; set; }
         public Nota Nota { get => default; set { } }
         public int CantidadNotas { get; set; }
+        public  List<Libro> GetListFromDataTable(DataTable dataTable) {
+            List<Libro> libroList= new List<Libro>();
+            foreach (DataRow data in dataTable.Rows) {
+                Libro libro = new Libro();
+                libro.Nombre = data["nombre"].ToString();
+              //  libro.Genero = data["categoria"].ToString();
+                libro.Color = Convert.ToInt32( data["color"].ToString());
+                libroList.Add(libro);
+            }
+            return libroList;
+        }
+
     }
 }
