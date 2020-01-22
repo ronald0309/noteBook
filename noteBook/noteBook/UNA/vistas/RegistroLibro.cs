@@ -72,7 +72,7 @@ namespace noteBook.UNA.vistas
                     Orden = Singlenton.Instance.LibrosList.Count()+1,
                     Color = selectorColorImage.BackColor.ToArgb(),
                     Pocision = contadorPosicion,
-                    UsuarioCreadorLibro = usuario
+                    Usuario = usuario
                 };
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);

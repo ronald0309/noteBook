@@ -112,7 +112,7 @@ namespace noteBook.UNA.vistas
                         nota.Fuente = FuenteComboBox.Text;
                         nota.ColorFuente = colorDialog2.Color.ToArgb();
                         nota.ColorFondo = colorDialog1.Color.ToArgb();
-                        nota.UsuarioCreadorNota = usuario;
+                        nota.Usuario = usuario;
                         nota.orden = libroGuardados.Notas.Count() + 1;
                         DateTime hoy = DateTime.Now;
                        // yyyyMMddT

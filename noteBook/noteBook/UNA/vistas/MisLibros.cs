@@ -110,7 +110,7 @@ namespace noteBook.UNA.vistas
                 {
                     Location = new Point(10, 380),
                     Size = new Size(300, 20),
-                    Text = "Precione para agregar nota."
+                    Text = "Precione sobre la pagina para agregar nota."
                 };
                 informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
                 pestaña.Controls.Add(informacionLabel);
@@ -141,7 +141,7 @@ namespace noteBook.UNA.vistas
                                {
 
 
-                                   if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
+                                   if (nota.Privacidad == false || (nota.Usuario == nombreUsuario))
                                    {
                                        NotaControl notaControl = CrearNotaControl(nota);
                                        notaControl.MouseHover += NotaControl_MouseHover;
@@ -161,7 +161,7 @@ namespace noteBook.UNA.vistas
                            {
                                foreach (var nota in libro.Notas)
                                {
-                                   if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
+                                   if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
                                    {
                                        NotaControl notaControl = CrearNotaControl(nota);
                                        notaControl.MouseHover += NotaControl_MouseHover;
@@ -199,6 +199,7 @@ namespace noteBook.UNA.vistas
                     pestañaLibro.DragDrop += PestañaLibro_DragDrop;
                     pestañaLibro.MouseHover += Pestaña_MouseHover;
                     pestañaLibro.MouseMove += Pestaña_MouseMove;
+                    
                     pestañaLibro.MouseClick += (s, e) =>
                     {
                         int x = e.X;
@@ -209,7 +210,7 @@ namespace noteBook.UNA.vistas
                         formulario.ShowDialog();
                         foreach (var nota in libro.Notas)
                         {
-                            if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
+                            if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);
                                 notaControl.MouseHover += NotaControl_MouseHover;
@@ -226,7 +227,7 @@ namespace noteBook.UNA.vistas
                     };
                     foreach (var nota in libro.Notas)
                     {
-                        if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
+                        if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
                         {
                             NotaControl notaControl = CrearNotaControl(nota);
                             notaControl.MouseHover += NotaControl_MouseHover;
@@ -313,7 +314,7 @@ namespace noteBook.UNA.vistas
             {
                 Location = new Point(10, 380),
                 Size = new Size(300, 20),
-                Text = "Precione para agregar nota."
+                Text = "Precione sobre la pagina para agregar nota."
             };
             informacionLabel.Font = new Font(informacionLabel.Font.Name, 12);
             bibliotecaTabControl.SelectedTab.Controls.Add(informacionLabel);
@@ -327,7 +328,7 @@ namespace noteBook.UNA.vistas
                     {
                         foreach (var nota in libro.Notas)
                         {
-                            if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
+                            if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
 
                             {
                                 NotaControl notaControl = CrearNotaControl(nota);

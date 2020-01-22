@@ -18,14 +18,14 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
         }
 
-        private readonly string nombreNota;
+        readonly string nombreNota;
         public AccesoNotaPrivadaForm(string nombreNota)
         {
             InitializeComponent();
 
             this.nombreNota = nombreNota;
         }
-        public void ResibirNota(Object nota)
+        public void resibirNota(Object nota)
         {
             notaAuxiliar = (Nota)nota;
         }
@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
            
             foreach (var Usuario in Singlenton.Instance.usuarios)
             {
-                if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.UsuarioCreadorNota==nombreUsuarioTxt.Text )
+                if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.Usuario == nombreUsuarioTxt.Text )
                 {
                     Singlenton.Instance.CargarReporte("Ingreso a nota privada", $"El usuario {Singlenton.Instance.UsuarioActivo()} ingreso a la nota { notaAuxiliar.Titulo}", $"Nota privada { notaAuxiliar.Titulo}");
                     datosUsario = true;

@@ -49,8 +49,9 @@
             // contraseñaTxt
             // 
             this.contraseñaTxt.Location = new System.Drawing.Point(628, 344);
-            this.contraseñaTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contraseñaTxt.Margin = new System.Windows.Forms.Padding(4);
             this.contraseñaTxt.Name = "contraseñaTxt";
+            this.contraseñaTxt.PasswordChar = '*';
             this.contraseñaTxt.Size = new System.Drawing.Size(189, 22);
             this.contraseñaTxt.TabIndex = 2;
             // 
@@ -58,7 +59,7 @@
             // 
             this.usuarioTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usuarioTxt.Location = new System.Drawing.Point(628, 281);
-            this.usuarioTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usuarioTxt.Margin = new System.Windows.Forms.Padding(4);
             this.usuarioTxt.Name = "usuarioTxt";
             this.usuarioTxt.Size = new System.Drawing.Size(190, 22);
             this.usuarioTxt.TabIndex = 1;
@@ -67,7 +68,7 @@
             // 
             this.usarioImagen.Image = ((System.Drawing.Image)(resources.GetObject("usarioImagen.Image")));
             this.usarioImagen.Location = new System.Drawing.Point(564, 23);
-            this.usarioImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usarioImagen.Margin = new System.Windows.Forms.Padding(4);
             this.usarioImagen.Name = "usarioImagen";
             this.usarioImagen.Size = new System.Drawing.Size(304, 197);
             this.usarioImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -79,7 +80,7 @@
             this.lateralPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(155)))), ((int)(((byte)(122)))));
             this.lateralPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.lateralPanel.Location = new System.Drawing.Point(0, 0);
-            this.lateralPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lateralPanel.Margin = new System.Windows.Forms.Padding(4);
             this.lateralPanel.Name = "lateralPanel";
             this.lateralPanel.Size = new System.Drawing.Size(336, 544);
             this.lateralPanel.TabIndex = 0;
@@ -131,7 +132,7 @@
             // ingresarBtn
             // 
             this.ingresarBtn.Location = new System.Drawing.Point(628, 389);
-            this.ingresarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ingresarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ingresarBtn.Name = "ingresarBtn";
             this.ingresarBtn.Size = new System.Drawing.Size(191, 32);
             this.ingresarBtn.TabIndex = 3;
@@ -179,7 +180,7 @@
             this.Controls.Add(this.usarioImagen);
             this.Controls.Add(this.lateralPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1082, 591);
             this.MinimumSize = new System.Drawing.Size(1082, 591);
             this.Name = "Login";

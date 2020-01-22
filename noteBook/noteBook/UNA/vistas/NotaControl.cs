@@ -270,7 +270,7 @@ namespace noteBook.UNA.vistas
 
                         editarNota.CargarDatos(nota);
                         editarNota.ShowDialog();
-                        RefrescarcarNotaControl(editarNota.GetNota());
+                        RefrescarNotaControl(editarNota.GetNota());
                         editarNota.Close();
                         this.Refresh();
                     }
@@ -284,25 +284,7 @@ namespace noteBook.UNA.vistas
             DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                foreach (Libro libro in Singlenton.Instance.LibrosList)
-                {
-
-                    foreach (Nota nota in libro.Notas)
-                    {
-                        if (nota.Titulo == this.tituloNota)
-                        {
-                            libro.Notas.Remove(nota);
-                            Singlenton.Instance.NotaEditada = true;
-                            
-                            Singlenton.Instance.miLibro.ActualizarPage();
-                            break;
-                        }
-
-
-                    }
-                }
-                Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
-
+                BorrarNota();
             }
             else
             {
@@ -315,9 +297,27 @@ namespace noteBook.UNA.vistas
 
             }
         }
+        private void  BorrarNota()
+            {
+            foreach (Libro libro in Singlenton.Instance.LibrosList)
+            {
 
+                foreach (Nota nota in libro.Notas)
+                {
+                    if (nota.Titulo == this.tituloNota)
+                    {
+                        libro.Notas.Remove(nota);
+                       Singlenton.Instance.NotaEditada = true;
+                        Singlenton.Instance.miLibro.ActualizarPage();
+                        break;
+                    }
+                }
+            }
+            Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
 
-        private void RefrescarcarNotaControl(Nota nota)
+        }
+
+        private void RefrescarNotaControl(Nota nota)
         {
             Height = nota.Heigh;
             Width = nota.Width;

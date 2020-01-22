@@ -33,7 +33,7 @@ namespace noteBook.UNA.vistas
                         string tituloNota = busquedaNota.Titulo.ToLower();
                         bool privacidad = busquedaNota.Privacidad;
                         string categoria = busquedaNota.Categoria.ToLower();
-                        if ((privacidad) && (busquedaNota.UsuarioCreadorNota != Singlenton.Instance.UsuarioActivo()))
+                        if ((privacidad) && (busquedaNota.Usuario != Singlenton.Instance.UsuarioActivo()))
                         {
                             if (tituloNota.Contains(busquedaTxt.Text.ToLower()))
                             {
@@ -116,7 +116,7 @@ namespace noteBook.UNA.vistas
                         bool privacidad = busquedaNota.Privacidad;
                         string categoria = busquedaNota.Categoria.ToLower();
 
-                        if ((privacidad)&&( busquedaNota.UsuarioCreadorNota!=Singlenton.Instance.UsuarioActivo()))
+                        if ((privacidad)&&( busquedaNota.Usuario != Singlenton.Instance.UsuarioActivo()))
                         {
                             if (tituloNota.Contains(busquedaTxt.Text.ToLower()))
                             {
