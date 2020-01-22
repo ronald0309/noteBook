@@ -13,14 +13,17 @@ namespace noteBook.UNA.vistas
 {
     public partial class MenuForm : Form
     {
-        private readonly RegistroLibroForm registroLibros = new RegistroLibroForm();
 
+
+        private readonly InformacionMenuForm informacionMenu = new InformacionMenuForm();
 
         private Timer tiempo;
         private Timer timer;
 
         private readonly Login login = new Login();
         private bool cerrar = true;
+
+        private int pantallaActiva = 0;
 
         public Timer Tiempo { get => tiempo; set => tiempo = value; }
         public Timer Timer { get => timer; set => timer = value; }
@@ -36,30 +39,66 @@ namespace noteBook.UNA.vistas
                 Interval = 60000
             };
             Timer.Tick += new EventHandler(Timer2_Tick);
-
-
             Tiempo.Enabled = true;
             Timer.Enabled = true;
-
+            AbrirFormulario(informacionMenu);
 
         }
         private void AbrirFormulario(Object hija)
         {
             if (this.panelVistas.Controls.Count > 0)
             {
-                /// Si el contenedor no esta vacio lo limpia sirve para cualquier contenedor 
-                /// Contenedor es el nombre que lleva el contenedor donde se desea cargar la vista
                 this.panelVistas.Controls.RemoveAt(0);
             }
-            /// se declara una variable de tipo Form y se le asigna la vista que se desea cargar 
             Form h = hija as Form;
             h.TopLevel = false;
             h.Dock = DockStyle.Fill;
-            /// se carga la vista al contenedor 
+            h.FormClosed += H_FormClosed;
             this.panelVistas.Controls.Add(h);
             this.panelVistas.Tag = h;
-            /// se pinta la vista
+
             h.Show();
+
+
+        }
+
+        private void H_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (pantallaActiva == 0)
+            {
+                this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA";
+                AbrirFormulario(informacionMenu);
+            }
+            else
+            {
+                if (pantallaActiva == 1)
+                {
+                    MisLibros miLibros = new MisLibros();
+                    this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
+                    miLibros.CrearLibro();
+                    Singlenton.Instance.miLibro = miLibros;
+                    this.AbrirFormulario(miLibros);
+
+                }
+                else
+                {
+                    if (pantallaActiva == 2)
+                    {
+                        this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
+                        BusquedaForm busqueda = new BusquedaForm();
+                        this.AbrirFormulario(busqueda);
+                    }
+                    else
+                    {
+                        if (pantallaActiva == 3)
+                        {
+                            this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
+                            ReportesForm reporteForm = new ReportesForm();
+                            this.AbrirFormulario(reporteForm);
+                        }
+                    }
+                }
+            }
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -90,8 +129,6 @@ namespace noteBook.UNA.vistas
                 MessageBox.Show($"Se ha presentado el siguiente inconveniente al crear el archivo: {exception.Message}", "Atención", MessageBoxButtons.OK);
             }
         }
-
-
         private void GuardarInformacion()
         {
             string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
@@ -110,7 +147,7 @@ namespace noteBook.UNA.vistas
             archivoManager.Libros.AddRange(Singlenton.Instance.LibrosList);
             foreach (Libro item in Singlenton.Instance.LibrosList)
             {
-                archivoManager.Notas.AddRange(item.AgregarNota);
+                archivoManager.Notas.AddRange(item.Notas);
             }
             ConstruirElArchivo(archivoManager);
 
@@ -153,12 +190,15 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
-            this.nombreVistaLabel.Text = "Agregar Libro";
-            
+
+
+            RegistroLibro registroLibros = new RegistroLibro();
+            this.nombreVistaLabel.Text = "Agregar Libro(Formulario 01)";
+
             this.AbrirFormulario(registroLibros);
+
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
@@ -170,8 +210,12 @@ namespace noteBook.UNA.vistas
         private void LibroBtn_Click(object sender, EventArgs e)
         {
 
-            MisLibrosForm miLibros = new MisLibrosForm();
-            this.nombreVistaLabel.Text = "Mis libros";
+
+
+            pantallaActiva = 1;
+            MisLibros miLibros = new MisLibros();
+            this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
+
             miLibros.CrearLibro();
             Singlenton.Instance.miLibro = miLibros;
             this.AbrirFormulario(miLibros);
@@ -179,14 +223,16 @@ namespace noteBook.UNA.vistas
 
         private void BusquedaBtn_Click(object sender, EventArgs e)
         {
-            this.nombreVistaLabel.Text = "Busqueda";
+            pantallaActiva = 2;
+            this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
             BusquedaForm busqueda = new BusquedaForm();
             this.AbrirFormulario(busqueda);
         }
 
         private void ReportesBtn_Click(object sender, EventArgs e)
         {
-            this.nombreVistaLabel.Text = "Reportes";
+            pantallaActiva = 3;
+            this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
             ReportesForm reporteForm = new ReportesForm();
             this.AbrirFormulario(reporteForm);
         }
@@ -197,9 +243,9 @@ namespace noteBook.UNA.vistas
             if (login.ShowDialog() == DialogResult.OK)
             {
                 Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
-                
+
                 this.Show();
-                
+
                 lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
             }
             else
@@ -210,10 +256,12 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void cambiarUsuarioBtn_Click(object sender, EventArgs e)
+        private void CambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
+
             panelVistas.Controls.Clear();
             MisLibrosForm miLibro = new MisLibrosForm();
+
             miLibro.CerrarLibro();
             string usuario = Singlenton.Instance.UsuarioActivo();
             Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {usuario} cerro sesion", $"Usuario{usuario}");
@@ -234,12 +282,9 @@ namespace noteBook.UNA.vistas
 
             }
         }
-
-      
-
         private void LibroBtn_MouseHover(object sender, EventArgs e)
         {
-            libroBtn.BackColor= Color.Blue;
+            libroBtn.BackColor = Color.Blue;
 
         }
 
@@ -248,54 +293,55 @@ namespace noteBook.UNA.vistas
             libroBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void agregarBtn_MouseHover(object sender, EventArgs e)
+        private void AgregarBtn_MouseHover(object sender, EventArgs e)
         {
             agregarBtn.BackColor = Color.Blue;
         }
 
-        private void agregarBtn_MouseLeave(object sender, EventArgs e)
+        private void AgregarBtn_MouseLeave(object sender, EventArgs e)
         {
-           agregarBtn.BackColor = Color.FromArgb(12, 135, 109);
+            agregarBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void busquedaBtn_MouseHover(object sender, EventArgs e)
+        private void BusquedaBtn_MouseHover(object sender, EventArgs e)
         {
-           busquedaBtn.BackColor = Color.Blue;
+            busquedaBtn.BackColor = Color.Blue;
         }
 
-        private void busquedaBtn_MouseLeave(object sender, EventArgs e)
+        private void BusquedaBtn_MouseLeave(object sender, EventArgs e)
         {
             busquedaBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void btnReportes_MouseHover(object sender, EventArgs e)
+        private void BtnReportes_MouseHover(object sender, EventArgs e)
         {
             btnReportes.BackColor = Color.Blue;
         }
 
-        private void btnReportes_MouseLeave(object sender, EventArgs e)
+        private void BtnReportes_MouseLeave(object sender, EventArgs e)
         {
-            btnReportes.BackColor= Color.FromArgb(12, 135, 109);
+            btnReportes.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void guardarBtn_MouseHover(object sender, EventArgs e)
+        private void GuardarBtn_MouseHover(object sender, EventArgs e)
         {
-         guardarBtn.BackColor = Color.Blue;
+            guardarBtn.BackColor = Color.Blue;
         }
 
-        private void guardarBtn_MouseLeave(object sender, EventArgs e)
+        private void GuardarBtn_MouseLeave(object sender, EventArgs e)
         {
-            guardarBtn.BackColor=Color.FromArgb(12, 135, 109);
+            guardarBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void cambiarUsuarioBtn_MouseHover(object sender, EventArgs e)
+        private void CambiarUsuarioBtn_MouseHover(object sender, EventArgs e)
         {
             cambiarUsuarioBtn.BackColor = Color.Blue;
         }
 
-        private void cambiarUsuarioBtn_MouseLeave(object sender, EventArgs e)
+        private void CambiarUsuarioBtn_MouseLeave(object sender, EventArgs e)
         {
-            cambiarUsuarioBtn.BackColor= Color.FromArgb(12, 135, 109);
+            cambiarUsuarioBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
+
     }
 }

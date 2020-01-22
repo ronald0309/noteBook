@@ -70,7 +70,7 @@ namespace noteBook.UNA.vistas
             this.Size = new Size(139, 142);
         }
 
-        private void eliminarBtn_Click(object sender, EventArgs e)
+        private void EliminarBtn_Click(object sender, EventArgs e)
         {
             MessageBoxButtons botones = MessageBoxButtons.YesNo;
             DialogResult dr = MessageBox.Show("Seguro que desea eliminar el libro", "Alerta", botones, MessageBoxIcon.Warning);

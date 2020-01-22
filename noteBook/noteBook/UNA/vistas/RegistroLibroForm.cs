@@ -72,15 +72,19 @@ namespace noteBook.UNA.vistas
                     Orden = Singlenton.Instance.LibrosList.Count()+1,
                     Color = selectorColorImage.BackColor.ToArgb(),
                     Pocision = contadorPosicion,
-                    UsuarioCreadorLibro = usuario
+                    Usuario = usuario
                 };
                 contadorPosicion++;
                 Singlenton.Instance.LibrosList.Add(libro);
                 nombreTxt.Text = "";
                 generoComboBox.Text = "";
                 Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro{libro.Nombre}"); ;
+
                 MessageBox.Show("El libro se guardo con exito");
                 
+
+                this.Close();
+
             }
         }
 
@@ -93,7 +97,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void tituloVistaLabel_Click(object sender, EventArgs e)
+        private void TituloVistaLabel_Click(object sender, EventArgs e)
         {
 
         }

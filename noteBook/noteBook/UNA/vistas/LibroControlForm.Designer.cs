@@ -79,7 +79,7 @@
             this.eliminarBtn.Size = new System.Drawing.Size(24, 29);
             this.eliminarBtn.TabIndex = 10;
             this.eliminarBtn.UseVisualStyleBackColor = true;
-            this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
+            this.eliminarBtn.Click += new System.EventHandler(this.EliminarBtn_Click);
             // 
             // LibroControlForm
             // 

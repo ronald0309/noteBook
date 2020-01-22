@@ -71,6 +71,12 @@
     <Compile Include="UNA\vistas\EditarNotasForm.Designer.cs">
       <DependentUpon>EditarNotasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\vistas\InformacionMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\vistas\InformacionMenuForm.Designer.cs">
+      <DependentUpon>InformacionMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\vistas\RegistroUsuarioForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\FormularioNotaForm.resx">
       <DependentUpon>FormularioNotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\vistas\InformacionMenuForm.resx">
+      <DependentUpon>InformacionMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\vistas\LibroControlForm.resx">
       <DependentUpon>LibroControlForm.cs</DependentUpon>
