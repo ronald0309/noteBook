@@ -196,7 +196,7 @@ namespace noteBook
 
         private void ContraseñaCambioTxt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Contraseña contraseña = new Contraseña();
+            ContraseñaForm contraseña = new ContraseñaForm();
             contraseña.ShowDialog();
         }
     }

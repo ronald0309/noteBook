@@ -11,9 +11,9 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
-    public partial class Contraseña : Form
+    public partial class ContraseñaForm : Form
     {
-        public Contraseña()
+        public ContraseñaForm()
         {
             InitializeComponent();
         }

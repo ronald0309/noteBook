@@ -232,7 +232,7 @@
         private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.ComboBox PrivacidadCombobox;
         private System.Windows.Forms.ComboBox FuenteComboBox;
-        private NotaControl VisualizarNota;
+        private NotaControlForm VisualizarNota;
         private System.Windows.Forms.ErrorProvider errorDatosNota;
         private System.Windows.Forms.Panel contenedorNotaPanel;
     }

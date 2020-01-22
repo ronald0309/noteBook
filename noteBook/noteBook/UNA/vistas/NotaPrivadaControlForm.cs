@@ -12,11 +12,11 @@ using noteBook.UNA.Clases;
 
 namespace noteBook.UNA.vistas
 {
-    public partial class NotaPrivadaControl : UserControl
+    public partial class NotaPrivadaControlForm : UserControl
     {
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
-        public NotaPrivadaControl()
+        public NotaPrivadaControlForm()
         {
             InitializeComponent();
             RichTextBox[] texts = { nombreRTB };

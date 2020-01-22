@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class NotaControl
+    partial class NotaControlForm
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaControlForm));
             this.contendorPanel = new System.Windows.Forms.Panel();
             this.eliminarBtn = new System.Windows.Forms.Button();
             this.notaIMG = new System.Windows.Forms.PictureBox();

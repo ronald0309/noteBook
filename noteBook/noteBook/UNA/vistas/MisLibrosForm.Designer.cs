@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class MisLibros
+    partial class MisLibrosForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class NotaPrivadaControl
+    partial class NotaPrivadaControlForm
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaPrivadaControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaPrivadaControlForm));
             this.desbloqueoBtn = new System.Windows.Forms.Button();
             this.contendorPanel = new System.Windows.Forms.Panel();
             this.nombreRTB = new System.Windows.Forms.RichTextBox();

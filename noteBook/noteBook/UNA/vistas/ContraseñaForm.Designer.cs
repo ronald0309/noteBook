@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class Contraseña
+    partial class ContraseñaForm
     {
         /// <summary>
         /// Required designer variable.

@@ -13,7 +13,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class FormularioNotaForm : Form
     {
-        NotaControl notaPrevia = new NotaControl();
+        NotaControlForm notaPrevia = new NotaControlForm();
         string usuario;
         public FormularioNotaForm()
         {
