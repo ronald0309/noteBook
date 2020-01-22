@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -22,5 +23,19 @@ namespace noteBook
         public int Width { get; set; }
         public int Heigh { get; set; }
         public int orden { get; set; }
+        public List<Nota> GetListFromDataTable(DataTable dataTable)
+        {
+            List<Nota> notaList = new List<Nota>();
+            foreach (DataRow data in dataTable.Rows)
+            {
+                Nota nota = new Nota();
+                nota.Titulo = data["titulo"].ToString();
+                nota.Categoria= data["categoria"].ToString();
+                nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
+                notaList.Add(nota);
+            }
+            return notaList;
+        }
+
     }
 }

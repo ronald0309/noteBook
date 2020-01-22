@@ -211,6 +211,11 @@ namespace noteBook.UNA.vistas
 
         public void CrearLibroDB()
         {
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string query = String.Format("Select *from libros ");
+            Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query));
             String nombreUsuario = Singlenton.Instance.UsuarioActivo();
 
             bibliotecaTabControl.Controls.Clear();
@@ -223,7 +228,8 @@ namespace noteBook.UNA.vistas
             bibliotecaTabControl.Controls.Add(biblioteca);
 
             FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
-            foreach (var libro in Singlenton.Instance.LibrosList)
+          //  foreach (var libro in Singlenton.Instance.LibrosList)
+          foreach(var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
             {
 
                 LibroControlForm libroControl = new LibroControlForm
@@ -235,70 +241,70 @@ namespace noteBook.UNA.vistas
                 TabPage pestaña = new TabPage();
 
                 libroControl.MouseClick += (a, b) =>
-                   {
+                {
 
-                       if (libro.Abrir == false)
-                       {
-                           libro.Abrir = true;
-                           libroControl.Abierto = true;
+                    if (libro.Abrir == false)
+                    {
+                        libro.Abrir = true;
+                        libroControl.Abierto = true;
 
-                           pestaña.Text = libro.Nombre;
-                           pestaña.BackColor = Color.FromArgb(libro.Color);
-                           pestaña.Select();
-                           pestaña.MouseClick += (s, e) =>
-                           {
-                               int x = e.X;
-                               int y = e.Y;
-                               FormularioNotaForm formulario = new FormularioNotaForm();
-                               formulario.SetXY(x, y);
-                               formulario.Posicion = libro.Nombre;
-                               formulario.ShowDialog();
-
-
-                               foreach (var nota in libro.AgregarNota)
-                               {
+                        pestaña.Text = libro.Nombre;
+                        pestaña.BackColor = Color.FromArgb(libro.Color);
+                        pestaña.Select();
+                        pestaña.MouseClick += (s, e) =>
+                        {
+                            int x = e.X;
+                            int y = e.Y;
+                            FormularioNotaForm formulario = new FormularioNotaForm();
+                            formulario.SetXY(x, y);
+                            formulario.Posicion = libro.Nombre;
+                            formulario.ShowDialog();
 
 
-                                   if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
-                                   {
-                                       NotaControl notaControl = CrearNotaControl(nota);
-                                       pestaña.Controls.Add(notaControl);
-                                   }
-                                   else
-                                   {
-                                       NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                            foreach (var nota in libro.AgregarNota)
+                            {
 
-                                       pestaña.Controls.Add(notaPrivada);
-                                   }
-                               }
 
-                           };
-                           if (libro.Abrir == true)
-                           {
-                               foreach (var nota in libro.AgregarNota)
-                               {
-                                   if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
-                                   {
-                                       NotaControl notaControl = CrearNotaControl(nota);
+                                if (nota.Privacidad == false || (nota.UsuarioCreadorNota == nombreUsuario))
+                                {
+                                    NotaControl notaControl = CrearNotaControl(nota);
+                                    pestaña.Controls.Add(notaControl);
+                                }
+                                else
+                                {
+                                    NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
 
-                                       pestaña.Controls.Add(notaControl);
-                                   }
-                                   else
-                                   {
-                                       NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
+                                    pestaña.Controls.Add(notaPrivada);
+                                }
+                            }
 
-                                       pestaña.Controls.Add(notaPrivada);
-                                   }
+                        };
+                        if (libro.Abrir == true)
+                        {
+                            foreach (var nota in libro.AgregarNota)
+                            {
+                                if (nota.Privacidad == false || nota.UsuarioCreadorNota == nombreUsuario)
+                                {
+                                    NotaControl notaControl = CrearNotaControl(nota);
 
-                               }
-                           }
+                                    pestaña.Controls.Add(notaControl);
+                                }
+                                else
+                                {
+                                    NotaPrivadaControl notaPrivada = CrearNotaPrivada(nota);
 
-                           bibliotecaTabControl.Controls.Add(pestaña);
-                           bibliotecaTabControl.SelectedTab = pestaña;
+                                    pestaña.Controls.Add(notaPrivada);
+                                }
 
-                       }
+                            }
+                        }
 
-                   };
+                        bibliotecaTabControl.Controls.Add(pestaña);
+                        bibliotecaTabControl.SelectedTab = pestaña;
+
+                    }
+
+                };
 
 
                 if (libro.Abrir == true)
@@ -361,6 +367,8 @@ namespace noteBook.UNA.vistas
             {
                 bibliotecaTabControl.SelectedTab = biblioteca;
             }
+
+
         }
         private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

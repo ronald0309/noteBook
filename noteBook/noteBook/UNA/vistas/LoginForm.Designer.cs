@@ -40,6 +40,7 @@
             this.contraseñaLabel = new System.Windows.Forms.Label();
             this.linkRegistrarse = new System.Windows.Forms.LinkLabel();
             this.ingresarBtn = new System.Windows.Forms.Button();
+            this.ContraseñaCambioTxt = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.usarioImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // 
             this.contraseñaTxt.Location = new System.Drawing.Point(467, 259);
             this.contraseñaTxt.Name = "contraseñaTxt";
-            this.contraseñaTxt.Size = new System.Drawing.Size(143, 20);
+            this.contraseñaTxt.Size = new System.Drawing.Size(161, 20);
             this.contraseñaTxt.TabIndex = 2;
             // 
             // usuarioTxt
@@ -56,7 +57,7 @@
             this.usuarioTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usuarioTxt.Location = new System.Drawing.Point(467, 208);
             this.usuarioTxt.Name = "usuarioTxt";
-            this.usuarioTxt.Size = new System.Drawing.Size(143, 20);
+            this.usuarioTxt.Size = new System.Drawing.Size(161, 20);
             this.usuarioTxt.TabIndex = 1;
             // 
             // usarioImagen
@@ -111,7 +112,7 @@
             // linkRegistrarse
             // 
             this.linkRegistrarse.AutoSize = true;
-            this.linkRegistrarse.Location = new System.Drawing.Point(514, 325);
+            this.linkRegistrarse.Location = new System.Drawing.Point(464, 325);
             this.linkRegistrarse.Name = "linkRegistrarse";
             this.linkRegistrarse.Size = new System.Drawing.Size(57, 13);
             this.linkRegistrarse.TabIndex = 4;
@@ -123,11 +124,22 @@
             // 
             this.ingresarBtn.Location = new System.Drawing.Point(467, 296);
             this.ingresarBtn.Name = "ingresarBtn";
-            this.ingresarBtn.Size = new System.Drawing.Size(143, 26);
+            this.ingresarBtn.Size = new System.Drawing.Size(161, 26);
             this.ingresarBtn.TabIndex = 3;
             this.ingresarBtn.Text = "Ingresar";
             this.ingresarBtn.UseVisualStyleBackColor = true;
             this.ingresarBtn.Click += new System.EventHandler(this.IngresarBtn_Click);
+            // 
+            // ContraseñaCambioTxt
+            // 
+            this.ContraseñaCambioTxt.AutoSize = true;
+            this.ContraseñaCambioTxt.Location = new System.Drawing.Point(527, 325);
+            this.ContraseñaCambioTxt.Name = "ContraseñaCambioTxt";
+            this.ContraseñaCambioTxt.Size = new System.Drawing.Size(101, 13);
+            this.ContraseñaCambioTxt.TabIndex = 34;
+            this.ContraseñaCambioTxt.TabStop = true;
+            this.ContraseñaCambioTxt.Text = "Cambiar contraseña";
+            this.ContraseñaCambioTxt.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ContraseñaCambioTxt_LinkClicked);
             // 
             // Login
             // 
@@ -135,6 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ContraseñaCambioTxt);
             this.Controls.Add(this.ingresarBtn);
             this.Controls.Add(this.linkRegistrarse);
             this.Controls.Add(this.contraseñaLabel);
@@ -166,6 +179,7 @@
         private System.Windows.Forms.Label usuaroLabel;
         private System.Windows.Forms.LinkLabel linkRegistrarse;
         private System.Windows.Forms.Button ingresarBtn;
+        private System.Windows.Forms.LinkLabel ContraseñaCambioTxt;
     }
 }
 

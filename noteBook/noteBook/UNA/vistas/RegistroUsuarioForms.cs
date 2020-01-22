@@ -44,7 +44,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             mySqlDb.OpenConnection();
             mySqlDb.BeginTransaction();
-            string query = String.Format("Select nombre from usuarios where nombre='" + nombreUsuarioTxt.Text + "'");
+            string query = String.Format("Select nombre from usuarios where avatar='" + NickTxt.Text + "'");
             if (mySqlDb.QuerySQL(query).Rows.Count == 1)
             {
                 MessageBox.Show("El usuario ya existe");
@@ -53,8 +53,19 @@ namespace noteBook.UNA.vistas
                 return false;
 
             }
-            else {
-                query = string.Format("INSERT INTO usuarios (nombre,contraseña)VALUES('{0}','{1}')", nombreUsuarioTxt.Text,contraseñaTxt.Text);
+            else
+            {
+
+
+
+
+
+                string contrasenaEncrip= Encriptacion.EncriptarString(contraseñaTxt.Text, "contraseña");
+                string[] apellido;
+                apellido = ApellidosTxt.Text.Split(' ');
+                query = string.Format("INSERT INTO usuarios (nombre,apellido_primero,apellido_segundo,avatar,contrasena)VALUES('{0}','{1}','{2}','{3}','{4}')",
+                nombreUsuarioTxt.Text,"araya","cecliano",NickTxt.Text,contrasenaEncrip);
+            
                 mySqlDb.EjectSQL(query);
                 mySqlDb.CommitTransaction();
                 mySqlDb.CloseConnection();
@@ -176,5 +187,7 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
+
+       
     }
 }

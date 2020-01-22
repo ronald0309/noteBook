@@ -37,12 +37,16 @@
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.aceptarBtn = new System.Windows.Forms.Button();
             this.registroUsuarioErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ApellidosTxt = new System.Windows.Forms.TextBox();
+            this.ApellidosLabel = new System.Windows.Forms.Label();
+            this.NickTxt = new System.Windows.Forms.TextBox();
+            this.nicklabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.registroUsuarioErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // contraseñaTxt
             // 
-            this.contraseñaTxt.Location = new System.Drawing.Point(216, 127);
+            this.contraseñaTxt.Location = new System.Drawing.Point(216, 151);
             this.contraseñaTxt.Name = "contraseñaTxt";
             this.contraseñaTxt.Size = new System.Drawing.Size(142, 20);
             this.contraseñaTxt.TabIndex = 2;
@@ -60,7 +64,7 @@
             // nombreUsuarioTxt
             // 
             this.nombreUsuarioTxt.BackColor = System.Drawing.SystemColors.Window;
-            this.nombreUsuarioTxt.Location = new System.Drawing.Point(216, 78);
+            this.nombreUsuarioTxt.Location = new System.Drawing.Point(216, 60);
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
             this.nombreUsuarioTxt.Size = new System.Drawing.Size(142, 20);
             this.nombreUsuarioTxt.TabIndex = 1;
@@ -71,7 +75,7 @@
             this.contraseñaLabel.AutoSize = true;
             this.contraseñaLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.contraseñaLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.contraseñaLabel.Location = new System.Drawing.Point(102, 127);
+            this.contraseñaLabel.Location = new System.Drawing.Point(101, 153);
             this.contraseñaLabel.Name = "contraseñaLabel";
             this.contraseñaLabel.Size = new System.Drawing.Size(88, 16);
             this.contraseñaLabel.TabIndex = 56;
@@ -82,7 +86,7 @@
             this.nombreUsuarioLabel.AutoSize = true;
             this.nombreUsuarioLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreUsuarioLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.nombreUsuarioLabel.Location = new System.Drawing.Point(102, 80);
+            this.nombreUsuarioLabel.Location = new System.Drawing.Point(102, 60);
             this.nombreUsuarioLabel.Name = "nombreUsuarioLabel";
             this.nombreUsuarioLabel.Size = new System.Drawing.Size(56, 16);
             this.nombreUsuarioLabel.TabIndex = 55;
@@ -93,7 +97,7 @@
             this.cancelarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.cancelarBtn.Location = new System.Drawing.Point(105, 177);
+            this.cancelarBtn.Location = new System.Drawing.Point(105, 213);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
             this.cancelarBtn.TabIndex = 3;
@@ -105,7 +109,7 @@
             // 
             this.aceptarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.aceptarBtn.Location = new System.Drawing.Point(249, 177);
+            this.aceptarBtn.Location = new System.Drawing.Point(249, 213);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
             this.aceptarBtn.TabIndex = 4;
@@ -117,6 +121,38 @@
             // 
             this.registroUsuarioErrorProvider.ContainerControl = this;
             // 
+            // ApellidosTxt
+            // 
+            this.ApellidosTxt.Location = new System.Drawing.Point(216, 96);
+            this.ApellidosTxt.Name = "ApellidosTxt";
+            this.ApellidosTxt.Size = new System.Drawing.Size(142, 20);
+            this.ApellidosTxt.TabIndex = 64;
+            // 
+            // ApellidosLabel
+            // 
+            this.ApellidosLabel.AutoSize = true;
+            this.ApellidosLabel.Location = new System.Drawing.Point(102, 96);
+            this.ApellidosLabel.Name = "ApellidosLabel";
+            this.ApellidosLabel.Size = new System.Drawing.Size(49, 13);
+            this.ApellidosLabel.TabIndex = 65;
+            this.ApellidosLabel.Text = "Apellidos";
+            // 
+            // NickTxt
+            // 
+            this.NickTxt.Location = new System.Drawing.Point(216, 122);
+            this.NickTxt.Name = "NickTxt";
+            this.NickTxt.Size = new System.Drawing.Size(142, 20);
+            this.NickTxt.TabIndex = 66;
+            // 
+            // nicklabel
+            // 
+            this.nicklabel.AutoSize = true;
+            this.nicklabel.Location = new System.Drawing.Point(101, 129);
+            this.nicklabel.Name = "nicklabel";
+            this.nicklabel.Size = new System.Drawing.Size(27, 13);
+            this.nicklabel.TabIndex = 67;
+            this.nicklabel.Text = "nick";
+            // 
             // RegistroUsuarioForms
             // 
             this.AcceptButton = this.aceptarBtn;
@@ -125,6 +161,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.CancelButton = this.cancelarBtn;
             this.ClientSize = new System.Drawing.Size(422, 248);
+            this.Controls.Add(this.nicklabel);
+            this.Controls.Add(this.NickTxt);
+            this.Controls.Add(this.ApellidosLabel);
+            this.Controls.Add(this.ApellidosTxt);
             this.Controls.Add(this.contraseñaTxt);
             this.Controls.Add(this.tituloVistaLabel);
             this.Controls.Add(this.nombreUsuarioTxt);
@@ -151,5 +191,9 @@
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button aceptarBtn;
         private System.Windows.Forms.ErrorProvider registroUsuarioErrorProvider;
+        private System.Windows.Forms.Label nicklabel;
+        private System.Windows.Forms.TextBox NickTxt;
+        private System.Windows.Forms.Label ApellidosLabel;
+        private System.Windows.Forms.TextBox ApellidosTxt;
     }
 }

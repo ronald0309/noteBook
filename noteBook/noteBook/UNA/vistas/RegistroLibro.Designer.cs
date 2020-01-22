@@ -104,7 +104,6 @@
             this.tituloVistaLabel.TabIndex = 24;
             this.tituloVistaLabel.Text = "REGISTRO LIBRO";
             this.tituloVistaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tituloVistaLabel.Click += new System.EventHandler(this.tituloVistaLabel_Click);
             // 
             // selectorColorImage
             // 
@@ -162,7 +161,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroLibro";
             this.Text = "RegistroLibro";
-            this.Load += new System.EventHandler(this.RegistroLibro_Load);
             this.Resize += new System.EventHandler(this.RegistroLibro_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.selectorColorImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorGuardar)).EndInit();

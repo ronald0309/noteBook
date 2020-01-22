@@ -50,7 +50,7 @@ namespace noteBook
             }
             try
             {
-                archivoManager.CargarLibros();
+          //      archivoManager.CargarLibros();
             //    archivoManager.CargarNotas();
           //      archivoManager.CargarReportes();
             }
@@ -94,36 +94,59 @@ namespace noteBook
                 }
                 else
                 {
-
-                    MySqlDb mySqlDb = new MySqlDb();
+                      MySqlDb mySqlDb = new MySqlDb();
                     mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
                     mySqlDb.OpenConnection();
-                    string query = String.Format("Select nombre from usuarios where nombre='" + usuarioTxt.Text + "'and contraseña='" + contraseñaTxt.Text + "'");
-                    if (mySqlDb.QuerySQL(query).Rows.Count == 1)
-                    {
-                        Usuario usuario = new Usuario();
-                        usuario.Activo = true;
-                        usuario.NombreUsuario = mySqlDb.QuerySQL(query).Rows[0][0].ToString();
-                        Singlenton.Instance.usuarios.Add(usuario);
+                   // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
+                    string query = String.Format("Select id_usuario,avatar,contrasena from usuarios");
+                    foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query))) {
+                        if (usuarios.NombreUsuario == usuarioTxt.Text&&usuarios.Contraseña==contraseñaTxt.Text)
+                        {
+                            Usuario usuario = new Usuario();
+                            usuario.Activo = true;
+                            usuario.IdUsuario = usuarios.IdUsuario;
+                            usuario.NombreUsuario = usuarios.NombreUsuario;
+                            Singlenton.Instance.usuarios.Add(usuario);
                             DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                    else
-                    {
-                        query = String.Format("Select nombre from usuarios where nombre='" + usuarioTxt.Text + "'and contraseña!='" + contraseñaTxt.Text + "'");
-                        if (mySqlDb.QuerySQL(query).Rows.Count == 1)
-                        {
-                            MessageBox.Show("Contraseña incorrecta");
+                            this.Close();
                         }
-                        else
-                        {
-                            query = String.Format("Select nombre from usuarios where nombre!='" + usuarioTxt.Text + "'");
-                            if (mySqlDb.QuerySQL(query).Rows.Count != 0)
+                        else {
+                            if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña != contraseñaTxt.Text)
                             {
-                                MessageBox.Show("El usuario no existe");
+                                MessageBox.Show("Contraseña incorecta");
                             }
+                           
                         }
                     }
+                    //if (mySqlDb.QuerySQL(query).Rows.Count == 1)
+                    //{
+                    //    string contra = Encriptacion.DesencriptarString("lalo",mySqlDb.QuerySQL(query).Rows[0][0].ToString());
+                    //    if (contra == contraseñaTxt.Text)
+                    //    {
+                    //        Usuario usuario = new Usuario();
+                    //        usuario.Activo = true;
+                    //        usuario.NombreUsuario = mySqlDb.QuerySQL(query).Rows[0][0].ToString();
+                    //        Singlenton.Instance.usuarios.Add(usuario);
+                    //        DialogResult = DialogResult.OK;
+                    //        this.Close();
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    query = String.Format("Select avatar from usuarios where avatar='" + usuarioTxt.Text + "'and contraseña!='" + contraseñaTxt.Text + "'");
+                    //    if (mySqlDb.QuerySQL(query).Rows.Count == 1)
+                    //    {
+                    //        MessageBox.Show("Contraseña incorrecta");
+                    //    }
+                    //    else
+                    //    {
+                    //        query = String.Format("Select avatar from usuarios where avatar!='" + usuarioTxt.Text + "'");
+                    //        if (mySqlDb.QuerySQL(query).Rows.Count != 0)
+                    //        {
+                    //            MessageBox.Show("El usuario no existe");
+                    //        }
+                    //    }
+                    //}
 
 
                     //    else
@@ -169,6 +192,12 @@ namespace noteBook
                     //    }
                 }
             }
+        }
+
+        private void ContraseñaCambioTxt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Contraseña contraseña = new Contraseña();
+            contraseña.ShowDialog();
         }
     }
 }

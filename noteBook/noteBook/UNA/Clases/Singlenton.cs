@@ -11,7 +11,12 @@ namespace noteBook.UNA.Clases
 
     public class Singlenton
     {
+       
         private static Singlenton instance = null;
+
+        public Nota listNotafromDb = new Nota();
+        public Libro listfromDb = new Libro();
+        public Usuario listUsuarioFromDB = new Usuario();
         public List<Libro> LibrosList = new List<Libro>();
         public List<Reportes> Reportes = new List<Reportes>();
         public List<Usuario> usuarios = new List<Usuario>();

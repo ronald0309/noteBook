@@ -57,22 +57,22 @@ namespace noteBook.UNA.vistas
 
                 }
                 else {
-                    string queryU = string.Format("Select idusuarios from usuarios where nombre='" + Singlenton.Instance.UsuarioActivo() + "'");
+                    string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
                     mySqlDb.QuerySQL(queryU);
-                    queryLibros = string.Format("INSERT INTO libros (nombre,categoria,color,usuarios_idusuarios)VALUES('{0}','{1}','{2}','{3}')",
-                   nombreTxt.Text, generoComboBox.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                    queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
+                   nombreTxt.Text,selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(),"1");
                     mySqlDb.EjectSQL(queryLibros);
-                    Libro libro = new Libro
-                    {
-                        Nombre = nombreTxt.Text,
-                        Genero = generoComboBox.Text,
-                        Orden = Singlenton.Instance.LibrosList.Count() + 1,
-                        Color = selectorColorImage.BackColor.ToArgb(),
-                        Pocision = contadorPosicion,
-                        UsuarioCreadorLibro = usuario
-                    };
-                    Singlenton.Instance.LibrosList.Add(libro);
-                    contadorPosicion++;
+                    //Libro libro = new Libro
+                    //{
+                    //    Nombre = nombreTxt.Text,
+                    //    Genero = generoComboBox.Text,
+                    //    Orden = Singlenton.Instance.LibrosList.Count() + 1,
+                    //    Color = selectorColorImage.BackColor.ToArgb(),
+                    //    Pocision = contadorPosicion,
+                    //    UsuarioCreadorLibro = usuario
+                    //};
+                    //Singlenton.Instance.LibrosList.Add(libro);
+                    //contadorPosicion++;
                 }
 
             
@@ -142,16 +142,6 @@ namespace noteBook.UNA.vistas
 
                 selectorColorImage.BackColor = colorLibro.Color;
             }
-        }
-
-        private void tituloVistaLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RegistroLibro_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void guardarBtn_Click(object sender, EventArgs e)

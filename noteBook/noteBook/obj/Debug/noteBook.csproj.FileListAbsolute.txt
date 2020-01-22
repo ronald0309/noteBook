@@ -80,3 +80,4 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Ubiety.Dns.Core.dll
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Google.Protobuf.xml
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\MySql.Data.xml
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Renci.SshNet.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Contraseña.resources
