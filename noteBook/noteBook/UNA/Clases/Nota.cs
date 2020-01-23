@@ -32,6 +32,22 @@ namespace noteBook
                 nota.Titulo = data["titulo"].ToString();
                 nota.Categoria= data["categoria"].ToString();
                 nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
+
+                nota.PosicionX = Convert.ToInt32(data["posicion_x"].ToString());
+                nota.PosicionY = Convert.ToInt32(data["posicion_y"].ToString());
+                notaList.Add(nota);
+            }
+            return notaList;
+        }
+        public List<Nota> GetListFromBusqueda(DataTable dataTable)
+        {
+            List<Nota> notaList = new List<Nota>();
+            foreach (DataRow data in dataTable.Rows)
+            {
+                Nota nota = new Nota();
+                nota.Titulo = data["titulo"].ToString();
+                nota.Categoria = data["categoria"].ToString();
+                nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
                 notaList.Add(nota);
             }
             return notaList;

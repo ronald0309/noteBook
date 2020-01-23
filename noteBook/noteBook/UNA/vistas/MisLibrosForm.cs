@@ -44,8 +44,10 @@ namespace noteBook.UNA.vistas
 
             NotaControlForm notaControl = new NotaControlForm
             {
-                Height = nota.Heigh,
-                Width = nota.Width,
+                Height = 155,
+                Width = 155,
+                //////Height = nota.Heigh,
+                //////Width = nota.Width,
                 Location = new Point(nota.PosicionX, nota.PosicionY),
                 FuenteTipo = nota.Fuente,
                 TituloNota = nota.Titulo,
@@ -334,47 +336,62 @@ namespace noteBook.UNA.vistas
                             formulario.SetXY(x, y);
                             formulario.Posicion = libro.Nombre;
                             formulario.ShowDialog();
-
-
-                            foreach (var nota in libro.Notas)
+                            query = "Select titulo,categoria,color_fondo,posicion_x,posicion_y from notas where id_libro=(select id_libro from libros)";
+                            foreach(var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
                             {
+                               // MessageBox.Show(nota.Titulo);
+                                NotaControlForm notaControl = CrearNotaControl(nota);
+                                pestaña.Controls.Add(notaControl);
 
-
-                                if (nota.Privacidad == false || (nota.Usuario == nombreUsuario))
-                                {
-                                    NotaControlForm notaControl = CrearNotaControl(nota);
-                                    pestaña.Controls.Add(notaControl);
-                                }
-                                else
-                                {
-                                    NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
-
-                                    pestaña.Controls.Add(notaPrivada);
-                                }
                             }
+
+                            //foreach (var nota in libro.Notas)
+                            //{
+
+
+                            //    if (nota.Privacidad == false || (nota.Usuario == nombreUsuario))
+                            //    {
+                            //        NotaControlForm notaControl = CrearNotaControl(nota);
+                            //        pestaña.Controls.Add(notaControl);
+                            //    }
+                            //    else
+                            //    {
+                            //        NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
+
+                            //        pestaña.Controls.Add(notaPrivada);
+                            //    }
+                            //}
 
                         };
                         if (libro.Abrir == true)
                         {
-                            foreach (var nota in libro.Notas)
+                            query = "Select titulo,categoria,color_fondo,posicion_x,posicion_y from notas where id_libro=(select id_libro from libros)";
+                            foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
                             {
-                                if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
-                                {
-                                    NotaControlForm notaControl = CrearNotaControl(nota);
-
-                                    pestaña.Controls.Add(notaControl);
-                                }
-                                else
-                                {
-                                    NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
-
-                                    pestaña.Controls.Add(notaPrivada);
-                                }
-
+                               // MessageBox.Show(nota.Titulo);
+                                NotaControlForm notaControl = CrearNotaControl(nota);
+                                pestaña.Controls.Add(notaControl);
                             }
-                        }
 
-                        bibliotecaTabControl.Controls.Add(pestaña);
+                                //foreach (var nota in libro.Notas)
+                                //{
+                                //    if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
+                                //    {
+                                //        NotaControlForm notaControl = CrearNotaControl(nota);
+
+                                //        pestaña.Controls.Add(notaControl);
+                                //    }
+                                //    else
+                                //    {
+                                //        NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
+
+                                //        pestaña.Controls.Add(notaPrivada);
+                                //    }
+
+                                //}
+                            }
+
+                            bibliotecaTabControl.Controls.Add(pestaña);
                         bibliotecaTabControl.SelectedTab = pestaña;
 
                     }

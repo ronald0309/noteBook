@@ -34,7 +34,7 @@ namespace noteBook.UNA.vistas
                 //string query = "Select titulo,categoria,color_fondo from notas where(id_libro=(select id_libro from libros)and " +
                 //    "(select id_usuario from libros='"+id+"'))";
                 string query = "Select titulo,categoria,color_fondo from notas where(id_libro=(select id_libro from libros))";
-                foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query))) {
+                foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(query))) {
 
                     NotaControlForm notaC = new NotaControlForm();
                     notaC.TituloNota = notas.Titulo;
@@ -139,7 +139,7 @@ namespace noteBook.UNA.vistas
                 mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
                 mySqlDb.OpenConnection();
                 String query = string.Format("Select titulo,categoria,color_fondo from notas where titulo like'%{0}%' and categoria like '%{1}%'", busquedaTxt.Text, categoriaTxt.Text);
-                foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
+                foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(query)))
                 {
                     NotaControlForm notaC = new NotaControlForm();
                     notaC.Buscar(true);
