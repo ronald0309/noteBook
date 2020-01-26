@@ -158,10 +158,19 @@ namespace noteBook.UNA.vistas
                         nota.FechaModificacion = Convert.ToString(hoy); 
                         notaModificada = nota;
                         informacion += $"se modifico en al fecha{nota.FechaModificacion} ;";
+                        Transaccion transaccion = new Transaccion
+                        {
+                            AccionRealizada = $"Se modifico la nota {nota.Titulo}",
+                            InformacionAdicional = informacion,
+                            Objeto = $"Nota {nota.Titulo}",
+                            CodigoPagina = "Formulario 06"
 
-                        Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, $"Nota { nota.Titulo}");
-                       
-                       
+                        };
+                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+                        
+                        ///Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, $"Nota { nota.Titulo}");
+
+
                     }
 
                 }

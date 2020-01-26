@@ -88,7 +88,7 @@ namespace noteBook.UNA.vistas
                         break;
                     }
                 }
-                Singlenton.Instance.CargarReporte("Libro eliminado", $"Se elimino la libro {this.TituloLabel.Text}", $"Libro {this.TituloLabel.Text}");
+                ///TODOSinglenton.Instance.CargarReporte("Libro eliminado", $"Se elimino la libro {this.TituloLabel.Text}", $"Libro {this.TituloLabel.Text}");
 
             }
         }

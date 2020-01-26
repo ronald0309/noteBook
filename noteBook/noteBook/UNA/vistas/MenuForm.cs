@@ -169,7 +169,14 @@ namespace noteBook.UNA.vistas
                 if (dr == DialogResult.Yes)
                 {
                     GuardarInformacion();
-                    Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} cerro sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
+                    Transaccion transaccion = new Transaccion {
+                        AccionRealizada = "Cierre de sesión",
+                        InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesion",
+                        Objeto = "Cierre seción",
+                        CodigoPagina = "No hay codigo"
+                    
+                };
+                    Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
 
                 }
                 else
@@ -178,7 +185,15 @@ namespace noteBook.UNA.vistas
 
                     {
 
-                        Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} cerro sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
+                        Transaccion transaccion = new Transaccion
+                        {
+                            AccionRealizada = "Cierre de sesión",
+                            InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesion",
+                            Objeto = "Cierre seción",
+                            CodigoPagina = "No hay codigo"
+
+                        };
+                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                     }
                     else
                     {
@@ -246,7 +261,16 @@ namespace noteBook.UNA.vistas
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
+                Transaccion transaccion = new Transaccion
+                {
+                    AccionRealizada = "Inicio de sesión",
+                    InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual.NombreUsuario} inicion sesión",
+                    Objeto = "Inicio sesión",
+                    CodigoPagina = "Formulario 00"
+
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+                /// Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
 
                 this.Show();
 
@@ -268,7 +292,16 @@ namespace noteBook.UNA.vistas
 
             miLibro.CerrarLibro();
             string usuario = Singlenton.Instance.UsuarioActivo();
-            Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {usuario} cerro sesion", $"Usuario{usuario}");
+            Transaccion transaccion = new Transaccion
+            {
+                AccionRealizada = "Cierre de sesión",
+                InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesion",
+                Objeto = "Cierre seción",
+                CodigoPagina = "No hay codigo"
+
+            };
+            Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+            /// Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {usuario} cerro sesion", $"Usuario{usuario}");
             login.LimpiarCampos();
             Singlenton.Instance.DesactivarUsuario();
             this.Hide();
@@ -277,7 +310,16 @@ namespace noteBook.UNA.vistas
                 this.Show();
 
                 lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
-                Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {usuario} inicion sesion", $"Usuario{usuario}");
+                Transaccion transacion = new Transaccion
+                {
+                    AccionRealizada = "Inicio de sesión",
+                    InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual.NombreUsuario} inicion sesión",
+                    Objeto = "Inicio sesión",
+                    CodigoPagina = "Formulario 00"
+
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transacion);
+                /// Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {usuario} inicion sesion", $"Usuario{usuario}");
             }
             else
             {

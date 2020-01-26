@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace noteBook
 {
@@ -11,8 +12,15 @@ namespace noteBook
     {
         public override void OpenConnection()
         {
-            DbConnection = new MySqlConnection(ConnectionString);
-            DbConnection.Open();
+            try
+            {
+                DbConnection = new MySqlConnection(ConnectionString);
+                DbConnection.Open();
+            }catch
+            {
+                MessageBox.Show("Contraseña incorecta");
+            }
+
         }
         public override void CloseConnection()
         {

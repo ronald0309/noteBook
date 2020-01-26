@@ -103,7 +103,7 @@
             // 
             // categoriarichTexBox
             // 
-            this.categoriarichTexBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.categoriarichTexBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.categoriarichTexBox.AutoWordSelection = true;
             this.categoriarichTexBox.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -162,7 +162,7 @@
             // 
             // fechaCreacionLabel
             // 
-            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCreacionLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -180,15 +180,16 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // NotaControl
+            // NotaControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.contendorPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "NotaControl";
+            this.Name = "NotaControlForm";
             this.Size = new System.Drawing.Size(207, 215);
+            this.Load += new System.EventHandler(this.NotaControlForm_Load);
             this.contendorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

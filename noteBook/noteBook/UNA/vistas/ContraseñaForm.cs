@@ -25,9 +25,11 @@ namespace noteBook.UNA.vistas
 
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-              MySqlDb mySqlDb = new MySqlDb();
-                    mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-                    mySqlDb.OpenConnection();
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
                    // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
                     string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='"+AvatarTxt.Text+"'");
           

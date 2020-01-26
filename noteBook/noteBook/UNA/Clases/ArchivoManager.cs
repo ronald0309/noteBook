@@ -14,13 +14,13 @@ namespace noteBook.UNA.Clases
         private readonly string userPassword = "EL20PROYECTO20ESTABA20DIFICIL";
         public List<Libro> Libros { get; set; }
         public List<Nota> Notas { get; set; }
-        public List<Reportes> Reportes { get; set; }
+        public List<Transaccion> Reportes { get; set; }
         public List<Usuario> Usuarios { get; set; }
         public ArchivoManager()
 
         {
             Libros = new List<Libro>();
-            Reportes = new List<Reportes>();
+            Reportes = new List<Transaccion>();
             Notas = new List<Nota>();
             Usuarios = new List<Usuario>();
 
@@ -76,13 +76,13 @@ namespace noteBook.UNA.Clases
             {
                 File.Delete(archivo);
             }
-            Reportes.AddRange(Singlenton.Instance.Reportes);
+            ///TODOReportes.AddRange(Singlenton.Instance.Reportes);
             string pathReportes = $"Reportes_{DateTime.Now.ToString()}.csv";
             pathReportes = pathReportes.Replace("/", "_");
             pathReportes = pathReportes.Replace(":", "_");
             using (StreamWriter streamWriter = new StreamWriter(pathReportes))
             {
-                foreach (Reportes reporte in Reportes)
+                foreach (Transaccion reporte in Reportes)
                 {
                     var line = $"{reporte.UsuarioActual},{reporte.AccionRealizada},{reporte.Objeto},{reporte.FechaCreacion},{reporte.HoraCreacion},{reporte.InformacionAdicional}";
                     streamWriter.WriteLine(line);
@@ -263,7 +263,7 @@ namespace noteBook.UNA.Clases
                 string[] datosUsuario = null;
                 foreach (string tex in texto)
                 {
-                    Reportes reporte = new Reportes();
+                    Transaccion reporte = new Transaccion();
                     datosUsuario = tex.Split(',');
                     reporte.UsuarioActual = datosUsuario[0];
                     reporte.AccionRealizada = datosUsuario[1];
@@ -271,7 +271,7 @@ namespace noteBook.UNA.Clases
                     reporte.FechaCreacion = datosUsuario[3];
                     reporte.HoraCreacion = datosUsuario[4];
                     reporte.InformacionAdicional = datosUsuario[5];
-                    Singlenton.Instance.Reportes.Add(reporte);
+                    ///TODOSinglenton.Instance.Reportes.Add(reporte);
                 }
 
 

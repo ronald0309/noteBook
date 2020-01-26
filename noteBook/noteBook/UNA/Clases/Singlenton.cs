@@ -11,17 +11,18 @@ namespace noteBook.UNA.Clases
 
     public class Singlenton
     {
-       
+
         private static Singlenton instance = null;
 
         public Nota listNotafromDb = new Nota();
         public Libro listfromDb = new Libro();
         public Usuario listUsuarioFromDB = new Usuario();
         public List<Libro> LibrosList = new List<Libro>();
-        public List<Reportes> Reportes = new List<Reportes>();
+        public Transaccion transaccion = new Transaccion();
         public List<Usuario> usuarios = new List<Usuario>();
         public List<Usuario> usuariosAuxiliar = new List<Usuario>();
         public MisLibrosForm miLibro = null;
+        public Usuario usuarioActual;
         public bool NotaEditada { get; set; }
         protected Singlenton() { }
         public static Singlenton Instance
@@ -65,15 +66,7 @@ namespace noteBook.UNA.Clases
             usuarios.Add(usuario4);
 
         }
-        public void CargarReporte(string accion, string informacion, string objeto)
-        {
-            DateTime hoy = DateTime.Now;
-            Reportes reporte = new Reportes();
-            reporte.GenerarReporte(accion, hoy.ToString("dd - MM - yyyy"), hoy.ToString("hh:mm:ss"), informacion, objeto);
-            Reportes.Add(reporte);
-
-
-        }
+        
         public string UsuarioActivo()
         {
             string usuarioActivo = "";

@@ -33,11 +33,20 @@ namespace noteBook.UNA.vistas
         }
         public void CargarInformacion()
         {
-            int n;
-            foreach (Reportes reporte in Singlenton.Instance.Reportes)
-            {
-                n = reportesDgv.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
-            }
+
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string queryUsuarios = string.Format("SELECT id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
+            string queryTransaciones = string.Format("SELECT objeto,codigo_pagina,fecha,informacion_adiconal from transaciones where usuarios_id_usuario='" + mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString() + "'");
+            DataTable tabla = mySqlDb.QuerySQL(queryTransaciones);
+            reportesDgv.DataSource = tabla;
+            mySqlDb.CloseConnection();
+            //int n;
+            /////TODOforeach (Transaccion reporte in Singlenton.Instance.Reportes)
+            //{
+            //    n = reportesDgv.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
+            //}
         }
     }
 }

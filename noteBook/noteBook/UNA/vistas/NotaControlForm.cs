@@ -285,8 +285,10 @@ namespace noteBook.UNA.vistas
             if (dr == DialogResult.Yes)
             {
 
-                MySqlDb mySqlDb = new MySqlDb();
-                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
                 mySqlDb.OpenConnection();
                 // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
                 string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
@@ -303,10 +305,17 @@ namespace noteBook.UNA.vistas
                 //            Singlenton.Instance.miLibro.ActualizarPage();
                 //            break;
                 //        }
-
-
                 //    }
                 //}
+                Transaccion transaccion = new Transaccion
+                {
+                    AccionRealizada = "Se elimina nota",
+                    InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual.NombreUsuario} elimino la nota {this.tituloNota} ",
+                    Objeto = $"Nota {this.tituloNota}",
+                    CodigoPagina = "Control de nota"
+
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                 //Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
 
 
@@ -322,25 +331,7 @@ namespace noteBook.UNA.vistas
 
             }
         }
-        private void BorrarNota()
-        {
-            foreach (Libro libro in Singlenton.Instance.LibrosList)
-            {
-
-                foreach (Nota nota in libro.Notas)
-                {
-                    if (nota.Titulo == this.tituloNota)
-                    {
-                        libro.Notas.Remove(nota);
-                        Singlenton.Instance.NotaEditada = true;
-                        Singlenton.Instance.miLibro.ActualizarPage();
-                        break;
-                    }
-                }
-            }
-            Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
-
-        }
+        
 
         private void RefrescarNotaControl(Nota nota)
         {
@@ -359,7 +350,10 @@ namespace noteBook.UNA.vistas
             this.Show();
         }
 
+        private void NotaControlForm_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 

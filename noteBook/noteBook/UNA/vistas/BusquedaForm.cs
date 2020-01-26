@@ -36,10 +36,12 @@ namespace noteBook.UNA.vistas
                 string query = "Select titulo,categoria,color_fondo from notas where(id_libro=(select id_libro from libros))";
                 foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
                 {
-                    NotaControlForm notaC = new NotaControlForm();
-                    notaC.TituloNota = notas.Titulo;
-                    notaC.Categoria = notas.Categoria;
-                    notaC.ColorNota = notas.ColorFondo;
+                    NotaControlForm notaC = new NotaControlForm
+                    {
+                        TituloNota = notas.Titulo,
+                        Categoria = notas.Categoria,
+                        ColorNota = notas.ColorFondo
+                    };
                     busquedaNotasPanel.Controls.Add(notaC);
 
                 }
@@ -123,11 +125,7 @@ namespace noteBook.UNA.vistas
                 this.BusquedaNotas();
             }
         }
-        private void EnableDoubleBuffering()
-        {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
-
-        }
+        
         private void BusquedaNotas()
         {
 
@@ -135,8 +133,10 @@ namespace noteBook.UNA.vistas
             {
 
                 busquedaNotasPanel.Controls.Clear();
-                MySqlDb mySqlDb = new MySqlDb();
-                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
                 mySqlDb.OpenConnection();
                 String query = string.Format("Select titulo,categoria,color_fondo from notas where titulo like'%{0}%' and categoria like '%{1}%'", busquedaTxt.Text, categoriaTxt.Text);
                 foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))

@@ -81,7 +81,7 @@ namespace noteBook.UNA.vistas
                 {
                     if (nota.Titulo == this.Nombre)
                     {
-                        notaPrivada.resibirNota(nota);
+                        notaPrivada.ResibirNota(nota);
                         notaPrivada.ShowDialog();
                         // this.Refresh();
                     }

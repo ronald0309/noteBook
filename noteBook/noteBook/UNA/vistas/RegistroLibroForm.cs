@@ -32,7 +32,7 @@ namespace noteBook.UNA.vistas
             generoComboBox.Height = this.Height - 200;
             generoComboBox.Width = this.Width - 500;
         }
-        public void guardarLibroBD()
+        public void GuardarLibroBD()
         {
             if (nombreTxt.Text.Length == 0)
             {
@@ -82,7 +82,7 @@ namespace noteBook.UNA.vistas
        
 
         }
-        public void crearLibro() {
+        public void CrearLibro() {
             bool repetido = false;
 
             errorGuardar.Clear();
@@ -127,7 +127,17 @@ namespace noteBook.UNA.vistas
                 Singlenton.Instance.LibrosList.Add(libro);
                 nombreTxt.Text = "";
                 generoComboBox.Text = "";
-                Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro{libro.Nombre}"); ;
+                Transaccion transaccion = new Transaccion
+                {
+                    AccionRealizada = $"Se crea un nuevo libro",
+                    InformacionAdicional = $"Se crea un nuevo libro de nombre {(libro.Nombre)}, del genero {(libro.Genero)} de color  {(libro.Color)}(en rgb) y de orden  {(libro.Orden)}",
+                    Objeto = $"Libro{ libro.Nombre }",
+                    CodigoPagina = "Formulario 01"
+
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+
+                ///Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro{libro.Nombre}"); ;
 
                 MessageBox.Show("El libro se guardo con exito");
                 
@@ -138,7 +148,7 @@ namespace noteBook.UNA.vistas
         }
         private void GuardarBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            guardarLibroBD();
+            GuardarLibroBD();
         }
 
         private void SelectorColorImage_Click(object sender, EventArgs e)
@@ -151,7 +161,7 @@ namespace noteBook.UNA.vistas
         }
 
 
-        private void guardarBtn_Click(object sender, EventArgs e)
+        private void GuardarBtn_Click(object sender, EventArgs e)
 
         {
 

@@ -57,7 +57,7 @@ namespace noteBook.UNA.vistas
             get;
             set;
         }
-        public void guardar() {
+        public void Guardar() {
             bool notaCreada = false;
 
             foreach (var libros in Singlenton.Instance.LibrosList)
@@ -119,7 +119,7 @@ namespace noteBook.UNA.vistas
                         nota.FechaCreacion = hoy.ToString("dd-MM-yyy");
                         libroGuardados.Notas.Add(nota);
 
-                        Singlenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", $"Nota {nota.Titulo}");
+                        ///TODOSinglenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", $"Nota {nota.Titulo}");
 
                         this.Close();
 
@@ -132,10 +132,12 @@ namespace noteBook.UNA.vistas
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
             DateTime hoy = DateTime.Now;
-           
-            
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
+
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             //string queryLibros = string.Format("INSERT INTO notas (id_libro,titulo,categoria,privavidad,fuente,color_fuente,color_fondo,fecha_creacion,posicion_x,posicion_y,width,heigh,orden)VALUES('{0}','{1}','{2}','{3}','{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
             //    "2", TituloTxt.Text, CategoriaTxt.Text, 'a', FuenteComboBox.Text, colorDialog2.Color.ToArgb(), colorDialog1.Color.ToArgb(), hoy.ToString("dd-MM-yyy"), x - 77,y-76,155,152,"1");

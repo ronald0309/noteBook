@@ -39,9 +39,11 @@ namespace noteBook.UNA.vistas
             }
             return permiso;
         }
-        public bool crearUsuario() {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+        public bool CrearUsuario() {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             mySqlDb.BeginTransaction();
             string query = String.Format("Select nombre from usuarios where avatar='" + NickTxt.Text + "'");
@@ -55,11 +57,6 @@ namespace noteBook.UNA.vistas
             }
             else
             {
-
-
-
-
-
                 string contrasenaEncrip= Encriptacion.EncriptarString(contraseñaTxt.Text, "contraseña");
                 string[] apellido;
                 apellido = ApellidosTxt.Text.Split(' ');
@@ -91,13 +88,13 @@ namespace noteBook.UNA.vistas
                             Singlenton.Instance.usuarios.Add(usuario);
                             Singlenton.Instance.usuariosAuxiliar.Add(usuario);
                             string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
-                            Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", $"Usuario{usuario.NombreUsuario}");
+                            
+                            /// Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", $"Usuario{usuario.NombreUsuario}");
                             string nuevoArchivoreporte = archivoManager.CrearArchivoReportes();
                             return true;
                         }
                         else
                         {
-                            
                             return false;
                         }
 
@@ -137,8 +134,17 @@ namespace noteBook.UNA.vistas
         {
             try
             {
-                if (crearUsuario())
+                if (CrearUsuario())
                 {
+                    Transaccion transaccion = new Transaccion
+                    {
+                        AccionRealizada = $"Se crea un nuevo usuario{nombreUsuarioTxt.Text}",
+                        InformacionAdicional = $"Se crea un nuevo usuario con el nombre{nombreUsuarioTxt.Text}",
+                        Objeto = $"Usuario {nombreUsuarioTxt.Text}",
+                        CodigoPagina = "Formulario 01"
+
+                    };
+                    Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                     MessageBox.Show("Se creo el usuario");
                     this.Close();
                 }
