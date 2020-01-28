@@ -15,10 +15,14 @@ namespace noteBook
             try
             {
                 DbConnection = new MySqlConnection(ConnectionString);
-                DbConnection.Open();
+               
+                    DbConnection.Open();
+                
             }catch
             {
-                MessageBox.Show("Contraseña incorecta");
+                
+                MessageBox.Show("No se pudo establacer una conexión con la base de datos");
+                
             }
 
         }
@@ -32,12 +36,17 @@ namespace noteBook
         }
         public override DataTable QuerySQL(string query)
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable result = new DataTable();
-            adapter.SelectCommand = new MySqlCommand(query, DbConnection);
-            adapter.Fill(result);
-            return result;
-
+            try
+            {
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                DataTable result = new DataTable();
+                adapter.SelectCommand = new MySqlCommand(query, DbConnection);
+                adapter.Fill(result);
+                return result;
+            }catch
+            {
+                return null;
+            }
         }
         public override long EjectSQL(string query)
         {

@@ -26,12 +26,9 @@ namespace noteBook.UNA.Clases
             this.Objeto = reporte.Objeto;
             this.CodigoPagina = reporte.CodigoPagina;
             DateTime hoy = DateTime.Now;
-            this.FechaCreacion = Convert.ToDateTime(hoy).ToString("yyyy-MM-dd");
-            
+            this.FechaCreacion = Convert.ToDateTime(hoy).ToString("yyyy-MM-dd hh:mm:ss");
             this.UsuarioActual = Singlenton.Instance.usuarioActual.NombreUsuario;
-
             this.GenerarTransaccion();
-
         }
         public void GenerarTransaccion()
         {
@@ -40,12 +37,11 @@ namespace noteBook.UNA.Clases
             mySqlDb.OpenConnection();
             string queryUsuarios = string.Format("SELECT id_usuario from usuarios where avatar='" + UsuarioActual + "'");
             string queryTransaciones = string.Format("Select * from transaciones where id_usuario='" + mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString() + "'");
-            queryTransaciones = string.Format("INSERT INTO transaciones (objeto,codigo_pagina,fecha,informacion_adiconal,usuarios_id_usuario)VALUES('{0}','{1}','{2}','{3}','{4}')",
+            queryTransaciones = string.Format("INSERT INTO transaciones (objeto,codigo_pagina,fecha,informacion_adicional,id_usuario)VALUES('{0}','{1}','{2}','{3}','{4}')",
            Objeto, CodigoPagina,FechaCreacion, InformacionAdicional, mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString());
             mySqlDb.EjectSQL(queryTransaciones);
             mySqlDb.CloseConnection();
             count++;
         }
     }
-
 }

@@ -98,7 +98,13 @@ namespace noteBook
                     {
                         ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
                     };
-                    mySqlDb.OpenConnection();
+                    try
+                    {
+                        mySqlDb.OpenConnection();
+                    }catch
+                    {
+                        MessageBox.Show("Se produjo un error");
+                    }
                    // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
                     string query = String.Format("Select id_usuario,avatar,contrasena from usuarios");
                     foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query))) {

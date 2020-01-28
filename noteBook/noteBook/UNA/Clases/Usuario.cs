@@ -16,15 +16,23 @@ namespace noteBook.UNA.Clases
         public string Contraseña { get; set; }
         public int IdUsuario { get; set; }
         public List<Usuario> selectUsuarioFromDataTable(DataTable data) {
-            List<Usuario> usuarioList = new List<Usuario>();
-            foreach (DataRow datos in data.Rows) {
-                Usuario usuario = new Usuario
+            
+                List<Usuario> usuarioList = new List<Usuario>();
+            try
+            {
+                foreach (DataRow datos in data.Rows)
                 {
-                    NombreUsuario = datos["avatar"].ToString(),
-                    Contraseña = Encriptacion.DesencriptarString(datos["contrasena"].ToString(), "contraseña"), 
-                    IdUsuario = Convert.ToInt32(datos["id_usuario"].ToString())
-                };
-                usuarioList.Add(usuario);
+                    Usuario usuario = new Usuario
+                    {
+                        NombreUsuario = datos["avatar"].ToString(),
+                        Contraseña = Encriptacion.DesencriptarString(datos["contrasena"].ToString(), "contraseña"),
+                        IdUsuario = Convert.ToInt32(datos["id_usuario"].ToString())
+                    };
+                    usuarioList.Add(usuario);
+                }
+            }catch
+            {
+
             }
             return usuarioList;
         }
