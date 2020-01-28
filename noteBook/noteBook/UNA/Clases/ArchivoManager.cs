@@ -14,13 +14,13 @@ namespace noteBook.UNA.Clases
         private readonly string userPassword = "EL20PROYECTO20ESTABA20DIFICIL";
         public List<Libro> Libros { get; set; }
         public List<Nota> Notas { get; set; }
-        public List<Reportes> Reportes { get; set; }
+        public List<Transacciones> Reportes { get; set; }
         public List<Usuario> Usuarios { get; set; }
         public ArchivoManager()
 
         {
             Libros = new List<Libro>();
-            Reportes = new List<Reportes>();
+            Reportes = new List<Transacciones>();
             Notas = new List<Nota>();
             Usuarios = new List<Usuario>();
 
@@ -82,7 +82,7 @@ namespace noteBook.UNA.Clases
             pathReportes = pathReportes.Replace(":", "_");
             using (StreamWriter streamWriter = new StreamWriter(pathReportes))
             {
-                foreach (Reportes reporte in Reportes)
+                foreach (Transacciones reporte in Reportes)
                 {
                     var line = $"{reporte.UsuarioActual},{reporte.AccionRealizada},{reporte.Objeto},{reporte.FechaCreacion},{reporte.HoraCreacion},{reporte.InformacionAdicional}";
                     streamWriter.WriteLine(line);
@@ -263,7 +263,7 @@ namespace noteBook.UNA.Clases
                 string[] datosUsuario = null;
                 foreach (string tex in texto)
                 {
-                    Reportes reporte = new Reportes();
+                    Transacciones reporte = new Transacciones();
                     datosUsuario = tex.Split(',');
                     reporte.UsuarioActual = datosUsuario[0];
                     reporte.AccionRealizada = datosUsuario[1];
