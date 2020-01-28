@@ -34,7 +34,7 @@ namespace noteBook.UNA.vistas
         public void CargarInformacion()
         {
             int n;
-            foreach (Transacciones reporte in Singlenton.Instance.Reportes)
+            foreach (Transaccion reporte in Singlenton.Instance.Reportes)
             {
                 n = reportesDgv.Rows.Add(reporte.UsuarioActual, reporte.AccionRealizada, reporte.Objeto, reporte.FechaCreacion, reporte.HoraCreacion, reporte.InformacionAdicional);
             }
