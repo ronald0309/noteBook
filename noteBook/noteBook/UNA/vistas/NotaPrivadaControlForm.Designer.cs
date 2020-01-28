@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaPrivadaControlForm));
-
             this.desbloqueoBtn = new System.Windows.Forms.Button();
             this.contendorPanel = new System.Windows.Forms.Panel();
             this.nombreRTB = new System.Windows.Forms.RichTextBox();
@@ -39,20 +38,21 @@
             // desbloqueoBtn
             // 
             this.desbloqueoBtn.Image = ((System.Drawing.Image)(resources.GetObject("desbloqueoBtn.Image")));
-            this.desbloqueoBtn.Location = new System.Drawing.Point(98, 3);
+            this.desbloqueoBtn.Location = new System.Drawing.Point(105, 3);
             this.desbloqueoBtn.Name = "desbloqueoBtn";
-            this.desbloqueoBtn.Size = new System.Drawing.Size(36, 33);
+            this.desbloqueoBtn.Size = new System.Drawing.Size(39, 36);
             this.desbloqueoBtn.TabIndex = 1;
             this.desbloqueoBtn.UseVisualStyleBackColor = true;
             this.desbloqueoBtn.Click += new System.EventHandler(this.DesbloqueButton_Click);
             // 
             // contendorPanel
             // 
+            this.contendorPanel.Controls.Add(this.desbloqueoBtn);
             this.contendorPanel.Controls.Add(this.nombreRTB);
             this.contendorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contendorPanel.Location = new System.Drawing.Point(0, 0);
             this.contendorPanel.Name = "contendorPanel";
-            this.contendorPanel.Size = new System.Drawing.Size(137, 39);
+            this.contendorPanel.Size = new System.Drawing.Size(144, 42);
             this.contendorPanel.TabIndex = 2;
             this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ContendorPanel_Paint);
             // 
@@ -63,18 +63,17 @@
             this.nombreRTB.Location = new System.Drawing.Point(3, 3);
             this.nombreRTB.Name = "nombreRTB";
             this.nombreRTB.ReadOnly = true;
-            this.nombreRTB.Size = new System.Drawing.Size(100, 31);
+            this.nombreRTB.Size = new System.Drawing.Size(100, 36);
             this.nombreRTB.TabIndex = 3;
             this.nombreRTB.Text = "";
             // 
-            // NotaPrivadaControl
+            // NotaPrivadaControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.desbloqueoBtn);
             this.Controls.Add(this.contendorPanel);
-            this.Name = "NotaPrivadaControl";
-            this.Size = new System.Drawing.Size(137, 39);
+            this.Name = "NotaPrivadaControlForm";
+            this.Size = new System.Drawing.Size(144, 42);
             this.contendorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

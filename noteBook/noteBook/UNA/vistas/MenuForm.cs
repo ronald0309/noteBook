@@ -74,7 +74,7 @@ namespace noteBook.UNA.vistas
                 {
                     MisLibrosForm miLibros = new MisLibrosForm();
                     this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
-                    miLibros.CrearLibro();
+                //    miLibros.CrearLibro();
                     Singlenton.Instance.miLibro = miLibros;
                     this.AbrirFormulario(miLibros);
 

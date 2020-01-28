@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,7 +98,6 @@ namespace noteBook
                       MySqlDb mySqlDb = new MySqlDb();
                     mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
                     mySqlDb.OpenConnection();
-                   // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
                     string query = String.Format("Select id_usuario,avatar,contrasena from usuarios");
                     foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query))) {
                         if (usuarios.NombreUsuario == usuarioTxt.Text&&usuarios.Contraseña==contraseñaTxt.Text)
@@ -107,6 +107,7 @@ namespace noteBook
                             usuario.IdUsuario = usuarios.IdUsuario;
                             usuario.NombreUsuario = usuarios.NombreUsuario;
                             Singlenton.Instance.usuarios.Add(usuario);
+                            Singlenton.Instance.usuarioActual = usuarios;
                             DialogResult = DialogResult.OK;
                             this.Close();
                         }

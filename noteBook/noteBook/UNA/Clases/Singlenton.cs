@@ -22,6 +22,7 @@ namespace noteBook.UNA.Clases
         public List<Usuario> usuarios = new List<Usuario>();
         public List<Usuario> usuariosAuxiliar = new List<Usuario>();
         public MisLibrosForm miLibro = null;
+        public Usuario usuarioActual = new Usuario();
         public bool NotaEditada { get; set; }
         protected Singlenton() { }
         public static Singlenton Instance

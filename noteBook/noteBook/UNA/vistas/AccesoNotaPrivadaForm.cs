@@ -32,25 +32,35 @@ namespace noteBook.UNA.vistas
         private void Aceptarbtn_Click(object sender, EventArgs e)
         {
             this.Mensajes();
-            // MessageBox.Show(nombreNota);
-            bool datosUsario = false;
-           
-            foreach (var Usuario in Singlenton.Instance.usuarios)
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string query=string.Format("Select id_nota,titulo,categoria from notas where privacidad='{0}'",1);
+            string idNota="";
+            string tituloEncrip = "";
+            string categoriaEncrip = "";
+            foreach (DataRow row in mySqlDb.QuerySQL(query).Rows)
             {
-                if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contraseña == contraseñaUsuarioTxt.Text&&notaAuxiliar.Usuario == nombreUsuarioTxt.Text )
-                {
-                    Singlenton.Instance.CargarReporte("Ingreso a nota privada", $"El usuario {Singlenton.Instance.UsuarioActivo()} ingreso a la nota { notaAuxiliar.Titulo}", $"Nota privada { notaAuxiliar.Titulo}");
-                    datosUsario = true;
-
+                if (Encriptacion.DesencriptarString(row["titulo"].ToString(),"titu")==notaAuxiliar.Titulo.ToString()) {
+                    idNota = row["id_nota"].ToString();
+                    tituloEncrip = Encriptacion.DesencriptarString(row["titulo"].ToString(),"titu");
+                    categoriaEncrip = Encriptacion.DesencriptarString(row["categoria"].ToString(), "cate");
                 }
             }
-            if (datosUsario == true)
+            string n = String.Format("Select avatar,contrasena from usuarios where id_usuario=(Select id_usuario from libros where id_libro=(Select id_libro from notas where id_nota='{0}'))",idNota);
+            foreach (DataRow row in mySqlDb.QuerySQL(n).Rows)
             {
-                notaAuxiliar.Privacidad = false;
-                Singlenton.Instance.NotaEditada = true;
-                this.Close();
-                Singlenton.Instance.miLibro.ActualizarPage();
+                if (row["avatar"].ToString()== nombreUsuarioTxt.Text && Encriptacion.DesencriptarString(row["contrasena"].ToString(),"contraseña") == contraseñaUsuarioTxt.Text)
+                {
+                    string queryN = String.Format("UPDATE notas SET  privacidad=('{0}'),titulo='{1}',categoria='{2}' where id_nota=('{3}')", 0, tituloEncrip, categoriaEncrip, idNota);
+                    mySqlDb.EjectSQL(queryN);
+                    mySqlDb.CloseConnection();
+                    Singlenton.Instance.miLibro.ActualizarPage();
+                    this.Close();
+                }
             }
+          
+           
         }
 
         private void Mensajes() {

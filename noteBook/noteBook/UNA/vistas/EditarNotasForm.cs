@@ -81,8 +81,8 @@ namespace noteBook.UNA.vistas
             notaModificada = nota;
             notaAuxiliar = (Nota)nota;
             tituloActualLabel.Text = notaAuxiliar.Titulo;
-           
-         
+            categoriaActualLabel.Text= notaAuxiliar.Categoria;
+            fuenteCBX.Text= notaAuxiliar.Fuente;
             colorFondoDialog.Color = Color.FromArgb(notaAuxiliar.ColorFondo);
             colorFuenteDialog.Color = Color.FromArgb(notaAuxiliar.ColorFuente);
             colorFondoPB.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
@@ -268,45 +268,115 @@ namespace noteBook.UNA.vistas
             }
 
         }
+        private int ValidarPrivacidad() {
+            if (privacidadCBX.Text == "Privado")
+            {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+        private string TituloModificado() {
+            if (tituloTxt.TextLength != 0)
+            {
+                return tituloTxt.Text;
+            }
+            else
+            {
+                return tituloActualLabel.Text;
+            }
+        }
+        private string ValidarTitulo() {
+            if (ValidarPrivacidad() == 0)
+            {
+                return TituloModificado(); 
+            }
+            else {
+                return Encriptacion.EncriptarString(TituloModificado(),"titu");
+            }
+        }
+        private string CategoriaModificada() {
+            if (categoriaTxt.TextLength != 0)
+            {
+                return categoriaTxt.Text;
+            }
+            else
+            {
+                return categoriaActualLabel.Text;
+            }
+        }
+        private string ValidarCategoria() {
+            if (ValidarPrivacidad() == 0)
+            {
+                return CategoriaModificada();
+            }
+            else {
+                return Encriptacion.EncriptarString(CategoriaModificada(),"cate");
+            }
+        }
+        private string FechaActual()
+        {
+            DateTime hoy = DateTime.Now;
+            return Convert.ToDateTime(hoy).ToString("yyyy-MM-dd");
+        }
         private void BtnAceptar_Click(object sender, EventArgs e)
 
         {
+           
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string queryActualizar = String.Format("UPDATE notas SET titulo='{0}',color_fondo='{1}',categoria='{2}',privacidad='{3}',fecha_modificacion='{4}' where titulo=('{5}')", ValidarTitulo(), colorFondoDialog.Color.ToArgb(), ValidarCategoria(), ValidarPrivacidad(), FechaActual(), tituloActualLabel.Text) ;
+            mySqlDb.EjectSQL(queryActualizar);
+            Singlenton.Instance.miLibro.ActualizarPage();
 
-            try
-            {
-                if (ValidarModificarNota())
-                {
 
-                    if (VerficarCampos())
-                    {
-                        ModificarNota();
-                        MessageBox.Show("Se modifico la nota");
-                        this.Hide();
-                       // Singlenton.Instance.miLibro.ActualizarPage();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Todos los campos estan en blanco");
-                      
-                    }
-                }
-                else
-                {
-                    errorProviderEditarNotas.SetError(tituloTxt, "El no mbre de la nota ya existe");
-                }
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
-            }
+            //try
+            //{
+            //    if (ValidarModificarNota())
+            //    {
+
+            //        if (VerficarCampos())
+            //        {
+            //            ModificarNota();
+            //            MessageBox.Show("Se modifico la nota");
+            //            this.Hide();
+            //           // Singlenton.Instance.miLibro.ActualizarPage();
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Todos los campos estan en blanco");
+
+            //        }
+            //    }
+            //    else
+            //    {
+            //        errorProviderEditarNotas.SetError(tituloTxt, "El no mbre de la nota ya existe");
+            //    }
+            //}
+            //catch (Exception Ex)
+            //{
+            //    MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
+            //}
         }
 
         private void EditarNotasForm_Load(object sender, EventArgs e)
         {
 
         }
+        private void ModifcarNO()
+        {
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+
+          //  string queryActualizar = String.Format("UPDATE notas SET heigh='{0}',width='{1}' where titulo=('{2}')", this.Height, this.Width, this.tituloNota);
+           
+        }
 
     }
+ 
 
 
 

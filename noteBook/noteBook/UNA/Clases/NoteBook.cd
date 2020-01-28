@@ -3,7 +3,7 @@
   <Class Name="noteBook.UNA.Clases.Libro">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAQAAAgIIAAAAAAAAAAAAAkAEQAAA=</HashCode>
+      <HashCode>AABAAgAAAAAAAAAAQAAAgEIAAAAAAAAAAAAEkAEQAAA=</HashCode>
       <FileName>UNA\Clases\Libro.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -13,21 +13,21 @@
   <Class Name="noteBook.UNA.Clases.Singlenton">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAgAAAAACAAAAAIAEAAAARAQAAARAACAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAQAAiAICAAAAQIAAAAAABAQAAARAACgAAAiAA=</HashCode>
       <FileName>UNA\Clases\Singlenton.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="noteBook.Nota">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAACJAAAAAAgAAAAAUAAAAABAAAAAAQAAQCAABg=</HashCode>
+      <HashCode>ABAAgAADJAAAAAAgQAAAAUAAAAABAAAAAAQEAQCAABA=</HashCode>
       <FileName>UNA\Clases\Nota.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="noteBook.UNA.Clases.ArchivoManager">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAQAACAAAAAAAAAAAQAAEQAAAAAECEAAAAII=</HashCode>
+      <HashCode>AgAAAgBAAQAACAAAAAAAAAAAAAAAQEAABAEAUAAAAgA=</HashCode>
       <FileName>UNA\Clases\ArchivoManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -41,107 +41,51 @@
   <Class Name="noteBook.UNA.Clases.Usuario">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAgAIAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAAAIAAAAAAAAAAAAAAAAgAIAAACAAAAA=</HashCode>
       <FileName>UNA\Clases\Usuario.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.AccesoNotaPrivada">
-    <Position X="20" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACCAABABAACAggACAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>UNA\vistas\AccesoNotaPrivada.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.Busqueda">
-    <Position X="22.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAEABIEQACAgAACAAAAAAAAAAAABQAAIAA=</HashCode>
-      <FileName>UNA\vistas\Busqueda.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="noteBook.UNA.vistas.EditarNotasForm">
     <Position X="3.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAgAAACCAAAJwABAGEIAACUABAApCjAQAACAAAAAA=</HashCode>
+      <HashCode>wAAQiQAgACAAgACAUAHAIgAjQCkCALATAAAAgwABKME=</HashCode>
       <FileName>UNA\vistas\EditarNotasForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="noteBook.UNA.vistas.FormularioNota">
+  <Class Name="noteBook.UNA.vistas.FormularioNotaForm">
     <Position X="9.25" Y="5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>ACEAKAAAAKAIABAABAOBkAICAgECAAQAAQBgCAgEAAA=</HashCode>
-      <FileName>UNA\vistas\FormularioNota.cs</FileName>
+      <HashCode>ACEAKAAAQCAIARAABAOBkAICAiECMCQAAQRgCIgABIQ=</HashCode>
+      <FileName>UNA\vistas\FormularioNotaForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="noteBook.UNA.vistas.LibroControl">
-    <Position X="16" Y="5.25" Width="1.5" />
+  <Class Name="noteBook.UNA.vistas.LibroControlForm">
+    <Position X="13" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAgiAEAICAABKAgAICAAACAACAAAAAAABAAAA=</HashCode>
-      <FileName>UNA\vistas\LibroControl.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.login">
-    <Position X="22.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAQAgACAAIBAAMACAAAgCAAAAmEAAAACAAUBgAAA=</HashCode>
-      <FileName>UNA\vistas\Login.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.Menu">
-    <Position X="6" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AIQIoQABACHACBAQABCgAoECAQBAIAgJEBAAAQEAQAE=</HashCode>
-      <FileName>UNA\vistas\Menu.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.MisLibros">
-    <Position X="15.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAIAABAACAAAAQAAECgAAACAAgAAAAAEAAAQyBARAA=</HashCode>
-      <FileName>UNA\vistas\MisLibros.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.NotaControl">
-    <Position X="0.5" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQgEAAAICBABAAgAACAJgAiCAJBAQBAIyIAQRIGCAk=</HashCode>
-      <FileName>UNA\vistas\NotaControl.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.NotaPrivadaControl">
-    <Position X="13" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAACACAAAAiAAACAgAACAAAAAAAAAAAAgQBAAAA=</HashCode>
-      <FileName>UNA\vistas\NotaPrivadaControl.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="noteBook.UNA.vistas.RegistroLibro">
-    <Position X="12.75" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAABACEAihQAAACACAECBCAAAAQAgAAACAAAAAA=</HashCode>
-      <FileName>UNA\vistas\RegistroLibro.cs</FileName>
+      <HashCode>AABAABAAAiAEAICAABKAgAICAIACAACAAAAAAABAAAA=</HashCode>
+      <FileName>UNA\vistas\LibroControlForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="noteBook.UNA.vistas.RegistroUsuarioForms">
     <Position X="25.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAACAAAJgALAGAAAACAABAAAABAIABAgACAAA=</HashCode>
+      <HashCode>iBIAwSAAECAAAAAAIACIAAACBKAhAAAAAAAABgADAAA=</HashCode>
       <FileName>UNA\vistas\RegistroUsuarioForms.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="noteBook.UNA.vistas.ReportesForm">
-    <Position X="19" Y="5.25" Width="1.5" />
+    <Position X="14.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAQAABCACEAAAAAGQAAACAAAAACAAAAAAQAAgAAA=</HashCode>
+      <HashCode>AiAAAQAAACAAAAAAAACACQACAgAAAAkAAAAAAAAACQA=</HashCode>
       <FileName>UNA\vistas\ReportesForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="noteBook.UNA.vistas.UserControl1">
-    <Position X="17.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAIAAAAAEAAEAAAABA=</HashCode>
-      <FileName>UNA\vistas\UserControl1.cs</FileName>
-    </TypeIdentifier>
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
