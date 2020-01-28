@@ -84,15 +84,12 @@ namespace noteBook.UNA.vistas
             nota.Titulo = nombre;
             //nota.Privacidad = Convert.ToBoolean(datosNota.Rows[0][0].ToString());
             //nota.Titulo = datosNota.Rows[0]["titulo"].ToString();
-                notaPrivada.resibirNota(nota);
+                notaPrivada.ResibirNota(nota);
                 notaPrivada.ShowDialog();
             
                         // this.Refresh();
         }
 
-        private void ContendorPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 }

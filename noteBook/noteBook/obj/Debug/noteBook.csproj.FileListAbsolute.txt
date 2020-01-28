@@ -97,9 +97,6 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Ubiety.Dns.Core.dll
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Google.Protobuf.xml
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\MySql.Data.xml
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Renci.SshNet.xml
-
-C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Contraseña.resources
-
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MenuForm.resources
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MisLibrosForm.resources
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaControlForm.resources
@@ -113,10 +110,9 @@ C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\Ubiety.Dns.
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\Google.Protobuf.xml
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\MySql.Data.xml
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\Renci.SshNet.xml
-
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.ContraseñaForm.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.MisLibrosForm.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaControlForm.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.NotaPrivadaControlForm.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.RegistroLibroForm.resources
-
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.ContraseñaForm.resources

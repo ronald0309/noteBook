@@ -54,7 +54,7 @@
             this.contendorPanel.Name = "contendorPanel";
             this.contendorPanel.Size = new System.Drawing.Size(144, 42);
             this.contendorPanel.TabIndex = 2;
-            this.contendorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ContendorPanel_Paint);
+            
             // 
             // nombreRTB
             // 

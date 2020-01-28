@@ -68,7 +68,7 @@
             this.moverBoton.Size = new System.Drawing.Size(22, 24);
             this.moverBoton.TabIndex = 5;
             this.moverBoton.UseVisualStyleBackColor = true;
-            this.moverBoton.Click += new System.EventHandler(this.moverBoton_Click);
+            
             this.moverBoton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseDown);
             this.moverBoton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseMove);
             this.moverBoton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MoverBoton_MouseUp);
