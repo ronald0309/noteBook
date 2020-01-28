@@ -76,17 +76,18 @@ namespace noteBook.UNA.vistas
             DialogResult dr = MessageBox.Show("Seguro que desea eliminar el libro", "Alerta", botones, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                foreach (Libro libro in Singlenton.Instance.LibrosList)
+                if (dr == DialogResult.Yes)
                 {
 
-                    if (libro.Nombre == this.TituloLabel.Text)
-                    {
-                        Singlenton.Instance.LibrosList.Remove(libro);
-                        Singlenton.Instance.NotaEditada = false;
-                        Singlenton.Instance.miLibro.CrearLibro();
-
-                        break;
-                    }
+                    MySqlDb mySqlDb = new MySqlDb();
+                    mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                    mySqlDb.OpenConnection();
+                    String queryEliminarNota = String.Format("Delete from notas where id_libro=(select id_libro from libros where nombre='{0}')",this.nombre);
+                    String queryEliminarLibro = String.Format("Delete from  libros where nombre='{0}'",this.nombre);
+               
+                    mySqlDb.EjectSQL(queryEliminarNota);
+                    mySqlDb.EjectSQL(queryEliminarLibro);
+                    Singlenton.Instance.miLibro.CrearLibroDB();
                 }
                 ///TODOSinglenton.Instance.CargarReporte("Libro eliminado", $"Se elimino la libro {this.TituloLabel.Text}", $"Libro {this.TituloLabel.Text}");
 

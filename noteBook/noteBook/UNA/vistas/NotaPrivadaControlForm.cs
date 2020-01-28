@@ -15,8 +15,8 @@ namespace noteBook.UNA.vistas
     public partial class NotaPrivadaControlForm : UserControl
     {
 
-        public NotaPrivadaControlForm()
 
+        public NotaPrivadaControlForm()
         {
             InitializeComponent();
 
@@ -74,22 +74,20 @@ namespace noteBook.UNA.vistas
 
         private void DesbloqueButton_Click(object sender, EventArgs e)
         {
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string queryNota = string.Format("Select titulo,privacidad from notas where titulo='{0}'",this.nombre);
             AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
-            foreach (var libro in Singlenton.Instance.LibrosList)
-            {
-                foreach (var nota in libro.Notas)
-                {
-                    if (nota.Titulo == this.Nombre)
-                    {
-                        notaPrivada.ResibirNota(nota);
-                        notaPrivada.ShowDialog();
+
+            Nota nota = new Nota();
+            nota.Titulo = nombre;
+            //nota.Privacidad = Convert.ToBoolean(datosNota.Rows[0][0].ToString());
+            //nota.Titulo = datosNota.Rows[0]["titulo"].ToString();
+                notaPrivada.resibirNota(nota);
+                notaPrivada.ShowDialog();
+            
                         // this.Refresh();
-                    }
-                }
-
-            }
-
-
         }
 
         private void ContendorPanel_Paint(object sender, PaintEventArgs e)

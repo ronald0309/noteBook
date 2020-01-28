@@ -1,4 +1,5 @@
-﻿using System;
+﻿using noteBook.UNA.Clases;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -29,8 +30,50 @@ namespace noteBook
             foreach (DataRow data in dataTable.Rows)
             {
                 Nota nota = new Nota();
-                nota.Titulo = data["titulo"].ToString();
-                nota.Categoria= data["categoria"].ToString();
+                if (Convert.ToBoolean( data["privacidad"].ToString())==false)
+                {
+                    nota.Privacidad = false;
+                    nota.Titulo = data["titulo"].ToString();
+                    nota.Categoria = data["categoria"].ToString();
+                }
+                else {
+                    nota.Privacidad = true;
+                    nota.Titulo =Encriptacion.DesencriptarString(data["titulo"].ToString(),"titu");
+                    nota.Categoria =Encriptacion.DesencriptarString(data["categoria"].ToString(),"cate");
+
+                }
+                nota.FechaCreacion = data["fecha_creacion"].ToString();
+                nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
+                nota.PosicionX = Convert.ToInt32(data["posicion_x"].ToString());
+                nota.PosicionY = Convert.ToInt32(data["posicion_y"].ToString());
+                nota.ColorFuente = Convert.ToInt32(data["color_fuente"].ToString());
+                
+                    nota.Width = Convert.ToInt32(data["width"].ToString());
+                    nota.Heigh = Convert.ToInt32(data["heigh"].ToString());
+                
+                notaList.Add(nota);
+            }
+            return notaList;
+        }
+        public List<Nota> GetListFromBusqueda(DataTable dataTable)
+        {
+            List<Nota> notaList = new List<Nota>();
+            foreach (DataRow data in dataTable.Rows)
+            {
+                Nota nota = new Nota();
+               if (Convert.ToBoolean(data["privacidad"].ToString()) == false)
+                {
+                    nota.Privacidad = false;
+                    nota.Titulo = data["titulo"].ToString();
+                    nota.Categoria = data["categoria"].ToString();
+                }
+                else
+                {
+                    nota.Titulo = Encriptacion.DesencriptarString(data["titulo"].ToString(), "titu");
+                    nota.Categoria = Encriptacion.DesencriptarString(data["categoria"].ToString(), "cate");
+                    nota.Privacidad = true;
+                }
+                nota.FechaCreacion = data["fecha_creacion"].ToString();
                 nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
                 notaList.Add(nota);
             }

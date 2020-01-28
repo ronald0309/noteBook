@@ -14,7 +14,6 @@ namespace noteBook.UNA.vistas
     public partial class MenuForm : Form
     {
 
-
         private readonly InformacionMenuForm informacionMenu = new InformacionMenuForm();
 
         private Timer tiempo;
@@ -75,7 +74,7 @@ namespace noteBook.UNA.vistas
                 {
                     MisLibrosForm miLibros = new MisLibrosForm();
                     this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
-                    miLibros.CrearLibro();
+                //    miLibros.CrearLibro();
                     Singlenton.Instance.miLibro = miLibros;
                     this.AbrirFormulario(miLibros);
 
@@ -227,10 +226,12 @@ namespace noteBook.UNA.vistas
 
 
 
+
             pantallaActiva = 1;
             MisLibrosForm miLibros = new MisLibrosForm();
 
             this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
+
 
 
            // miLibros.CrearLibro();
@@ -287,8 +288,10 @@ namespace noteBook.UNA.vistas
         private void CambiarUsuarioBtn_Click(object sender, EventArgs e)
         {
 
+
             panelVistas.Controls.Clear();
             MisLibrosForm miLibro = new MisLibrosForm();
+
 
             miLibro.CerrarLibro();
             string usuario = Singlenton.Instance.UsuarioActivo();

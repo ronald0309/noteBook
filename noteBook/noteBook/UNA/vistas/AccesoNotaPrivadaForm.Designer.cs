@@ -42,45 +42,40 @@
             // UsuarioLabel
             // 
             this.UsuarioLabel.AutoSize = true;
-            this.UsuarioLabel.Location = new System.Drawing.Point(52, 11);
-            this.UsuarioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UsuarioLabel.Location = new System.Drawing.Point(39, 9);
             this.UsuarioLabel.Name = "UsuarioLabel";
-            this.UsuarioLabel.Size = new System.Drawing.Size(57, 17);
+            this.UsuarioLabel.Size = new System.Drawing.Size(43, 13);
             this.UsuarioLabel.TabIndex = 4;
             this.UsuarioLabel.Text = "Usuario";
             // 
             // nombreUsuarioTxt
             // 
-            this.nombreUsuarioTxt.Location = new System.Drawing.Point(16, 43);
-            this.nombreUsuarioTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nombreUsuarioTxt.Location = new System.Drawing.Point(12, 35);
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
-            this.nombreUsuarioTxt.Size = new System.Drawing.Size(132, 22);
+            this.nombreUsuarioTxt.Size = new System.Drawing.Size(100, 20);
             this.nombreUsuarioTxt.TabIndex = 0;
             // 
             // contraseñaUsuarioTxt
             // 
-            this.contraseñaUsuarioTxt.Location = new System.Drawing.Point(181, 43);
-            this.contraseñaUsuarioTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contraseñaUsuarioTxt.Location = new System.Drawing.Point(136, 35);
             this.contraseñaUsuarioTxt.Name = "contraseñaUsuarioTxt";
-            this.contraseñaUsuarioTxt.Size = new System.Drawing.Size(132, 22);
+            this.contraseñaUsuarioTxt.Size = new System.Drawing.Size(100, 20);
             this.contraseñaUsuarioTxt.TabIndex = 1;
             // 
             // contraseñaLabel
             // 
             this.contraseñaLabel.AutoSize = true;
-            this.contraseñaLabel.Location = new System.Drawing.Point(201, 11);
-            this.contraseñaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.contraseñaLabel.Location = new System.Drawing.Point(151, 9);
             this.contraseñaLabel.Name = "contraseñaLabel";
-            this.contraseñaLabel.Size = new System.Drawing.Size(81, 17);
+            this.contraseñaLabel.Size = new System.Drawing.Size(61, 13);
             this.contraseñaLabel.TabIndex = 3;
             this.contraseñaLabel.Text = "Contraseña";
             // 
             // acceptarBtn
             // 
-            this.acceptarBtn.Location = new System.Drawing.Point(16, 87);
-            this.acceptarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.acceptarBtn.Location = new System.Drawing.Point(12, 71);
             this.acceptarBtn.Name = "acceptarBtn";
-            this.acceptarBtn.Size = new System.Drawing.Size(299, 28);
+            this.acceptarBtn.Size = new System.Drawing.Size(224, 23);
             this.acceptarBtn.TabIndex = 2;
             this.acceptarBtn.Text = "Acceptar";
             this.acceptarBtn.UseVisualStyleBackColor = true;
@@ -93,20 +88,19 @@
             // formulario05Lbl
             // 
             this.formulario05Lbl.AutoSize = true;
-            this.formulario05Lbl.Location = new System.Drawing.Point(235, 128);
-            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario05Lbl.Location = new System.Drawing.Point(176, 104);
             this.formulario05Lbl.Name = "formulario05Lbl";
-            this.formulario05Lbl.Size = new System.Drawing.Size(95, 17);
+            this.formulario05Lbl.Size = new System.Drawing.Size(70, 13);
             this.formulario05Lbl.TabIndex = 5;
             this.formulario05Lbl.Text = "Formulario 05";
             // 
             // AccesoNotaPrivadaForm
             // 
             this.AcceptButton = this.acceptarBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
-            this.ClientSize = new System.Drawing.Size(331, 145);
+            this.ClientSize = new System.Drawing.Size(259, 118);
             this.Controls.Add(this.formulario05Lbl);
             this.Controls.Add(this.acceptarBtn);
             this.Controls.Add(this.contraseñaLabel);
@@ -114,7 +108,6 @@
             this.Controls.Add(this.nombreUsuarioTxt);
             this.Controls.Add(this.UsuarioLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AccesoNotaPrivadaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Validacion de usuario.";

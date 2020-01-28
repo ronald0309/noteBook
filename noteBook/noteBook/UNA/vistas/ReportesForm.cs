@@ -35,7 +35,6 @@ namespace noteBook.UNA.vistas
 
         public void CargarInformacion()
         {
-
             MySqlDb mySqlDb = new MySqlDb();
             mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             mySqlDb.OpenConnection();
@@ -62,6 +61,7 @@ namespace noteBook.UNA.vistas
             fechaBusqueda = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             MessageBox.Show(fechaBusqueda);
             BuscarFecha();
+
         }
     }
 }

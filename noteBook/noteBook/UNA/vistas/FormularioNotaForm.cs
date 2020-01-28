@@ -14,7 +14,9 @@ namespace noteBook.UNA.vistas
     public partial class FormularioNotaForm : Form
     {
 
+
         readonly NotaControlForm notaPrevia = new NotaControlForm();
+
 
         string usuario;
         public FormularioNotaForm()
@@ -131,22 +133,48 @@ namespace noteBook.UNA.vistas
         }
         private void FormularioGuardarBtn_Click(object sender, EventArgs e)
         {
-            DateTime hoy = DateTime.Now;
 
-
-            MySqlDb mySqlDb = new MySqlDb
+            if (PrivacidadCombobox.Text == "Publico")
             {
-                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
-            };
+                GuardarNotaPublica();
+
+                this.Close();
+            }
+            else {
+                GuardarNotaPrivada();
+                this.Close();
+            }
+           
+            
+           
+
+         
+
+        }
+        private string FechaActual() {
+            DateTime hoy = DateTime.Now;
+            return Convert.ToDateTime(hoy).ToString("yyyy-MM-dd");  
+        }
+        private void GuardarNotaPublica() {
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
             mySqlDb.OpenConnection();
-            //string queryLibros = string.Format("INSERT INTO notas (id_libro,titulo,categoria,privavidad,fuente,color_fuente,color_fondo,fecha_creacion,posicion_x,posicion_y,width,heigh,orden)VALUES('{0}','{1}','{2}','{3}','{4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
-            //    "2", TituloTxt.Text, CategoriaTxt.Text, 'a', FuenteComboBox.Text, colorDialog2.Color.ToArgb(), colorDialog1.Color.ToArgb(), hoy.ToString("dd-MM-yyy"), x - 77,y-76,155,152,"1");
-            string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo)VALUES('{0}','{1}','{2}','{3}','{4}')", "1",
-                TituloTxt.Text, CategoriaTxt.Text, FuenteComboBox.Text, colorDialog1.Color.ToArgb()) ;
+            string queryid = String.Format("Select id_libro from libros where nombre='{0}'", Posicion);
+            string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
+            TituloTxt.Text, CategoriaTxt.Text, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152,0,FechaActual());
             mySqlDb.EjectSQL(queryLibros);
-
-            this.Close();
-
+        }
+        private void GuardarNotaPrivada() {
+            string tituloEncriptado= Encriptacion.EncriptarString(TituloTxt.Text,"titu");
+            string categoriaEncriptado = Encriptacion.EncriptarString(CategoriaTxt.Text, "cate");
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string queryid = String.Format("Select id_libro from libros where nombre='{0}'", Posicion);
+            string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
+                tituloEncriptado, categoriaEncriptado, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152,1,FechaActual());
+            mySqlDb.EjectSQL(queryLibros);
         }
 
         private void SelectorColoresNotas_Click(object sender, EventArgs e)
