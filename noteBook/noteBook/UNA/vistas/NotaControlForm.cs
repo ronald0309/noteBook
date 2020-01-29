@@ -370,7 +370,6 @@ namespace noteBook.UNA.vistas
             this.Show();
         }
 
-
     }
 }
 

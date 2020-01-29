@@ -46,33 +46,15 @@ namespace noteBook.UNA.vistas
         {
 
             mensajeEditarNotas.SetToolTip(tituloActualLabel, "Titulo actual de la nota");
-
             mensajeEditarNotas.SetToolTip(tituloTxt, "Ingrese el nuevo titulo");
-
-         
-
             mensajeEditarNotas.SetToolTip(colorFondoPB, "Ingrese el nuevo color de fondo de la nota");
-
-           
-
             mensajeEditarNotas.SetToolTip(colorFuentePB, "Ingrese el nuevo color de fondo");
-
-        
-
             mensajeEditarNotas.SetToolTip(fuenteCBX, "Ingrese el nuevo estilo de fuente");
-
-        
-
             mensajeEditarNotas.SetToolTip(privacidadCBX, "Ingrese la nueva privacidad de la nota");
-
             mensajeEditarNotas.SetToolTip(categoriaActualLabel, "Categoria actual de la nota");
-
             mensajeEditarNotas.SetToolTip(categoriaTxt, "Ingrese la nueva categoria de la nota");
-
             mensajeEditarNotas.SetToolTip(aceptarBtn, "Guardar modificacion");
-
             mensajeEditarNotas.SetToolTip(cancelarBtn, "Cancelar modificación");
-
         }
 
         public void CargarDatos(Nota nota)
@@ -339,7 +321,19 @@ namespace noteBook.UNA.vistas
             string queryActualizar = String.Format("UPDATE notas SET titulo='{0}',color_fondo='{1}',categoria='{2}',privacidad='{3}',fecha_modificacion='{4}' where titulo=('{5}')", ValidarTitulo(), colorFondoDialog.Color.ToArgb(), ValidarCategoria(), ValidarPrivacidad(), FechaActual(), tituloActualLabel.Text) ;
             mySqlDb.EjectSQL(queryActualizar);
             Singlenton.Instance.miLibro.ActualizarPage();
+            if (ValidarPrivacidad() == 0)
+            {
+                Transaccion transaccion = new Transaccion
+                {
+                    AccionRealizada = $"Se modifico la nota {tituloActualLabel.Text}",
+                    InformacionAdicional = $"Se modifico la nota {tituloActualLabel.Text}, ahora contiene los datos; nombre {ValidarTitulo()}, color de fondo {colorFondoDialog.Color.ToArgb()}, con la categoria {ValidarCategoria()}, de privacidad {ValidarPrivacidad()}",
+                    Objeto = $"Nota {tituloActualLabel.Text}",
+                    CodigoPagina = "Formulario 06"
 
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+            }
+            
 
             //try
             //{

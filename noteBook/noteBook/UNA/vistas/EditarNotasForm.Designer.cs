@@ -91,7 +91,7 @@
             this.aceptarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.aceptarBtn.Location = new System.Drawing.Point(228, 315);
-            this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(176, 28);
             this.aceptarBtn.TabIndex = 5;
@@ -105,7 +105,7 @@
             this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cancelarBtn.Location = new System.Drawing.Point(44, 315);
-            this.cancelarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(176, 28);
             this.cancelarBtn.TabIndex = 4;
@@ -121,7 +121,7 @@
             "Publico",
             "Privado"});
             this.privacidadCBX.Location = new System.Drawing.Point(184, 239);
-            this.privacidadCBX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.privacidadCBX.Margin = new System.Windows.Forms.Padding(4);
             this.privacidadCBX.Name = "privacidadCBX";
             this.privacidadCBX.Size = new System.Drawing.Size(192, 24);
             this.privacidadCBX.TabIndex = 3;
@@ -129,7 +129,7 @@
             // tituloTxt
             // 
             this.tituloTxt.Location = new System.Drawing.Point(184, 89);
-            this.tituloTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tituloTxt.Margin = new System.Windows.Forms.Padding(4);
             this.tituloTxt.Name = "tituloTxt";
             this.tituloTxt.Size = new System.Drawing.Size(188, 22);
             this.tituloTxt.TabIndex = 0;
@@ -186,7 +186,7 @@
             // 
             this.colorFondoPB.BackColor = System.Drawing.SystemColors.HotTrack;
             this.colorFondoPB.Location = new System.Drawing.Point(188, 272);
-            this.colorFondoPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorFondoPB.Margin = new System.Windows.Forms.Padding(4);
             this.colorFondoPB.Name = "colorFondoPB";
             this.colorFondoPB.Size = new System.Drawing.Size(32, 30);
             this.colorFondoPB.TabIndex = 41;
@@ -208,7 +208,7 @@
             this.fuenteCBX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fuenteCBX.FormattingEnabled = true;
             this.fuenteCBX.Location = new System.Drawing.Point(184, 126);
-            this.fuenteCBX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fuenteCBX.Margin = new System.Windows.Forms.Padding(4);
             this.fuenteCBX.Name = "fuenteCBX";
             this.fuenteCBX.Size = new System.Drawing.Size(131, 24);
             this.fuenteCBX.TabIndex = 1;
@@ -217,7 +217,7 @@
             // 
             this.colorFuentePB.BackColor = System.Drawing.Color.DarkRed;
             this.colorFuentePB.Location = new System.Drawing.Point(335, 126);
-            this.colorFuentePB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorFuentePB.Margin = new System.Windows.Forms.Padding(4);
             this.colorFuentePB.Name = "colorFuentePB";
             this.colorFuentePB.Size = new System.Drawing.Size(39, 26);
             this.colorFuentePB.TabIndex = 45;
@@ -239,7 +239,7 @@
             // categoriaTxt
             // 
             this.categoriaTxt.Location = new System.Drawing.Point(184, 181);
-            this.categoriaTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categoriaTxt.Margin = new System.Windows.Forms.Padding(4);
             this.categoriaTxt.Name = "categoriaTxt";
             this.categoriaTxt.Size = new System.Drawing.Size(188, 22);
             this.categoriaTxt.TabIndex = 2;
@@ -319,7 +319,7 @@
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.aceptarBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditarNotasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "2";

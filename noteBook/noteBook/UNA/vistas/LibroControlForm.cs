@@ -94,7 +94,11 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        
-
+        private void EditarBtn_Click(object sender, EventArgs e)
+        {
+            EditarLibroForm editarLibro = new EditarLibroForm();
+            editarLibro.CargarDatos(TituloLabel.Text);
+            editarLibro.ShowDialog();
+        }
     }
 }

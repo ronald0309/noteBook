@@ -32,18 +32,25 @@ namespace noteBook.UNA.vistas
                 mySqlDb.OpenConnection();
                 //string query = "Select titulo,categoria,color_fondo from notas where(id_libro=(select id_libro from libros)and " +
                 //    "(select id_usuario from libros='"+id+"'))";
-      string query = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo from notas where(id_libro=(select id_libro from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}'))and privacidad='{1}')", Singlenton.Instance.usuarioActual.NombreUsuario,0);
-                foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(query))) {
-                   
-                    NotaControlForm notaC = new NotaControlForm();
-                    notaC.TituloNota = notas.Titulo;
-                    notaC.Categoria = notas.Categoria;
-                    notaC.ColorNota = notas.ColorFondo;
-                    notaC.FechaCreacion = notas.FechaCreacion;
-                    notaC.Buscar(true);
+                string query = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo from notas where(id_libro=(select id_libro from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}'))and privacidad='{1}')", Singlenton.Instance.usuarioActual.NombreUsuario, 0);
+                if (mySqlDb.QuerySQL(query) != null)
+                {
+                    foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(query)))
+                    {
 
-                    busquedaNotasPanel.Controls.Add(notaC);
+                        NotaControlForm notaC = new NotaControlForm();
+                        notaC.TituloNota = notas.Titulo;
+                        notaC.Categoria = notas.Categoria;
+                        notaC.ColorNota = notas.ColorFondo;
+                        notaC.FechaCreacion = notas.FechaCreacion;
+                        notaC.Buscar(true);
 
+                        busquedaNotasPanel.Controls.Add(notaC);
+
+                    }
+                }else
+                {
+                    MessageBox.Show("No se han agregado notas");
                 }
 
             }
@@ -125,7 +132,7 @@ namespace noteBook.UNA.vistas
                 this.BusquedaNotas();
             }
         }
-        
+
         private void BusquedaNotas()
         {
 
@@ -139,7 +146,7 @@ namespace noteBook.UNA.vistas
                 };
                 mySqlDb.OpenConnection();
                 String query = string.Format("Select privacidad,fecha_creacion,titulo,categoria,color_fondo from notas where titulo like'%{0}%' and categoria like '%{1}%' and " +
-                    "id_libro=(select id_libro from libros where id_usuario=(Select id_usuario from usuarios where avatar='{2}')and privacidad='{3}')", busquedaTxt.Text, categoriaTxt.Text,Singlenton.Instance.usuarioActual.NombreUsuario,0);
+                    "id_libro=(select id_libro from libros where id_usuario=(Select id_usuario from usuarios where avatar='{2}')and privacidad='{3}')", busquedaTxt.Text, categoriaTxt.Text, Singlenton.Instance.usuarioActual.NombreUsuario, 0);
                 foreach (var notas in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(query)))
                 {
                     NotaControlForm notaC = new NotaControlForm();

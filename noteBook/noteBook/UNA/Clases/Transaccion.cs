@@ -36,7 +36,7 @@ namespace noteBook.UNA.Clases
             mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             mySqlDb.OpenConnection();
             string queryUsuarios = string.Format("SELECT id_usuario from usuarios where avatar='" + UsuarioActual + "'");
-            string queryTransaciones = string.Format("Select * from transaciones where id_usuario='" + mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString() + "'");
+            string queryTransaciones = string.Format("Select * from transaciones where id_usuario=(SELECT id_usuario from usuarios where avatar = '" + UsuarioActual + "')");
             queryTransaciones = string.Format("INSERT INTO transaciones (objeto,codigo_pagina,fecha,informacion_adicional,id_usuario)VALUES('{0}','{1}','{2}','{3}','{4}')",
            Objeto, CodigoPagina, FechaCreacion, InformacionAdicional, mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString());
             mySqlDb.EjectSQL(queryTransaciones);
