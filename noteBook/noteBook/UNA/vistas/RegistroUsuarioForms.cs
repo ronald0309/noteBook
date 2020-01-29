@@ -71,6 +71,112 @@ namespace noteBook.UNA.vistas
             }
            
         }
+        public void PermisoCrearLibros() {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')",mySqlDb.QuerySQL(query).Rows[0][0].ToString(),1);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoEditarLibros()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 2);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoEliminarLibros()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 3);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        
+        public void PermisoCrearNotas()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 4);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoEditarNotas()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 5);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoEliminarNotas()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 6);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoBuscarNotas()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 7);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+
         private bool GuardarUsuario()
         {
             Usuario usuario = new Usuario();
@@ -132,26 +238,38 @@ namespace noteBook.UNA.vistas
 
         private void AceptarBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (CrearUsuario())
-                {
-                    Transaccion transaccion = new Transaccion
-                    {
-                        AccionRealizada = $"Se crea un nuevo usuario{nombreUsuarioTxt.Text}",
-                        InformacionAdicional = $"Se crea un nuevo usuario con el nombre{nombreUsuarioTxt.Text}",
-                        Objeto = $"Usuario {nombreUsuarioTxt.Text}",
-                        CodigoPagina = "Formulario 01"
 
-                    };
-                    Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-                    MessageBox.Show("Se creo el usuario");
-                    this.Close();
+
+            if (CrearUsuario())
+            {
+                if (CrearLibroCheck.Checked)
+                {
+                    PermisoCrearLibros();
                 }
-            }
-            catch {
-                MessageBox.Show($"Se produjo un error al guardar el usuario");
-            }
+                if (EditarLibroCheck.Checked)
+                {
+                    PermisoEditarLibros();
+
+                }
+                if (EliminarLibrosCheck.Checked)
+                {
+                    PermisoEliminarLibros();
+                }
+                if (CrearNotasCheck.Checked) {
+                    PermisoCrearNotas();
+                }
+                if (EditarNotasCheck.Checked) {
+                    PermisoEditarNotas();
+                }
+                if (EliminarNotasCheck.Checked) {
+                    PermisoEliminarNotas();
+                }
+                if (BuscarNotasCheck.Checked) {
+                    PermisoBuscarNotas();
+                }
+                }
+            
+            
             //try
             //{
             //    if (GuardarUsuario())

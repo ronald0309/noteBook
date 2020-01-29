@@ -136,7 +136,7 @@
             
             this.AgrandarBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseDown);
             this.AgrandarBtn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseMove);
-            this.AgrandarBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseUp);
+            this.AgrandarBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBtn_MouseUp);
             // 
             // tituloRichTextBox
             // 
@@ -187,7 +187,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.contendorPanel);
+
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.Name = "NotaControlForm";
             this.Size = new System.Drawing.Size(207, 215);
             this.contendorPanel.ResumeLayout(false);
