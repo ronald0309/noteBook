@@ -84,6 +84,7 @@
     <Compile Include="UNA\AdministarBaseDeDatos\DbAccess.cs" />
     <Compile Include="UNA\AdministarBaseDeDatos\MySqlDb.cs" />
     <Compile Include="UNA\Clases\ArchivoManager.cs" />
+    <Compile Include="UNA\Clases\Categorias.cs" />
     <Compile Include="UNA\Clases\Encriptacion.cs" />
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
