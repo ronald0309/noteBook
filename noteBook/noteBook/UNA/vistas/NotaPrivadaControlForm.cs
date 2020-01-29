@@ -74,22 +74,33 @@ namespace noteBook.UNA.vistas
 
         private void DesbloqueButton_Click(object sender, EventArgs e)
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
-            string queryNota = string.Format("Select titulo,privacidad from notas where titulo='{0}'",this.nombre);
-            AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
+            try
+            {
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
-            Nota nota = new Nota();
-            nota.Titulo = nombre;
-            //nota.Privacidad = Convert.ToBoolean(datosNota.Rows[0][0].ToString());
-            //nota.Titulo = datosNota.Rows[0]["titulo"].ToString();
-                notaPrivada.ResibirNota(nota);
-                notaPrivada.ShowDialog();
-            
-                        // this.Refresh();
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
+                {
+                    string queryNota = string.Format("Select titulo,privacidad from notas where titulo='{0}'", this.nombre);
+                    AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
+
+                    Nota nota = new Nota();
+                    nota.Titulo = nombre;
+                 
+                    notaPrivada.ResibirNota(nota);
+                    notaPrivada.ShowDialog();
+                }
+            }
+            catch { MessageBox.Show("El usuario no tiene el permiso para modificar la privacidad"); }
+
+
         }
 
-       
+
     }
 }

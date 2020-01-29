@@ -42,13 +42,20 @@
             this.ApellidosLabel = new System.Windows.Forms.Label();
             this.NickTxt = new System.Windows.Forms.TextBox();
             this.nicklabel = new System.Windows.Forms.Label();
+            this.CrearLibroCheck = new System.Windows.Forms.CheckBox();
+            this.EditarLibroCheck = new System.Windows.Forms.CheckBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.EliminarLibrosCheck = new System.Windows.Forms.CheckBox();
+            this.EliminarNotasCheck = new System.Windows.Forms.CheckBox();
+            this.EditarNotasCheck = new System.Windows.Forms.CheckBox();
+            this.BuscarNotasCheck = new System.Windows.Forms.CheckBox();
+            this.CrearNotasCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.registroUsuarioErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // contraseñaTxt
             // 
-
-            this.contraseñaTxt.Location = new System.Drawing.Point(162, 123);
+            this.contraseñaTxt.Location = new System.Drawing.Point(118, 123);
             this.contraseñaTxt.Name = "contraseñaTxt";
             this.contraseñaTxt.Size = new System.Drawing.Size(142, 20);
             this.contraseñaTxt.TabIndex = 2;
@@ -66,11 +73,9 @@
             // nombreUsuarioTxt
             // 
             this.nombreUsuarioTxt.BackColor = System.Drawing.SystemColors.Window;
-
-            this.nombreUsuarioTxt.Location = new System.Drawing.Point(162, 49);
-
+            this.nombreUsuarioTxt.Location = new System.Drawing.Point(86, 49);
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
-            this.nombreUsuarioTxt.Size = new System.Drawing.Size(142, 20);
+            this.nombreUsuarioTxt.Size = new System.Drawing.Size(174, 20);
             this.nombreUsuarioTxt.TabIndex = 1;
             this.nombreUsuarioTxt.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
             // 
@@ -79,8 +84,7 @@
             this.contraseñaLabel.AutoSize = true;
             this.contraseñaLabel.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.contraseñaLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-
-            this.contraseñaLabel.Location = new System.Drawing.Point(76, 124);
+            this.contraseñaLabel.Location = new System.Drawing.Point(24, 125);
             this.contraseñaLabel.Name = "contraseñaLabel";
             this.contraseñaLabel.Size = new System.Drawing.Size(88, 16);
             this.contraseñaLabel.TabIndex = 56;
@@ -91,8 +95,7 @@
             this.nombreUsuarioLabel.AutoSize = true;
             this.nombreUsuarioLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreUsuarioLabel.ForeColor = System.Drawing.SystemColors.Control;
-
-            this.nombreUsuarioLabel.Location = new System.Drawing.Point(76, 49);
+            this.nombreUsuarioLabel.Location = new System.Drawing.Point(24, 51);
             this.nombreUsuarioLabel.Name = "nombreUsuarioLabel";
             this.nombreUsuarioLabel.Size = new System.Drawing.Size(56, 16);
             this.nombreUsuarioLabel.TabIndex = 55;
@@ -103,9 +106,7 @@
             this.cancelarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-
-            this.cancelarBtn.Location = new System.Drawing.Point(79, 173);
-
+            this.cancelarBtn.Location = new System.Drawing.Point(27, 170);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(109, 23);
             this.cancelarBtn.TabIndex = 3;
@@ -117,9 +118,7 @@
             // 
             this.aceptarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
-
-            this.aceptarBtn.Location = new System.Drawing.Point(187, 173);
-
+            this.aceptarBtn.Location = new System.Drawing.Point(151, 170);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(109, 23);
             this.aceptarBtn.TabIndex = 4;
@@ -144,39 +143,109 @@
             // 
             // ApellidosTxt
             // 
-            this.ApellidosTxt.Location = new System.Drawing.Point(162, 78);
-            this.ApellidosTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ApellidosTxt.Location = new System.Drawing.Point(86, 74);
+            this.ApellidosTxt.Margin = new System.Windows.Forms.Padding(2);
             this.ApellidosTxt.Name = "ApellidosTxt";
-            this.ApellidosTxt.Size = new System.Drawing.Size(142, 22);
+            this.ApellidosTxt.Size = new System.Drawing.Size(174, 20);
             this.ApellidosTxt.TabIndex = 64;
             // 
             // ApellidosLabel
             // 
             this.ApellidosLabel.AutoSize = true;
-            this.ApellidosLabel.Location = new System.Drawing.Point(76, 78);
+            this.ApellidosLabel.Location = new System.Drawing.Point(24, 77);
             this.ApellidosLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ApellidosLabel.Name = "ApellidosLabel";
-            this.ApellidosLabel.Size = new System.Drawing.Size(65, 17);
+            this.ApellidosLabel.Size = new System.Drawing.Size(49, 13);
             this.ApellidosLabel.TabIndex = 65;
             this.ApellidosLabel.Text = "Apellidos";
             // 
             // NickTxt
             // 
-            this.NickTxt.Location = new System.Drawing.Point(162, 99);
-            this.NickTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NickTxt.Location = new System.Drawing.Point(86, 99);
+            this.NickTxt.Margin = new System.Windows.Forms.Padding(2);
             this.NickTxt.Name = "NickTxt";
-            this.NickTxt.Size = new System.Drawing.Size(142, 22);
+            this.NickTxt.Size = new System.Drawing.Size(174, 20);
             this.NickTxt.TabIndex = 66;
             // 
             // nicklabel
             // 
             this.nicklabel.AutoSize = true;
-            this.nicklabel.Location = new System.Drawing.Point(76, 105);
+            this.nicklabel.Location = new System.Drawing.Point(24, 102);
             this.nicklabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nicklabel.Name = "nicklabel";
-            this.nicklabel.Size = new System.Drawing.Size(33, 17);
+            this.nicklabel.Size = new System.Drawing.Size(27, 13);
             this.nicklabel.TabIndex = 67;
             this.nicklabel.Text = "nick";
+            // 
+            // CrearLibroCheck
+            // 
+            this.CrearLibroCheck.AutoSize = true;
+            this.CrearLibroCheck.Location = new System.Drawing.Point(281, 52);
+            this.CrearLibroCheck.Name = "CrearLibroCheck";
+            this.CrearLibroCheck.Size = new System.Drawing.Size(77, 17);
+            this.CrearLibroCheck.TabIndex = 68;
+            this.CrearLibroCheck.Text = "Crear Libro";
+            this.CrearLibroCheck.UseVisualStyleBackColor = true;
+            // 
+            // EditarLibroCheck
+            // 
+            this.EditarLibroCheck.AutoSize = true;
+            this.EditarLibroCheck.Location = new System.Drawing.Point(281, 78);
+            this.EditarLibroCheck.Name = "EditarLibroCheck";
+            this.EditarLibroCheck.Size = new System.Drawing.Size(79, 17);
+            this.EditarLibroCheck.TabIndex = 69;
+            this.EditarLibroCheck.Text = "Editar Libro";
+            this.EditarLibroCheck.UseVisualStyleBackColor = true;
+            // 
+            // EliminarLibrosCheck
+            // 
+            this.EliminarLibrosCheck.AutoSize = true;
+            this.EliminarLibrosCheck.Location = new System.Drawing.Point(281, 102);
+            this.EliminarLibrosCheck.Name = "EliminarLibrosCheck";
+            this.EliminarLibrosCheck.Size = new System.Drawing.Size(93, 17);
+            this.EliminarLibrosCheck.TabIndex = 70;
+            this.EliminarLibrosCheck.Text = "Eliminar Libros";
+            this.EliminarLibrosCheck.UseVisualStyleBackColor = true;
+            // 
+            // EliminarNotasCheck
+            // 
+            this.EliminarNotasCheck.AutoSize = true;
+            this.EliminarNotasCheck.Location = new System.Drawing.Point(377, 74);
+            this.EliminarNotasCheck.Name = "EliminarNotasCheck";
+            this.EliminarNotasCheck.Size = new System.Drawing.Size(93, 17);
+            this.EliminarNotasCheck.TabIndex = 71;
+            this.EliminarNotasCheck.Text = "Eliminar Notas";
+            this.EliminarNotasCheck.UseVisualStyleBackColor = true;
+            // 
+            // EditarNotasCheck
+            // 
+            this.EditarNotasCheck.AutoSize = true;
+            this.EditarNotasCheck.Location = new System.Drawing.Point(377, 51);
+            this.EditarNotasCheck.Name = "EditarNotasCheck";
+            this.EditarNotasCheck.Size = new System.Drawing.Size(84, 17);
+            this.EditarNotasCheck.TabIndex = 72;
+            this.EditarNotasCheck.Text = "Editar Notas";
+            this.EditarNotasCheck.UseVisualStyleBackColor = true;
+            // 
+            // BuscarNotasCheck
+            // 
+            this.BuscarNotasCheck.AutoSize = true;
+            this.BuscarNotasCheck.Location = new System.Drawing.Point(377, 99);
+            this.BuscarNotasCheck.Name = "BuscarNotasCheck";
+            this.BuscarNotasCheck.Size = new System.Drawing.Size(90, 17);
+            this.BuscarNotasCheck.TabIndex = 73;
+            this.BuscarNotasCheck.Text = "Buscar Notas";
+            this.BuscarNotasCheck.UseVisualStyleBackColor = true;
+            // 
+            // CrearNotasCheck
+            // 
+            this.CrearNotasCheck.AutoSize = true;
+            this.CrearNotasCheck.Location = new System.Drawing.Point(281, 126);
+            this.CrearNotasCheck.Name = "CrearNotasCheck";
+            this.CrearNotasCheck.Size = new System.Drawing.Size(82, 17);
+            this.CrearNotasCheck.TabIndex = 74;
+            this.CrearNotasCheck.Text = "Crear Notas";
+            this.CrearNotasCheck.UseVisualStyleBackColor = true;
             // 
             // RegistroUsuarioForms
             // 
@@ -185,8 +254,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.CancelButton = this.cancelarBtn;
-
-            this.ClientSize = new System.Drawing.Size(316, 202);
+            this.ClientSize = new System.Drawing.Size(519, 202);
+            this.Controls.Add(this.CrearNotasCheck);
+            this.Controls.Add(this.BuscarNotasCheck);
+            this.Controls.Add(this.EditarNotasCheck);
+            this.Controls.Add(this.EliminarNotasCheck);
+            this.Controls.Add(this.EliminarLibrosCheck);
+            this.Controls.Add(this.EditarLibroCheck);
+            this.Controls.Add(this.CrearLibroCheck);
             this.Controls.Add(this.formulario09Lbl);
             this.Controls.Add(this.nicklabel);
             this.Controls.Add(this.NickTxt);
@@ -200,7 +275,6 @@
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.aceptarBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
             this.Name = "RegistroUsuarioForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
@@ -226,6 +300,13 @@
         private System.Windows.Forms.TextBox NickTxt;
         private System.Windows.Forms.Label ApellidosLabel;
         private System.Windows.Forms.TextBox ApellidosTxt;
-
+        private System.Windows.Forms.CheckBox CrearLibroCheck;
+        private System.Windows.Forms.CheckBox EditarLibroCheck;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.CheckBox EliminarLibrosCheck;
+        private System.Windows.Forms.CheckBox CrearNotasCheck;
+        private System.Windows.Forms.CheckBox BuscarNotasCheck;
+        private System.Windows.Forms.CheckBox EditarNotasCheck;
+        private System.Windows.Forms.CheckBox EliminarNotasCheck;
     }
 }

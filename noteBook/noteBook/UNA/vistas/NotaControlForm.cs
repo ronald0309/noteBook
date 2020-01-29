@@ -165,13 +165,7 @@ namespace noteBook.UNA.vistas
 
             }
         }
-        private void AgrandarBoton_MouseUp(object sender, MouseEventArgs e)
-        {
-            modificarTamaño = false;
-
-            DoubleBuffered = true;
-            Singlenton.Instance.miLibro.ActualizarPage();
-        }
+       
 
         private void AgrandarBoton_MouseMove(object sender, MouseEventArgs e)
         {
@@ -210,14 +204,46 @@ namespace noteBook.UNA.vistas
 
         private void AgrandarBoton_MouseDown(object sender, MouseEventArgs e)
         {
-            modificarTamaño = true;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            try
+            {
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
+                {
+                    modificarTamaño = true;
+                }
+            }
+            catch { MessageBox.Show("El usuario no cuenta con permiso para modificar el tamaño de la nota"); }
           
         }
 
+
         private void MoverBoton_MouseDown(object sender, MouseEventArgs e)
         {
-            mover = true;
-            inicial = e.Location;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            try
+            {
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
+                {
+                    mover = true;
+                    inicial = e.Location;
+                }
+            }
+            catch { MessageBox.Show("El usuario no posee permiso para mover las notas"); }
+
         }
 
         private void MoverBoton_MouseUp(object sender, MouseEventArgs e)
@@ -229,35 +255,13 @@ namespace noteBook.UNA.vistas
 
         private void MoverBoton_MouseMove(object sender, MouseEventArgs e)
         {
-            // string   query = String.Format("UPDATE usuarios SET contrasena=('{0}') where id_usuario=('{1}')", Encriptacion.EncriptarString(ContraseñaNuevaTxt.Text, "contraseña")
+          
             if (e.Button == MouseButtons.Left)
             {
-                //{
-                //    if (mover)
-                //    {
-
-                //        foreach (var libro in Singlenton.Instance.LibrosList)
-                //        {
-                //            foreach (var nota in libro.Notas)
-                //            {
-                //                if (nota.Titulo == this.TituloNota)
-                //                {
-                //                    this.Left = e.X + this.Left + inicial.X;
-                //                    this.Top = e.Y + this.Top + inicial.Y;
-                //                    nota.PosicionX = this.Location.X;
-                //                    nota.PosicionY = this.Location.Y;
-                //                }
-                //            }
-
-                //        }
-                //    }
-                //}
 
                 MySqlDb mySqlDb = new MySqlDb();
                 mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
                 mySqlDb.OpenConnection();
-           //     string query = String.Format("Select posicion_x,posicon_y from notas where titulo='{0}'", this.tituloNota);
-
                 this.Left = e.X + this.Left + inicial.X;
                 this.Top = e.Y + this.Top + inicial.Y;
                 string queryActualizar = String.Format("UPDATE notas SET posicion_x=('{0}'),posicion_y=('{1}') where titulo=('{2}')", this.Location.X, this.Location.Y,this.tituloNota);
@@ -267,16 +271,30 @@ namespace noteBook.UNA.vistas
         }
         private void EditarBtn_Click(object sender, EventArgs e)
         {
-            EditarNotasForm editarNota = new EditarNotasForm();
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            mySqlDb.OpenConnection();
-            String quer = String.Format("Select privacidad,fecha_creacion,titulo,categoria,color_fondo from notas where titulo='{0}'",this.tituloNota);
-            foreach (Nota nota in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(quer)))
+            MySqlDb mySqlDb = new MySqlDb
             {
-                editarNota.CargarDatos(nota);
-                editarNota.ShowDialog();
-                Singlenton.Instance.miLibro.ActualizarPage();
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            try
+            {
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
+                {
+                    EditarNotasForm editarNota = new EditarNotasForm();
+                    String quer = String.Format("Select privacidad,fecha_creacion,titulo,categoria,color_fondo from notas where titulo='{0}'", this.tituloNota);
+                    foreach (Nota nota in Singlenton.Instance.listNotafromDb.GetListFromBusqueda(mySqlDb.QuerySQL(quer)))
+                    {
+                        editarNota.CargarDatos(nota);
+                        editarNota.ShowDialog();
+                        Singlenton.Instance.miLibro.ActualizarPage();
+                    }
+                }
+            }
+            catch (Exception) {
+                MessageBox.Show("El usuario no tiene permiso para editar Notas");
             }
             
             //foreach (var libro in Singlenton.Instance.LibrosList)
@@ -298,60 +316,40 @@ namespace noteBook.UNA.vistas
 
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons botones = MessageBoxButtons.YesNo;
-            DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            MySqlDb mySqlDb = new MySqlDb
             {
-
-                MySqlDb mySqlDb = new MySqlDb
-                {
-                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
-                };
-                mySqlDb.OpenConnection();
-                // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
-                string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
-                mySqlDb.EjectSQL(query);
-                Singlenton.Instance.NotaEditada = true;
-                Singlenton.Instance.miLibro.ActualizarPage();
-                //foreach (Libro libro in Singlenton.Instance.LibrosList)
-                //{
-
-                //    foreach (Nota nota in libro.AgregarNota)
-                //    {
-                //        if (nota.Titulo == this.tituloNota)
-                //        {
-                //            libro.AgregarNota.Remove(nota);
-                //            Singlenton.Instance.NotaEditada = true;
-                //            Singlenton.Instance.miLibro.ActualizarPage();
-                //            break;
-                //        }
-                //    }
-                //}
-                Transaccion transaccion = new Transaccion
-                {
-                    AccionRealizada = "Se elimina nota",
-                    InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual.NombreUsuario} elimino la nota {this.tituloNota} ",
-                    Objeto = $"Nota {this.tituloNota}",
-                    CodigoPagina = "Control de nota"
-
-                };
-                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-                //Singlenton.Instance.CargarReporte("Nota eliminada", $"Se elimino la nota {this.tituloNota}", $"Nota {this.tituloNota}");
-
-
-            }
-            else
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            try
             {
-                if (dr == DialogResult.No)
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=6", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "6")
                 {
+                    MessageBoxButtons botones = MessageBoxButtons.YesNo;
+                    DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                    {
 
+
+                        // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
+                        string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
+                        mySqlDb.EjectSQL(query);
+                        Singlenton.Instance.NotaEditada = true;
+                        Singlenton.Instance.miLibro.ActualizarPage();
+                    }
 
                 }
 
             }
+            catch (Exception)
+            {
+                MessageBox.Show("El usuario no cuenta con permiso para eliminar notas");
+            }
         }
-        
+
 
         private void RefrescarNotaControl(Nota nota)
         {
@@ -370,7 +368,12 @@ namespace noteBook.UNA.vistas
             this.Show();
         }
 
-
+        private void AgrandarBtn_MouseUp(object sender, MouseEventArgs e)
+        {
+            modificarTamaño = true;
+            DoubleBuffered = true;
+            Singlenton.Instance.miLibro.ActualizarPage();
+        }
     }
 }
 

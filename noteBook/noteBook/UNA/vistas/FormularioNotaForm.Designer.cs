@@ -82,7 +82,7 @@
             this.TituloTxt.Name = "TituloTxt";
             this.TituloTxt.Size = new System.Drawing.Size(227, 22);
             this.TituloTxt.TabIndex = 18;
-            this.TituloTxt.TextChanged += new System.EventHandler(this.TituloTxt_TextChanged);
+           this.TituloTxt.TextChanged += new System.EventHandler(this.TituloTxt_TextChanged);
             // 
             // label5
             // 

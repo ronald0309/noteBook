@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
         private void FormularioNota_Load(object sender, EventArgs e)
         {
 
-            
+
             notaPrevia.TituloNota = "Titulo";
             notaPrevia.Categoria = "Categoria";
             DateTime hoy = DateTime.Now;
@@ -131,26 +131,37 @@ namespace noteBook.UNA.vistas
             }
 
         }
-        private void FormularioGuardarBtn_Click(object sender, EventArgs e)
-        {
-
-            if (PrivacidadCombobox.Text == "Publico")
+        private void FormularioGuardarBtn_Click(object sender, EventArgs e) {
+            MySqlDb mySqlDb = new MySqlDb
             {
-                GuardarNotaPublica();
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
-                this.Close();
+            String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=4", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+            try { 
+            if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "4")
+            {
+                if (PrivacidadCombobox.Text == "Publico")
+                {
+                    GuardarNotaPublica();
+                    this.Close();
+                }
+                else
+                {
+                    GuardarNotaPrivada();
+                    this.Close();
+                }
             }
-            else {
-                GuardarNotaPrivada();
-                this.Close();
-            }
-           
-            
-           
-
-         
-
         }
+            catch (Exception)
+            {
+                MessageBox.Show($"El usuario no tiene permiso para crear notas");
+            }
+
+}
+        
         private string FechaActual() {
             DateTime hoy = DateTime.Now;
             return Convert.ToDateTime(hoy).ToString("yyyy-MM-dd");  
