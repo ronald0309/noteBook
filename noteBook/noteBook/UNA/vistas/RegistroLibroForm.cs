@@ -60,7 +60,7 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-
+                    string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
                     String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                     if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
                     {
