@@ -60,43 +60,26 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                    try
-                    {
-                        string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
-                        String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
-                        if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
+                    String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                    if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
+                    {
+                        queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
+                       nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
+                        mySqlDb.EjectSQL(queryLibros);
+                        foreach (Label labelGenero in contenedorCategoriasFP.Controls)
                         {
-                            queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
-                           nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
-                            mySqlDb.EjectSQL(queryLibros);
-                            foreach (Label labelGenero in contenedorCategoriasFP.Controls)
-                            {
-                                string queryGenero = string.Format("Select id_genero from generos where nombre='" + labelGenero.Text + "'");
-                                string queryLibro = string.Format("Select id_libro from libros where nombre='" + nombreTxt.Text + "'");
-                                string queryGeneroLibros = string.Format("INSERT INTO generos_libros (id_libro,id_genero)VALUES('{0}','{1}')", mySqlDb.QuerySQL(queryLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(queryGenero).Rows[0][0].ToString());
-                                mySqlDb.EjectSQL(queryGeneroLibros);
-                            }
+                            string queryGenero = string.Format("Select id_genero from generos where nombre='" + labelGenero.Text + "'");
+                            string queryLibro = string.Format("Select id_libro from libros where nombre='" + nombreTxt.Text + "'");
+                            string queryGeneroLibros = string.Format("INSERT INTO generos_libros (id_libro,id_genero)VALUES('{0}','{1}')", mySqlDb.QuerySQL(queryLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(queryGenero).Rows[0][0].ToString());
+                            mySqlDb.EjectSQL(queryGeneroLibros);
                         }
-                        else
-                        {
-                            MessageBox.Show($"El usuario no tiene permiso para crear libros");
-                        }
-                        mySqlDb.CloseConnection();
-                }
-                    catch (Exception Ex)
-                {
-                        MessageBox.Show($"El usuario no tiene permiso para crear libros");
                     }
 
+                    mySqlDb.CloseConnection();
+                }
+
             }
-
-
-            }
-
-
-
-
         }
 
         public void CrearLibro()
@@ -251,7 +234,7 @@ namespace noteBook.UNA.vistas
                         contenedorCategoriasFP.Controls.Remove(label);
                     generos.Remove(categoria);
                 }
-                
+
 
             };
             return eliminar;

@@ -104,16 +104,27 @@ namespace noteBook
                     foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query))) {
                         if (usuarios.NombreUsuario == usuarioTxt.Text&&usuarios.Contraseña==contraseñaTxt.Text)
                         {
-                            Usuario usuario = new Usuario
+                            String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=8",usuarios.IdUsuario);
+                            try
                             {
-                                Activo = true,
-                                IdUsuario = usuarios.IdUsuario,
-                                NombreUsuario = usuarios.NombreUsuario
-                            };
-                            Singlenton.Instance.usuarios.Add(usuario);
-                            Singlenton.Instance.usuarioActual = usuarios;
-                            DialogResult = DialogResult.OK;
-                            this.Close();
+                                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "8")
+                                {
+                                    Usuario usuario = new Usuario
+                                    {
+                                        Activo = true,
+                                        IdUsuario = usuarios.IdUsuario,
+                                        NombreUsuario = usuarios.NombreUsuario
+                                    };
+                                    Singlenton.Instance.usuarios.Add(usuario);
+                                    Singlenton.Instance.usuarioActual = usuarios;
+                                    DialogResult = DialogResult.OK;
+                                    this.Close();
+                                }
+                            }
+                            catch {
+                                MessageBox.Show("El usuario no tiene permiso para iniciar sección");
+                            }
+                           
                         }
                         else {
                             if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña != contraseñaTxt.Text)
