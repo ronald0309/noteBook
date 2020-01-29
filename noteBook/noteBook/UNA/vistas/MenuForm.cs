@@ -206,13 +206,25 @@ namespace noteBook.UNA.vistas
         }
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            try
+            {
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
+                {
+                    RegistroLibroForm registroLibros = new RegistroLibroForm();
+                    this.nombreVistaLabel.Text = "Agregar Libro(Formulario 01)";
 
-            RegistroLibroForm registroLibros = new RegistroLibroForm();
-            this.nombreVistaLabel.Text = "Agregar Libro(Formulario 01)";
-
-            this.AbrirFormulario(registroLibros);
-
+                    this.AbrirFormulario(registroLibros);
+                }
+            }
+            catch { MessageBox.Show("El usuario no tiene permiso para crear libros"); }
         }
 
         private void GuardarBtn_Click(object sender, EventArgs e)
@@ -223,30 +235,58 @@ namespace noteBook.UNA.vistas
 
         private void LibroBtn_Click(object sender, EventArgs e)
         {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+             try
+            {
+           
+            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
-
-
-
-            pantallaActiva = 1;
-            MisLibrosForm miLibros = new MisLibrosForm();
-
-            this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
+                String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=9", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "9")
+                {
+                  
+                    pantallaActiva = 1;
+                    MisLibrosForm miLibros = new MisLibrosForm();
+                    this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
+                    miLibros.CrearLibroDB();
+                    Singlenton.Instance.miLibro = miLibros;
+                    this.AbrirFormulario(miLibros);
+                }
+            }
+            catch { MessageBox.Show("El usuario no tiene permiso para ver libros"); }
 
 
 
            // miLibros.CrearLibro();
-            miLibros.CrearLibroDB();
+            
 
-            Singlenton.Instance.miLibro = miLibros;
-            this.AbrirFormulario(miLibros);
+       
         }
 
         private void BusquedaBtn_Click(object sender, EventArgs e)
         {
-            pantallaActiva = 2;
-            this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
-            BusquedaForm busqueda = new BusquedaForm();
-            this.AbrirFormulario(busqueda);
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+
+            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+
+            String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=7", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+            try
+            {
+                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "7")
+                {
+                    pantallaActiva = 2;
+                    this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
+                    BusquedaForm busqueda = new BusquedaForm();
+                    this.AbrirFormulario(busqueda);
+                }
+            }
+            catch { MessageBox.Show("El usuario no tiene permiso para buscar notas"); }
         }
 
         private void ReportesBtn_Click(object sender, EventArgs e)

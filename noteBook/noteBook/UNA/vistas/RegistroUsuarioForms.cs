@@ -59,9 +59,9 @@ namespace noteBook.UNA.vistas
             {
                 string contrasenaEncrip= Encriptacion.EncriptarString(contraseñaTxt.Text, "contraseña");
                 string[] apellido;
-                apellido = ApellidosTxt.Text.Split(' ');
+                apellido = primerApellidoTxt.Text.Split(' ');
                 query = string.Format("INSERT INTO usuarios (nombre,apellido_primero,apellido_segundo,avatar,contrasena)VALUES('{0}','{1}','{2}','{3}','{4}')",
-                nombreUsuarioTxt.Text,"araya","cecliano",NickTxt.Text,contrasenaEncrip);
+                nombreUsuarioTxt.Text,primerApellidoTxt.Text,SegundoApellidoTxt.Text,NickTxt.Text,contrasenaEncrip);
             
                 mySqlDb.EjectSQL(query);
                 mySqlDb.CommitTransaction();
@@ -156,6 +156,36 @@ namespace noteBook.UNA.vistas
             mySqlDb.BeginTransaction();
             string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
             String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 6);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoIngresarSistema()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 8);
+            mySqlDb.EjectSQL(queryPermiso);
+            mySqlDb.CommitTransaction();
+            mySqlDb.CloseConnection();
+
+        }
+        public void PermisoVerLibros()
+        {
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            mySqlDb.BeginTransaction();
+            string query = String.Format("Select id_usuario from usuarios where avatar='" + NickTxt.Text + "'");
+            String queryPermiso = String.Format("Insert INTO permisos_personas (id_usuario,id_permiso) VALUES('{0}','{1}')", mySqlDb.QuerySQL(query).Rows[0][0].ToString(), 9);
             mySqlDb.EjectSQL(queryPermiso);
             mySqlDb.CommitTransaction();
             mySqlDb.CloseConnection();
@@ -266,6 +296,12 @@ namespace noteBook.UNA.vistas
                 }
                 if (BuscarNotasCheck.Checked) {
                     PermisoBuscarNotas();
+                }
+                if (IngresarSistemaCheck.Checked) {
+                    PermisoIngresarSistema();
+                }
+                if (VerNotasCheck.Checked) {
+                    PermisoVerLibros();
                 }
                 }
             

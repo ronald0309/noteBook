@@ -58,31 +58,14 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                    try
-                    {
-                        string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
-                        String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
-                        if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
-                        {
-                            queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
-                           nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
-                            mySqlDb.EjectSQL(queryLibros);
-                        }
+                    string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
 
-                    }
-                    catch (Exception Ex)
-                    {
-                        MessageBox.Show($"El usuario no tiene permiso para crear libros");
-                    }
+                    queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
+                   nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
+                    mySqlDb.EjectSQL(queryLibros);
                 }
-
-
             }
-
-
-
-
         }
 
         public void CrearLibro() {
