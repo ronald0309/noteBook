@@ -19,11 +19,8 @@ namespace noteBook.UNA.Clases
         public Usuario listUsuarioFromDB = new Usuario();
         public List<Libro> LibrosList = new List<Libro>();
         public Transaccion transaccion = new Transaccion();
-        public List<Usuario> usuarios = new List<Usuario>();
-        public List<Usuario> usuariosAuxiliar = new List<Usuario>();
         public MisLibrosForm miLibro = null;
         public Usuario usuarioActual = new Usuario();
-
         public bool NotaEditada { get; set; }
         protected Singlenton() { }
         public static Singlenton Instance
@@ -37,64 +34,9 @@ namespace noteBook.UNA.Clases
 
             }
         }
-        // se genera en esta clase para evitar que se generen cada ves de declarar una instancia de la clase usuario 
-        public void CrearUsuarios()
-        {
-            Usuario usuario1 = new Usuario
-            {
-                NombreUsuario = "Ronny",
-                Contraseña = "123",
-                Activo = false
-            };
-            usuarios.Add(usuario1);
-            Usuario usuario2 = new Usuario
-            {
-                NombreUsuario = "Gerardo",
-                Contraseña = "456"
-            };
-            usuarios.Add(usuario2);
-            Usuario usuario3 = new Usuario
-            {
-                NombreUsuario = "Ruben",
-                Contraseña = "789"
-            };
-            usuarios.Add(usuario3);
-            Usuario usuario4 = new Usuario
-            {
-                NombreUsuario = "x",
-                Contraseña = "1"
-            };
-            usuarios.Add(usuario4);
-
-        }
         
-        public string UsuarioActivo()
-        {
-            string usuarioActivo = "";
-            foreach (Usuario u in Singlenton.Instance.usuarios)
-            {
-
-                if (u.Activo)
-                {
-                    usuarioActivo = u.NombreUsuario;
-                }
-                else
-                {
-                    if (usuarioActivo == "" || usuarioActivo == "no hay usuarios activos")
-                    {
-                        usuarioActivo = "no hay usuarios activos";
-                    }
-                }
-            }
-            return usuarioActivo;
-        }
-        public void DesactivarUsuario()
-        {
-            foreach (Usuario usuario in usuarios)
-            {
-                usuario.Activo = false;
-            }
-        }
+        
+       
     }
 
 }

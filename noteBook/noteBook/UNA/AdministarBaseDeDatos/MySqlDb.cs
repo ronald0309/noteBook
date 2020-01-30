@@ -15,12 +15,9 @@ namespace noteBook
             try
             {
                 DbConnection = new MySqlConnection(ConnectionString);
-               
                     DbConnection.Open();
-                
             }catch
             {
-                
                 MessageBox.Show("No se pudo establacer una conexión con la base de datos");
                 
             }

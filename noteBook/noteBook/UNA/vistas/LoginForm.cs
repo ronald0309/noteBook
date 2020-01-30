@@ -16,18 +16,13 @@ namespace noteBook
 {
     public partial class Login : Form
     {
-        
-        readonly ArchivoManager archivoManager = new ArchivoManager();
         readonly RegistroUsuarioForms registroUsuario = new RegistroUsuarioForms();
-        Usuario logearUsuario = new Usuario();
         public Login()
         {
             InitializeComponent();
             mensajeLogin.SetToolTip(usuarioTxt, "Ingrese el nombre de usuario");
             mensajeLogin.SetToolTip(contraseñaTxt, "Ingrese la contraseña");
         }
-        
-        
         public void LimpiarCampos()
         {
             usuarioTxt.Text = "";
@@ -37,68 +32,83 @@ namespace noteBook
         {
             registroUsuario.ShowDialog();
         }
+        public bool IsCamposLlenos()
+        {
+            bool isLleno = false;
+            if ((contraseñaTxt.TextLength != 0) && (usuarioTxt.TextLength != 0))
+            {
+                isLleno = true;
+            }
+            else
+            {
+                if (usuarioTxt.TextLength == 0)
+                {
+                    LoginErrorProvider.SetError(usuarioTxt, "Falta Nombre Usuario");
+                }
+                if (contraseñaTxt.TextLength == 0)
+                {
 
+                    LoginErrorProvider.SetError(contraseñaTxt, "Falta Contraseña Usuario");
+                }
+            }
+            
+            return isLleno;
+        }
 
         private void IngresarBtn_Click(object sender, EventArgs e)
         {
             LoginErrorProvider.Clear();
-            if (usuarioTxt.TextLength == 0)
+            if (IsCamposLlenos())
             {
-                LoginErrorProvider.SetError(usuarioTxt, "Falta Nombre Usuario");
-            }
-            if (contraseñaTxt.TextLength == 0)
-            {
-
-                LoginErrorProvider.SetError(contraseñaTxt, "Falta Contraseña Usuario");
-            }
-              MySqlDb mySqlDb = new MySqlDb();
-              mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-              mySqlDb.OpenConnection();
-             string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='{0}'",usuarioTxt.Text);
-            if (mySqlDb.QuerySQL(query).Rows.Count != 0)
-            {
-                foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query)))
+                MySqlDb mySqlDb = new MySqlDb
                 {
-                    if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña == contraseñaTxt.Text)
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
+                mySqlDb.OpenConnection();
+                string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='{0}'", usuarioTxt.Text);
+                if (mySqlDb.QuerySQL(query).Rows.Count != 0)
+                {
+                    foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.SelectUsuarioFromDataTable(mySqlDb.QuerySQL(query)))
                     {
-                        String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=8", usuarios.IdUsuario);
-                        try
+                        if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña == contraseñaTxt.Text)
                         {
-                            if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "8")
+                            String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=8", usuarios.IdUsuario);
+                            try
                             {
-                                Usuario usuario = new Usuario
+                                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "8")
                                 {
-                                    Activo = true,
-                                    IdUsuario = usuarios.IdUsuario,
-                                    NombreUsuario = usuarios.NombreUsuario
-                                };
-                                Singlenton.Instance.usuarios.Add(usuario);
-                                Singlenton.Instance.usuarioActual = usuarios;
-                                DialogResult = DialogResult.OK;
-                                this.Close();
+                                    Usuario usuario = new Usuario
+                                    {
+                                        Activo = true,
+                                        IdUsuario = usuarios.IdUsuario,
+                                        NombreUsuario = usuarios.NombreUsuario
+                                    };
+                                   
+                                    Singlenton.Instance.usuarioActual = usuarios;
+                                    DialogResult = DialogResult.OK;
+                                    this.Close();
+                                }
+                            }
+                            catch
+                            {
+                                MessageBox.Show("El usuario no tiene permiso para iniciar sección");
                             }
                         }
-                        catch
+                        else
                         {
-                            MessageBox.Show("El usuario no tiene permiso para iniciar sección");
-                        }
-                    }
-                    else
-                    {
-                        if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña != contraseñaTxt.Text)
-                        {
-                            MessageBox.Show("Contraseña incorecta");
-                        }
+                            if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña != contraseñaTxt.Text)
+                            {
+                                MessageBox.Show("Contraseña incorecta");
+                            }
 
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("El usuario no existe");
+                }
             }
-            else {
-                MessageBox.Show("El usuario no existe");
-            }
-                    
-                
-            
         }
 
         private void ContraseñaCambioTxt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

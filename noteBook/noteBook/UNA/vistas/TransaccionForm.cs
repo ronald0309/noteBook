@@ -12,11 +12,10 @@ using noteBook.UNA.Clases;
 namespace noteBook.UNA.vistas
 {
 
-    public partial class ReportesForm : Form
+    public partial class TransaccionForm : Form
     {
-        readonly ArchivoManager archivoManager = new ArchivoManager();
         private string fechaBusqueda;
-        public ReportesForm()
+        public TransaccionForm()
         {
             InitializeComponent();
             CargarInformacion();
@@ -35,8 +34,10 @@ namespace noteBook.UNA.vistas
 
         public void CargarInformacion()
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string queryUsuarios = string.Format("SELECT id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
             string queryTransaciones = string.Format("SELECT objeto,codigo_pagina,fecha,informacion_adicional from transaciones where id_usuario='" + mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString() + "'");
@@ -47,8 +48,10 @@ namespace noteBook.UNA.vistas
         }
         private void BuscarFecha()
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string queryUsuarios = string.Format("SELECT id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
             string queryTransaciones = string.Format("SELECT objeto,codigo_pagina,fecha,informacion_adicional from transaciones where id_usuario='" + mySqlDb.QuerySQL(queryUsuarios).Rows[0][0].ToString() + "'and fecha like '"+fechaBusqueda+"%'");
@@ -56,7 +59,7 @@ namespace noteBook.UNA.vistas
             reportesDgv.DataSource = tabla;
             mySqlDb.CloseConnection();
         }
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             fechaBusqueda = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             MessageBox.Show(fechaBusqueda);

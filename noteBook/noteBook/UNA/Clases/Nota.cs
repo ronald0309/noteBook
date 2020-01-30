@@ -9,7 +9,7 @@ namespace noteBook
 {
     public class Nota
     {
-        public string Usuario{ get; set; }
+        public string Usuario { get; set; }
         public string Titulo { get; set; }
         public bool Privacidad { get; set; }
         public string Categoria { get; set; }
@@ -23,35 +23,41 @@ namespace noteBook
         public int PosicionY { get; set; }
         public int Width { get; set; }
         public int Heigh { get; set; }
-        public int orden { get; set; }
+        public int Orden { get; set; }
         public List<Nota> GetListFromDataTable(DataTable dataTable)
         {
             List<Nota> notaList = new List<Nota>();
-            foreach (DataRow data in dataTable.Rows)
+            if (dataTable != null)
             {
-                Nota nota = new Nota();
-                if (Convert.ToBoolean( data["privacidad"].ToString())==false)
+                foreach (DataRow data in dataTable.Rows)
                 {
-                    nota.Privacidad = false;
-                    nota.Titulo = data["titulo"].ToString();
-                    nota.Categoria = data["categoria"].ToString();
-                }
-                else {
-                    nota.Privacidad = true;
-                    nota.Titulo =Encriptacion.DesencriptarString(data["titulo"].ToString(),"titu");
-                    nota.Categoria =Encriptacion.DesencriptarString(data["categoria"].ToString(),"cate");
+                    Nota nota = new Nota
+                    {
+                        FechaCreacion = data["fecha_creacion"].ToString(),
+                        ColorFondo = Convert.ToInt32(data["color_fondo"].ToString()),
+                        PosicionX = Convert.ToInt32(data["posicion_x"].ToString()),
+                        PosicionY = Convert.ToInt32(data["posicion_y"].ToString()),
+                        ColorFuente = Convert.ToInt32(data["color_fuente"].ToString()),
+                        Width = Convert.ToInt32(data["width"].ToString()),
+                        Heigh = Convert.ToInt32(data["heigh"].ToString())
+                    };
+                    if (Convert.ToBoolean(data["privacidad"].ToString()) == false)
+                    {
+                        nota.Privacidad = false;
+                        nota.Titulo = data["titulo"].ToString();
+                        nota.Categoria = data["categoria"].ToString();
+                    }
+                    else
+                    {
+                        nota.Privacidad = true;
+                        nota.Titulo = Encriptacion.DesencriptarString(data["titulo"].ToString(), "titu");
+                        nota.Categoria = Encriptacion.DesencriptarString(data["categoria"].ToString(), "cate");
 
+                    }
+
+
+                    notaList.Add(nota);
                 }
-                nota.FechaCreacion = data["fecha_creacion"].ToString();
-                nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
-                nota.PosicionX = Convert.ToInt32(data["posicion_x"].ToString());
-                nota.PosicionY = Convert.ToInt32(data["posicion_y"].ToString());
-                nota.ColorFuente = Convert.ToInt32(data["color_fuente"].ToString());
-                
-                    nota.Width = Convert.ToInt32(data["width"].ToString());
-                    nota.Heigh = Convert.ToInt32(data["heigh"].ToString());
-                
-                notaList.Add(nota);
             }
             return notaList;
         }
@@ -60,8 +66,12 @@ namespace noteBook
             List<Nota> notaList = new List<Nota>();
             foreach (DataRow data in dataTable.Rows)
             {
-                Nota nota = new Nota();
-               if (Convert.ToBoolean(data["privacidad"].ToString()) == false)
+                Nota nota = new Nota
+                {
+                    FechaCreacion = data["fecha_creacion"].ToString(),
+                    ColorFondo = Convert.ToInt32(data["color_fondo"].ToString())
+                };
+                if (Convert.ToBoolean(data["privacidad"].ToString()) == false)
                 {
                     nota.Privacidad = false;
                     nota.Titulo = data["titulo"].ToString();
@@ -73,9 +83,9 @@ namespace noteBook
                     nota.Categoria = Encriptacion.DesencriptarString(data["categoria"].ToString(), "cate");
                     nota.Privacidad = true;
                 }
-                nota.FechaCreacion = data["fecha_creacion"].ToString();
-                nota.ColorFondo = Convert.ToInt32(data["color_fondo"].ToString());
+
                 notaList.Add(nota);
+
             }
             return notaList;
         }

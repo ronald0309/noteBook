@@ -81,7 +81,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
@@ -89,9 +89,11 @@ namespace noteBook.UNA.vistas
                     string queryNota = string.Format("Select titulo,privacidad from notas where titulo='{0}'", this.nombre);
                     AccesoNotaPrivadaForm notaPrivada = new AccesoNotaPrivadaForm();
 
-                    Nota nota = new Nota();
-                    nota.Titulo = nombre;
-                 
+                    Nota nota = new Nota
+                    {
+                        Titulo = nombre
+                    };
+
                     notaPrivada.ResibirNota(nota);
                     notaPrivada.ShowDialog();
                 }

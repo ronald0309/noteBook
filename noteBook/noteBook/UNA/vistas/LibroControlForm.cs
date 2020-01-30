@@ -19,7 +19,6 @@ namespace noteBook.UNA.vistas
         string nombre;
         string genero;
         int color;
-        //bool abierto;
         public bool Abierto
         {
             get;
@@ -72,12 +71,14 @@ namespace noteBook.UNA.vistas
 
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=3", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "3")
@@ -88,10 +89,6 @@ namespace noteBook.UNA.vistas
                     {
                         if (dr == DialogResult.Yes)
                         {
-
-
-
-
                             String queryEliminarNota = String.Format("Delete from notas where id_libro=(select id_libro from libros where nombre='{0}')", this.nombre);
                             String queryEliminarLibro = String.Format("Delete from  libros where nombre='{0}'", this.nombre);
 
@@ -99,7 +96,14 @@ namespace noteBook.UNA.vistas
                             mySqlDb.EjectSQL(queryEliminarLibro);
                             Singlenton.Instance.miLibro.CrearLibroDB();
                         }
-                        ///TODOSinglenton.Instance.CargarReporte("Libro eliminado", $"Se elimino la libro {this.TituloLabel.Text}", $"Libro {this.TituloLabel.Text}");
+                        Transaccion transaccion = new Transaccion
+                        {
+                            AccionRealizada= $"Se elimina el libro{this.TituloLabel.Text}",
+                            InformacionAdicional= $"Se elimino la libro {this.TituloLabel.Text}",
+                            Objeto= $"Libro {this.TituloLabel.Text}",
+                            CodigoPagina= "Formulario 02"
+
+                        };Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
 
                     }
                 }

@@ -83,7 +83,6 @@
   <ItemGroup>
     <Compile Include="UNA\AdministarBaseDeDatos\DbAccess.cs" />
     <Compile Include="UNA\AdministarBaseDeDatos\MySqlDb.cs" />
-    <Compile Include="UNA\Clases\ArchivoManager.cs" />
     <Compile Include="UNA\Clases\Categorias.cs" />
     <Compile Include="UNA\Clases\Encriptacion.cs" />
     <Compile Include="UNA\Clases\Nota.cs" />
@@ -183,11 +182,11 @@
     <Compile Include="UNA\vistas\RegistroLibroForm.Designer.cs">
       <DependentUpon>RegistroLibroForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\vistas\ReportesForm.cs">
+    <Compile Include="UNA\vistas\TransaccionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\vistas\ReportesForm.Designer.cs">
-      <DependentUpon>ReportesForm.cs</DependentUpon>
+    <Compile Include="UNA\vistas\TransaccionForm.Designer.cs">
+      <DependentUpon>TransaccionForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="UNA\vistas\AccesoNotaPrivadaForm.resx">
       <DependentUpon>AccesoNotaPrivadaForm.cs</DependentUpon>
@@ -245,8 +244,8 @@
     <EmbeddedResource Include="UNA\vistas\RegistroLibroForm.resx">
       <DependentUpon>RegistroLibroForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\vistas\ReportesForm.resx">
-      <DependentUpon>ReportesForm.cs</DependentUpon>
+    <EmbeddedResource Include="UNA\vistas\TransaccionForm.resx">
+      <DependentUpon>TransaccionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

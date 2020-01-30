@@ -13,8 +13,8 @@ namespace noteBook.UNA.vistas
 {
     public partial class RegistroUsuarioForms : Form
     {
-        private readonly ArchivoManager archivoManager = new ArchivoManager();
-        private bool GuardoDatos { get; set; }
+        
+        
 
         public RegistroUsuarioForms()
         {
@@ -41,8 +41,7 @@ namespace noteBook.UNA.vistas
             else
             {
                 string contrasenaEncrip= Encriptacion.EncriptarString(contraseñaTxt.Text, "contraseña");
-                string[] apellido;
-                apellido = primerApellidoTxt.Text.Split(' ');
+               
                 query = string.Format("INSERT INTO usuarios (nombre,apellido_primero,apellido_segundo,avatar,contrasena)VALUES('{0}','{1}','{2}','{3}','{4}')",
                 nombreUsuarioTxt.Text,primerApellidoTxt.Text,SegundoApellidoTxt.Text,NickTxt.Text,contrasenaEncrip);
             
@@ -262,49 +261,13 @@ namespace noteBook.UNA.vistas
                     this.Close();
                 }
             }
-            
-            //try
-            //{
-            //    if (GuardarUsuario())
-            //    {
-            //        MessageBox.Show("Se creo el usuario");
-            //        this.Close();
-            //    }
-            //}
-            //catch (Exception Ex)
-            //{
-            //    MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
-            //}
-          //  crearUsuario();
 
         }
 
         private void CancelarBtn_Click(object sender, EventArgs e)
         {
-            if (!GuardoDatos)
+            this.Close();
 
-            {
-                MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
-                DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
-                {
-                    this.Close();
-                }
-                else
-                {
-                    if (dr == DialogResult.No)
-
-                    {
-                        //if (GuardarUsuario())
-                        //{
-                        //    MessageBox.Show("Se creo el usuario");
-                        //    this.Close();
-                        //}
-                    }
-                }
-            }
         }
-
-       
     }
 }

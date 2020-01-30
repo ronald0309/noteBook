@@ -53,7 +53,7 @@ namespace noteBook.UNA.vistas
                 };
                 mySqlDb.OpenConnection();
                 string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='" + AvatarTxt.Text + "'");
-                foreach (Usuario usuario in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query)))
+                foreach (Usuario usuario in Singlenton.Instance.listUsuarioFromDB.SelectUsuarioFromDataTable(mySqlDb.QuerySQL(query)))
                 {
                     if (ContraseñaActualTxt.Text == usuario.Contraseña)
                     {

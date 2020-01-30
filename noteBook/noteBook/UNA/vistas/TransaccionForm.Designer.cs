@@ -1,6 +1,6 @@
 ﻿namespace noteBook.UNA.vistas
 {
-    partial class ReportesForm
+    partial class TransaccionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             // 
             this.reportesDgv.AllowUserToAddRows = false;
             this.reportesDgv.AllowUserToDeleteRows = false;
-            this.reportesDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.reportesDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.reportesDgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.reportesDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportesDgv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -65,7 +65,7 @@
             // 
             this.fechaLbl.AutoSize = true;
             this.fechaLbl.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechaLbl.Location = new System.Drawing.Point(66, 7);
+            this.fechaLbl.Location = new System.Drawing.Point(697, 8);
             this.fechaLbl.Name = "fechaLbl";
             this.fechaLbl.Size = new System.Drawing.Size(134, 21);
             this.fechaLbl.TabIndex = 2;
@@ -73,13 +73,13 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(234, 6);
+            this.dateTimePicker1.Location = new System.Drawing.Point(883, 7);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(267, 22);
             this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
-            // ReportesForm
+            // TransaccionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,7 +89,7 @@
             this.Controls.Add(this.panelDataGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ReportesForm";
+            this.Name = "TransaccionForm";
             this.Text = "ReportesForm";
             ((System.ComponentModel.ISupportInitialize)(this.reportesDgv)).EndInit();
             this.panelDataGrid.ResumeLayout(false);

@@ -22,10 +22,11 @@ namespace noteBook.UNA.Clases
         public  List<Libro> GetListFromDataTable(DataTable dataTable) {
             List<Libro> libroList= new List<Libro>();
             foreach (DataRow data in dataTable.Rows) {
-                Libro libro = new Libro();
-                libro.Nombre = data["nombre"].ToString();
-              //  libro.Genero = data["categoria"].ToString();
-                libro.Color = Convert.ToInt32( data["color"].ToString());
+                Libro libro = new Libro
+                {
+                    Nombre = data["nombre"].ToString(),
+                    Color = Convert.ToInt32(data["color"].ToString())
+                };
                 libroList.Add(libro);
             }
             return libroList;

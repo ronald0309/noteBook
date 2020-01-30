@@ -15,7 +15,7 @@ namespace noteBook.UNA.vistas
     {
         public List<string> generos = new List<string>();
         public List<string> generosSeleccionados = new List<string>();
-        private string usuario;
+
         public RegistroLibroForm()
         {
 
@@ -23,8 +23,6 @@ namespace noteBook.UNA.vistas
             toolTip1.SetToolTip(nombreTxt, "Ingrese el nombre del libro");
             colorLibro.Color = Color.Red;
         }
-        private int contadorPosicion = 0;
-
         private void RegistroLibro_Resize(object sender, EventArgs e)
         {
             nombreTxt.Height = this.Height - 200;
@@ -49,8 +47,10 @@ namespace noteBook.UNA.vistas
             {
 
 
-                MySqlDb mySqlDb = new MySqlDb();
-                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
                 mySqlDb.OpenConnection();
                 string queryLibros = String.Format("SELECT nombre from libros where nombre='" + nombreTxt.Text + "'");
                 if (mySqlDb.QuerySQL(queryLibros).Rows.Count == 1)
@@ -60,7 +60,7 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                    string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                    string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
                     String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                     if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
                     {
@@ -97,10 +97,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-
-     
-
-        private void generoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void generoComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             errorRegistroLibro.SetError(generoComboBox, null);
             bool isGeneroSeleccionado = false;
@@ -186,11 +183,13 @@ namespace noteBook.UNA.vistas
             generoComboBox.Items.Clear();
         }
 
-        private void generoComboBox_MouseClick(object sender, MouseEventArgs e)
+        private void GeneroComboBox_MouseClick(object sender, MouseEventArgs e)
         {
 
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string queryGeneros = string.Format("SELECT nombre from generos");
             foreach (DataRow genero in mySqlDb.QuerySQL(queryGeneros).Rows)
@@ -203,6 +202,6 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
         }
 
-      
+       
     }
 }

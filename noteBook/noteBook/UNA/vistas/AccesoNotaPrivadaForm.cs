@@ -18,13 +18,7 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
         }
 
-        readonly string nombreNota;
-        public AccesoNotaPrivadaForm(string nombreNota)
-        {
-            InitializeComponent();
-
-            this.nombreNota = nombreNota;
-        }
+       
         public void ResibirNota(Object nota)
         {
             notaAuxiliar = (Nota)nota;
@@ -32,22 +26,25 @@ namespace noteBook.UNA.vistas
         private void Aceptarbtn_Click(object sender, EventArgs e)
         {
             this.Mensajes();
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
-            string query=string.Format("Select id_nota,titulo,categoria from notas where privacidad='{0}'",1);
-            string idNota="";
+            string query = string.Format("Select id_nota,titulo,categoria from notas where privacidad='{0}'", 1);
+            string idNota = "";
             string tituloEncrip = "";
             string categoriaEncrip = "";
             foreach (DataRow row in mySqlDb.QuerySQL(query).Rows)
-            { 
-                if (Encriptacion.DesencriptarString(row["titulo"].ToString(),"titu")==notaAuxiliar.Titulo.ToString()) {
+            {
+                if (Encriptacion.DesencriptarString(row["titulo"].ToString(), "titu") == notaAuxiliar.Titulo.ToString())
+                {
                     idNota = row["id_nota"].ToString();
-                    tituloEncrip = Encriptacion.DesencriptarString(row["titulo"].ToString(),"titu");
+                    tituloEncrip = Encriptacion.DesencriptarString(row["titulo"].ToString(), "titu");
                     categoriaEncrip = Encriptacion.DesencriptarString(row["categoria"].ToString(), "cate");
                 }
             }
-            string n = String.Format("Select avatar,contrasena from usuarios where id_usuario=(Select id_usuario from libros where id_libro=(Select id_libro from notas where id_nota='{0}'))",idNota);
+            string n = String.Format("Select avatar,contrasena from usuarios where id_usuario=(Select id_usuario from libros where id_libro=(Select id_libro from notas where id_nota='{0}'))", idNota);
             foreach (DataRow row in mySqlDb.QuerySQL(n).Rows)
             {
 
@@ -59,51 +56,51 @@ namespace noteBook.UNA.vistas
                     Singlenton.Instance.miLibro.ActualizarPage();
                     this.Close();
                 }
-                else {
+                else
+                {
                     if (Encriptacion.DesencriptarString(row["contrasena"].ToString(), "contraseña") == contraseñaUsuarioTxt.Text)
                     {
                         MessageBox.Show("El usuario no tiene permiso de modificar la privacidad de esta nota");
                     }
                 }
-                
-                
-               
             }
-          
-           
         }
 
-        private void Mensajes() {
+        private void Mensajes()
+        {
             datosUsuarioError.Clear();
-            if (contraseñaUsuarioTxt.TextLength == 0) {
+            if (contraseñaUsuarioTxt.TextLength == 0)
+            {
                 datosUsuarioError.SetError(contraseñaUsuarioTxt, "Ingrese una contraseña");
             }
-            
             if (nombreUsuarioTxt.TextLength == 0)
             {
                 datosUsuarioError.SetError(nombreUsuarioTxt, "Ingrese un usario");
             }
+            if (nombreUsuarioTxt.TextLength != 0 && contraseñaUsuarioTxt.TextLength != 0)
+            {
 
-            if (nombreUsuarioTxt.TextLength != 0 && contraseñaUsuarioTxt.TextLength != 0) {
-                
-                MySqlDb mySqlDb = new MySqlDb();
-                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
                 mySqlDb.OpenConnection();
 
-              string buscarUsuario= String.Format("Select id_usuario from usuarios where avatar='{0}'",nombreUsuarioTxt.Text);
-                if (mySqlDb.QuerySQL(buscarUsuario).Rows.Count == 0) {
+                string buscarUsuario = String.Format("Select id_usuario from usuarios where avatar='{0}'", nombreUsuarioTxt.Text);
+                if (mySqlDb.QuerySQL(buscarUsuario).Rows.Count == 0)
+                {
                     datosUsuarioError.SetError(nombreUsuarioTxt, "El usuario no existe ");
                 }
-                string buscarContraseña= String.Format("Select contrasena from usuarios where avatar='{0}'",nombreUsuarioTxt.Text);
-                if (mySqlDb.QuerySQL(buscarContraseña).Rows.Count==1)
+                string buscarContraseña = String.Format("Select contrasena from usuarios where avatar='{0}'", nombreUsuarioTxt.Text);
+                if (mySqlDb.QuerySQL(buscarContraseña).Rows.Count == 1)
                 {
-                    if(Encriptacion.DesencriptarString(mySqlDb.QuerySQL(buscarContraseña).Rows[0][0].ToString(),"contraseña")!=contraseñaUsuarioTxt.Text)
-                    datosUsuarioError.SetError(contraseñaUsuarioTxt, "Contraseña incorrecta");
+                    if (Encriptacion.DesencriptarString(mySqlDb.QuerySQL(buscarContraseña).Rows[0][0].ToString(), "contraseña") != contraseñaUsuarioTxt.Text)
+                        datosUsuarioError.SetError(contraseñaUsuarioTxt, "Contraseña incorrecta");
                 }
             }
-            }
-        
-        
-      
+        }
+
+
+
     }
 }

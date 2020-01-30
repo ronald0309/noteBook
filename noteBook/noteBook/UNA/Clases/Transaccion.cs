@@ -28,12 +28,14 @@ namespace noteBook.UNA.Clases
             DateTime hoy = DateTime.Now;
             this.FechaCreacion = Convert.ToDateTime(hoy).ToString("yyyy-MM-dd hh:mm:ss");
             this.UsuarioActual = Singlenton.Instance.usuarioActual.NombreUsuario;
-            this.GenerarTransaccion();
+            this.GuardarDatosTransaccion();
         }
-        public void GenerarTransaccion()
+        public void GuardarDatosTransaccion()
         {
-           MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string queryUsuarios = string.Format("SELECT id_usuario from usuarios where avatar='" + UsuarioActual + "'");
             string queryTransaciones = string.Format("Select * from transaciones where id_usuario=(SELECT id_usuario from usuarios where avatar = '" + UsuarioActual + "')");

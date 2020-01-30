@@ -136,7 +136,6 @@ namespace noteBook.UNA.vistas
             }
             else
             {
-
                 return true;
             }
         }
@@ -147,7 +146,6 @@ namespace noteBook.UNA.vistas
             if (!guardoDatos)
 
             {
-
                 MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
                 DialogResult dr = MessageBox.Show("Desea salir sin guardar", "Alerta", botones, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
@@ -164,9 +162,7 @@ namespace noteBook.UNA.vistas
                             if (VerficarCampos())
                             {
                                 MessageBox.Show("Se modifico la nota");
-
                                 this.Hide();
-
                             }
                             else
                             {
@@ -252,8 +248,10 @@ namespace noteBook.UNA.vistas
             }
             else
             {
-                MySqlDb mySqlDb = new MySqlDb();
-                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
                 mySqlDb.OpenConnection();
                 string queryActualizar = String.Format("UPDATE notas SET titulo='{0}',color_fondo='{1}',categoria='{2}',privacidad='{3}',fecha_modificacion='{4}' where titulo=('{5}')", ValidarTitulo(), colorFondoDialog.Color.ToArgb(), ValidarCategoria(), ValidarPrivacidad(), FechaActual(), tituloActualLabel.Text);
                 mySqlDb.EjectSQL(queryActualizar);
@@ -268,7 +266,7 @@ namespace noteBook.UNA.vistas
                         CodigoPagina = "Formulario 06"
 
                     };
-
+                    Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                 }
             }
 

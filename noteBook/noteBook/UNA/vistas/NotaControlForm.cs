@@ -18,8 +18,6 @@ namespace noteBook.UNA.vistas
         bool mover = false;
         bool modificarTamaño = false;
         Point inicial;
-        private readonly Nota notaEditada;
-
         public NotaControlForm()
         {
 
@@ -128,7 +126,6 @@ namespace noteBook.UNA.vistas
             get { return colorNota; }
             set
             {
-
                 colorNota = value;
                 if (colorNota != 0)
                 {
@@ -137,7 +134,6 @@ namespace noteBook.UNA.vistas
                 contendorPanel.BackColor = Color.FromArgb(colorNota);
                 moverBoton.BackColor = Color.FromArgb(colorNota);
                 AgrandarBtn.BackColor = Color.FromArgb(colorNota);
-
             }
         }
 
@@ -185,9 +181,11 @@ namespace noteBook.UNA.vistas
                         banderaWidth = true;
 
                     }
-                    MySqlDb mySqlDb = new MySqlDb();
-                    mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-                    mySqlDb.OpenConnection();
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
+                mySqlDb.OpenConnection();
                     if (banderaHeight == true)
                     {
                         this.Height = AgrandarBtn.Top + e.Y;
@@ -215,7 +213,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
@@ -237,7 +235,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
@@ -263,8 +261,10 @@ namespace noteBook.UNA.vistas
             if (e.Button == MouseButtons.Left)
             {
 
-                MySqlDb mySqlDb = new MySqlDb();
-                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
                 mySqlDb.OpenConnection();
                 this.Left = e.X + this.Left + inicial.X;
                 this.Top = e.Y + this.Top + inicial.Y;
@@ -282,7 +282,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=5", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "5")
@@ -311,7 +311,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=6", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "6")
@@ -320,9 +320,6 @@ namespace noteBook.UNA.vistas
                     DialogResult dr = MessageBox.Show("Seguro que desea eliminar la nota", "Alerta", botones, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-
-
-                        // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
                         string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
                         mySqlDb.EjectSQL(query);
                         Singlenton.Instance.NotaEditada = true;

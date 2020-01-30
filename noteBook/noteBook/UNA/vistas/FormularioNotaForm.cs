@@ -13,12 +13,8 @@ namespace noteBook.UNA.vistas
 {
     public partial class FormularioNotaForm : Form
     {
-
-
         readonly NotaControlForm notaPrevia = new NotaControlForm();
 
-
-        string usuario;
         public FormularioNotaForm()
         {
 
@@ -74,17 +70,15 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-           
-
-
-        
         private string FechaActual() {
             DateTime hoy = DateTime.Now;
             return Convert.ToDateTime(hoy).ToString("yyyy-MM-dd");  
         }
         private void GuardarNotaPublica() {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
 
             mySqlDb.OpenConnection();
             string queryid = String.Format("Select id_libro from libros where nombre='{0}'", NombreLibro);
@@ -100,8 +94,10 @@ namespace noteBook.UNA.vistas
         private void GuardarNotaPrivada() {
             string tituloEncriptado= Encriptacion.EncriptarString(TituloTxt.Text,"titu");
             string categoriaEncriptado = Encriptacion.EncriptarString(CategoriaTxt.Text, "cate");
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string notasIguales = String.Format("Select titulo from notas where titulo='{0}'", TituloTxt.Text);
             if (mySqlDb.QuerySQL(notasIguales).Rows.Count == 0)

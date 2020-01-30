@@ -17,29 +17,17 @@ namespace noteBook.UNA.vistas
         private readonly InformacionMenuForm informacionMenu = new InformacionMenuForm();
 
         private Timer tiempo;
-        private Timer timer;
-
         private readonly Login login = new Login();
         private bool cerrar = true;
-
         private int pantallaActiva = 0;
-
         public Timer Tiempo { get => tiempo; set => tiempo = value; }
-        public Timer Timer { get => timer; set => timer = value; }
-
         public MenuForm()
         {
             InitializeComponent();
 
             Tiempo = new Timer();
             Tiempo.Tick += new EventHandler(Timer1_Tick);
-            Timer = new Timer
-            {
-                Interval = 60000
-            };
-            Timer.Tick += new EventHandler(Timer2_Tick);
             Tiempo.Enabled = true;
-            Timer.Enabled = true;
             AbrirFormulario(informacionMenu);
 
         }
@@ -65,7 +53,7 @@ namespace noteBook.UNA.vistas
         {
             if (pantallaActiva == 0)
             {
-                this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA";
+                this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA (Formulario 08)";
                 AbrirFormulario(informacionMenu);
             }
             else
@@ -77,7 +65,6 @@ namespace noteBook.UNA.vistas
                     miLibros.CrearLibroDB();
                     Singlenton.Instance.miLibro = miLibros;
                     this.AbrirFormulario(miLibros);
-
                 }
                 else
                 {
@@ -92,7 +79,7 @@ namespace noteBook.UNA.vistas
                         if (pantallaActiva == 3)
                         {
                             this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
-                            ReportesForm reporteForm = new ReportesForm();
+                            TransaccionForm reporteForm = new TransaccionForm();
                             this.AbrirFormulario(reporteForm);
                         }
                     }
@@ -111,98 +98,19 @@ namespace noteBook.UNA.vistas
             panelVistas.Height = this.Height - 136;
         }
 
-        private void ConstruirElArchivo(ArchivoManager archivoManager)
-        {
-            try
-            {
-
-                string nombreNuevoArchivoReporte = archivoManager.CrearArchivoReportes();
-                string nombreNuevoArchivoLibros = archivoManager.CrearArchivoLibros();
-                DateTime fecha = DateTime.Now;
-
-                lblFechaGuardar.Text = $"{fecha.ToShortTimeString()}";
-
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show($"Se ha presentado el siguiente inconveniente al crear el archivo: {exception.Message}", "Atención", MessageBoxButtons.OK);
-            }
-        }
-        private void GuardarInformacion()
-        {
-            string[] cargarLibros = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Libro*");
-
-            foreach (string archivo in cargarLibros)
-            {
-                File.Delete(archivo);
-            }
-            string[] cargarNotas = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "Nota*");
-
-            foreach (string archivo in cargarNotas)
-            {
-                File.Delete(archivo);
-            }
-            ArchivoManager archivoManager = new ArchivoManager();
-            archivoManager.Libros.AddRange(Singlenton.Instance.LibrosList);
-            foreach (Libro item in Singlenton.Instance.LibrosList)
-            {
-                archivoManager.Notas.AddRange(item.Notas);
-            }
-            ConstruirElArchivo(archivoManager);
-
-        }
-
-        private void Timer2_Tick(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            GuardarInformacion();
-            timer1.Start();
-        }
-
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (cerrar)
             {
-                MessageBoxButtons botones = MessageBoxButtons.YesNoCancel;
-                DialogResult dr = MessageBox.Show("Guardar cambios realizados", "Alerta", botones, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
+                Transaccion transaccion = new Transaccion
                 {
-                    GuardarInformacion();
-                    Transaccion transaccion = new Transaccion {
-                        AccionRealizada = "Cierre de sesión",
-                        InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesion",
-                        Objeto = "Cierre seción",
-                        CodigoPagina = "No hay codigo"
-                    
+                    AccionRealizada = "Cierre de aplicación",
+                    InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro la aplicación",
+                    Objeto = "Aplicación",
+                    CodigoPagina = "Sin codigo"
                 };
-                    Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-
-                }
-                else
-                {
-                    if (dr == DialogResult.No)
-
-                    {
-
-                        Transaccion transaccion = new Transaccion
-                        {
-                            AccionRealizada = "Cierre de sesión",
-                            InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesion",
-                            Objeto = "Cierre seción",
-                            CodigoPagina = "No hay codigo"
-
-                        };
-                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-                    }
-                    else
-                    {
-                        if (dr == DialogResult.Cancel)
-                        {
-                            e.Cancel = true;
-                        }
-                    }
-                }
-            }
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+            }  
         }
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
@@ -213,7 +121,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             try
             {
-                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
@@ -227,11 +135,6 @@ namespace noteBook.UNA.vistas
 
         }
 
-        private void GuardarBtn_Click(object sender, EventArgs e)
-        {
-            GuardarInformacion();
-            MessageBox.Show("Se guardaron los cambios");
-        }
 
         private void LibroBtn_Click(object sender, EventArgs e)
         {
@@ -241,15 +144,15 @@ namespace noteBook.UNA.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-             try
+            try
             {
-           
-            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+
+                string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=9", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "9")
                 {
-                  
+
                     pantallaActiva = 1;
                     MisLibrosForm miLibros = new MisLibrosForm();
                     this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
@@ -260,22 +163,17 @@ namespace noteBook.UNA.vistas
             }
             catch { MessageBox.Show("El usuario no tiene permiso para ver libros"); }
 
-
-
-
-           // miLibros.CrearLibro();
-            
-
-       
         }
 
         private void BusquedaBtn_Click(object sender, EventArgs e)
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
 
-            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
+            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
             String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=7", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
             try
@@ -291,11 +189,11 @@ namespace noteBook.UNA.vistas
             catch { MessageBox.Show("El usuario no tiene permiso para buscar notas"); }
         }
 
-        private void ReportesBtn_Click(object sender, EventArgs e)
+        private void TransaccionesBtn_Click(object sender, EventArgs e)
         {
             pantallaActiva = 3;
             this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
-            ReportesForm reporteForm = new ReportesForm();
+            TransaccionForm reporteForm = new TransaccionForm();
             this.AbrirFormulario(reporteForm);
         }
 
@@ -313,11 +211,11 @@ namespace noteBook.UNA.vistas
 
                 };
                 Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-                /// Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {Singlenton.Instance.UsuarioActivo()} inicion sesion", $"Usuario{Singlenton.Instance.UsuarioActivo()}");
+                
 
                 this.Show();
 
-                lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
+                lblUsuario.Text = Singlenton.Instance.usuarioActual.NombreUsuario;
             }
             else
             {
@@ -336,25 +234,25 @@ namespace noteBook.UNA.vistas
 
 
             miLibro.CerrarLibro();
-            string usuario = Singlenton.Instance.UsuarioActivo();
+           
             Transaccion transaccion = new Transaccion
             {
                 AccionRealizada = "Cierre de sesión",
-                InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesion",
-                Objeto = "Cierre seción",
-                CodigoPagina = "No hay codigo"
+                InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual} cerro sesión",
+                Objeto = "Cierre sesión",
+                CodigoPagina = "Sin codigo"
 
             };
             Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-            /// Singlenton.Instance.CargarReporte("Cierre de sesión", $"El usuario {usuario} cerro sesion", $"Usuario{usuario}");
+           
             login.LimpiarCampos();
-            Singlenton.Instance.DesactivarUsuario();
+           
             this.Hide();
             if (login.ShowDialog() == DialogResult.OK)
             {
                 this.Show();
 
-                lblUsuario.Text = Singlenton.Instance.UsuarioActivo();
+                lblUsuario.Text = Singlenton.Instance.usuarioActual.NombreUsuario;
                 Transaccion transacion = new Transaccion
                 {
                     AccionRealizada = "Inicio de sesión",
@@ -364,7 +262,7 @@ namespace noteBook.UNA.vistas
 
                 };
                 Singlenton.Instance.transaccion.CargarDatosTransacciones(transacion);
-                /// Singlenton.Instance.CargarReporte("Inicio de sesión", $"El usuario {usuario} inicion sesion", $"Usuario{usuario}");
+               
             }
             else
             {
@@ -404,25 +302,17 @@ namespace noteBook.UNA.vistas
             busquedaBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void BtnReportes_MouseHover(object sender, EventArgs e)
+        private void BtnTransacciones_MouseHover(object sender, EventArgs e)
         {
-            btnReportes.BackColor = Color.Blue;
+            transaccioneBtn.BackColor = Color.Blue;
         }
 
-        private void BtnReportes_MouseLeave(object sender, EventArgs e)
+        private void BtnTransacciones_MouseLeave(object sender, EventArgs e)
         {
-            btnReportes.BackColor = Color.FromArgb(12, 135, 109);
+            transaccioneBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
-        private void GuardarBtn_MouseHover(object sender, EventArgs e)
-        {
-            guardarBtn.BackColor = Color.Blue;
-        }
-
-        private void GuardarBtn_MouseLeave(object sender, EventArgs e)
-        {
-            guardarBtn.BackColor = Color.FromArgb(12, 135, 109);
-        }
+      
 
         private void CambiarUsuarioBtn_MouseHover(object sender, EventArgs e)
         {

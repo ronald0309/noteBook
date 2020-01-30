@@ -25,7 +25,7 @@ namespace noteBook.UNA.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-            string queryNot = String.Format("Select nombre,color from libros where nombre=nombre");
+            string queryNot = String.Format("Select nombre,color from libros where nombre=('{0}')",titulo );
             foreach (DataRow data in mySqlDb.QuerySQL(queryNot).Rows)
             {
                 tituloActualLabel.Text = data["nombre"].ToString();
@@ -90,8 +90,10 @@ namespace noteBook.UNA.vistas
         }
         public void EditarLibro()
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}' where nombre=('{2}')", NombreModificado(), colorLibroDialog.Color.ToArgb(), tituloActualLabel.Text);
             mySqlDb.EjectSQL(queryActualizar);
@@ -103,9 +105,9 @@ namespace noteBook.UNA.vistas
             EditarLibro();
         }
 
-        private void cancelarBtn_Click(object sender, EventArgs e)
+        private void CancelarBtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

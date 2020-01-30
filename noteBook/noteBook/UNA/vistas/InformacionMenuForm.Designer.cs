@@ -39,8 +39,6 @@
             this.buscarLbl = new System.Windows.Forms.Label();
             this.misLibrosLbl = new System.Windows.Forms.Label();
             this.agrgarLbl = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +46,7 @@
             // 
             this.logoImagen.Image = ((System.Drawing.Image)(resources.GetObject("logoImagen.Image")));
             this.logoImagen.Location = new System.Drawing.Point(379, 15);
-            this.logoImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoImagen.Margin = new System.Windows.Forms.Padding(4);
             this.logoImagen.Name = "logoImagen";
             this.logoImagen.Size = new System.Drawing.Size(475, 314);
             this.logoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -70,12 +68,12 @@
             // 
             this.informacionReporteLbl.AutoSize = true;
             this.informacionReporteLbl.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.informacionReporteLbl.Location = new System.Drawing.Point(455, 498);
+            this.informacionReporteLbl.Location = new System.Drawing.Point(455, 517);
             this.informacionReporteLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionReporteLbl.Name = "informacionReporteLbl";
-            this.informacionReporteLbl.Size = new System.Drawing.Size(363, 30);
+            this.informacionReporteLbl.Size = new System.Drawing.Size(348, 30);
             this.informacionReporteLbl.TabIndex = 29;
-            this.informacionReporteLbl.Text = "Muestra la activada realizada por los usuarios.";
+            this.informacionReporteLbl.Text = "Muestra la activada realizada por el usuario.";
             // 
             // informacionBuscarLbl
             // 
@@ -95,9 +93,9 @@
             this.informacionMisLibrosLbl.Location = new System.Drawing.Point(455, 417);
             this.informacionMisLibrosLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.informacionMisLibrosLbl.Name = "informacionMisLibrosLbl";
-            this.informacionMisLibrosLbl.Size = new System.Drawing.Size(342, 30);
+            this.informacionMisLibrosLbl.Size = new System.Drawing.Size(265, 30);
             this.informacionMisLibrosLbl.TabIndex = 31;
-            this.informacionMisLibrosLbl.Text = "Permite ver los libros de todos los usuarios.";
+            this.informacionMisLibrosLbl.Text = "Permite ver los libros del usuario.";
             // 
             // informacionAgregarLbl
             // 
@@ -117,9 +115,9 @@
             this.reportesLbl.Location = new System.Drawing.Point(365, 487);
             this.reportesLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.reportesLbl.Name = "reportesLbl";
-            this.reportesLbl.Size = new System.Drawing.Size(84, 30);
+            this.reportesLbl.Size = new System.Drawing.Size(123, 30);
             this.reportesLbl.TabIndex = 33;
-            this.reportesLbl.Text = "Reportes:";
+            this.reportesLbl.Text = "Transacciones:";
             // 
             // buscarLbl
             // 
@@ -154,36 +152,12 @@
             this.agrgarLbl.TabIndex = 36;
             this.agrgarLbl.Text = "Agregar:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(365, 527);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 30);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Guardar:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(455, 539);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(248, 30);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Guarda los cambios realizados.";
-            // 
             // InformacionMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1224, 585);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.agrgarLbl);
             this.Controls.Add(this.misLibrosLbl);
             this.Controls.Add(this.buscarLbl);
@@ -195,7 +169,7 @@
             this.Controls.Add(this.informacionLbl);
             this.Controls.Add(this.logoImagen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InformacionMenuForm";
             this.Text = "InformacionMenuForm";
             ((System.ComponentModel.ISupportInitialize)(this.logoImagen)).EndInit();
@@ -216,7 +190,5 @@
         private System.Windows.Forms.Label buscarLbl;
         private System.Windows.Forms.Label misLibrosLbl;
         private System.Windows.Forms.Label agrgarLbl;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
     }
 }

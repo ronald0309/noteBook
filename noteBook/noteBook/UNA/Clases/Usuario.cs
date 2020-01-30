@@ -15,7 +15,7 @@ namespace noteBook.UNA.Clases
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
         public int IdUsuario { get; set; }
-        public List<Usuario> selectUsuarioFromDataTable(DataTable data) {
+        public List<Usuario> SelectUsuarioFromDataTable(DataTable data) {
             
                 List<Usuario> usuarioList = new List<Usuario>();
             try
