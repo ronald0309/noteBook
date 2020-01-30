@@ -63,7 +63,7 @@ namespace noteBook.UNA.vistas
                     categoriarichTexBox.SelectionColor = Color.Blue;
                     AgrandarBtn.Hide();
                     moverBoton.Hide();
-                    eliminarBtn.Hide();
+                    
                 }
                 else
                 {
@@ -201,7 +201,11 @@ namespace noteBook.UNA.vistas
                
             }
         }
+         public void DesabilitarBusqueda() {
+            AgrandarBtn.Hide();
+            moverBoton.Hide();
 
+        }
         private void AgrandarBoton_MouseDown(object sender, MouseEventArgs e)
         {
             MySqlDb mySqlDb = new MySqlDb
@@ -296,22 +300,6 @@ namespace noteBook.UNA.vistas
             catch (Exception) {
                 MessageBox.Show("El usuario no tiene permiso para editar Notas");
             }
-            
-            //foreach (var libro in Singlenton.Instance.LibrosList)
-            //{
-            //    foreach (var nota in libro.Notas)
-            //    {
-            //        if (nota.Titulo == this.tituloNota)
-            //        {
-
-            //            editarNota.CargarDatos(nota);
-            //            editarNota.ShowDialog();
-            //            RefrescarNotaControl(editarNota.GetNota());
-            //            editarNota.Close();
-            //            this.Refresh();
-            //        }
-            //    }
-            //}
         }
 
         private void EliminarBtn_Click(object sender, EventArgs e)
@@ -350,19 +338,6 @@ namespace noteBook.UNA.vistas
             }
         }
 
-
-        private void RefrescarNotaControl(Nota nota)
-        {
-            Height = nota.Heigh;
-            Width = nota.Width;
-            Location = new Point(nota.PosicionX, nota.PosicionY);
-            FuenteTipo = nota.Fuente;
-            TituloNota = nota.Titulo;
-            ColorNota = nota.ColorFondo;
-            ColorFuente = nota.ColorFuente;
-            FechaCreacion = nota.FechaCreacion;
-            Categoria = nota.Categoria;
-        }
         private void EditarBtn_MouseHover(object sender, EventArgs e)
         {
             this.Show();

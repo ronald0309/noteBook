@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AvatarLabel = new System.Windows.Forms.Label();
             this.AvatarTxt = new System.Windows.Forms.TextBox();
             this.ContraseñaActualLabel = new System.Windows.Forms.Label();
@@ -35,11 +36,14 @@
             this.ContraseñaNuevaTxt = new System.Windows.Forms.TextBox();
             this.ContraseñaActualTxt = new System.Windows.Forms.TextBox();
             this.GuardarBtn = new System.Windows.Forms.Button();
+            this.errorDatosUsuario = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorDatosUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // AvatarLabel
             // 
             this.AvatarLabel.AutoSize = true;
+            this.AvatarLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.AvatarLabel.Location = new System.Drawing.Point(22, 56);
             this.AvatarLabel.Name = "AvatarLabel";
             this.AvatarLabel.Size = new System.Drawing.Size(38, 13);
@@ -56,6 +60,7 @@
             // ContraseñaActualLabel
             // 
             this.ContraseñaActualLabel.AutoSize = true;
+            this.ContraseñaActualLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ContraseñaActualLabel.Location = new System.Drawing.Point(22, 84);
             this.ContraseñaActualLabel.Name = "ContraseñaActualLabel";
             this.ContraseñaActualLabel.Size = new System.Drawing.Size(94, 13);
@@ -66,6 +71,7 @@
             // contraseñaActual
             // 
             this.contraseñaActual.AutoSize = true;
+            this.contraseñaActual.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.contraseñaActual.Location = new System.Drawing.Point(20, 117);
             this.contraseñaActual.Name = "contraseñaActual";
             this.contraseñaActual.Size = new System.Drawing.Size(96, 13);
@@ -88,6 +94,7 @@
             // 
             // GuardarBtn
             // 
+            this.GuardarBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.GuardarBtn.Location = new System.Drawing.Point(129, 154);
             this.GuardarBtn.Name = "GuardarBtn";
             this.GuardarBtn.Size = new System.Drawing.Size(127, 23);
@@ -96,10 +103,15 @@
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
             // 
-            // Contraseña
+            // errorDatosUsuario
+            // 
+            this.errorDatosUsuario.ContainerControl = this;
+            // 
+            // ContraseñaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.ClientSize = new System.Drawing.Size(308, 193);
             this.Controls.Add(this.GuardarBtn);
             this.Controls.Add(this.ContraseñaActualTxt);
@@ -108,8 +120,9 @@
             this.Controls.Add(this.ContraseñaActualLabel);
             this.Controls.Add(this.AvatarTxt);
             this.Controls.Add(this.AvatarLabel);
-            this.Name = "Contraseña";
+            this.Name = "ContraseñaForm";
             this.Text = "Contraseña";
+            ((System.ComponentModel.ISupportInitialize)(this.errorDatosUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +137,6 @@
         private System.Windows.Forms.TextBox ContraseñaNuevaTxt;
         private System.Windows.Forms.TextBox ContraseñaActualTxt;
         private System.Windows.Forms.Button GuardarBtn;
+        private System.Windows.Forms.ErrorProvider errorDatosUsuario;
     }
 }

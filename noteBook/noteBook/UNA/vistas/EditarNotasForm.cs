@@ -63,100 +63,25 @@ namespace noteBook.UNA.vistas
             notaModificada = nota;
             notaAuxiliar = (Nota)nota;
             tituloActualLabel.Text = notaAuxiliar.Titulo;
-            categoriaActualLabel.Text= notaAuxiliar.Categoria;
-            fuenteCBX.Text= notaAuxiliar.Fuente;
+            categoriaActualLabel.Text = notaAuxiliar.Categoria;
+            fuenteCBX.Text = notaAuxiliar.Fuente;
             colorFondoDialog.Color = Color.FromArgb(notaAuxiliar.ColorFondo);
             colorFuenteDialog.Color = Color.FromArgb(notaAuxiliar.ColorFuente);
             colorFondoPB.BackColor = Color.FromArgb(notaAuxiliar.ColorFondo);
 
             colorFuentePB.BackColor = Color.FromArgb(notaAuxiliar.ColorFuente);
 
-          if (notaAuxiliar.Privacidad)
+            if (notaAuxiliar.Privacidad)
             {
-               privacidadActualLabel.Text = "Privado";
+                privacidadActualLabel.Text = "Privado";
             }
             else
             {
-             privacidadActualLabel.Text= "Publico";
-           }
+                privacidadActualLabel.Text = "Publico";
+            }
             foreach (FontFamily font in FontFamily.Families)
             {
                 fuenteCBX.Items.Add(font.Name.ToString());
-            }
-
-        }
-
-        public void ModificarNota()
-        {
-            string informacion = "se modifico la nota ";
-            foreach (var libro in Singlenton.Instance.LibrosList)
-            {
-                foreach (var nota in libro.Notas)
-                {
-                    if (notaAuxiliar.Titulo == nota.Titulo)
-                    {
-                        informacion += $"{notaAuxiliar.Titulo}; ";
-                        if (tituloTxt.TextLength != 0)
-                        {
-                            informacion += $"el nombre {notaAuxiliar.Titulo} por el nombre {tituloTxt.Text};";
-                            nota.Titulo = tituloTxt.Text;
-                        }
-                        if (categoriaTxt.TextLength != 0)
-                        {
-                            informacion += $"la categoria {notaAuxiliar.Categoria} se modifico por {categoriaTxt.Text};";
-                            nota.Categoria = categoriaTxt.Text;
-                        }
-                        if (privacidadCBX.SelectedIndex >= 0)
-                        {
-                            informacion += $"la privacidad {notaAuxiliar.Privacidad} se modifico por {privacidadCBX.Text};";
-                            if (privacidadCBX.Text == "Publico")
-                            {
-                                nota.Privacidad = false;
-                            }
-                            else
-                            {
-                                if (privacidadCBX.Text == "Privado")
-                                {
-                                    nota.Privacidad = true;
-                                }
-                            }
-                        }
-                        if (fuenteCBX.SelectedIndex >= 0)
-                        {
-                            informacion += $"la privacidad {notaAuxiliar.Fuente} se modifico por {fuenteCBX.Text};";
-                            nota.Fuente = fuenteCBX.Text;
-                        }
-                        if (nota.ColorFuente != colorFuenteDialog.Color.ToArgb())
-                        {
-                            informacion += $"el color de fuente {nota.ColorFuente} se modifico por {colorFuenteDialog.Color.ToArgb()};";
-                            nota.ColorFuente = colorFuenteDialog.Color.ToArgb();
-                        }
-                        if (nota.ColorFondo != colorFondoDialog.Color.ToArgb())
-                        {
-                            informacion += $"el color de fondo {notaAuxiliar.ColorFondo} se modifico por {colorFondoDialog.Color.ToArgb()};";
-                            nota.ColorFondo = colorFondoDialog.Color.ToArgb();
-                        }
-                        DateTime hoy = DateTime.Now;
-                        nota.FechaModificacion = Convert.ToString(hoy); 
-                        notaModificada = nota;
-                        informacion += $"se modifico en al fecha{nota.FechaModificacion} ;";
-                        Transaccion transaccion = new Transaccion
-                        {
-                            AccionRealizada = $"Se modifico la nota {nota.Titulo}",
-                            InformacionAdicional = informacion,
-                            Objeto = $"Nota {nota.Titulo}",
-                            CodigoPagina = "Formulario 06"
-
-                        };
-                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-                        
-                        ///Singlenton.Instance.CargarReporte($"Se modifico la nota {nota.Titulo}", informacion, $"Nota { nota.Titulo}");
-
-
-                    }
-
-                }
-
             }
 
         }
@@ -211,7 +136,7 @@ namespace noteBook.UNA.vistas
             }
             else
             {
-             
+
                 return true;
             }
         }
@@ -238,11 +163,10 @@ namespace noteBook.UNA.vistas
                         {
                             if (VerficarCampos())
                             {
-                                ModificarNota();
                                 MessageBox.Show("Se modifico la nota");
 
                                 this.Hide();
-                               
+
                             }
                             else
                             {
@@ -259,16 +183,19 @@ namespace noteBook.UNA.vistas
             }
 
         }
-        private int ValidarPrivacidad() {
+        private int ValidarPrivacidad()
+        {
             if (privacidadCBX.Text == "Privado")
             {
                 return 1;
             }
-            else {
+            else
+            {
                 return 0;
             }
         }
-        private string TituloModificado() {
+        private string TituloModificado()
+        {
             if (tituloTxt.TextLength != 0)
             {
                 return tituloTxt.Text;
@@ -278,16 +205,19 @@ namespace noteBook.UNA.vistas
                 return tituloActualLabel.Text;
             }
         }
-        private string ValidarTitulo() {
+        private string ValidarTitulo()
+        {
             if (ValidarPrivacidad() == 0)
             {
-                return TituloModificado(); 
+                return TituloModificado();
             }
-            else {
-                return Encriptacion.EncriptarString(TituloModificado(),"titu");
+            else
+            {
+                return Encriptacion.EncriptarString(TituloModificado(), "titu");
             }
         }
-        private string CategoriaModificada() {
+        private string CategoriaModificada()
+        {
             if (categoriaTxt.TextLength != 0)
             {
                 return categoriaTxt.Text;
@@ -297,13 +227,15 @@ namespace noteBook.UNA.vistas
                 return categoriaActualLabel.Text;
             }
         }
-        private string ValidarCategoria() {
+        private string ValidarCategoria()
+        {
             if (ValidarPrivacidad() == 0)
             {
                 return CategoriaModificada();
             }
-            else {
-                return Encriptacion.EncriptarString(CategoriaModificada(),"cate");
+            else
+            {
+                return Encriptacion.EncriptarString(CategoriaModificada(), "cate");
             }
         }
         private string FechaActual()
@@ -314,73 +246,33 @@ namespace noteBook.UNA.vistas
         private void BtnAceptar_Click(object sender, EventArgs e)
 
         {
-           
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            mySqlDb.OpenConnection();
-            string queryActualizar = String.Format("UPDATE notas SET titulo='{0}',color_fondo='{1}',categoria='{2}',privacidad='{3}',fecha_modificacion='{4}' where titulo=('{5}')", ValidarTitulo(), colorFondoDialog.Color.ToArgb(), ValidarCategoria(), ValidarPrivacidad(), FechaActual(), tituloActualLabel.Text) ;
-            mySqlDb.EjectSQL(queryActualizar);
-            Singlenton.Instance.miLibro.ActualizarPage();
-            if (ValidarPrivacidad() == 0)
+            if (tituloTxt.TextLength == 0 && privacidadCBX.Text.Length == 0 && categoriaTxt.TextLength == 0)
             {
-                Transaccion transaccion = new Transaccion
-                {
-                    AccionRealizada = $"Se modifico la nota {tituloActualLabel.Text}",
-                    InformacionAdicional = $"Se modifico la nota {tituloActualLabel.Text}, ahora contiene los datos; nombre {ValidarTitulo()}, color de fondo {colorFondoDialog.Color.ToArgb()}, con la categoria {ValidarCategoria()}, de privacidad {ValidarPrivacidad()}",
-                    Objeto = $"Nota {tituloActualLabel.Text}",
-                    CodigoPagina = "Formulario 06"
-
-                };
-                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+                MessageBox.Show("No se a modificado alguna opción");
             }
-            
+            else
+            {
+                MySqlDb mySqlDb = new MySqlDb();
+                mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+                mySqlDb.OpenConnection();
+                string queryActualizar = String.Format("UPDATE notas SET titulo='{0}',color_fondo='{1}',categoria='{2}',privacidad='{3}',fecha_modificacion='{4}' where titulo=('{5}')", ValidarTitulo(), colorFondoDialog.Color.ToArgb(), ValidarCategoria(), ValidarPrivacidad(), FechaActual(), tituloActualLabel.Text);
+                mySqlDb.EjectSQL(queryActualizar);
+                Singlenton.Instance.miLibro.ActualizarPage();
+                if (ValidarPrivacidad() == 0)
+                {
+                    Transaccion transaccion = new Transaccion
+                    {
+                        AccionRealizada = $"Se modifico la nota {tituloActualLabel.Text}",
+                        InformacionAdicional = $"Se modifico la nota {tituloActualLabel.Text}, ahora contiene los datos; nombre {ValidarTitulo()}, color de fondo {colorFondoDialog.Color.ToArgb()}, con la categoria {ValidarCategoria()}, de privacidad {ValidarPrivacidad()}",
+                        Objeto = $"Nota {tituloActualLabel.Text}",
+                        CodigoPagina = "Formulario 06"
 
-            //try
-            //{
-            //    if (ValidarModificarNota())
-            //    {
+                    };
 
-            //        if (VerficarCampos())
-            //        {
-            //            ModificarNota();
-            //            MessageBox.Show("Se modifico la nota");
-            //            this.Hide();
-            //           // Singlenton.Instance.miLibro.ActualizarPage();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Todos los campos estan en blanco");
+                }
+            }
 
-            //        }
-            //    }
-            //    else
-            //    {
-            //        errorProviderEditarNotas.SetError(tituloTxt, "El no mbre de la nota ya existe");
-            //    }
-            //}
-            //catch (Exception Ex)
-            //{
-            //    MessageBox.Show($"Se produjo un error al guardar la nota{Ex}");
-            //}
-        }
 
-        private void EditarNotasForm_Load(object sender, EventArgs e)
-        {
 
         }
-        private void ModifcarNO()
-        {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            mySqlDb.OpenConnection();
-
-          //  string queryActualizar = String.Format("UPDATE notas SET heigh='{0}',width='{1}' where titulo=('{2}')", this.Height, this.Width, this.tituloNota);
-           
-        }
-
-    }
- 
-
-
-
-}
+    }}

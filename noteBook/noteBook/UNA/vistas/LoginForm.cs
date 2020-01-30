@@ -22,13 +22,9 @@ namespace noteBook
         Usuario logearUsuario = new Usuario();
         public Login()
         {
-
             InitializeComponent();
-           
             mensajeLogin.SetToolTip(usuarioTxt, "Ingrese el nombre de usuario");
             mensajeLogin.SetToolTip(contraseñaTxt, "Ingrese la contraseña");
-            CargarDatos();
-
         }
         
         
@@ -37,42 +33,6 @@ namespace noteBook
             usuarioTxt.Text = "";
             contraseñaTxt.Text = "";
         }
-        private void CargarDatos()
-        {
-            try
-            {
-                Singlenton.Instance.CrearUsuarios();
-                archivoManager.CargarUsuario();
-               
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show($"Se produjo un error al cargar los usuarios{Ex}");
-            }
-            try
-            {
-          //      archivoManager.CargarLibros();
-            //    archivoManager.CargarNotas();
-          //      archivoManager.CargarReportes();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show($"Se produjo un error al cargar los libros{Ex}");
-            }
-        }
-
-        private void ValidarUsuario()
-        {
-            foreach (Usuario u in Singlenton.Instance.usuarios)
-            {
-                if (usuarioTxt.Text == u.NombreUsuario)
-                {
-                    logearUsuario = u;
-                }
-            }
-        }
-
-
         private void LinkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             registroUsuario.ShowDialog();
@@ -81,133 +41,64 @@ namespace noteBook
 
         private void IngresarBtn_Click(object sender, EventArgs e)
         {
+            LoginErrorProvider.Clear();
             if (usuarioTxt.TextLength == 0)
             {
                 LoginErrorProvider.SetError(usuarioTxt, "Falta Nombre Usuario");
             }
-            else
+            if (contraseñaTxt.TextLength == 0)
             {
 
-                if (contraseñaTxt.TextLength == 0)
+                LoginErrorProvider.SetError(contraseñaTxt, "Falta Contraseña Usuario");
+            }
+              MySqlDb mySqlDb = new MySqlDb();
+              mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+              mySqlDb.OpenConnection();
+             string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='{0}'",usuarioTxt.Text);
+            if (mySqlDb.QuerySQL(query).Rows.Count != 0)
+            {
+                foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query)))
                 {
-
-                    LoginErrorProvider.SetError(contraseñaTxt, "Falta Contraseña Usuario");
-                }
-                else
-                {
-
-                      MySqlDb mySqlDb = new MySqlDb();
-                    mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-                    mySqlDb.OpenConnection();
-
-                    string query = String.Format("Select id_usuario,avatar,contrasena from usuarios");
-                    foreach (var usuarios in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query))) {
-                        if (usuarios.NombreUsuario == usuarioTxt.Text&&usuarios.Contraseña==contraseñaTxt.Text)
+                    if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña == contraseñaTxt.Text)
+                    {
+                        String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=8", usuarios.IdUsuario);
+                        try
                         {
-                            String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=8",usuarios.IdUsuario);
-                            try
+                            if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "8")
                             {
-                                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "8")
+                                Usuario usuario = new Usuario
                                 {
-                                    Usuario usuario = new Usuario
-                                    {
-                                        Activo = true,
-                                        IdUsuario = usuarios.IdUsuario,
-                                        NombreUsuario = usuarios.NombreUsuario
-                                    };
-                                    Singlenton.Instance.usuarios.Add(usuario);
-                                    Singlenton.Instance.usuarioActual = usuarios;
-                                    DialogResult = DialogResult.OK;
-                                    this.Close();
-                                }
+                                    Activo = true,
+                                    IdUsuario = usuarios.IdUsuario,
+                                    NombreUsuario = usuarios.NombreUsuario
+                                };
+                                Singlenton.Instance.usuarios.Add(usuario);
+                                Singlenton.Instance.usuarioActual = usuarios;
+                                DialogResult = DialogResult.OK;
+                                this.Close();
                             }
-                            catch {
-                                MessageBox.Show("El usuario no tiene permiso para iniciar sección");
-                            }
-                           
                         }
-                        else {
-                            if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña != contraseñaTxt.Text)
-                            {
-                                MessageBox.Show("Contraseña incorecta");
-                            }
-                           
+                        catch
+                        {
+                            MessageBox.Show("El usuario no tiene permiso para iniciar sección");
                         }
                     }
-                    //if (mySqlDb.QuerySQL(query).Rows.Count == 1)
-                    //{
-                    //    string contra = Encriptacion.DesencriptarString("lalo",mySqlDb.QuerySQL(query).Rows[0][0].ToString());
-                    //    if (contra == contraseñaTxt.Text)
-                    //    {
-                    //        Usuario usuario = new Usuario();
-                    //        usuario.Activo = true;
-                    //        usuario.NombreUsuario = mySqlDb.QuerySQL(query).Rows[0][0].ToString();
-                    //        Singlenton.Instance.usuarios.Add(usuario);
-                    //        DialogResult = DialogResult.OK;
-                    //        this.Close();
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    query = String.Format("Select avatar from usuarios where avatar='" + usuarioTxt.Text + "'and contraseña!='" + contraseñaTxt.Text + "'");
-                    //    if (mySqlDb.QuerySQL(query).Rows.Count == 1)
-                    //    {
-                    //        MessageBox.Show("Contraseña incorrecta");
-                    //    }
-                    //    else
-                    //    {
-                    //        query = String.Format("Select avatar from usuarios where avatar!='" + usuarioTxt.Text + "'");
-                    //        if (mySqlDb.QuerySQL(query).Rows.Count != 0)
-                    //        {
-                    //            MessageBox.Show("El usuario no existe");
-                    //        }
-                    //    }
-                    //}
+                    else
+                    {
+                        if (usuarios.NombreUsuario == usuarioTxt.Text && usuarios.Contraseña != contraseñaTxt.Text)
+                        {
+                            MessageBox.Show("Contraseña incorecta");
+                        }
 
-
-                    //    else
-                    //    {
-                    //        ValidarUsuario();
-
-
-                    //        if (usuarioTxt.Text == logearUsuario.NombreUsuario)
-                    //        {
-
-
-                    //            if (contraseñaTxt.Text == logearUsuario.Contraseña)
-                    //            {
-                    //                foreach (Usuario u in Singlenton.Instance.usuarios)
-                    //                {
-                    //                    if (usuarioTxt.Text == u.NombreUsuario)
-                    //                    {
-                    //                        u.Activo = true;
-                    //                    }
-                    //                    else
-                    //                    {
-                    //                        u.Activo = false;
-                    //                    }
-                    //                }
-
-                    //                DialogResult = DialogResult.OK;
-
-                    //                this.Close();
-
-
-                    //            }
-
-                    //            else
-                    //            {
-                    //                MessageBox.Show("Contraseña incorrecta");
-                    //            }
-
-                    //        }
-                    //        else
-                    //        {
-                    //            MessageBox.Show("Usuario incorrecto");
-                    //        }
-                    //    }
+                    }
                 }
             }
+            else {
+                MessageBox.Show("El usuario no existe");
+            }
+                    
+                
+            
         }
 
         private void ContraseñaCambioTxt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

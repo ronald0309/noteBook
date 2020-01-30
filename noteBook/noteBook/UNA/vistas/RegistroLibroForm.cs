@@ -74,79 +74,15 @@ namespace noteBook.UNA.vistas
                             string queryGeneroLibros = string.Format("INSERT INTO generos_libros (id_libro,id_genero)VALUES('{0}','{1}')", mySqlDb.QuerySQL(queryLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(queryGenero).Rows[0][0].ToString());
                             mySqlDb.EjectSQL(queryGeneroLibros);
                         }
+                        mySqlDb.CloseConnection();
+                        this.Close();
                     }
-
-                    mySqlDb.CloseConnection();
                 }
 
             }
         }
 
-        public void CrearLibro()
-        {
-            bool repetido = false;
-
-            errorRegistroLibro.Clear();
-            if (nombreTxt.Text.Length == 0)
-            {
-                errorRegistroLibro.SetError(nombreTxt, "Ingrese el nombre del libro");
-            }
-            foreach (Usuario u in Singlenton.Instance.usuarios)
-            {
-                if (u.Activo)
-                {
-                    usuario = u.NombreUsuario;
-                }
-            }
-
-            foreach (var librosIguales in Singlenton.Instance.LibrosList)
-            {
-                if (librosIguales.Nombre.ToLower() == nombreTxt.Text.ToLower())
-                {
-                    errorRegistroLibro.SetError(nombreTxt, "El libro ya existe");
-                    repetido = true;
-                }
-            }
-            if (generoComboBox.Text.Length == 0)
-            {
-                errorRegistroLibro.SetError(generoComboBox, "Escoja un genero Para el libro");
-
-            }
-
-            if (nombreTxt.Text.Length != 0 && generoComboBox.Text.Length != 0 && repetido == false)
-            {
-                Libro libro = new Libro
-                {
-                    Nombre = nombreTxt.Text,
-                    Genero = generoComboBox.Text,
-                    Orden = Singlenton.Instance.LibrosList.Count() + 1,
-                    Color = selectorColorImage.BackColor.ToArgb(),
-                    Pocision = contadorPosicion,
-                    Usuario = usuario
-                };
-                contadorPosicion++;
-                Singlenton.Instance.LibrosList.Add(libro);
-                nombreTxt.Text = "";
-                generoComboBox.Text = "";
-                Transaccion transaccion = new Transaccion
-                {
-                    AccionRealizada = $"Se crea un nuevo libro",
-                    InformacionAdicional = $"Se crea un nuevo libro de nombre {(libro.Nombre)}, del genero {(libro.Genero)} de color  {(libro.Color)}(en rgb) y de orden  {(libro.Orden)}",
-                    Objeto = $"Libro{ libro.Nombre }",
-                    CodigoPagina = "Formulario 01"
-
-                };
-                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-
-                ///Singlenton.Instance.CargarReporte("Se crea un nuevo libro ", $"Se crea un nuevo libro de nombre {(libro.Nombre)}; del genero {(libro.Genero)}; de color  {(libro.Color)} (en rgb) y de orden  {(libro.Orden)}  ", $"Libro{libro.Nombre}"); ;
-
-                MessageBox.Show("El libro se guardo con exito");
-
-
-                this.Close();
-
-            }
-        }
+       
         private void GuardarBtn_MouseClick(object sender, MouseEventArgs e)
         {
             GuardarLibroBD();
@@ -162,11 +98,7 @@ namespace noteBook.UNA.vistas
         }
 
 
-        private void GuardarBtn_Click(object sender, EventArgs e)
-
-        {
-
-        }
+     
 
         private void generoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -270,5 +202,7 @@ namespace noteBook.UNA.vistas
 
             mySqlDb.CloseConnection();
         }
+
+      
     }
 }

@@ -104,7 +104,7 @@ namespace noteBook.UNA.vistas
                     }
                 }
             }
-            catch (Exception Ex)
+            catch (Exception )
             {
                 MessageBox.Show($"El usuario no tiene permiso para eliminar libros");
             }

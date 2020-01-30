@@ -54,94 +54,13 @@ namespace noteBook.UNA.vistas
             }
             contenedorNotaPanel.Controls.Add(notaPrevia);
         }
-        public string Posicion
+        public string NombreLibro
         {
             get;
             set;
         }
-        public void Guardar() {
-            bool notaCreada = false;
-
-            foreach (var libros in Singlenton.Instance.LibrosList)
-            {
-                foreach (var notasIguales in libros.Notas)
-                {
-                    if (notasIguales.Titulo.ToLower() == TituloTxt.Text.ToLower())
-                    {
-
-                        errorDatosNota.SetError(TituloTxt, "La nota ya existe");
-                        notaCreada = true;
-                    }
-                }
-            }
-            foreach (Usuario u in Singlenton.Instance.usuarios)
-            {
-                if (u.Activo)
-                {
-                    usuario = u.NombreUsuario;
-                }
-            }
-            this.Error();
-
-            if (PrivacidadCombobox.Text.Length != 0 && TituloTxt.TextLength != 0 && CategoriaTxt.TextLength != 0 && notaCreada == false)
-            {
-                foreach (var libroGuardados in Singlenton.Instance.LibrosList)
-                {
-
-                    if (libroGuardados.Nombre == Posicion)
-                    {
-                        int count = libroGuardados.Notas.Count;
-                        int n = count;
-                        Nota nota = new Nota();
-                        if (PrivacidadCombobox.Text == "Publico")
-                        {
-                            nota.Privacidad = false;
-                        }
-                        else
-                        {
-                            if (PrivacidadCombobox.Text == "Privado")
-                            {
-                                nota.Privacidad = true;
-
-                            }
-                        }
-                        nota.Titulo = TituloTxt.Text;
-                        nota.Width = 155;
-                        nota.Heigh = 152;
-                        nota.PosicionX = x - 77;
-                        nota.PosicionY = y - 76;
-                        nota.Categoria = CategoriaTxt.Text;
-                        nota.Fuente = FuenteComboBox.Text;
-                        nota.ColorFuente = colorDialog2.Color.ToArgb();
-                        nota.ColorFondo = colorDialog1.Color.ToArgb();
-                        nota.Usuario = usuario;
-                        nota.orden = libroGuardados.Notas.Count() + 1;
-                        DateTime hoy = DateTime.Now;
-                        // yyyyMMddT
-                        nota.FechaCreacion = hoy.ToString("dd-MM-yyy");
-                        libroGuardados.Notas.Add(nota);
-
-                        ///TODOSinglenton.Instance.CargarReporte("Se crea una nueva nota ", $"Se crea una nueva nota de nombre {(nota.Titulo)}; con la fuente {(nota.Fuente)}; el color de la fuente en rgb es {(nota.ColorFuente)} y el color del fondo en rgb es {(nota.ColorFondo)} ", $"Nota {nota.Titulo}");
-
-                        this.Close();
-
-
-                    }
-                }
-            }
-
-        }
         private void FormularioGuardarBtn_Click(object sender, EventArgs e) {
-            MySqlDb mySqlDb = new MySqlDb
-            {
-                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
-            };
-            mySqlDb.OpenConnection();
-            string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
-
-            String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=4", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
-            try { 
-            if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "4")
+            if (Mensajes())
             {
                 if (PrivacidadCombobox.Text == "Publico")
                 {
@@ -155,12 +74,9 @@ namespace noteBook.UNA.vistas
                 }
             }
         }
-            catch (Exception)
-            {
-                MessageBox.Show($"El usuario no tiene permiso para crear notas");
-            }
+           
 
-}
+
         
         private string FechaActual() {
             DateTime hoy = DateTime.Now;
@@ -171,10 +87,15 @@ namespace noteBook.UNA.vistas
             mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
             mySqlDb.OpenConnection();
-            string queryid = String.Format("Select id_libro from libros where nombre='{0}'", Posicion);
-            string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
-            TituloTxt.Text, CategoriaTxt.Text, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152,0,FechaActual());
-            mySqlDb.EjectSQL(queryLibros);
+            string queryid = String.Format("Select id_libro from libros where nombre='{0}'", NombreLibro);
+            string notasIguales = String.Format("Select titulo from notas where titulo='{0}'",TituloTxt.Text);
+            if (mySqlDb.QuerySQL(notasIguales).Rows.Count == 0)
+            {
+                string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
+                TituloTxt.Text, CategoriaTxt.Text, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152, 0, FechaActual());
+                mySqlDb.EjectSQL(queryLibros);
+            }
+            else { MessageBox.Show("Ya existe una nota con ese titulo"); }
         }
         private void GuardarNotaPrivada() {
             string tituloEncriptado= Encriptacion.EncriptarString(TituloTxt.Text,"titu");
@@ -182,10 +103,15 @@ namespace noteBook.UNA.vistas
             MySqlDb mySqlDb = new MySqlDb();
             mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             mySqlDb.OpenConnection();
-            string queryid = String.Format("Select id_libro from libros where nombre='{0}'", Posicion);
-            string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
-                tituloEncriptado, categoriaEncriptado, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152,1,FechaActual());
-            mySqlDb.EjectSQL(queryLibros);
+            string notasIguales = String.Format("Select titulo from notas where titulo='{0}'", TituloTxt.Text);
+            if (mySqlDb.QuerySQL(notasIguales).Rows.Count == 0)
+            {
+                string queryid = String.Format("Select id_libro from libros where nombre='{0}'", NombreLibro);
+                string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
+                    tituloEncriptado, categoriaEncriptado, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152, 1, FechaActual());
+                mySqlDb.EjectSQL(queryLibros);
+            }
+            else { MessageBox.Show("Ya existe una nota con ese titulo"); }
         }
 
         private void SelectorColoresNotas_Click(object sender, EventArgs e)
@@ -218,30 +144,30 @@ namespace noteBook.UNA.vistas
         }
 
 
-        private void Error()
+        private Boolean Mensajes()
         {
             errorDatosNota.Clear();
-            foreach (var libro in Singlenton.Instance.LibrosList)
+            if (TituloTxt.TextLength == 0 || CategoriaTxt.TextLength == 0 || PrivacidadCombobox.Text.Length == 0||FuenteComboBox.Text.Length==0)
             {
-                foreach (var nota in libro.Notas)
+                if (TituloTxt.TextLength == 0)
                 {
-                    if (nota.Titulo == TituloTxt.Text)
-                    {
-                        errorDatosNota.SetError(TituloTxt, "La nota ya existe");
-                    }
+                    errorDatosNota.SetError(TituloTxt, "Ingrese el nombre de la nota");
                 }
+                if (CategoriaTxt.TextLength == 0)
+                {
+                    errorDatosNota.SetError(CategoriaTxt, "Ingrese una categoria");
+                }
+                if (PrivacidadCombobox.Text.Length == 0)
+                {
+                    errorDatosNota.SetError(PrivacidadCombobox, "Seleccione la privacidad");
+                }
+                if (FuenteComboBox.Text.Length == 0) {
+                    errorDatosNota.SetError(FuenteComboBox,"Seleccione el tipo de letra");
+                }
+                return false;
             }
-            if (TituloTxt.TextLength == 0)
-            {
-                errorDatosNota.SetError(TituloTxt, "Ingrese el nombre de la nota");
-            }
-            if (CategoriaTxt.TextLength == 0)
-            {
-                errorDatosNota.SetError(CategoriaTxt, "Ingrese una categoria");
-            }
-            if (PrivacidadCombobox.Text.Length == 0)
-            {
-                errorDatosNota.SetError(PrivacidadCombobox, "Seleccione la privacidad");
+            else {
+                return true;
             }
         }
         private void CategoriaTxt_TextChanged(object sender, EventArgs e)

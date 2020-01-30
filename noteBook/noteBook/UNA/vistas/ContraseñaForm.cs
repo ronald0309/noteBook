@@ -22,26 +22,52 @@ namespace noteBook.UNA.vistas
         {
 
         }
-
+        private Boolean Mensajes() {
+            if (contraseñaActual.Text.Length == 0 || ContraseñaActualTxt.Text.Length == 0 || AvatarTxt.Text.Length == 0)
+            {
+                if (ContraseñaNuevaTxt.Text.Length == 0)
+                {
+                    errorDatosUsuario.SetError(ContraseñaNuevaTxt, "Ingrese una nueva contraseña");
+                }
+                if (ContraseñaActualTxt.Text.Length == 0)
+                {
+                    errorDatosUsuario.SetError(ContraseñaActualTxt, "Ingrese la contraseña actual");
+                }
+                if (AvatarTxt.Text.Length == 0)
+                {
+                    errorDatosUsuario.SetError(AvatarTxt, "Ingrese el nick de usuario");
+                }
+                return false;
+            }
+            else {
+                return true;
+            }        
+        }
         private void GuardarBtn_Click(object sender, EventArgs e)
         {
-            MySqlDb mySqlDb = new MySqlDb
+            if (Mensajes())
             {
-                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
-            };
-            mySqlDb.OpenConnection();
-                   // string query = String.Format("Select avatar,contraseña from usuarios where avatar='" + usuarioTxt.Text + "'")
-                    string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='"+AvatarTxt.Text+"'");
-          
-            foreach (Usuario usuario in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query))) {
-              //  MessageBox.Show(usuario.Contraseña);
-                if (ContraseñaActualTxt.Text == usuario.Contraseña) {
-                    query = String.Format("UPDATE usuarios SET contrasena=('{0}') where id_usuario=('{1}')", Encriptacion.EncriptarString(ContraseñaNuevaTxt.Text, "contraseña"),
-                        usuario.IdUsuario);
-                    mySqlDb.EjectSQL(query);
+                MySqlDb mySqlDb = new MySqlDb
+                {
+                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+                };
+                mySqlDb.OpenConnection();
+                string query = String.Format("Select id_usuario,avatar,contrasena from usuarios where avatar='" + AvatarTxt.Text + "'");
+                foreach (Usuario usuario in Singlenton.Instance.listUsuarioFromDB.selectUsuarioFromDataTable(mySqlDb.QuerySQL(query)))
+                {
+                    if (ContraseñaActualTxt.Text == usuario.Contraseña)
+                    {
+                        query = String.Format("UPDATE usuarios SET contrasena=('{0}') where id_usuario=('{1}')", Encriptacion.EncriptarString(ContraseñaNuevaTxt.Text, "contraseña"),
+                            usuario.IdUsuario);
+                        mySqlDb.EjectSQL(query);
+                        this.Close();
+                    }
+                    else {
+                        MessageBox.Show("Contraseña actual incorecta");
+                    }
                 }
+
             }
-         
         }
     }
 }

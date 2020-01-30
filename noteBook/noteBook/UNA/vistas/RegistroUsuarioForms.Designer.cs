@@ -44,7 +44,6 @@
             this.nicklabel = new System.Windows.Forms.Label();
             this.CrearLibroCheck = new System.Windows.Forms.CheckBox();
             this.EditarLibroCheck = new System.Windows.Forms.CheckBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.EliminarLibrosCheck = new System.Windows.Forms.CheckBox();
             this.EliminarNotasCheck = new System.Windows.Forms.CheckBox();
             this.EditarNotasCheck = new System.Windows.Forms.CheckBox();
@@ -82,7 +81,7 @@
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
             this.nombreUsuarioTxt.Size = new System.Drawing.Size(174, 20);
             this.nombreUsuarioTxt.TabIndex = 1;
-            this.nombreUsuarioTxt.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
+ //           this.nombreUsuarioTxt.TextChanged += new System.EventHandler(this.TXTNombre_TextChanged);
             // 
             // contraseñaLabel
             // 
@@ -157,12 +156,12 @@
             // PrimerApellidoLabel
             // 
             this.PrimerApellidoLabel.AutoSize = true;
-            this.PrimerApellidoLabel.Location = new System.Drawing.Point(24, 77);
+            this.PrimerApellidoLabel.Location = new System.Drawing.Point(11, 77);
             this.PrimerApellidoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PrimerApellidoLabel.Name = "PrimerApellidoLabel";
-            this.PrimerApellidoLabel.Size = new System.Drawing.Size(49, 13);
+            this.PrimerApellidoLabel.Size = new System.Drawing.Size(76, 13);
             this.PrimerApellidoLabel.TabIndex = 65;
-            this.PrimerApellidoLabel.Text = "Apellidos";
+            this.PrimerApellidoLabel.Text = "Primer Apellido";
             // 
             // NickTxt
             // 
@@ -185,7 +184,7 @@
             // CrearLibroCheck
             // 
             this.CrearLibroCheck.AutoSize = true;
-            this.CrearLibroCheck.Location = new System.Drawing.Point(281, 70);
+            this.CrearLibroCheck.Location = new System.Drawing.Point(307, 72);
             this.CrearLibroCheck.Name = "CrearLibroCheck";
             this.CrearLibroCheck.Size = new System.Drawing.Size(77, 17);
             this.CrearLibroCheck.TabIndex = 68;
@@ -195,7 +194,7 @@
             // EditarLibroCheck
             // 
             this.EditarLibroCheck.AutoSize = true;
-            this.EditarLibroCheck.Location = new System.Drawing.Point(281, 93);
+            this.EditarLibroCheck.Location = new System.Drawing.Point(307, 95);
             this.EditarLibroCheck.Name = "EditarLibroCheck";
             this.EditarLibroCheck.Size = new System.Drawing.Size(79, 17);
             this.EditarLibroCheck.TabIndex = 69;
@@ -205,7 +204,7 @@
             // EliminarLibrosCheck
             // 
             this.EliminarLibrosCheck.AutoSize = true;
-            this.EliminarLibrosCheck.Location = new System.Drawing.Point(281, 116);
+            this.EliminarLibrosCheck.Location = new System.Drawing.Point(307, 118);
             this.EliminarLibrosCheck.Name = "EliminarLibrosCheck";
             this.EliminarLibrosCheck.Size = new System.Drawing.Size(93, 17);
             this.EliminarLibrosCheck.TabIndex = 70;
@@ -215,7 +214,7 @@
             // EliminarNotasCheck
             // 
             this.EliminarNotasCheck.AutoSize = true;
-            this.EliminarNotasCheck.Location = new System.Drawing.Point(396, 93);
+            this.EliminarNotasCheck.Location = new System.Drawing.Point(422, 95);
             this.EliminarNotasCheck.Name = "EliminarNotasCheck";
             this.EliminarNotasCheck.Size = new System.Drawing.Size(93, 17);
             this.EliminarNotasCheck.TabIndex = 71;
@@ -225,7 +224,7 @@
             // EditarNotasCheck
             // 
             this.EditarNotasCheck.AutoSize = true;
-            this.EditarNotasCheck.Location = new System.Drawing.Point(396, 70);
+            this.EditarNotasCheck.Location = new System.Drawing.Point(422, 72);
             this.EditarNotasCheck.Name = "EditarNotasCheck";
             this.EditarNotasCheck.Size = new System.Drawing.Size(84, 17);
             this.EditarNotasCheck.TabIndex = 72;
@@ -235,7 +234,7 @@
             // BuscarNotasCheck
             // 
             this.BuscarNotasCheck.AutoSize = true;
-            this.BuscarNotasCheck.Location = new System.Drawing.Point(396, 116);
+            this.BuscarNotasCheck.Location = new System.Drawing.Point(422, 118);
             this.BuscarNotasCheck.Name = "BuscarNotasCheck";
             this.BuscarNotasCheck.Size = new System.Drawing.Size(90, 17);
             this.BuscarNotasCheck.TabIndex = 73;
@@ -245,7 +244,7 @@
             // CrearNotasCheck
             // 
             this.CrearNotasCheck.AutoSize = true;
-            this.CrearNotasCheck.Location = new System.Drawing.Point(396, 50);
+            this.CrearNotasCheck.Location = new System.Drawing.Point(422, 52);
             this.CrearNotasCheck.Name = "CrearNotasCheck";
             this.CrearNotasCheck.Size = new System.Drawing.Size(82, 17);
             this.CrearNotasCheck.TabIndex = 74;
@@ -255,7 +254,7 @@
             // IngresarSistemaCheck
             // 
             this.IngresarSistemaCheck.AutoSize = true;
-            this.IngresarSistemaCheck.Location = new System.Drawing.Point(281, 47);
+            this.IngresarSistemaCheck.Location = new System.Drawing.Point(307, 49);
             this.IngresarSistemaCheck.Name = "IngresarSistemaCheck";
             this.IngresarSistemaCheck.Size = new System.Drawing.Size(115, 17);
             this.IngresarSistemaCheck.TabIndex = 75;
@@ -265,7 +264,7 @@
             // VerNotasCheck
             // 
             this.VerNotasCheck.AutoSize = true;
-            this.VerNotasCheck.Location = new System.Drawing.Point(396, 139);
+            this.VerNotasCheck.Location = new System.Drawing.Point(422, 141);
             this.VerNotasCheck.Name = "VerNotasCheck";
             this.VerNotasCheck.Size = new System.Drawing.Size(73, 17);
             this.VerNotasCheck.TabIndex = 76;
@@ -275,7 +274,7 @@
             // VerLibrosCheck
             // 
             this.VerLibrosCheck.AutoSize = true;
-            this.VerLibrosCheck.Location = new System.Drawing.Point(281, 139);
+            this.VerLibrosCheck.Location = new System.Drawing.Point(307, 141);
             this.VerLibrosCheck.Name = "VerLibrosCheck";
             this.VerLibrosCheck.Size = new System.Drawing.Size(73, 17);
             this.VerLibrosCheck.TabIndex = 77;
@@ -285,12 +284,12 @@
             // SegundoApellidoLabel
             // 
             this.SegundoApellidoLabel.AutoSize = true;
-            this.SegundoApellidoLabel.Location = new System.Drawing.Point(24, 106);
+            this.SegundoApellidoLabel.Location = new System.Drawing.Point(-3, 106);
             this.SegundoApellidoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SegundoApellidoLabel.Name = "SegundoApellidoLabel";
-            this.SegundoApellidoLabel.Size = new System.Drawing.Size(49, 13);
+            this.SegundoApellidoLabel.Size = new System.Drawing.Size(90, 13);
             this.SegundoApellidoLabel.TabIndex = 78;
-            this.SegundoApellidoLabel.Text = "Apellidos";
+            this.SegundoApellidoLabel.Text = "Segundo Apellido";
             // 
             // SegundoApellidoTxt
             // 
@@ -360,7 +359,6 @@
         private System.Windows.Forms.TextBox primerApellidoTxt;
         private System.Windows.Forms.CheckBox CrearLibroCheck;
         private System.Windows.Forms.CheckBox EditarLibroCheck;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.CheckBox EliminarLibrosCheck;
         private System.Windows.Forms.CheckBox CrearNotasCheck;
         private System.Windows.Forms.CheckBox BuscarNotasCheck;

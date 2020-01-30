@@ -21,24 +21,7 @@ namespace noteBook.UNA.vistas
             InitializeComponent();
 
         }
-        private bool ValidarUsuario()
-        {
-            bool permiso = false;
-            foreach (Usuario usuario in Singlenton.Instance.usuarios)
-            {
 
-                if (nombreUsuarioTxt.Text == usuario.NombreUsuario)
-                {
-                    registroUsuarioErrorProvider.SetError(nombreUsuarioTxt, "El usuario ya existe");
-                    permiso = false;
-                }
-                else
-                {
-                    permiso = true;
-                }
-            }
-            return permiso;
-        }
         public bool CrearUsuario() {
             MySqlDb mySqlDb = new MySqlDb
             {
@@ -206,105 +189,79 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
 
         }
+        private Boolean Mensanjes() {
+            if (nombreUsuarioTxt.TextLength==0||primerApellidoTxt.TextLength==0||SegundoApellidoTxt.TextLength==0||NickTxt.Text.Length==0||contraseñaTxt.TextLength==0) {
 
-        private bool GuardarUsuario()
-        {
-            Usuario usuario = new Usuario();
-            try
-            {
-                if (contraseñaTxt.Text.Length != 0)
-                {
-                    if (nombreUsuarioTxt.Text.Length != 0)
-                    {
-
-                        if (ValidarUsuario())
-                        {
-                            usuario.Contraseña = contraseñaTxt.Text;
-                            usuario.NombreUsuario = nombreUsuarioTxt.Text;
-                            Singlenton.Instance.usuarios.Add(usuario);
-                            Singlenton.Instance.usuariosAuxiliar.Add(usuario);
-                            string nombreNuevoArchivoUsuario = archivoManager.CrearArchivoUsuario();
-                            
-                            /// Singlenton.Instance.CargarReporte("Se crea un nuevo usuario", $"se crea un nuevo usuario de nombre:{usuario.NombreUsuario}", $"Usuario{usuario.NombreUsuario}");
-                            string nuevoArchivoreporte = archivoManager.CrearArchivoReportes();
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-
-                    }
-                    else
-                    {
-                        registroUsuarioErrorProvider.SetError(nombreUsuarioTxt, "Falta el nombre del usuario");
-                        return false;
-                    }
+                if (nombreUsuarioTxt.TextLength == 0) {
+                    registroUsuarioErrorProvider.SetError(nombreUsuarioTxt, "Ingrese el nombre del usuario");
                 }
-                else
-                {
-                    registroUsuarioErrorProvider.SetError(contraseñaTxt, "Falta la comtraseña del usuario");
-                    return false;
+                if (primerApellidoTxt.TextLength == 0) {
+                    registroUsuarioErrorProvider.SetError(primerApellidoTxt, "Ingrese el primer apellido");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"se produjo un errror: (0){(ex)}");
+                if (SegundoApellidoTxt.TextLength == 0) {
+                    registroUsuarioErrorProvider.SetError(SegundoApellidoTxt, "Ingrese el segundo apellido");
+                }
+                if (NickTxt.TextLength == 0) {
+                    registroUsuarioErrorProvider.SetError(NickTxt, "Ingrese el nick de usuario");
+                }
+                if (contraseñaTxt.TextLength == 0) {
+                    registroUsuarioErrorProvider.SetError(contraseñaTxt,"Ingrese la contraseña");
+                }
                 return false;
+
             }
-        }
-
-       
-
-        private void TXTNombre_TextChanged(object sender, EventArgs e)
-        {
-
-            if (ValidarUsuario())
             {
-                registroUsuarioErrorProvider.Clear();
-
+                return true;
             }
         }
-
         private void AceptarBtn_Click(object sender, EventArgs e)
         {
-
-
-            if (CrearUsuario())
+            if (Mensanjes())
             {
-                if (CrearLibroCheck.Checked)
-                {
-                    PermisoCrearLibros();
-                }
-                if (EditarLibroCheck.Checked)
-                {
-                    PermisoEditarLibros();
 
-                }
-                if (EliminarLibrosCheck.Checked)
+
+                if (CrearUsuario())
                 {
-                    PermisoEliminarLibros();
+                    if (CrearLibroCheck.Checked)
+                    {
+                        PermisoCrearLibros();
+                    }
+                    if (EditarLibroCheck.Checked)
+                    {
+                        PermisoEditarLibros();
+
+                    }
+                    if (EliminarLibrosCheck.Checked)
+                    {
+                        PermisoEliminarLibros();
+                    }
+                    if (CrearNotasCheck.Checked)
+                    {
+                        PermisoCrearNotas();
+                    }
+                    if (EditarNotasCheck.Checked)
+                    {
+                        PermisoEditarNotas();
+                    }
+                    if (EliminarNotasCheck.Checked)
+                    {
+                        PermisoEliminarNotas();
+                    }
+                    if (BuscarNotasCheck.Checked)
+                    {
+                        PermisoBuscarNotas();
+                    }
+                    if (IngresarSistemaCheck.Checked)
+                    {
+                        PermisoIngresarSistema();
+                    }
+                    if (VerNotasCheck.Checked)
+                    {
+                        PermisoVerLibros();
+                    }
+                    this.Close();
                 }
-                if (CrearNotasCheck.Checked) {
-                    PermisoCrearNotas();
-                }
-                if (EditarNotasCheck.Checked) {
-                    PermisoEditarNotas();
-                }
-                if (EliminarNotasCheck.Checked) {
-                    PermisoEliminarNotas();
-                }
-                if (BuscarNotasCheck.Checked) {
-                    PermisoBuscarNotas();
-                }
-                if (IngresarSistemaCheck.Checked) {
-                    PermisoIngresarSistema();
-                }
-                if (VerNotasCheck.Checked) {
-                    PermisoVerLibros();
-                }
-                }
-            
+            }
             
             //try
             //{
@@ -338,11 +295,11 @@ namespace noteBook.UNA.vistas
                     if (dr == DialogResult.No)
 
                     {
-                        if (GuardarUsuario())
-                        {
-                            MessageBox.Show("Se creo el usuario");
-                            this.Close();
-                        }
+                        //if (GuardarUsuario())
+                        //{
+                        //    MessageBox.Show("Se creo el usuario");
+                        //    this.Close();
+                        //}
                     }
                 }
             }

@@ -102,5 +102,10 @@ namespace noteBook.UNA.vistas
         {
             EditarLibro();
         }
+
+        private void cancelarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

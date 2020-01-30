@@ -152,7 +152,7 @@ namespace noteBook.UNA.vistas
                                     int y = e.Y;
                                     FormularioNotaForm formulario = new FormularioNotaForm();
                                     formulario.SetXY(x, y);
-                                    formulario.Posicion = libro.Nombre;
+                                    formulario.NombreLibro = libro.Nombre;
                                     formulario.ShowDialog();
                                     string queryNot = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
                                     foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryNot)))
@@ -209,7 +209,7 @@ namespace noteBook.UNA.vistas
                                 int y = e.Y;
                                 FormularioNotaForm formulario = new FormularioNotaForm();
                                 formulario.SetXY(x, y);
-                                formulario.Posicion = libro.Nombre;
+                                formulario.NombreLibro = libro.Nombre;
                                 formulario.ShowDialog();
                                 foreach (var nota in libro.Notas)
                                 {

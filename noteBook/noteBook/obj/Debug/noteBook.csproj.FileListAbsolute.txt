@@ -126,3 +126,13 @@ C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Memo
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.EditarLibroForm.resources
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Buffers.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Memory.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Numerics.Vectors.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\Google.Protobuf.pdb
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Buffers.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Memory.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Numerics.Vectors.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.EditarLibroForm.resources

@@ -39,6 +39,7 @@ namespace noteBook.UNA.vistas
                     {
 
                         NotaControlForm notaC = new NotaControlForm();
+                        notaC.DesabilitarBusqueda();
                         notaC.TituloNota = notas.Titulo;
                         notaC.Categoria = notas.Categoria;
                         notaC.ColorNota = notas.ColorFondo;
