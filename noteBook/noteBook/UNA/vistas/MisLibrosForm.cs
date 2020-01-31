@@ -134,13 +134,13 @@ namespace noteBook.UNA.vistas
                             ColorLibro = libro.Color,
                           
                         };
-                     string cate = string.Format("Select id_libro from libros where nombre='{0}'",libro.Nombre);
-                     string cate2 = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(cate).Rows[0][0].ToString());
-               DataTable data= mySqlDb.QuerySQL(cate2);
+                     string idLibro = string.Format("Select id_libro from libros where nombre='{0}'",libro.Nombre);
+                     string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
+               DataTable data= mySqlDb.QuerySQL(idGenero);
                 foreach (DataRow dataRow in data.Rows)
                 { 
-                    string cate3 = String.Format("Select nombre from generos where id_genero='{0}'",Convert.ToInt16(dataRow["id_genero"].ToString()));
-                     libroControl.Genero=libroControl.Genero+"/" +mySqlDb.QuerySQL(cate3).Rows[0][0].ToString();
+                    string nombreGeneros = String.Format("Select nombre from generos where id_genero='{0}'",Convert.ToInt16(dataRow["id_genero"].ToString()));
+                     libroControl.Genero=libroControl.Genero+"/" +mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
                    }
                     TabPage pestaña = new TabPage();
 

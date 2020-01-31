@@ -194,7 +194,7 @@ namespace noteBook.UNA.vistas
             foreach (DataRow genero in mySqlDb.QuerySQL(queryGeneros).Rows)
             {
                 string nuevoGenero = genero["nombre"].ToString();
-                // generos.Add(nuevoGenero);
+                 generos.Add(nuevoGenero);
             }
             generoComboBox.DataSource = generos;
 
