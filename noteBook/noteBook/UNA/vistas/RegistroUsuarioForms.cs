@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UNA.noteBook.Clases;
+using UNA.noteBook.AdministarBaseDeDatos;
+
 namespace noteBook.UNA.vistas
 {
     public partial class RegistroUsuarioForms : Form
@@ -254,7 +256,7 @@ namespace noteBook.UNA.vistas
                     {
                         PermisoIngresarSistema();
                     }
-                    if (VerNotasCheck.Checked)
+                    if (VerLibrosCheck.Checked)
                     {
                         PermisoVerLibros();
                     }

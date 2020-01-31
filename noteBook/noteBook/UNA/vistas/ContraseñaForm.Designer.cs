@@ -1,4 +1,4 @@
-﻿namespace noteBook.UNA.vistas
+﻿namespace UNA.noteBook.vistas
 {
     partial class ContraseñaForm
     {

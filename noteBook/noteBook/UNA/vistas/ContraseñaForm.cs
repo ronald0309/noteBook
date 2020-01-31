@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UNA.noteBook.AdministarBaseDeDatos;
 using UNA.noteBook.Clases;
 
-namespace noteBook.UNA.vistas
+namespace UNA.noteBook.vistas
 {
     public partial class ContraseñaForm : Form
     {

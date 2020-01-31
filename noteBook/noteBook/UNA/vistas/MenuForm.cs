@@ -1,4 +1,5 @@
-﻿using System;
+﻿using noteBook.UNA.vistas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UNA.noteBook.AdministarBaseDeDatos;
 using UNA.noteBook.Clases;
 using UNA.noteBook.vistas;
 

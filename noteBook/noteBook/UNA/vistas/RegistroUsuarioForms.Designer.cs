@@ -50,7 +50,6 @@
             this.BuscarNotasCheck = new System.Windows.Forms.CheckBox();
             this.CrearNotasCheck = new System.Windows.Forms.CheckBox();
             this.IngresarSistemaCheck = new System.Windows.Forms.CheckBox();
-            this.VerNotasCheck = new System.Windows.Forms.CheckBox();
             this.VerLibrosCheck = new System.Windows.Forms.CheckBox();
             this.SegundoApellidoLabel = new System.Windows.Forms.Label();
             this.SegundoApellidoTxt = new System.Windows.Forms.TextBox();
@@ -275,17 +274,6 @@
             this.IngresarSistemaCheck.Text = "Ingresar al Sistema";
             this.IngresarSistemaCheck.UseVisualStyleBackColor = true;
             // 
-            // VerNotasCheck
-            // 
-            this.VerNotasCheck.AutoSize = true;
-            this.VerNotasCheck.Location = new System.Drawing.Point(563, 174);
-            this.VerNotasCheck.Margin = new System.Windows.Forms.Padding(4);
-            this.VerNotasCheck.Name = "VerNotasCheck";
-            this.VerNotasCheck.Size = new System.Drawing.Size(93, 21);
-            this.VerNotasCheck.TabIndex = 14;
-            this.VerNotasCheck.Text = "Ver Notas";
-            this.VerNotasCheck.UseVisualStyleBackColor = true;
-            // 
             // VerLibrosCheck
             // 
             this.VerLibrosCheck.AutoSize = true;
@@ -336,7 +324,6 @@
             this.Controls.Add(this.SegundoApellidoTxt);
             this.Controls.Add(this.SegundoApellidoLabel);
             this.Controls.Add(this.VerLibrosCheck);
-            this.Controls.Add(this.VerNotasCheck);
             this.Controls.Add(this.IngresarSistemaCheck);
             this.Controls.Add(this.CrearNotasCheck);
             this.Controls.Add(this.BuscarNotasCheck);
@@ -393,7 +380,6 @@
         private System.Windows.Forms.CheckBox EliminarNotasCheck;
         private System.Windows.Forms.CheckBox IngresarSistemaCheck;
         private System.Windows.Forms.CheckBox VerLibrosCheck;
-        private System.Windows.Forms.CheckBox VerNotasCheck;
         private System.Windows.Forms.Label SegundoApellidoLabel;
         private System.Windows.Forms.TextBox SegundoApellidoTxt;
         private System.Windows.Forms.Label formulario05Lbl;

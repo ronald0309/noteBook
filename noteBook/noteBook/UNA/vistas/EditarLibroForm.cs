@@ -9,8 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UNA.noteBook.AdministarBaseDeDatos;
 
-namespace noteBook.UNA.vistas
+namespace UNA.noteBook.vistas
 {
     public partial class EditarLibroForm : Form
     {

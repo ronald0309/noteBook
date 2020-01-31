@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using UNA.noteBook.Clases;
+using UNA.noteBook.AdministarBaseDeDatos;
+using UNA.noteBook.vistas;
 
 namespace noteBook.UNA.vistas
 {
