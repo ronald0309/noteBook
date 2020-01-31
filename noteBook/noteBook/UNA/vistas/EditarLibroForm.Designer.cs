@@ -36,7 +36,7 @@
             this.tituloVistaLabel = new System.Windows.Forms.Label();
             this.colorLibroDialog = new System.Windows.Forms.ColorDialog();
             this.editarLibroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.agregarCategoria = new System.Windows.Forms.ComboBox();
+            this.generoCombobox = new System.Windows.Forms.ComboBox();
             this.categoriaCBX = new System.Windows.Forms.Label();
             this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
             this.cancelarBtn = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             // 
             this.colorPB.BackColor = System.Drawing.Color.DarkRed;
             this.colorPB.Location = new System.Drawing.Point(195, 132);
-            this.colorPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorPB.Margin = new System.Windows.Forms.Padding(4);
             this.colorPB.Name = "colorPB";
             this.colorPB.Size = new System.Drawing.Size(39, 26);
             this.colorPB.TabIndex = 49;
@@ -63,7 +63,7 @@
             // tituloTxt
             // 
             this.tituloTxt.Location = new System.Drawing.Point(195, 94);
-            this.tituloTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tituloTxt.Margin = new System.Windows.Forms.Padding(4);
             this.tituloTxt.Name = "tituloTxt";
             this.tituloTxt.Size = new System.Drawing.Size(188, 22);
             this.tituloTxt.TabIndex = 46;
@@ -108,14 +108,14 @@
             // 
             this.editarLibroErrorProvider.ContainerControl = this;
             // 
-            // agregarCategoria
+            // generoCombobox
             // 
-            this.agregarCategoria.FormattingEnabled = true;
-            this.agregarCategoria.Location = new System.Drawing.Point(195, 181);
-            this.agregarCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.agregarCategoria.Name = "agregarCategoria";
-            this.agregarCategoria.Size = new System.Drawing.Size(188, 24);
-            this.agregarCategoria.TabIndex = 51;
+            this.generoCombobox.FormattingEnabled = true;
+            this.generoCombobox.Location = new System.Drawing.Point(195, 181);
+            this.generoCombobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.generoCombobox.Name = "generoCombobox";
+            this.generoCombobox.Size = new System.Drawing.Size(188, 24);
+            this.generoCombobox.TabIndex = 51;
             // 
             // categoriaCBX
             // 
@@ -125,9 +125,9 @@
             this.categoriaCBX.Location = new System.Drawing.Point(51, 183);
             this.categoriaCBX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.categoriaCBX.Name = "categoriaCBX";
-            this.categoriaCBX.Size = new System.Drawing.Size(109, 20);
+            this.categoriaCBX.Size = new System.Drawing.Size(89, 20);
             this.categoriaCBX.TabIndex = 52;
-            this.categoriaCBX.Text = "Categoria:";
+            this.categoriaCBX.Text = "Generos:";
             // 
             // contenedorCategoriasFP
             // 
@@ -143,7 +143,7 @@
             this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cancelarBtn.Location = new System.Drawing.Point(45, 336);
-            this.cancelarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(176, 28);
             this.cancelarBtn.TabIndex = 54;
@@ -157,7 +157,7 @@
             this.aceptarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.aceptarBtn.Location = new System.Drawing.Point(229, 336);
-            this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(176, 28);
             this.aceptarBtn.TabIndex = 55;
@@ -201,7 +201,7 @@
             this.Controls.Add(this.aceptarBtn);
             this.Controls.Add(this.contenedorCategoriasFP);
             this.Controls.Add(this.categoriaCBX);
-            this.Controls.Add(this.agregarCategoria);
+            this.Controls.Add(this.generoCombobox);
             this.Controls.Add(this.tituloVistaLabel);
             this.Controls.Add(this.colorPB);
             this.Controls.Add(this.tituloTxt);
@@ -231,7 +231,7 @@
         private System.Windows.Forms.ErrorProvider editarLibroErrorProvider;
         private System.Windows.Forms.FlowLayoutPanel contenedorCategoriasFP;
         private System.Windows.Forms.Label categoriaCBX;
-        private System.Windows.Forms.ComboBox agregarCategoria;
+        private System.Windows.Forms.ComboBox generoCombobox;
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button aceptarBtn;
         private System.Windows.Forms.ErrorProvider errorProviderEditarNotas;

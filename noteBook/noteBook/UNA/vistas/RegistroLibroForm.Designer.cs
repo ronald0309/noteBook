@@ -55,7 +55,6 @@
             this.guardarBtn.TabIndex = 31;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
-            
             this.guardarBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GuardarBtn_MouseClick);
             // 
             // colorLabel
