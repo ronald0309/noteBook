@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace noteBook.UNA.vistas
+namespace UNA.noteBook.vistas
 {
     public partial class InformacionMenuForm : Form
     {

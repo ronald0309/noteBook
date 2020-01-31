@@ -55,10 +55,10 @@
             // AvatarTxt
             // 
             this.AvatarTxt.Location = new System.Drawing.Point(172, 60);
-            this.AvatarTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AvatarTxt.Margin = new System.Windows.Forms.Padding(4);
             this.AvatarTxt.Name = "AvatarTxt";
             this.AvatarTxt.Size = new System.Drawing.Size(168, 22);
-            this.AvatarTxt.TabIndex = 1;
+            this.AvatarTxt.TabIndex = 0;
             // 
             // ContraseñaActualLabel
             // 
@@ -86,27 +86,27 @@
             // ContraseñaNuevaTxt
             // 
             this.ContraseñaNuevaTxt.Location = new System.Drawing.Point(172, 144);
-            this.ContraseñaNuevaTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContraseñaNuevaTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ContraseñaNuevaTxt.Name = "ContraseñaNuevaTxt";
             this.ContraseñaNuevaTxt.Size = new System.Drawing.Size(168, 22);
-            this.ContraseñaNuevaTxt.TabIndex = 4;
+            this.ContraseñaNuevaTxt.TabIndex = 2;
             // 
             // ContraseñaActualTxt
             // 
             this.ContraseñaActualTxt.Location = new System.Drawing.Point(172, 103);
-            this.ContraseñaActualTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContraseñaActualTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ContraseñaActualTxt.Name = "ContraseñaActualTxt";
             this.ContraseñaActualTxt.Size = new System.Drawing.Size(168, 22);
-            this.ContraseñaActualTxt.TabIndex = 5;
+            this.ContraseñaActualTxt.TabIndex = 1;
             // 
             // GuardarBtn
             // 
             this.GuardarBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.GuardarBtn.Location = new System.Drawing.Point(172, 190);
-            this.GuardarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GuardarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.GuardarBtn.Name = "GuardarBtn";
             this.GuardarBtn.Size = new System.Drawing.Size(169, 28);
-            this.GuardarBtn.TabIndex = 6;
+            this.GuardarBtn.TabIndex = 3;
             this.GuardarBtn.Text = "Guardar";
             this.GuardarBtn.UseVisualStyleBackColor = true;
             this.GuardarBtn.Click += new System.EventHandler(this.GuardarBtn_Click);
@@ -139,7 +139,7 @@
             this.Controls.Add(this.ContraseñaActualLabel);
             this.Controls.Add(this.AvatarTxt);
             this.Controls.Add(this.AvatarLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ContraseñaForm";
             this.Text = "Contraseña";
             ((System.ComponentModel.ISupportInitialize)(this.errorDatosUsuario)).EndInit();

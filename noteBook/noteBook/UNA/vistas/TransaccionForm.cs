@@ -8,8 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
-namespace noteBook.UNA.vistas
+using UNA.noteBook.Clases;
+namespace UNA.noteBook.vistas
 {
 
     public partial class TransaccionForm : Form

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
+using UNA.noteBook.Clases;
 
 namespace noteBook.UNA.vistas
 {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data;
 
-namespace noteBook.UNA.Clases
+namespace UNA.noteBook.Clases
 {
     public class Libro
     {

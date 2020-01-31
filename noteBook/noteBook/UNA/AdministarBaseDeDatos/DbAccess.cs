@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace noteBook
+namespace UNA.noteBook.AdministarBaseDeDatos
 {
     public abstract class DbAccess
     {

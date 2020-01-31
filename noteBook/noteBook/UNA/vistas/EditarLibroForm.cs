@@ -1,4 +1,4 @@
-﻿using noteBook.UNA.Clases;
+﻿using UNA.noteBook.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -114,8 +114,10 @@ namespace noteBook.UNA.vistas
         }
         public void EditarLibro()
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}' where nombre=('{2}')", NombreModificado(), colorLibroDialog.Color.ToArgb(), tituloActualLabel.Text);
             mySqlDb.EjectSQL(queryActualizar);
@@ -123,8 +125,10 @@ namespace noteBook.UNA.vistas
         }
         public void EditarCategorias()
         {
-            MySqlDb mySqlDb = new MySqlDb();
-            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
             mySqlDb.OpenConnection();
             String idLibro = String.Format("Select id_libro from libros where nombre='{0}'", tituloActualLabel.Text);
             foreach (var generos in generosSeleccionados)
@@ -164,7 +168,7 @@ namespace noteBook.UNA.vistas
 
 
 
-        private void agregarCategoria_MouseClick(object sender, MouseEventArgs e)
+        private void AgregarCategoria_MouseClick(object sender, MouseEventArgs e)
         {
 
 
@@ -185,7 +189,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
         }
 
-        private void agregarCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        private void AgregarCategoria_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ErrorCambiarDatos.SetError(agregarCategoria, null);
             bool isGeneroSeleccionado = false;
@@ -217,5 +221,7 @@ namespace noteBook.UNA.vistas
             }
 
         }
+
+       
     }
 }

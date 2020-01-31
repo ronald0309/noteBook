@@ -102,7 +102,7 @@
             // 
             // timerMovimiento
             // 
-            this.timerMovimiento.Tick += new System.EventHandler(this.timerMovimiento_Tick);
+            this.timerMovimiento.Tick += new System.EventHandler(this.TimerMovimiento_Tick);
             // 
             // panel1
             // 

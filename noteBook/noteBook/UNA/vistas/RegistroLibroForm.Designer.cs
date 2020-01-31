@@ -41,7 +41,7 @@
             this.errorRegistroLibro = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
-            this.formulario05Lbl = new System.Windows.Forms.Label();
+            this.formulario15Lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.selectorColorImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorRegistroLibro)).BeginInit();
             this.SuspendLayout();
@@ -52,10 +52,9 @@
             this.guardarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.guardarBtn.Name = "guardarBtn";
             this.guardarBtn.Size = new System.Drawing.Size(137, 28);
-            this.guardarBtn.TabIndex = 31;
+            this.guardarBtn.TabIndex = 2;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
-
             this.guardarBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GuardarBtn_MouseClick);
             // 
             // colorLabel
@@ -72,13 +71,11 @@
             // 
             this.nombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-
-            this.nombreTxt.Location = new System.Drawing.Point(224, 94);
+            this.nombreTxt.Location = new System.Drawing.Point(261, 116);
             this.nombreTxt.MaxLength = 20;
-
             this.nombreTxt.Name = "nombreTxt";
             this.nombreTxt.Size = new System.Drawing.Size(447, 22);
-            this.nombreTxt.TabIndex = 27;
+            this.nombreTxt.TabIndex = 0;
             this.nombreTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // generoLabel
@@ -134,7 +131,7 @@
             this.generoComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.generoComboBox.Name = "generoComboBox";
             this.generoComboBox.Size = new System.Drawing.Size(447, 24);
-            this.generoComboBox.TabIndex = 33;
+            this.generoComboBox.TabIndex = 1;
             this.generoComboBox.SelectionChangeCommitted += new System.EventHandler(this.GeneroComboBox_SelectionChangeCommitted);
             this.generoComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GeneroComboBox_MouseClick);
             // 
@@ -149,23 +146,21 @@
             // 
             // contenedorCategoriasFP
             // 
-
-            this.contenedorCategoriasFP.Location = new System.Drawing.Point(231, 214);
+            this.contenedorCategoriasFP.Location = new System.Drawing.Point(299, 249);
             this.contenedorCategoriasFP.Margin = new System.Windows.Forms.Padding(2);
-
-          this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
+            this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
             this.contenedorCategoriasFP.Size = new System.Drawing.Size(193, 261);
             this.contenedorCategoriasFP.TabIndex = 54;
             // 
-            // formulario05Lbl
+            // formulario15Lbl
             // 
-            this.formulario05Lbl.AutoSize = true;
-            this.formulario05Lbl.Location = new System.Drawing.Point(13, 528);
-            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.formulario05Lbl.Name = "formulario05Lbl";
-            this.formulario05Lbl.Size = new System.Drawing.Size(95, 17);
-            this.formulario05Lbl.TabIndex = 55;
-            this.formulario05Lbl.Text = "Formulario 14";
+            this.formulario15Lbl.AutoSize = true;
+            this.formulario15Lbl.Location = new System.Drawing.Point(13, 528);
+            this.formulario15Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario15Lbl.Name = "formulario15Lbl";
+            this.formulario15Lbl.Size = new System.Drawing.Size(95, 17);
+            this.formulario15Lbl.TabIndex = 55;
+            this.formulario15Lbl.Text = "Formulario 14";
             // 
             // RegistroLibroForm
             // 
@@ -175,7 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.formulario05Lbl);
+            this.Controls.Add(this.formulario15Lbl);
             this.Controls.Add(this.contenedorCategoriasFP);
             this.Controls.Add(this.generoComboBox);
             this.Controls.Add(this.selectorColorImage);
@@ -212,6 +207,6 @@
         private System.Windows.Forms.ErrorProvider errorRegistroLibro;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.FlowLayoutPanel contenedorCategoriasFP;
-        private System.Windows.Forms.Label formulario05Lbl;
+        private System.Windows.Forms.Label formulario15Lbl;
     }
 }

@@ -1,11 +1,11 @@
-﻿using noteBook.UNA.Clases;
+﻿using UNA.noteBook.vistas;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace noteBook
+namespace UNA.noteBook.Clases
 {
     public class Nota
     {

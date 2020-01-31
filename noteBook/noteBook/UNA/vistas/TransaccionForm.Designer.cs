@@ -1,4 +1,4 @@
-﻿namespace noteBook.UNA.vistas
+﻿namespace UNA.noteBook.vistas
 {
     partial class TransaccionForm
     {
@@ -40,7 +40,7 @@
             // 
             this.reportesDgv.AllowUserToAddRows = false;
             this.reportesDgv.AllowUserToDeleteRows = false;
-            this.reportesDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.reportesDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.reportesDgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.reportesDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportesDgv.Dock = System.Windows.Forms.DockStyle.Fill;

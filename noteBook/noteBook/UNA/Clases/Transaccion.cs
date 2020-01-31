@@ -5,7 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace noteBook.UNA.Clases
+using UNA.noteBook.AdministarBaseDeDatos;
+
+namespace UNA.noteBook.Clases
 {
     public class Transaccion
     {
@@ -22,7 +24,7 @@ namespace noteBook.UNA.Clases
         public void CargarDatosTransacciones(Transaccion reporte)
         {
             this.AccionRealizada = reporte.AccionRealizada;
-            this.InformacionAdicional = reporte.AccionRealizada;
+            this.InformacionAdicional = reporte.InformacionAdicional;
             this.Objeto = reporte.Objeto;
             this.CodigoPagina = reporte.CodigoPagina;
             DateTime hoy = DateTime.Now;

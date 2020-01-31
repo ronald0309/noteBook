@@ -61,10 +61,10 @@
             // contraseñaTxt
             // 
             this.contraseñaTxt.Location = new System.Drawing.Point(157, 193);
-            this.contraseñaTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contraseñaTxt.Margin = new System.Windows.Forms.Padding(4);
             this.contraseñaTxt.Name = "contraseñaTxt";
             this.contraseñaTxt.Size = new System.Drawing.Size(188, 22);
-            this.contraseñaTxt.TabIndex = 2;
+            this.contraseñaTxt.TabIndex = 4;
             // 
             // tituloVistaLabel
             // 
@@ -81,10 +81,10 @@
             // 
             this.nombreUsuarioTxt.BackColor = System.Drawing.SystemColors.Window;
             this.nombreUsuarioTxt.Location = new System.Drawing.Point(115, 60);
-            this.nombreUsuarioTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nombreUsuarioTxt.Margin = new System.Windows.Forms.Padding(4);
             this.nombreUsuarioTxt.Name = "nombreUsuarioTxt";
             this.nombreUsuarioTxt.Size = new System.Drawing.Size(231, 22);
-            this.nombreUsuarioTxt.TabIndex = 1;
+            this.nombreUsuarioTxt.TabIndex = 0;
             // 
             // contraseñaLabel
             // 
@@ -116,10 +116,10 @@
             this.cancelarBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.cancelarBtn.Location = new System.Drawing.Point(36, 225);
-            this.cancelarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelarBtn.Name = "cancelarBtn";
             this.cancelarBtn.Size = new System.Drawing.Size(145, 28);
-            this.cancelarBtn.TabIndex = 3;
+            this.cancelarBtn.TabIndex = 16;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
             this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
@@ -129,10 +129,10 @@
             this.aceptarBtn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.aceptarBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.aceptarBtn.Location = new System.Drawing.Point(201, 225);
-            this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Size = new System.Drawing.Size(145, 28);
-            this.aceptarBtn.TabIndex = 4;
+            this.aceptarBtn.TabIndex = 15;
             this.aceptarBtn.Text = "Aceptar";
             this.aceptarBtn.UseVisualStyleBackColor = false;
             this.aceptarBtn.Click += new System.EventHandler(this.AceptarBtn_Click);
@@ -159,7 +159,7 @@
             this.primerApellidoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.primerApellidoTxt.Name = "primerApellidoTxt";
             this.primerApellidoTxt.Size = new System.Drawing.Size(231, 22);
-            this.primerApellidoTxt.TabIndex = 64;
+            this.primerApellidoTxt.TabIndex = 1;
             // 
             // PrimerApellidoLabel
             // 
@@ -176,7 +176,7 @@
             this.NickTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NickTxt.Name = "NickTxt";
             this.NickTxt.Size = new System.Drawing.Size(231, 22);
-            this.NickTxt.TabIndex = 66;
+            this.NickTxt.TabIndex = 3;
             // 
             // nicklabel
             // 
@@ -191,10 +191,10 @@
             // 
             this.CrearLibroCheck.AutoSize = true;
             this.CrearLibroCheck.Location = new System.Drawing.Point(409, 89);
-            this.CrearLibroCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CrearLibroCheck.Margin = new System.Windows.Forms.Padding(4);
             this.CrearLibroCheck.Name = "CrearLibroCheck";
             this.CrearLibroCheck.Size = new System.Drawing.Size(101, 21);
-            this.CrearLibroCheck.TabIndex = 68;
+            this.CrearLibroCheck.TabIndex = 6;
             this.CrearLibroCheck.Text = "Crear Libro";
             this.CrearLibroCheck.UseVisualStyleBackColor = true;
             // 
@@ -202,10 +202,10 @@
             // 
             this.EditarLibroCheck.AutoSize = true;
             this.EditarLibroCheck.Location = new System.Drawing.Point(409, 117);
-            this.EditarLibroCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EditarLibroCheck.Margin = new System.Windows.Forms.Padding(4);
             this.EditarLibroCheck.Name = "EditarLibroCheck";
             this.EditarLibroCheck.Size = new System.Drawing.Size(103, 21);
-            this.EditarLibroCheck.TabIndex = 69;
+            this.EditarLibroCheck.TabIndex = 7;
             this.EditarLibroCheck.Text = "Editar Libro";
             this.EditarLibroCheck.UseVisualStyleBackColor = true;
             // 
@@ -213,10 +213,10 @@
             // 
             this.EliminarLibrosCheck.AutoSize = true;
             this.EliminarLibrosCheck.Location = new System.Drawing.Point(409, 145);
-            this.EliminarLibrosCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EliminarLibrosCheck.Margin = new System.Windows.Forms.Padding(4);
             this.EliminarLibrosCheck.Name = "EliminarLibrosCheck";
             this.EliminarLibrosCheck.Size = new System.Drawing.Size(123, 21);
-            this.EliminarLibrosCheck.TabIndex = 70;
+            this.EliminarLibrosCheck.TabIndex = 8;
             this.EliminarLibrosCheck.Text = "Eliminar Libros";
             this.EliminarLibrosCheck.UseVisualStyleBackColor = true;
             // 
@@ -224,10 +224,10 @@
             // 
             this.EliminarNotasCheck.AutoSize = true;
             this.EliminarNotasCheck.Location = new System.Drawing.Point(563, 117);
-            this.EliminarNotasCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EliminarNotasCheck.Margin = new System.Windows.Forms.Padding(4);
             this.EliminarNotasCheck.Name = "EliminarNotasCheck";
             this.EliminarNotasCheck.Size = new System.Drawing.Size(121, 21);
-            this.EliminarNotasCheck.TabIndex = 71;
+            this.EliminarNotasCheck.TabIndex = 12;
             this.EliminarNotasCheck.Text = "Eliminar Notas";
             this.EliminarNotasCheck.UseVisualStyleBackColor = true;
             // 
@@ -235,10 +235,10 @@
             // 
             this.EditarNotasCheck.AutoSize = true;
             this.EditarNotasCheck.Location = new System.Drawing.Point(563, 89);
-            this.EditarNotasCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EditarNotasCheck.Margin = new System.Windows.Forms.Padding(4);
             this.EditarNotasCheck.Name = "EditarNotasCheck";
             this.EditarNotasCheck.Size = new System.Drawing.Size(108, 21);
-            this.EditarNotasCheck.TabIndex = 72;
+            this.EditarNotasCheck.TabIndex = 11;
             this.EditarNotasCheck.Text = "Editar Notas";
             this.EditarNotasCheck.UseVisualStyleBackColor = true;
             // 
@@ -246,10 +246,10 @@
             // 
             this.BuscarNotasCheck.AutoSize = true;
             this.BuscarNotasCheck.Location = new System.Drawing.Point(563, 145);
-            this.BuscarNotasCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BuscarNotasCheck.Margin = new System.Windows.Forms.Padding(4);
             this.BuscarNotasCheck.Name = "BuscarNotasCheck";
             this.BuscarNotasCheck.Size = new System.Drawing.Size(115, 21);
-            this.BuscarNotasCheck.TabIndex = 73;
+            this.BuscarNotasCheck.TabIndex = 13;
             this.BuscarNotasCheck.Text = "Buscar Notas";
             this.BuscarNotasCheck.UseVisualStyleBackColor = true;
             // 
@@ -257,10 +257,10 @@
             // 
             this.CrearNotasCheck.AutoSize = true;
             this.CrearNotasCheck.Location = new System.Drawing.Point(563, 64);
-            this.CrearNotasCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CrearNotasCheck.Margin = new System.Windows.Forms.Padding(4);
             this.CrearNotasCheck.Name = "CrearNotasCheck";
             this.CrearNotasCheck.Size = new System.Drawing.Size(106, 21);
-            this.CrearNotasCheck.TabIndex = 74;
+            this.CrearNotasCheck.TabIndex = 10;
             this.CrearNotasCheck.Text = "Crear Notas";
             this.CrearNotasCheck.UseVisualStyleBackColor = true;
             // 
@@ -268,10 +268,10 @@
             // 
             this.IngresarSistemaCheck.AutoSize = true;
             this.IngresarSistemaCheck.Location = new System.Drawing.Point(409, 60);
-            this.IngresarSistemaCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IngresarSistemaCheck.Margin = new System.Windows.Forms.Padding(4);
             this.IngresarSistemaCheck.Name = "IngresarSistemaCheck";
             this.IngresarSistemaCheck.Size = new System.Drawing.Size(151, 21);
-            this.IngresarSistemaCheck.TabIndex = 75;
+            this.IngresarSistemaCheck.TabIndex = 5;
             this.IngresarSistemaCheck.Text = "Ingresar al Sistema";
             this.IngresarSistemaCheck.UseVisualStyleBackColor = true;
             // 
@@ -279,10 +279,10 @@
             // 
             this.VerNotasCheck.AutoSize = true;
             this.VerNotasCheck.Location = new System.Drawing.Point(563, 174);
-            this.VerNotasCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VerNotasCheck.Margin = new System.Windows.Forms.Padding(4);
             this.VerNotasCheck.Name = "VerNotasCheck";
             this.VerNotasCheck.Size = new System.Drawing.Size(93, 21);
-            this.VerNotasCheck.TabIndex = 76;
+            this.VerNotasCheck.TabIndex = 14;
             this.VerNotasCheck.Text = "Ver Notas";
             this.VerNotasCheck.UseVisualStyleBackColor = true;
             // 
@@ -290,10 +290,10 @@
             // 
             this.VerLibrosCheck.AutoSize = true;
             this.VerLibrosCheck.Location = new System.Drawing.Point(409, 174);
-            this.VerLibrosCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VerLibrosCheck.Margin = new System.Windows.Forms.Padding(4);
             this.VerLibrosCheck.Name = "VerLibrosCheck";
             this.VerLibrosCheck.Size = new System.Drawing.Size(95, 21);
-            this.VerLibrosCheck.TabIndex = 77;
+            this.VerLibrosCheck.TabIndex = 9;
             this.VerLibrosCheck.Text = "Ver Libros";
             this.VerLibrosCheck.UseVisualStyleBackColor = true;
             // 
@@ -312,7 +312,7 @@
             this.SegundoApellidoTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SegundoApellidoTxt.Name = "SegundoApellidoTxt";
             this.SegundoApellidoTxt.Size = new System.Drawing.Size(231, 22);
-            this.SegundoApellidoTxt.TabIndex = 79;
+            this.SegundoApellidoTxt.TabIndex = 2;
             // 
             // formulario05Lbl
             // 
@@ -358,10 +358,10 @@
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.aceptarBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroUsuarioForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form1";
+            this.Text = "2";
             ((System.ComponentModel.ISupportInitialize)(this.registroUsuarioErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

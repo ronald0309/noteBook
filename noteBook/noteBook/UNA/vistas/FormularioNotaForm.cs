@@ -1,4 +1,4 @@
-﻿using noteBook.UNA.Clases;
+﻿using UNA.noteBook.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace noteBook.UNA.vistas
+namespace UNA.noteBook.vistas
 {
     public partial class FormularioNotaForm : Form
     {

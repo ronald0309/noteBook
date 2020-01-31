@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace noteBook
+namespace UNA.noteBook.AdministarBaseDeDatos
 {
     public class MySqlDb : DbAccess
     {
@@ -33,17 +33,17 @@ namespace noteBook
         }
         public override DataTable QuerySQL(string query)
         {
-            try
-            {
+            //try
+            //{
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 DataTable result = new DataTable();
                 adapter.SelectCommand = new MySqlCommand(query, DbConnection);
                 adapter.Fill(result);
                 return result;
-            }catch
-            {
-                return null;
-            }
+            //}catch
+            //{
+            //    return null;
+            //}
         }
         public override long EjectSQL(string query)
         {

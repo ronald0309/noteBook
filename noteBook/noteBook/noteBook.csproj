@@ -83,7 +83,6 @@
   <ItemGroup>
     <Compile Include="UNA\AdministarBaseDeDatos\DbAccess.cs" />
     <Compile Include="UNA\AdministarBaseDeDatos\MySqlDb.cs" />
-    <Compile Include="UNA\Clases\Categorias.cs" />
     <Compile Include="UNA\Clases\Encriptacion.cs" />
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Libro.cs" />
@@ -258,7 +257,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="UNA\AdministarBaseDeDatos\Diagramas.cd" />
-    <None Include="UNA\Clases\NoteBook.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

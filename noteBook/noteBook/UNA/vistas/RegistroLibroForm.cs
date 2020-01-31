@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
+using UNA.noteBook.Clases;
 
 namespace noteBook.UNA.vistas
 {
@@ -82,7 +82,7 @@ namespace noteBook.UNA.vistas
                         Transaccion transaccion = new Transaccion
                         {
                             AccionRealizada = $"Se crea el libro {nombreTxt.Text}",
-                            InformacionAdicional = $"Se elimino la nota {nombreTxt.Text}, con el color {selectorColorImage.BackColor.ToArgb()} y los generos{ transaccionGenero} ",
+                            InformacionAdicional = $"Se creo el libro {nombreTxt.Text}; con el color {selectorColorImage.BackColor.ToArgb()} y los generos{ transaccionGenero} ",
                             Objeto = $"Libro {nombreTxt.Text}",
                             CodigoPagina = "Formulario 14"
 
@@ -216,5 +216,6 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
         }
 
+        
     }
 }

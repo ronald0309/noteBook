@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
+using UNA.noteBook.Clases;
 namespace noteBook.UNA.vistas
 {
     public partial class AccesoNotaPrivadaForm : Form

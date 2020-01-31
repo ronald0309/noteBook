@@ -10,10 +10,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
 
-namespace noteBook.UNA.vistas
-{
+
+namespace UNA.noteBook.vistas
     public partial class MisLibrosForm : Form
     {
 
@@ -119,7 +118,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
 
             string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
-            //  Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query));
+            
             String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
 
             bibliotecaTabControl.Controls.Clear();
@@ -132,7 +131,7 @@ namespace noteBook.UNA.vistas
             bibliotecaTabControl.Controls.Add(biblioteca);
 
             FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
-            //  foreach (var libro in Singlenton.Instance.LibrosList)
+            
             foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
             {
 
@@ -143,6 +142,7 @@ namespace noteBook.UNA.vistas
                     ColorLibro = libro.Color,
 
                 };
+
                 string idLibro = string.Format("Select id_libro from libros where nombre='{0}'", libro.Nombre);
                 string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
                 DataTable data = mySqlDb.QuerySQL(idGenero);

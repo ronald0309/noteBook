@@ -1,4 +1,4 @@
-﻿namespace noteBook.UNA.vistas
+﻿namespace UNA.noteBook.vistas
 {
     partial class MisLibrosForm
     {
@@ -47,7 +47,7 @@
             this.bibliotecaTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.bibliotecaTabControl.TabIndex = 1;
             this.bibliotecaTabControl.TabStop = false;
-       // 
+            // 
             // FondoPanel
             // 
             this.FondoPanel.Controls.Add(this.cerrarLibroActual);
@@ -80,7 +80,7 @@
             // 
             // ordenComboBox
             // 
-            this.ordenComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ordenComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ordenComboBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ordenComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

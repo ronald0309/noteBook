@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace noteBook.UNA.Clases
+namespace UNA.noteBook.Clases
 {
     class Encriptacion
     {

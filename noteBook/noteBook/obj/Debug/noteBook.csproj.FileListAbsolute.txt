@@ -136,3 +136,12 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Numerics.Vector
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.EditarLibroForm.resources
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.TransaccionForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.EditarNotasForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.FormularioNotaForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.InformacionMenuForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.LibroControlForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.Login.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.MenuForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\MisLibrosForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\NotaControlForm.resources
+C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\UNA.noteBook.vistas.TransaccionForm.resources

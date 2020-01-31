@@ -56,20 +56,20 @@
             // CategoriaTxt
             // 
             this.CategoriaTxt.Location = new System.Drawing.Point(115, 127);
-            this.CategoriaTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CategoriaTxt.Margin = new System.Windows.Forms.Padding(4);
             this.CategoriaTxt.MaxLength = 9;
             this.CategoriaTxt.Name = "CategoriaTxt";
             this.CategoriaTxt.Size = new System.Drawing.Size(227, 22);
-            this.CategoriaTxt.TabIndex = 20;
+            this.CategoriaTxt.TabIndex = 2;
             this.CategoriaTxt.TextChanged += new System.EventHandler(this.CategoriaTxt_TextChanged);
             // 
             // FormularioGuardarBtn
             // 
             this.FormularioGuardarBtn.Location = new System.Drawing.Point(115, 233);
-            this.FormularioGuardarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormularioGuardarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.FormularioGuardarBtn.Name = "FormularioGuardarBtn";
             this.FormularioGuardarBtn.Size = new System.Drawing.Size(228, 39);
-            this.FormularioGuardarBtn.TabIndex = 19;
+            this.FormularioGuardarBtn.TabIndex = 4;
             this.FormularioGuardarBtn.Text = "Guadar";
             this.FormularioGuardarBtn.UseVisualStyleBackColor = true;
             this.FormularioGuardarBtn.Click += new System.EventHandler(this.FormularioGuardarBtn_Click);
@@ -77,12 +77,12 @@
             // TituloTxt
             // 
             this.TituloTxt.Location = new System.Drawing.Point(115, 63);
-            this.TituloTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TituloTxt.Margin = new System.Windows.Forms.Padding(4);
             this.TituloTxt.MaxLength = 10;
             this.TituloTxt.Name = "TituloTxt";
             this.TituloTxt.Size = new System.Drawing.Size(227, 22);
-            this.TituloTxt.TabIndex = 18;
-           this.TituloTxt.TextChanged += new System.EventHandler(this.TituloTxt_TextChanged);
+            this.TituloTxt.TabIndex = 0;
+            this.TituloTxt.TextChanged += new System.EventHandler(this.TituloTxt_TextChanged);
             // 
             // label5
             // 
@@ -143,7 +143,7 @@
             // 
             this.SelectorColoresNotas.BackColor = System.Drawing.SystemColors.HotTrack;
             this.SelectorColoresNotas.Location = new System.Drawing.Point(134, 201);
-            this.SelectorColoresNotas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SelectorColoresNotas.Margin = new System.Windows.Forms.Padding(4);
             this.SelectorColoresNotas.Name = "SelectorColoresNotas";
             this.SelectorColoresNotas.Size = new System.Drawing.Size(25, 22);
             this.SelectorColoresNotas.TabIndex = 24;
@@ -154,7 +154,7 @@
             // 
             this.colorFuente.BackColor = System.Drawing.Color.DarkRed;
             this.colorFuente.Location = new System.Drawing.Point(115, 95);
-            this.colorFuente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorFuente.Margin = new System.Windows.Forms.Padding(4);
             this.colorFuente.Name = "colorFuente";
             this.colorFuente.Size = new System.Drawing.Size(25, 25);
             this.colorFuente.TabIndex = 25;
@@ -169,20 +169,20 @@
             "Publico",
             "Privado"});
             this.PrivacidadCombobox.Location = new System.Drawing.Point(115, 164);
-            this.PrivacidadCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PrivacidadCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.PrivacidadCombobox.Name = "PrivacidadCombobox";
             this.PrivacidadCombobox.Size = new System.Drawing.Size(227, 24);
-            this.PrivacidadCombobox.TabIndex = 26;
+            this.PrivacidadCombobox.TabIndex = 3;
             // 
             // FuenteComboBox
             // 
             this.FuenteComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FuenteComboBox.FormattingEnabled = true;
             this.FuenteComboBox.Location = new System.Drawing.Point(149, 94);
-            this.FuenteComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FuenteComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.FuenteComboBox.Name = "FuenteComboBox";
             this.FuenteComboBox.Size = new System.Drawing.Size(193, 24);
-            this.FuenteComboBox.TabIndex = 27;
+            this.FuenteComboBox.TabIndex = 1;
             this.FuenteComboBox.SelectedIndexChanged += new System.EventHandler(this.FuenteComboBox_SelectedIndexChanged);
             // 
             // errorDatosNota
@@ -192,7 +192,7 @@
             // contenedorNotaPanel
             // 
             this.contenedorNotaPanel.Location = new System.Drawing.Point(380, 15);
-            this.contenedorNotaPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contenedorNotaPanel.Margin = new System.Windows.Forms.Padding(4);
             this.contenedorNotaPanel.Name = "contenedorNotaPanel";
             this.contenedorNotaPanel.Size = new System.Drawing.Size(299, 277);
             this.contenedorNotaPanel.TabIndex = 28;
@@ -243,7 +243,7 @@
             this.Controls.Add(this.GeneroLabel);
             this.Controls.Add(this.formularioLabelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(710, 344);
             this.MinimumSize = new System.Drawing.Size(710, 344);
             this.Name = "FormularioNotaForm";

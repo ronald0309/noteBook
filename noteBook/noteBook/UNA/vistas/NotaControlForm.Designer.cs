@@ -54,7 +54,7 @@
             this.contendorPanel.Controls.Add(this.fechaCreacionLabel);
             this.contendorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contendorPanel.Location = new System.Drawing.Point(0, 0);
-            this.contendorPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contendorPanel.Margin = new System.Windows.Forms.Padding(4);
             this.contendorPanel.Name = "contendorPanel";
             this.contendorPanel.Size = new System.Drawing.Size(207, 215);
             this.contendorPanel.TabIndex = 1;
@@ -65,7 +65,7 @@
             this.moverBoton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.moverBoton.Image = ((System.Drawing.Image)(resources.GetObject("moverBoton.Image")));
             this.moverBoton.Location = new System.Drawing.Point(135, 181);
-            this.moverBoton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.moverBoton.Margin = new System.Windows.Forms.Padding(4);
             this.moverBoton.Name = "moverBoton";
             this.moverBoton.Size = new System.Drawing.Size(29, 30);
             this.moverBoton.TabIndex = 5;
@@ -80,7 +80,7 @@
             this.eliminarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eliminarBtn.Image = ((System.Drawing.Image)(resources.GetObject("eliminarBtn.Image")));
             this.eliminarBtn.Location = new System.Drawing.Point(59, 181);
-            this.eliminarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eliminarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.eliminarBtn.Name = "eliminarBtn";
             this.eliminarBtn.Size = new System.Drawing.Size(29, 30);
             this.eliminarBtn.TabIndex = 8;
@@ -93,7 +93,7 @@
             this.editarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editarBtn.Image = ((System.Drawing.Image)(resources.GetObject("editarBtn.Image")));
             this.editarBtn.Location = new System.Drawing.Point(97, 181);
-            this.editarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editarBtn.Name = "editarBtn";
             this.editarBtn.Size = new System.Drawing.Size(29, 30);
             this.editarBtn.TabIndex = 6;
@@ -103,15 +103,17 @@
             // 
             // categoriarichTexBox
             // 
+            this.categoriarichTexBox.AccessibleDescription = "";
+            this.categoriarichTexBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.categoriarichTexBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.categoriarichTexBox.AutoWordSelection = true;
             this.categoriarichTexBox.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.categoriarichTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.categoriarichTexBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.categoriarichTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriarichTexBox.HideSelection = false;
             this.categoriarichTexBox.Location = new System.Drawing.Point(0, 44);
-            this.categoriarichTexBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categoriarichTexBox.Margin = new System.Windows.Forms.Padding(4);
             this.categoriarichTexBox.MaxLength = 10;
             this.categoriarichTexBox.Multiline = false;
             this.categoriarichTexBox.Name = "categoriarichTexBox";
@@ -128,12 +130,11 @@
             this.AgrandarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AgrandarBtn.Image = ((System.Drawing.Image)(resources.GetObject("AgrandarBtn.Image")));
             this.AgrandarBtn.Location = new System.Drawing.Point(173, 182);
-            this.AgrandarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AgrandarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AgrandarBtn.Name = "AgrandarBtn";
             this.AgrandarBtn.Size = new System.Drawing.Size(29, 30);
             this.AgrandarBtn.TabIndex = 4;
             this.AgrandarBtn.UseVisualStyleBackColor = true;
-            
             this.AgrandarBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseDown);
             this.AgrandarBtn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AgrandarBoton_MouseMove);
             this.AgrandarBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AgrandarBtn_MouseUp);
@@ -150,7 +151,7 @@
             this.tituloRichTextBox.HideSelection = false;
             this.tituloRichTextBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tituloRichTextBox.Location = new System.Drawing.Point(0, 0);
-            this.tituloRichTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tituloRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tituloRichTextBox.Multiline = false;
             this.tituloRichTextBox.Name = "tituloRichTextBox";
             this.tituloRichTextBox.ReadOnly = true;
@@ -165,12 +166,14 @@
             // 
             this.fechaCreacionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.fechaCreacionLabel.AutoEllipsis = true;
+            this.fechaCreacionLabel.AutoSize = true;
             this.fechaCreacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCreacionLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fechaCreacionLabel.Location = new System.Drawing.Point(0, 95);
             this.fechaCreacionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fechaCreacionLabel.Name = "fechaCreacionLabel";
-            this.fechaCreacionLabel.Size = new System.Drawing.Size(203, 46);
+            this.fechaCreacionLabel.Size = new System.Drawing.Size(122, 20);
             this.fechaCreacionLabel.TabIndex = 1;
             this.fechaCreacionLabel.Text = "FechaCreacion";
             this.fechaCreacionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,12 +190,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.contendorPanel);
-
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NotaControlForm";
             this.Size = new System.Drawing.Size(207, 215);
             this.contendorPanel.ResumeLayout(false);
+            this.contendorPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -9,10 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using noteBook.UNA.vistas;
-
-using noteBook.UNA.Clases;
+using UNA.noteBook.Clases;
 using System.IO;
-namespace noteBook
+namespace UNA.noteBook.vistas
 {
     public partial class Login : Form
     {

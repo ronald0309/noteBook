@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
-namespace noteBook.UNA.vistas
+using UNA.noteBook.Clases;
+namespace UNA.noteBook.vistas
 {
     public partial class LibroControlForm : UserControl
     {
@@ -82,6 +82,7 @@ namespace noteBook.UNA.vistas
                 string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=3", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
+                
                 if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "3")
                 {
                     MessageBoxButtons botones = MessageBoxButtons.YesNo;
@@ -92,8 +93,13 @@ namespace noteBook.UNA.vistas
                         {
                             String queryEliminarNota = String.Format("Delete from notas where id_libro=(select id_libro from libros where nombre='{0}')", this.nombre);
                             String queryEliminarLibro = String.Format("Delete from  libros where nombre='{0}'", this.nombre);
-
-                            mySqlDb.EjectSQL(queryEliminarNota);
+                            MessageBox.Show(mySqlDb.QuerySQL(queryEliminarNota).Rows.Count.ToString());
+                            if (mySqlDb.QuerySQL(queryEliminarNota).Rows.Count > 0)
+                            {
+                                
+                                mySqlDb.EjectSQL(queryEliminarNota);
+                            }
+                            MessageBox.Show(mySqlDb.QuerySQL(queryEliminarLibro).Rows.Count.ToString());
                             mySqlDb.EjectSQL(queryEliminarLibro);
                             Singlenton.Instance.miLibro.CrearLibroDB();
                         }
@@ -123,7 +129,7 @@ namespace noteBook.UNA.vistas
             editarLibro.ShowDialog();
         }
 
-        private void timerMovimiento_Tick(object sender, EventArgs e)
+        private void TimerMovimiento_Tick(object sender, EventArgs e)
         {       
             
                 if (GeneroLabel.Left <= 0 - GeneroLabel.Width)
@@ -132,7 +138,7 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                    GeneroLabel.Left = GeneroLabel.Left - 1;
+                    GeneroLabel.Left -= 1;
                 }
             if (TituloLabel.Text.Length > 10) {
 
@@ -142,7 +148,7 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-                 TituloLabel.Left = TituloLabel.Left- 1;
+                 TituloLabel.Left -= 1;
                 }
             }
         }

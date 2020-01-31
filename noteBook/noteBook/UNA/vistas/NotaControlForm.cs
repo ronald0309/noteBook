@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
+using UNA.noteBook.Clases;
 using noteBook.UNA.vistas;
-namespace noteBook.UNA.vistas
-{
+namespace UNA.noteBook.vistas
 
     public partial class NotaControlForm : UserControl
     {

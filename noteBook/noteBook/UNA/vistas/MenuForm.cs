@@ -8,8 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.Clases;
-namespace noteBook.UNA.vistas
+using UNA.noteBook.Clases;
+using UNA.noteBook.vistas;
+
+namespace UNA.noteBook.vistas
 {
     public partial class MenuForm : Form
     {
@@ -192,7 +194,7 @@ namespace noteBook.UNA.vistas
         private void TransaccionesBtn_Click(object sender, EventArgs e)
         {
             pantallaActiva = 3;
-            this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
+            this.nombreVistaLabel.Text = "Transacciones (Formulario 04)";
             TransaccionForm reporteForm = new TransaccionForm();
             this.AbrirFormulario(reporteForm);
         }
