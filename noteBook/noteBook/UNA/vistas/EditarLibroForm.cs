@@ -147,7 +147,6 @@ namespace UNA.noteBook.vistas
             foreach (var generos in generosSeleccionados)
             {
                 String idGenero = String.Format("Select id_genero from generos where nombre='{0}'", generos);
-
                 String selecionarGenero = String.Format("Select id_libro from generos_libros where id_libro='{0}' and id_genero='{1}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(idGenero).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(selecionarGenero).Rows.Count == 0)
                 {

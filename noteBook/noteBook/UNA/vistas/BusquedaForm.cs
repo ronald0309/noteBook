@@ -19,17 +19,16 @@ namespace UNA.noteBook.vistas
         public BusquedaForm()
         {
             InitializeComponent();
-
-            BusquedaInicialNotas();
             BusquedaInicialLibros();
-
+            BusquedaInicialNotas();
+            
 
         }
         private void BusquedaInicialNotas()
         {
             if (busquedaTxt.Text.Length == 0 && categoriaTxt.Text.Length == 0)
             {
-                busquedaPanel.Controls.Clear();
+                
 
                 MySqlDb mySqlDb = new MySqlDb
                 {
@@ -75,7 +74,7 @@ namespace UNA.noteBook.vistas
 
             if (generoCbx.Text.Length == 0 && nombreTxt.Text.Length == 0)
             {
-                busquedaPanel.Controls.Clear();
+               
                 MySqlDb mySqlDb = new MySqlDb
                 {
                     ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
@@ -119,13 +118,17 @@ namespace UNA.noteBook.vistas
         private void BusquedaTxt_TextChanged(object sender, EventArgs e)
         {
 
-            if (busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0)
+            if (busquedaTxt.TextLength > 0 || categoriaTxt.TextLength > 0)
             {
-                BusquedaInicialNotas();
+                busquedaPanel.Controls.Clear();
+                
+                BusquedaNotas();
             }
             else
             {
-                this.BusquedaNotas();
+                busquedaPanel.Controls.Clear();
+                BusquedaInicialLibros();
+                BusquedaInicialNotas();
             }
         }
         public void CargarGeneros()
@@ -136,21 +139,17 @@ namespace UNA.noteBook.vistas
         {
             if (generoCbx.Text.Length > 0 || nombreTxt.Text.Length > 0)
             {
-                busquedaPanel.Controls.Clear();
+
                 MySqlDb mySqlDb = new MySqlDb
                 {
                     ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
                 };
                 mySqlDb.OpenConnection();
-                string query = String.Format("Select nombre,color from libros where nombre like'%{0}%'and" +
-                    " id_libro=(select id_libro from generos_libros where id_genero=(select id_genero from generos where nombre ='{1}')) and " +
-                    " id_usuario=(Select id_usuario from usuarios where avatar='{2}')", nombreTxt.Text,generoCbx.Text, Singlenton.Instance.usuarioActual.NombreUsuario);
+                string query = String.Format("select l.nombre, l.color, g.nombre from libros l join generos_libros gl on gl.id_libro = l.id_libro join generos g on g.id_genero = gl.id_genero join usuarios u on u.avatar = '{0}' where l.nombre like '%{1}%' and g.nombre like '%{2}%'", Singlenton.Instance.usuarioActual.NombreUsuario, nombreTxt.Text, generoCbx.Text);
                
-                foreach (var idLibro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
+                foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
                 {
-                    string queryL = String.Format("Select nombre,color from libros where id_libro='{0}'", idLibro);
-                    foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryL)))
-                    {
+                    
                         LibroControlForm libroControl = new LibroControlForm
                         {
 
@@ -167,7 +166,7 @@ namespace UNA.noteBook.vistas
                             libroControl.Genero = libroControl.Genero + "/" + mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
                         }
                         busquedaPanel.Controls.Add(libroControl);
-                    }
+                    
                 }
                 mySqlDb.CloseConnection();
             }
@@ -179,7 +178,7 @@ namespace UNA.noteBook.vistas
             if (busquedaTxt.Text.Length > 0 || categoriaTxt.Text.Length > 0)
             {
 
-                busquedaNotasPanel.Controls.Clear();
+                busquedaPanel.Controls.Clear();
                 MySqlDb mySqlDb = new MySqlDb
                 {
                     ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
@@ -204,7 +203,7 @@ namespace UNA.noteBook.vistas
                         notaC.Width = 155;
                         notaC.Height = 145;
                         notaC.FechaCreacion = notas.FechaCreacion;
-                        busquedaNotasPanel.Controls.Add(notaC);
+                        busquedaPanel.Controls.Add(notaC);
 
                     }
                 }
@@ -214,24 +213,35 @@ namespace UNA.noteBook.vistas
 
         private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)
         {
-            if (busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0 )
+            if (busquedaTxt.TextLength > 0 || categoriaTxt.TextLength > 0 )
             {
-                BusquedaInicialNotas();
+                busquedaPanel.Controls.Clear();
                 
-            }
-            if( busquedaTxt.TextLength == 0 && categoriaTxt.TextLength == 0)
-            {
-                BusquedaInicialLibros();
+                BusquedaNotas();
             }
             else
-            {  
-                        this.BusquedaNotas();      
+            {
+                busquedaPanel.Controls.Clear();
+                BusquedaInicialLibros();
+                BusquedaInicialNotas();
             }
         }
 
         private void NombreTxt_TextChanged(object sender, EventArgs e)
         {
-            BusquedaLibros();
+            if (generoCbx.Text.Length > 0 || nombreTxt.Text.Length > 0)
+            {
+                busquedaPanel.Controls.Clear();
+                BusquedaLibros();
+                
+            }
+            else
+            {
+                busquedaPanel.Controls.Clear();
+                BusquedaInicialLibros();
+                BusquedaInicialNotas();
+            }
+
         }
 
         private void GeneroCbx_SelectionChangeCommitted(object sender, EventArgs e)
@@ -262,7 +272,28 @@ namespace UNA.noteBook.vistas
 
         private void GeneroCbx_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
-            BusquedaLibros();
+            if (generoCbx.Text.Length > 0 || nombreTxt.Text.Length > 0)
+            {
+                busquedaPanel.Controls.Clear();
+                BusquedaLibros();
+                
+            }
+            else
+            {
+                busquedaPanel.Controls.Clear();
+                BusquedaInicialLibros();
+                BusquedaInicialNotas();
+            }
+
+        }
+
+        private void LimpiarBtn_Click(object sender, EventArgs e)
+        {
+            busquedaTxt.Text = "";
+            categoriaTxt.Text = "";
+            nombreTxt.Text = "";
+            generoCbx.Text = "";
+
         }
     }
 }

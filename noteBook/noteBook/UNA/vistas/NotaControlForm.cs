@@ -62,6 +62,8 @@ namespace UNA.noteBook.vistas
                     categoriarichTexBox.SelectionColor = Color.Blue;
                     AgrandarBtn.Hide();
                     moverBoton.Hide();
+                    editarBtn.Hide();
+                    eliminarBtn.Hide();
                     
                 }
                 else

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using noteBook.UNA.vistas;
+using UNA.noteBook.vistas;
 namespace noteBook
 {
     static class Program

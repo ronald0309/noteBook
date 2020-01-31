@@ -40,6 +40,7 @@
             this.noteBookLabel = new System.Windows.Forms.Label();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.formulario05Lbl = new System.Windows.Forms.Label();
             this.cambiarUsuarioBtn = new System.Windows.Forms.Button();
             this.transaccioneBtn = new System.Windows.Forms.Button();
             this.busquedaBtn = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.agregarBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.formulario05Lbl = new System.Windows.Forms.Label();
             this.superiorPanel.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -62,20 +62,20 @@
             this.superiorPanel.Controls.Add(this.nombreVistaLabel);
             this.superiorPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.superiorPanel.Location = new System.Drawing.Point(234, 64);
-            this.superiorPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.superiorPanel.Margin = new System.Windows.Forms.Padding(4);
             this.superiorPanel.MaximumSize = new System.Drawing.Size(0, 62);
             this.superiorPanel.Name = "superiorPanel";
-            this.superiorPanel.Size = new System.Drawing.Size(1209, 50);
+            this.superiorPanel.Size = new System.Drawing.Size(1209, 62);
             this.superiorPanel.TabIndex = 8;
             // 
             // lblUsuario
             // 
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblUsuario.Location = new System.Drawing.Point(1071, 1);
+            this.lblUsuario.Location = new System.Drawing.Point(987, 1);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(125, 33);
+            this.lblUsuario.Size = new System.Drawing.Size(125, 49);
             this.lblUsuario.TabIndex = 2;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -83,10 +83,10 @@
             // 
             this.TextoUsuarioFijoLbl.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextoUsuarioFijoLbl.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.TextoUsuarioFijoLbl.Location = new System.Drawing.Point(943, 1);
+            this.TextoUsuarioFijoLbl.Location = new System.Drawing.Point(824, 1);
             this.TextoUsuarioFijoLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TextoUsuarioFijoLbl.Name = "TextoUsuarioFijoLbl";
-            this.TextoUsuarioFijoLbl.Size = new System.Drawing.Size(155, 33);
+            this.TextoUsuarioFijoLbl.Size = new System.Drawing.Size(155, 49);
             this.TextoUsuarioFijoLbl.TabIndex = 1;
             this.TextoUsuarioFijoLbl.Text = "Usuario";
             // 
@@ -105,11 +105,12 @@
             // 
             this.panelVistas.BackColor = System.Drawing.Color.White;
             this.panelVistas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVistas.Location = new System.Drawing.Point(234, 114);
-            this.panelVistas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelVistas.Location = new System.Drawing.Point(234, 126);
+            this.panelVistas.Margin = new System.Windows.Forms.Padding(4);
             this.panelVistas.Name = "panelVistas";
-            this.panelVistas.Size = new System.Drawing.Size(1209, 567);
+            this.panelVistas.Size = new System.Drawing.Size(1209, 555);
             this.panelVistas.TabIndex = 7;
+            this.panelVistas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVistas_Paint);
             // 
             // panelSuperio
             // 
@@ -117,7 +118,7 @@
             this.panelSuperio.Controls.Add(this.horaLabel);
             this.panelSuperio.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSuperio.Location = new System.Drawing.Point(234, 0);
-            this.panelSuperio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSuperio.Margin = new System.Windows.Forms.Padding(4);
             this.panelSuperio.Name = "panelSuperio";
             this.panelSuperio.Size = new System.Drawing.Size(1209, 64);
             this.panelSuperio.TabIndex = 6;
@@ -126,7 +127,7 @@
             // 
             this.horaLabel.Font = new System.Drawing.Font("Microsoft YaHei Light", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.horaLabel.Location = new System.Drawing.Point(985, 20);
+            this.horaLabel.Location = new System.Drawing.Point(945, 9);
             this.horaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.horaLabel.Name = "horaLabel";
             this.horaLabel.Size = new System.Drawing.Size(233, 33);
@@ -152,7 +153,7 @@
             this.panelTitulo.Controls.Add(this.noteBookLabel);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(232, 64);
             this.panelTitulo.TabIndex = 0;
@@ -170,10 +171,20 @@
             this.panelMenu.Controls.Add(this.panelTitulo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(234, 681);
             this.panelMenu.TabIndex = 5;
+            // 
+            // formulario05Lbl
+            // 
+            this.formulario05Lbl.AutoSize = true;
+            this.formulario05Lbl.Location = new System.Drawing.Point(4, 662);
+            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario05Lbl.Name = "formulario05Lbl";
+            this.formulario05Lbl.Size = new System.Drawing.Size(144, 17);
+            this.formulario05Lbl.TabIndex = 13;
+            this.formulario05Lbl.Text = "Formulario 11 (Menu)";
             // 
             // cambiarUsuarioBtn
             // 
@@ -186,7 +197,7 @@
             this.cambiarUsuarioBtn.Image = ((System.Drawing.Image)(resources.GetObject("cambiarUsuarioBtn.Image")));
             this.cambiarUsuarioBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cambiarUsuarioBtn.Location = new System.Drawing.Point(0, 343);
-            this.cambiarUsuarioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cambiarUsuarioBtn.Margin = new System.Windows.Forms.Padding(4);
             this.cambiarUsuarioBtn.Name = "cambiarUsuarioBtn";
             this.cambiarUsuarioBtn.Size = new System.Drawing.Size(232, 70);
             this.cambiarUsuarioBtn.TabIndex = 12;
@@ -207,7 +218,7 @@
             this.transaccioneBtn.Image = ((System.Drawing.Image)(resources.GetObject("transaccioneBtn.Image")));
             this.transaccioneBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.transaccioneBtn.Location = new System.Drawing.Point(0, 273);
-            this.transaccioneBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.transaccioneBtn.Margin = new System.Windows.Forms.Padding(4);
             this.transaccioneBtn.Name = "transaccioneBtn";
             this.transaccioneBtn.Size = new System.Drawing.Size(232, 70);
             this.transaccioneBtn.TabIndex = 4;
@@ -228,7 +239,7 @@
             this.busquedaBtn.Image = ((System.Drawing.Image)(resources.GetObject("busquedaBtn.Image")));
             this.busquedaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.busquedaBtn.Location = new System.Drawing.Point(0, 203);
-            this.busquedaBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.busquedaBtn.Margin = new System.Windows.Forms.Padding(4);
             this.busquedaBtn.Name = "busquedaBtn";
             this.busquedaBtn.Size = new System.Drawing.Size(232, 70);
             this.busquedaBtn.TabIndex = 3;
@@ -249,7 +260,7 @@
             this.libroBtn.Image = ((System.Drawing.Image)(resources.GetObject("libroBtn.Image")));
             this.libroBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.libroBtn.Location = new System.Drawing.Point(0, 133);
-            this.libroBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.libroBtn.Margin = new System.Windows.Forms.Padding(4);
             this.libroBtn.Name = "libroBtn";
             this.libroBtn.Size = new System.Drawing.Size(232, 70);
             this.libroBtn.TabIndex = 2;
@@ -270,7 +281,7 @@
             this.agregarBtn.Image = ((System.Drawing.Image)(resources.GetObject("agregarBtn.Image")));
             this.agregarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.agregarBtn.Location = new System.Drawing.Point(0, 64);
-            this.agregarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.agregarBtn.Margin = new System.Windows.Forms.Padding(4);
             this.agregarBtn.Name = "agregarBtn";
             this.agregarBtn.Size = new System.Drawing.Size(232, 69);
             this.agregarBtn.TabIndex = 1;
@@ -288,16 +299,6 @@
             // 
             this.timer2.Interval = 60000;
             // 
-            // formulario05Lbl
-            // 
-            this.formulario05Lbl.AutoSize = true;
-            this.formulario05Lbl.Location = new System.Drawing.Point(4, 662);
-            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.formulario05Lbl.Name = "formulario05Lbl";
-            this.formulario05Lbl.Size = new System.Drawing.Size(144, 17);
-            this.formulario05Lbl.TabIndex = 13;
-            this.formulario05Lbl.Text = "Formulario 11 (Menu)";
-            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,7 +309,7 @@
             this.Controls.Add(this.panelSuperio);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1461, 728);
             this.MinimumSize = new System.Drawing.Size(1461, 728);
             this.Name = "MenuForm";

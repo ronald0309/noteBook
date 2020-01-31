@@ -33,8 +33,6 @@
             this.generoLbl = new System.Windows.Forms.Label();
             this.nombreLbl = new System.Windows.Forms.Label();
             this.nombreTxt = new System.Windows.Forms.TextBox();
-            this.libroCheck = new System.Windows.Forms.CheckBox();
-            this.notaCheck = new System.Windows.Forms.CheckBox();
             this.categoriaTxt = new System.Windows.Forms.TextBox();
             this.categoriaLabel = new System.Windows.Forms.Label();
             this.tituloLabel = new System.Windows.Forms.Label();
@@ -42,18 +40,22 @@
             this.colorLibro = new System.Windows.Forms.ColorDialog();
             this.busquedaPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.librosLbl = new System.Windows.Forms.Label();
+            this.notasLbl = new System.Windows.Forms.Label();
+            this.LimpiarBtn = new System.Windows.Forms.Button();
             this.contedorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // contedorPanel
             // 
             this.contedorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(198)))), ((int)(((byte)(165)))));
+            this.contedorPanel.Controls.Add(this.LimpiarBtn);
+            this.contedorPanel.Controls.Add(this.notasLbl);
+            this.contedorPanel.Controls.Add(this.librosLbl);
             this.contedorPanel.Controls.Add(this.generoCbx);
             this.contedorPanel.Controls.Add(this.generoLbl);
             this.contedorPanel.Controls.Add(this.nombreLbl);
             this.contedorPanel.Controls.Add(this.nombreTxt);
-            this.contedorPanel.Controls.Add(this.libroCheck);
-            this.contedorPanel.Controls.Add(this.notaCheck);
             this.contedorPanel.Controls.Add(this.categoriaTxt);
             this.contedorPanel.Controls.Add(this.categoriaLabel);
             this.contedorPanel.Controls.Add(this.tituloLabel);
@@ -108,28 +110,6 @@
             this.nombreTxt.TabIndex = 2;
             this.nombreTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nombreTxt.TextChanged += new System.EventHandler(this.NombreTxt_TextChanged);
-            // 
-            // libroCheck
-            // 
-            this.libroCheck.AutoSize = true;
-            this.libroCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.libroCheck.Location = new System.Drawing.Point(389, 24);
-            this.libroCheck.Name = "libroCheck";
-            this.libroCheck.Size = new System.Drawing.Size(102, 33);
-            this.libroCheck.TabIndex = 5;
-            this.libroCheck.Text = "Libros";
-            this.libroCheck.UseVisualStyleBackColor = true;
-            // 
-            // notaCheck
-            // 
-            this.notaCheck.AutoSize = true;
-            this.notaCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.notaCheck.Location = new System.Drawing.Point(12, 24);
-            this.notaCheck.Name = "notaCheck";
-            this.notaCheck.Size = new System.Drawing.Size(98, 33);
-            this.notaCheck.TabIndex = 4;
-            this.notaCheck.Text = "Notas";
-            this.notaCheck.UseVisualStyleBackColor = true;
             // 
             // categoriaTxt
             // 
@@ -196,6 +176,38 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Seleccione si desea ver libros o notas, luego ingrese los filtros.";
             // 
+            // librosLbl
+            // 
+            this.librosLbl.AutoSize = true;
+            this.librosLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.librosLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.librosLbl.Location = new System.Drawing.Point(396, 29);
+            this.librosLbl.Name = "librosLbl";
+            this.librosLbl.Size = new System.Drawing.Size(80, 29);
+            this.librosLbl.TabIndex = 10;
+            this.librosLbl.Text = "Libros";
+            // 
+            // notasLbl
+            // 
+            this.notasLbl.AutoSize = true;
+            this.notasLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.notasLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.notasLbl.Location = new System.Drawing.Point(24, 29);
+            this.notasLbl.Name = "notasLbl";
+            this.notasLbl.Size = new System.Drawing.Size(76, 29);
+            this.notasLbl.TabIndex = 11;
+            this.notasLbl.Text = "Notas";
+            // 
+            // LimpiarBtn
+            // 
+            this.LimpiarBtn.Location = new System.Drawing.Point(830, 38);
+            this.LimpiarBtn.Name = "LimpiarBtn";
+            this.LimpiarBtn.Size = new System.Drawing.Size(75, 23);
+            this.LimpiarBtn.TabIndex = 12;
+            this.LimpiarBtn.Text = "Limpiar ";
+            this.LimpiarBtn.UseVisualStyleBackColor = true;
+            this.LimpiarBtn.Click += new System.EventHandler(this.LimpiarBtn_Click);
+            // 
             // BusquedaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -228,9 +240,10 @@
         private System.Windows.Forms.Label generoLbl;
         private System.Windows.Forms.Label nombreLbl;
         private System.Windows.Forms.TextBox nombreTxt;
-        private System.Windows.Forms.CheckBox libroCheck;
-        private System.Windows.Forms.CheckBox notaCheck;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox generoCbx;
+        private System.Windows.Forms.Button LimpiarBtn;
+        private System.Windows.Forms.Label notasLbl;
+        private System.Windows.Forms.Label librosLbl;
     }
 }

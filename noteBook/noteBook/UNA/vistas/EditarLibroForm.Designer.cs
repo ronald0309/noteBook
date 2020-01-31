@@ -120,8 +120,8 @@
             this.agregarCategoria.Name = "agregarCategoria";
             this.agregarCategoria.Size = new System.Drawing.Size(142, 21);
             this.agregarCategoria.TabIndex = 51;
-            this.agregarCategoria.SelectedIndexChanged += new System.EventHandler(this.agregarCategoria_SelectedIndexChanged);
-            this.agregarCategoria.MouseClick += new System.Windows.Forms.MouseEventHandler(this.agregarCategoria_MouseClick);
+            this.agregarCategoria.SelectedIndexChanged += new System.EventHandler(this.AgregarCategoria_SelectionChangeCommitted);
+            this.agregarCategoria.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AgregarCategoria_MouseClick);
 
             // 
             // categoriaCBX

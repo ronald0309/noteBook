@@ -41,7 +41,7 @@
             this.errorRegistroLibro = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 
-            this.formulario05Lbl = new System.Windows.Forms.Label();
+            this.formulario15Lbl = new System.Windows.Forms.Label();
             this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.OrdenCBX = new System.Windows.Forms.ComboBox();
@@ -203,7 +203,7 @@
             this.Controls.Add(this.label1);
 
             this.Controls.Add(this.contenedorCategoriasFP);
-            this.Controls.Add(this.formulario05Lbl);
+            this.Controls.Add(this.formulario15Lbl);
             this.Controls.Add(this.generoComboBox);
             this.Controls.Add(this.selectorColorImage);
             this.Controls.Add(this.guardarBtn);

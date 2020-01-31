@@ -302,5 +302,9 @@ namespace UNA.noteBook.vistas
             cambiarUsuarioBtn.BackColor = Color.FromArgb(12, 135, 109);
         }
 
+        private void panelVistas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
