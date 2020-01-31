@@ -31,8 +31,6 @@
             this.bibliotecaTabControl = new System.Windows.Forms.TabControl();
             this.FondoPanel = new System.Windows.Forms.Panel();
             this.cerrarLibroActual = new System.Windows.Forms.Button();
-            this.ordenLabel = new System.Windows.Forms.Label();
-            this.ordenComboBox = new System.Windows.Forms.ComboBox();
             this.FondoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,8 +49,6 @@
             // FondoPanel
             // 
             this.FondoPanel.Controls.Add(this.cerrarLibroActual);
-            this.FondoPanel.Controls.Add(this.ordenLabel);
-            this.FondoPanel.Controls.Add(this.ordenComboBox);
             this.FondoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FondoPanel.Location = new System.Drawing.Point(0, 0);
             this.FondoPanel.Name = "FondoPanel";
@@ -69,31 +65,7 @@
             this.cerrarLibroActual.UseVisualStyleBackColor = true;
             this.cerrarLibroActual.Click += new System.EventHandler(this.CerrarLibroActual_Click);
             // 
-            // ordenLabel
-            // 
-            this.ordenLabel.AutoSize = true;
-            this.ordenLabel.Location = new System.Drawing.Point(455, 9);
-            this.ordenLabel.Name = "ordenLabel";
-            this.ordenLabel.Size = new System.Drawing.Size(36, 13);
-            this.ordenLabel.TabIndex = 0;
-            this.ordenLabel.Text = "Orden";
-            // 
-            // ordenComboBox
-            // 
-            this.ordenComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ordenComboBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ordenComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ordenComboBox.FormattingEnabled = true;
-            this.ordenComboBox.Items.AddRange(new object[] {
-            "Creciente",
-            "Decreciente"});
-            this.ordenComboBox.Location = new System.Drawing.Point(497, 6);
-            this.ordenComboBox.Name = "ordenComboBox";
-            this.ordenComboBox.Size = new System.Drawing.Size(97, 21);
-            this.ordenComboBox.TabIndex = 1;
-            this.ordenComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdenComboBox_SelectedIndexChanged);
-            // 
+
             // MisLibrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,7 +77,6 @@
             this.Name = "MisLibrosForm";
             this.Text = "MisLibros";
             this.FondoPanel.ResumeLayout(false);
-            this.FondoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -114,8 +85,6 @@
 
         private System.Windows.Forms.TabControl bibliotecaTabControl;
         private System.Windows.Forms.Panel FondoPanel;
-        private System.Windows.Forms.ComboBox ordenComboBox;
-        private System.Windows.Forms.Label ordenLabel;
         private System.Windows.Forms.Button cerrarLibroActual;
     }
 }

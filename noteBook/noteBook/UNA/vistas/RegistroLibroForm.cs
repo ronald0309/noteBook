@@ -68,7 +68,7 @@ namespace noteBook.UNA.vistas
                     {
                         
                         queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
-                       nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
+                       nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(),OrdenCBX.Text);
                         mySqlDb.EjectSQL(queryLibros);
                         string transaccionGenero = "";
                         foreach (Label labelGenero in contenedorCategoriasFP.Controls)
@@ -217,6 +217,6 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
         }
 
-        
+
     }
 }

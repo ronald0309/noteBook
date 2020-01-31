@@ -80,6 +80,8 @@
             this.categoriaActualLabel = new System.Windows.Forms.Label();
             this.privacidadActualLabel = new System.Windows.Forms.Label();
             this.formulario06Lbl = new System.Windows.Forms.Label();
+            this.OrdenCBX = new System.Windows.Forms.ComboBox();
+            this.Ordenlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.colorFondoPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorFuentePB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).BeginInit();
@@ -274,6 +276,31 @@
             this.formulario06Lbl.TabIndex = 54;
             this.formulario06Lbl.Text = "Formulario 06";
             // 
+            // OrdenCBX
+            // 
+            this.OrdenCBX.FormattingEnabled = true;
+            this.OrdenCBX.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.OrdenCBX.Location = new System.Drawing.Point(225, 224);
+            this.OrdenCBX.Name = "OrdenCBX";
+            this.OrdenCBX.Size = new System.Drawing.Size(55, 21);
+            this.OrdenCBX.TabIndex = 55;
+            // 
+            // Ordenlabel
+            // 
+            this.Ordenlabel.AutoSize = true;
+            this.Ordenlabel.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.Ordenlabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.Ordenlabel.Location = new System.Drawing.Point(171, 227);
+            this.Ordenlabel.Name = "Ordenlabel";
+            this.Ordenlabel.Size = new System.Drawing.Size(48, 16);
+            this.Ordenlabel.TabIndex = 56;
+            this.Ordenlabel.Text = "Orden";
+            // 
             // EditarNotasForm
             // 
             this.AcceptButton = this.aceptarBtn;
@@ -282,6 +309,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.CancelButton = this.cancelarBtn;
             this.ClientSize = new System.Drawing.Size(338, 326);
+            this.Controls.Add(this.Ordenlabel);
+            this.Controls.Add(this.OrdenCBX);
             this.Controls.Add(this.formulario06Lbl);
             this.Controls.Add(this.privacidadActualLabel);
             this.Controls.Add(this.categoriaActualLabel);
@@ -357,6 +386,8 @@
         private System.Windows.Forms.Label categoriaActualLabel;
         private System.Windows.Forms.Label privacidadActualLabel;
         private System.Windows.Forms.Label formulario06Lbl;
+        private System.Windows.Forms.Label Ordenlabel;
+        private System.Windows.Forms.ComboBox OrdenCBX;
     }
 
 }

@@ -32,18 +32,22 @@ namespace UNA.noteBook.AdministarBaseDeDatos
 
         }
         public override DataTable QuerySQL(string query)
-        {
-            //try
-            //{
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            {
+
+            try
+            {
+              MySqlDataAdapter adapter = new MySqlDataAdapter();
+
                 DataTable result = new DataTable();
                 adapter.SelectCommand = new MySqlCommand(query, DbConnection);
-                adapter.Fill(result);
+               adapter.Fill(result);
                 return result;
-            //}catch
-            //{
-            //    return null;
-            //}
+            }
+            catch
+            {
+                return null;
+            }
         }
         public override long EjectSQL(string query)
         {

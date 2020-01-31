@@ -119,13 +119,7 @@ namespace UNA.noteBook.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-
-            string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
-            
-            String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
-
             bibliotecaTabControl.Controls.Clear();
-
             TabPage biblioteca = new TabPage
             {
                 Text = "Biblioteca"
@@ -133,8 +127,12 @@ namespace UNA.noteBook.vistas
 
             bibliotecaTabControl.Controls.Add(biblioteca);
 
+            string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
+
+            //  Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query));
+            String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
             FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
-            
+            //  foreach (var libro in Singlenton.Instance.LibrosList)
             foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
             {
 
@@ -145,7 +143,6 @@ namespace UNA.noteBook.vistas
                     ColorLibro = libro.Color,
 
                 };
-
                 string idLibro = string.Format("Select id_libro from libros where nombre='{0}'", libro.Nombre);
                 string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
                 DataTable data = mySqlDb.QuerySQL(idGenero);
@@ -175,7 +172,10 @@ namespace UNA.noteBook.vistas
                             formulario.SetXY(x, y);
                             formulario.NombreLibro = libro.Nombre;
                             formulario.ShowDialog();
-                            string queryNot = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
+                            string queryNot;
+
+                            queryNot = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
+
                             foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryNot)))
                             {
                                 // MessageBox.Show(nota.Titulo);
@@ -271,43 +271,13 @@ namespace UNA.noteBook.vistas
                 contenedorLibros.AutoScroll = true;
 
                 biblioteca.Controls.Add(contenedorLibros);
+
             }
-            if (Singlenton.Instance.NotaEditada == false)
-            {
-                bibliotecaTabControl.SelectedTab = biblioteca;
-            }
+
+
 
 
         }
-
-        private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (ordenComboBox.Text == "Creciente")
-            {
-                List<Libro> librosAuxiliar = new List<Libro>();
-                librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
-                IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderBy(a => a.Nombre);
-
-                Singlenton.Instance.LibrosList.Clear();
-                Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
-            }
-            else
-            {
-                if (ordenComboBox.Text == "Decreciente")
-                {
-                    List<Libro> librosAuxiliar = new List<Libro>();
-                    librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
-                    IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderByDescending(a => a.Nombre);
-
-                    Singlenton.Instance.LibrosList.Clear();
-                    Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
-
-                }
-            }
-
-        }
-
         public void ActualizarPage()
         {
             MySqlDb mySqlDb = new MySqlDb
@@ -353,6 +323,10 @@ namespace UNA.noteBook.vistas
             }
         }
 
-       
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            CrearLibroDB();
+
+        }
     }
 }
