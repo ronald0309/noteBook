@@ -51,40 +51,13 @@ namespace noteBook.UNA.vistas
 
         private void H_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (pantallaActiva == 0)
-            {
-                this.nombreVistaLabel.Text = "Bienvenido a NoteBook UNA (Formulario 08)";
-                AbrirFormulario(informacionMenu);
-            }
-            else
-            {
-                if (pantallaActiva == 1)
-                {
-                    MisLibrosForm miLibros = new MisLibrosForm();
+          
+                  MisLibrosForm miLibros = new MisLibrosForm();
                     this.nombreVistaLabel.Text = "Mis libros(Formulario 02)";
                     miLibros.CrearLibroDB();
                     Singlenton.Instance.miLibro = miLibros;
                     this.AbrirFormulario(miLibros);
-                }
-                else
-                {
-                    if (pantallaActiva == 2)
-                    {
-                        this.nombreVistaLabel.Text = "Busqueda(Formulario 03)";
-                        BusquedaForm busqueda = new BusquedaForm();
-                        this.AbrirFormulario(busqueda);
-                    }
-                    else
-                    {
-                        if (pantallaActiva == 3)
-                        {
-                            this.nombreVistaLabel.Text = "Transacciones(Formulario 04)";
-                            TransaccionForm reporteForm = new TransaccionForm();
-                            this.AbrirFormulario(reporteForm);
-                        }
-                    }
-                }
-            }
+              
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -162,7 +135,7 @@ namespace noteBook.UNA.vistas
                 }
             }
             catch { MessageBox.Show("El usuario no tiene permiso para ver libros"); }
-
+            mySqlDb.CloseConnection();
         }
 
         private void BusquedaBtn_Click(object sender, EventArgs e)
@@ -187,6 +160,7 @@ namespace noteBook.UNA.vistas
                 }
             }
             catch { MessageBox.Show("El usuario no cuenta con el permiso de ver notas"); }
+            mySqlDb.CloseConnection();
         }
 
         private void TransaccionesBtn_Click(object sender, EventArgs e)

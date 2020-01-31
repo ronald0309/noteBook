@@ -254,7 +254,7 @@ namespace noteBook.UNA.vistas
                     {
                         PermisoIngresarSistema();
                     }
-                    if (VerNotasCheck.Checked)
+                    if (VerLibrosCheck.Checked)
                     {
                         PermisoVerLibros();
                     }

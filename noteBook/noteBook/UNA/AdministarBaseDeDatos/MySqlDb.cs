@@ -32,13 +32,14 @@ namespace noteBook
 
         }
         public override DataTable QuerySQL(string query)
-        {
+            {
+
             try
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
+              MySqlDataAdapter adapter = new MySqlDataAdapter();
                 DataTable result = new DataTable();
                 adapter.SelectCommand = new MySqlCommand(query, DbConnection);
-                adapter.Fill(result);
+               adapter.Fill(result);
                 return result;
             }catch
             {

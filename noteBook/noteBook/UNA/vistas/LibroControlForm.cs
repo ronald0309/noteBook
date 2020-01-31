@@ -77,24 +77,29 @@ namespace noteBook.UNA.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-            try
-            {
+            //try
+            //{
                 string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
 
                 String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=3", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
-                if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "3")
+                if (mySqlDb.QuerySQL(queryPermiso).Rows.Count == 1)
                 {
+                mySqlDb.CloseConnection();
                     MessageBoxButtons botones = MessageBoxButtons.YesNo;
                     DialogResult dr = MessageBox.Show("Seguro que desea eliminar el libro se eliminaran las notas relacionadas", "Alerta", botones, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
                         if (dr == DialogResult.Yes)
                         {
-                            String queryEliminarNota = String.Format("Delete from notas where id_libro=(select id_libro from libros where nombre='{0}')", this.nombre);
+                        mySqlDb.OpenConnection();
+                        string queryElimi = String.Format("Delete from generos_libros where id_libro=(select id_libro from libros where nombre='{0}')", this.nombre);
+                        String queryEliminarNota = String.Format("Delete from notas where id_libro=(select id_libro from libros where nombre='{0}')", this.nombre);
                             String queryEliminarLibro = String.Format("Delete from  libros where nombre='{0}'", this.nombre);
-
+                            mySqlDb.EjectSQL(queryElimi);
                             mySqlDb.EjectSQL(queryEliminarNota);
                             mySqlDb.EjectSQL(queryEliminarLibro);
+
+                        mySqlDb.CloseConnection();
                             Singlenton.Instance.miLibro.CrearLibroDB();
                         }
                         Transaccion transaccion = new Transaccion
@@ -108,11 +113,11 @@ namespace noteBook.UNA.vistas
 
                     }
                 }
-            }
-            catch (Exception )
-            {
-                MessageBox.Show($"El usuario no tiene permiso para eliminar libros");
-            }
+            //}
+            //catch (Exception a)
+            //{
+            //    MessageBox.Show($"El usuario no tiene permiso para eliminar libros '{a}'");
+            //}
 
         }
 

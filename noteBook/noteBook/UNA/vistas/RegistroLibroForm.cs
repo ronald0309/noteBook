@@ -60,14 +60,13 @@ namespace noteBook.UNA.vistas
                 }
                 else
                 {
-
-                    
+                    string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
                     String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
                     if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
                     {
-                        string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.usuarioActual.NombreUsuario + "'");
+                        
                         queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
-                       nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
+                       nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(),OrdenCBX.Text);
                         mySqlDb.EjectSQL(queryLibros);
                         string transaccionGenero = "";
                         foreach (Label labelGenero in contenedorCategoriasFP.Controls)
@@ -216,5 +215,6 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
         }
 
+      
     }
 }

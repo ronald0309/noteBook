@@ -24,3 +24,4 @@ C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\ob
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.dll
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.pdb
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache
+E:\Documentos\GitHub\noteBook\noteBook\WindowsFormsControlLibrary1\obj\Debug\WindowsFormsControlLibrary1.csprojAssemblyReference.cache

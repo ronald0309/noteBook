@@ -48,7 +48,6 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.Ed
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.login.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.Properties.Resources.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.RegistroUsuarioForms.resources
-E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.ReportesForm.resources
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.GenerateResource.cache
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.csproj.CopyComplete
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.exe
@@ -136,3 +135,4 @@ E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Numerics.Vector
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.EditarLibroForm.resources
 C:\Users\compu\Documents\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.TransaccionForm.resources
+E:\Documentos\GitHub\noteBook\noteBook\noteBook\obj\Debug\noteBook.UNA.vistas.TransaccionForm.resources

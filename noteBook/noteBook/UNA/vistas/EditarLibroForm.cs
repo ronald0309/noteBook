@@ -29,13 +29,14 @@ namespace noteBook.UNA.vistas
             };
             mySqlDb.OpenConnection();
 
-            string queryNot = String.Format("Select nombre,color from libros where nombre='{0}'", nombre);
+            string queryNot = String.Format("Select nombre,color,orden from libros where nombre='{0}'", nombre);
 
             foreach (DataRow data in mySqlDb.QuerySQL(queryNot).Rows)
             {
                 tituloActualLabel.Text = data["nombre"].ToString();
                 colorPB.BackColor = Color.FromArgb(Convert.ToInt32(data["color"].ToString()));
                 colorLibroDialog.Color = Color.FromArgb(Convert.ToInt32(data["color"].ToString()));
+                OrdenLabel.Text = data["orden"].ToString();
             }
             String queryCategoria = String.Format("Select id_genero from generos_libros where id_libro=(Select id_libro from libros where nombre='{0}')", tituloActualLabel.Text);
             foreach (DataRow data in mySqlDb.QuerySQL(queryCategoria).Rows)
@@ -89,7 +90,15 @@ namespace noteBook.UNA.vistas
             };
             return eliminar;
         }
-
+        private int AtualizarOrden() {
+            if (OrdenCBX.Text.Length== 0)
+            {
+                return Convert.ToInt32(OrdenLabel.Text);
+            }
+            else {
+                return Convert.ToInt32(OrdenCBX.Text);
+            }
+        }
 
         private void Eliminar_MouseClick(object sender, MouseEventArgs e)
         {
@@ -121,7 +130,7 @@ namespace noteBook.UNA.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-            string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}' where nombre=('{2}')", NombreModificado(), colorLibroDialog.Color.ToArgb(), tituloActualLabel.Text);
+            string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}',orden='{2}' where nombre=('{3}')", NombreModificado(), colorLibroDialog.Color.ToArgb(),AtualizarOrden(), tituloActualLabel.Text);
             mySqlDb.EjectSQL(queryActualizar);
 
             Transaccion transaccion = new Transaccion

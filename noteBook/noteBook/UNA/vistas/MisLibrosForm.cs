@@ -117,66 +117,112 @@ namespace noteBook.UNA.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-
-            string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
-            
-            String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
-
-            bibliotecaTabControl.Controls.Clear();
-
+           bibliotecaTabControl.Controls.Clear();
             TabPage biblioteca = new TabPage
             {
                 Text = "Biblioteca"
             };
 
             bibliotecaTabControl.Controls.Add(biblioteca);
+          
+                string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
 
-            FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
-            
-            foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
-            {
-                     LibroControlForm libroControl = new LibroControlForm
-                        {
-                         
-                            Nombre = libro.Nombre,
-                            ColorLibro = libro.Color,
-                          
-                        };
-                     string idLibro = string.Format("Select id_libro from libros where nombre='{0}'",libro.Nombre);
-                     string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
-               DataTable data= mySqlDb.QuerySQL(idGenero);
-                foreach (DataRow dataRow in data.Rows)
-                { 
-                    string nombreGeneros = String.Format("Select nombre from generos where id_genero='{0}'",Convert.ToInt16(dataRow["id_genero"].ToString()));
-                     libroControl.Genero=libroControl.Genero+"/" +mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
-                   }
+                //  Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query));
+                String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
+                FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
+                //  foreach (var libro in Singlenton.Instance.LibrosList)
+                foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
+                {
+
+                    LibroControlForm libroControl = new LibroControlForm
+                    {
+
+                        Nombre = libro.Nombre,
+                        ColorLibro = libro.Color,
+
+                    };
+                    string idLibro = string.Format("Select id_libro from libros where nombre='{0}'", libro.Nombre);
+                    string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
+                    DataTable data = mySqlDb.QuerySQL(idGenero);
+                    foreach (DataRow dataRow in data.Rows)
+                    {
+                        string nombreGeneros = String.Format("Select nombre from generos where id_genero='{0}'", Convert.ToInt16(dataRow["id_genero"].ToString()));
+                        libroControl.Genero = libroControl.Genero + "/" + mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
+                    }
                     TabPage pestaña = new TabPage();
 
-
-                LibroControlForm libroControl = new LibroControlForm
-                {
-                    Nombre = libro.Nombre,
-                    Genero = libro.Genero,
-                    ColorLibro = libro.Color
-                };
-                TabPage pestaña = new TabPage
-                {
-                    Text = libro.Nombre,
-                    BackColor = Color.FromArgb(libro.Color),
-                    
-                };
-              
-                pestaña.Controls.Add(value: InformacionLabel());
-                libroControl.MouseClick += (a, b) =>
-                {
-
-                    if (libro.Abrir == false)
+                    libroControl.MouseClick += (a, b) =>
                     {
-                        libro.Abrir = true;
-                        libroControl.Abierto = true;
 
-                        pestaña.Select();
-                        pestaña.MouseClick += (s, e) =>
+                        if (libro.Abrir == false)
+                        {
+                            libro.Abrir = true;
+                            libroControl.Abierto = true;
+
+                            pestaña.Text = libro.Nombre;
+                            pestaña.BackColor = Color.FromArgb(libro.Color);
+                            pestaña.Select();
+                            pestaña.MouseClick += (s, e) =>
+                            {
+                                int x = e.X;
+                                int y = e.Y;
+                                FormularioNotaForm formulario = new FormularioNotaForm();
+                                formulario.SetXY(x, y);
+                                formulario.NombreLibro = libro.Nombre;
+                                formulario.ShowDialog();
+                                string queryNot;
+
+                                queryNot = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
+
+                                foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryNot)))
+                                {
+                                    // MessageBox.Show(nota.Titulo);
+                                    if (nota.Privacidad == false)
+                                    {
+                                        NotaControlForm notaControl = CrearNotaControl(nota);
+                                        pestaña.Controls.Add(notaControl);
+                                    }
+                                    else
+                                    {
+                                        NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
+                                        pestaña.Controls.Add(notaPrivada);
+                                    }
+
+                                }
+                            };
+                            if (libro.Abrir == true)
+                            {
+                                string queryN = String.Format("Select privacidad,titulo,categoria,fecha_creacion,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
+
+                                foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryN)))
+                                {
+                                    if (nota.Privacidad == false)
+                                    {
+                                        NotaControlForm notaControl = CrearNotaControl(nota);
+                                        pestaña.Controls.Add(notaControl);
+                                    }
+                                    else
+                                    {
+                                        NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
+                                        pestaña.Controls.Add(notaPrivada);
+                                    }
+                                }
+                            }
+
+                            bibliotecaTabControl.Controls.Add(pestaña);
+
+                            bibliotecaTabControl.SelectedTab = pestaña;
+                        }
+                    };
+                    if (libro.Abrir == true)
+                    {
+                        TabPage pestañaLibro = new TabPage
+                        {
+                            Text = libro.Nombre,
+                            BackColor = Color.FromArgb(libro.Color)
+                        };
+                        pestañaLibro.Select();
+                        pestañaLibro.MouseClick += (s, e) =>
                         {
                             int x = e.X;
                             int y = e.Y;
@@ -184,143 +230,53 @@ namespace noteBook.UNA.vistas
                             formulario.SetXY(x, y);
                             formulario.NombreLibro = libro.Nombre;
                             formulario.ShowDialog();
-                            string queryNot = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
-
-                            foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryNot)))
+                            foreach (var nota in libro.Notas)
                             {
-                                      
-                                        if (nota.Privacidad == false)
+                                if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
                                 {
                                     NotaControlForm notaControl = CrearNotaControl(nota);
-                                    pestaña.Controls.Add(notaControl);
+                                    pestañaLibro.Controls.Add(notaControl);
                                 }
                                 else
                                 {
                                     NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
                                     pestaña.Controls.Add(notaPrivada);
                                 }
-
                             }
 
                         };
-                        if (libro.Abrir == true)
-                        {
-                            string queryN = String.Format("Select privacidad,titulo,categoria,fecha_creacion,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
-
-                            foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryN)))
-                            {
-                                if (nota.Privacidad == false)
-                                {
-                                    NotaControlForm notaControl = CrearNotaControl(nota);
-                                    pestaña.Controls.Add(notaControl);
-                                }
-                                else
-                                {
-                                    NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
-                                    pestaña.Controls.Add(notaPrivada);
-                                }
-                            }
-
-                        }
-
-                        bibliotecaTabControl.Controls.Add(pestaña);
-
-                        bibliotecaTabControl.SelectedTab = pestaña;
-                    }
-                };
-                if (libro.Abrir == true)
-                {
-                    TabPage pestañaLibro = new TabPage
-                    {
-                        Text = libro.Nombre,
-                        BackColor = Color.FromArgb(libro.Color)
-                    };
-                    pestañaLibro.Select();
-                    pestañaLibro.Controls.Add(InformacionLabel());
-                    pestañaLibro.MouseClick += (s, e) =>
-                    {
-                        int x = e.X;
-                        int y = e.Y;
-                        FormularioNotaForm formulario = new FormularioNotaForm();
-                        formulario.SetXY(x, y);
-                        formulario.NombreLibro = libro.Nombre;
-                        formulario.ShowDialog();
                         foreach (var nota in libro.Notas)
                         {
                             if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
                             {
                                 NotaControlForm notaControl = CrearNotaControl(nota);
+
                                 pestañaLibro.Controls.Add(notaControl);
                             }
                             else
                             {
                                 NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
-                                pestaña.Controls.Add(notaPrivada);
+
+                                pestañaLibro.Controls.Add(notaPrivada);
                             }
+
                         }
-
-                    };
-                    foreach (var nota in libro.Notas)
-                    {
-                        if (nota.Privacidad == false || nota.Usuario == nombreUsuario)
-                        {
-                            NotaControlForm notaControl = CrearNotaControl(nota);
-
-                            pestañaLibro.Controls.Add(notaControl);
-                        }
-                        else
-                        {
-                            NotaPrivadaControlForm notaPrivada = CrearNotaPrivada(nota);
-
-                            pestañaLibro.Controls.Add(notaPrivada);
-                        }
-
+                        bibliotecaTabControl.Controls.Add(pestañaLibro);
+                        bibliotecaTabControl.SelectedTab = pestañaLibro;
                     }
-                    bibliotecaTabControl.Controls.Add(pestañaLibro);
-                    bibliotecaTabControl.SelectedTab = pestañaLibro;
+                    contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width, bibliotecaTabControl.Size.Height);
+                    contenedorLibros.Controls.Add(libroControl);
+                    contenedorLibros.AutoScroll = true;
+
+                    biblioteca.Controls.Add(contenedorLibros);
+                
                 }
-                contenedorLibros.Size = new Size(bibliotecaTabControl.Size.Width, bibliotecaTabControl.Size.Height);
-                contenedorLibros.Controls.Add(libroControl);
-                contenedorLibros.AutoScroll = true;
+            
+                
 
-                biblioteca.Controls.Add(contenedorLibros);
-            }
-            if (Singlenton.Instance.NotaEditada == false)
-            {
-                bibliotecaTabControl.SelectedTab = biblioteca;
-            }
-
-
+            
         }
-
-        private void OrdenComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (ordenComboBox.Text == "Creciente")
-            {
-                List<Libro> librosAuxiliar = new List<Libro>();
-                librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
-                IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderBy(a => a.Nombre);
-
-                Singlenton.Instance.LibrosList.Clear();
-                Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
-            }
-            else
-            {
-                if (ordenComboBox.Text == "Decreciente")
-                {
-                    List<Libro> librosAuxiliar = new List<Libro>();
-                    librosAuxiliar.AddRange(Singlenton.Instance.LibrosList);
-                    IEnumerable<Libro> OrdenarAcedente = librosAuxiliar.OrderByDescending(a => a.Nombre);
-
-                    Singlenton.Instance.LibrosList.Clear();
-                    Singlenton.Instance.LibrosList.AddRange(OrdenarAcedente);
-
-                }
-            }
-
-        }
-
+      
         public void ActualizarPage()
         {
             MySqlDb mySqlDb = new MySqlDb
@@ -366,6 +322,10 @@ namespace noteBook.UNA.vistas
             }
         }
 
-       
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            CrearLibroDB();
+
+        }
     }
 }

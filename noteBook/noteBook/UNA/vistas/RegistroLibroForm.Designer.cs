@@ -40,31 +40,30 @@
             this.generoComboBox = new System.Windows.Forms.ComboBox();
             this.errorRegistroLibro = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
             this.formulario05Lbl = new System.Windows.Forms.Label();
+            this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.OrdenCBX = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.selectorColorImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorRegistroLibro)).BeginInit();
             this.SuspendLayout();
             // 
             // guardarBtn
             // 
-            this.guardarBtn.Location = new System.Drawing.Point(864, 496);
-            this.guardarBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.guardarBtn.Location = new System.Drawing.Point(437, 363);
             this.guardarBtn.Name = "guardarBtn";
-            this.guardarBtn.Size = new System.Drawing.Size(137, 28);
+            this.guardarBtn.Size = new System.Drawing.Size(103, 23);
             this.guardarBtn.TabIndex = 31;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
-
             this.guardarBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GuardarBtn_MouseClick);
             // 
             // colorLabel
             // 
             this.colorLabel.AutoSize = true;
-            this.colorLabel.Location = new System.Drawing.Point(196, 156);
-            this.colorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.colorLabel.Location = new System.Drawing.Point(147, 127);
             this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(41, 17);
+            this.colorLabel.Size = new System.Drawing.Size(31, 13);
             this.colorLabel.TabIndex = 30;
             this.colorLabel.Text = "Color";
             // 
@@ -72,32 +71,29 @@
             // 
             this.nombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-
-            this.nombreTxt.Location = new System.Drawing.Point(224, 94);
+            this.nombreTxt.Location = new System.Drawing.Point(204, 91);
+            this.nombreTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nombreTxt.MaxLength = 20;
-
             this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(447, 22);
+            this.nombreTxt.Size = new System.Drawing.Size(336, 20);
             this.nombreTxt.TabIndex = 27;
             this.nombreTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // generoLabel
             // 
             this.generoLabel.AutoSize = true;
-            this.generoLabel.Location = new System.Drawing.Point(196, 226);
-            this.generoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.generoLabel.Location = new System.Drawing.Point(147, 184);
             this.generoLabel.Name = "generoLabel";
-            this.generoLabel.Size = new System.Drawing.Size(56, 17);
+            this.generoLabel.Size = new System.Drawing.Size(42, 13);
             this.generoLabel.TabIndex = 26;
             this.generoLabel.Text = "Genero";
             // 
             // nombreLabel
             // 
             this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(196, 121);
-            this.nombreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nombreLabel.Location = new System.Drawing.Point(147, 98);
             this.nombreLabel.Name = "nombreLabel";
-            this.nombreLabel.Size = new System.Drawing.Size(58, 17);
+            this.nombreLabel.Size = new System.Drawing.Size(44, 13);
             this.nombreLabel.TabIndex = 25;
             this.nombreLabel.Text = "Nombre";
             // 
@@ -106,10 +102,9 @@
             this.tituloVistaLabel.AutoSize = true;
             this.tituloVistaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloVistaLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.tituloVistaLabel.Location = new System.Drawing.Point(365, 37);
-            this.tituloVistaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tituloVistaLabel.Location = new System.Drawing.Point(274, 30);
             this.tituloVistaLabel.Name = "tituloVistaLabel";
-            this.tituloVistaLabel.Size = new System.Drawing.Size(308, 39);
+            this.tituloVistaLabel.Size = new System.Drawing.Size(246, 31);
             this.tituloVistaLabel.TabIndex = 24;
             this.tituloVistaLabel.Text = "REGISTRO LIBRO";
             this.tituloVistaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,10 +113,9 @@
             // 
             this.selectorColorImage.BackColor = System.Drawing.Color.Red;
             this.selectorColorImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.selectorColorImage.Location = new System.Drawing.Point(299, 156);
-            this.selectorColorImage.Margin = new System.Windows.Forms.Padding(4);
+            this.selectorColorImage.Location = new System.Drawing.Point(221, 127);
             this.selectorColorImage.Name = "selectorColorImage";
-            this.selectorColorImage.Size = new System.Drawing.Size(43, 29);
+            this.selectorColorImage.Size = new System.Drawing.Size(33, 24);
             this.selectorColorImage.TabIndex = 32;
             this.selectorColorImage.TabStop = false;
             this.selectorColorImage.Click += new System.EventHandler(this.SelectorColorImage_Click);
@@ -130,10 +124,9 @@
             // 
             this.generoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.generoComboBox.FormattingEnabled = true;
-            this.generoComboBox.Location = new System.Drawing.Point(299, 219);
-            this.generoComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.generoComboBox.Location = new System.Drawing.Point(204, 181);
             this.generoComboBox.Name = "generoComboBox";
-            this.generoComboBox.Size = new System.Drawing.Size(447, 24);
+            this.generoComboBox.Size = new System.Drawing.Size(336, 21);
             this.generoComboBox.TabIndex = 33;
             this.generoComboBox.SelectionChangeCommitted += new System.EventHandler(this.GeneroComboBox_SelectionChangeCommitted);
             this.generoComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GeneroComboBox_MouseClick);
@@ -147,36 +140,58 @@
             this.toolTip1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.toolTip1.IsBalloon = true;
             // 
-            // contenedorCategoriasFP
-            // 
-
-            this.contenedorCategoriasFP.Location = new System.Drawing.Point(231, 214);
-            this.contenedorCategoriasFP.Margin = new System.Windows.Forms.Padding(2);
-
-          this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
-            this.contenedorCategoriasFP.Size = new System.Drawing.Size(193, 261);
-            this.contenedorCategoriasFP.TabIndex = 54;
-            // 
             // formulario05Lbl
             // 
             this.formulario05Lbl.AutoSize = true;
-            this.formulario05Lbl.Location = new System.Drawing.Point(13, 528);
-            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario05Lbl.Location = new System.Drawing.Point(10, 429);
             this.formulario05Lbl.Name = "formulario05Lbl";
-            this.formulario05Lbl.Size = new System.Drawing.Size(95, 17);
+            this.formulario05Lbl.Size = new System.Drawing.Size(70, 13);
             this.formulario05Lbl.TabIndex = 55;
             this.formulario05Lbl.Text = "Formulario 14";
+            // 
+            // contenedorCategoriasFP
+            // 
+            this.contenedorCategoriasFP.AutoScroll = true;
+            this.contenedorCategoriasFP.Location = new System.Drawing.Point(204, 228);
+            this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
+            this.contenedorCategoriasFP.Size = new System.Drawing.Size(336, 100);
+            this.contenedorCategoriasFP.TabIndex = 56;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(147, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Orden";
+            // 
+            // OrdenCBX
+            // 
+            this.OrdenCBX.FormattingEnabled = true;
+            this.OrdenCBX.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.OrdenCBX.Location = new System.Drawing.Point(204, 154);
+            this.OrdenCBX.Name = "OrdenCBX";
+            this.OrdenCBX.Size = new System.Drawing.Size(121, 21);
+            this.OrdenCBX.TabIndex = 58;
             // 
             // RegistroLibroForm
             // 
             this.AcceptButton = this.guardarBtn;
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(209)))), ((int)(((byte)(165)))));
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.formulario05Lbl);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OrdenCBX);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.contenedorCategoriasFP);
+            this.Controls.Add(this.formulario05Lbl);
             this.Controls.Add(this.generoComboBox);
             this.Controls.Add(this.selectorColorImage);
             this.Controls.Add(this.guardarBtn);
@@ -186,7 +201,6 @@
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.tituloVistaLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroLibroForm";
             this.Text = "RegistroLibro";
             this.Load += new System.EventHandler(this.RegistroLibroForm_Load);
@@ -211,7 +225,9 @@
         private System.Windows.Forms.ComboBox generoComboBox;
         private System.Windows.Forms.ErrorProvider errorRegistroLibro;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.FlowLayoutPanel contenedorCategoriasFP;
         private System.Windows.Forms.Label formulario05Lbl;
+        private System.Windows.Forms.FlowLayoutPanel contenedorCategoriasFP;
+        private System.Windows.Forms.ComboBox OrdenCBX;
+        private System.Windows.Forms.Label label1;
     }
 }
