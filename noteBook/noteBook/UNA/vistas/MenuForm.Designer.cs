@@ -47,6 +47,7 @@
             this.agregarBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.formulario05Lbl = new System.Windows.Forms.Label();
             this.superiorPanel.SuspendLayout();
             this.panelSuperio.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -160,6 +161,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(135)))), ((int)(((byte)(109)))));
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.formulario05Lbl);
             this.panelMenu.Controls.Add(this.cambiarUsuarioBtn);
             this.panelMenu.Controls.Add(this.transaccioneBtn);
             this.panelMenu.Controls.Add(this.busquedaBtn);
@@ -286,6 +288,16 @@
             // 
             this.timer2.Interval = 60000;
             // 
+            // formulario05Lbl
+            // 
+            this.formulario05Lbl.AutoSize = true;
+            this.formulario05Lbl.Location = new System.Drawing.Point(4, 662);
+            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario05Lbl.Name = "formulario05Lbl";
+            this.formulario05Lbl.Size = new System.Drawing.Size(144, 17);
+            this.formulario05Lbl.TabIndex = 13;
+            this.formulario05Lbl.Text = "Formulario 11 (Menu)";
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,6 +322,7 @@
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +346,6 @@
         private System.Windows.Forms.Button cambiarUsuarioBtn;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label TextoUsuarioFijoLbl;
+        private System.Windows.Forms.Label formulario05Lbl;
     }
 }

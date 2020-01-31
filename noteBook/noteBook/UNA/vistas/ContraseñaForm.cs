@@ -59,6 +59,16 @@ namespace noteBook.UNA.vistas
                     {
                         query = String.Format("UPDATE usuarios SET contrasena=('{0}') where id_usuario=('{1}')", Encriptacion.EncriptarString(ContraseñaNuevaTxt.Text, "contraseña"),
                             usuario.IdUsuario);
+                        Transaccion transaccion = new Transaccion
+
+                        {
+                            AccionRealizada = $"Se modifico la constraseña",
+                            InformacionAdicional = $"Se modifico la constraseña del usuario {AvatarTxt.Text} ",
+                            Objeto = $"Usuario {AvatarTxt.Text}",
+                            CodigoPagina = "Formulario 09"
+
+                        };
+                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                         mySqlDb.EjectSQL(query);
                         this.Close();
                     }

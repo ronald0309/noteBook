@@ -67,13 +67,25 @@ namespace noteBook.UNA.vistas
                         queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
                        nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
                         mySqlDb.EjectSQL(queryLibros);
+                        string transaccionGenero="";
                         foreach (Label labelGenero in contenedorCategoriasFP.Controls)
                         {
+                            transaccionGenero += (labelGenero.Text+", ");
                             string queryGenero = string.Format("Select id_genero from generos where nombre='" + labelGenero.Text + "'");
                             string queryLibro = string.Format("Select id_libro from libros where nombre='" + nombreTxt.Text + "'");
                             string queryGeneroLibros = string.Format("INSERT INTO generos_libros (id_libro,id_genero)VALUES('{0}','{1}')", mySqlDb.QuerySQL(queryLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(queryGenero).Rows[0][0].ToString());
                             mySqlDb.EjectSQL(queryGeneroLibros);
+                            
                         }
+                        Transaccion transaccion = new Transaccion
+                        {
+                            AccionRealizada = $"Se crea el libro {nombreTxt.Text}",
+                            InformacionAdicional = $"Se elimino la nota {nombreTxt.Text}, con el color {selectorColorImage.BackColor.ToArgb()} y los generos{ transaccionGenero} ",
+                            Objeto = $"Libro {nombreTxt.Text}",
+                            CodigoPagina = "Formulario 14"
+
+                        };
+                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                         mySqlDb.CloseConnection();
                         this.Close();
                     }
@@ -97,7 +109,7 @@ namespace noteBook.UNA.vistas
             }
         }
 
-        private void generoComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        private void GeneroComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             errorRegistroLibro.SetError(generoComboBox, null);
             bool isGeneroSeleccionado = false;
@@ -202,6 +214,5 @@ namespace noteBook.UNA.vistas
             mySqlDb.CloseConnection();
         }
 
-       
     }
 }

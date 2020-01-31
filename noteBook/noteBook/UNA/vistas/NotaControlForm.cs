@@ -322,6 +322,15 @@ namespace noteBook.UNA.vistas
                     {
                         string query = String.Format("delete from notas where titulo='" + TituloNota + "'");
                         mySqlDb.EjectSQL(query);
+                        Transaccion transaccion = new Transaccion
+                        {
+                            AccionRealizada = $"Se elimino la nota {TituloNota}",
+                            InformacionAdicional = $"Se elimino la nota {TituloNota}",
+                            Objeto = $"Nota {TituloNota}",
+                            CodigoPagina = "Formulario 12"
+
+                        };
+                        Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
                         Singlenton.Instance.NotaEditada = true;
                         Singlenton.Instance.miLibro.ActualizarPage();
                     }

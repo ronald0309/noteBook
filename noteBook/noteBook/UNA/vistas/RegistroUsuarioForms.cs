@@ -44,7 +44,7 @@ namespace noteBook.UNA.vistas
                
                 query = string.Format("INSERT INTO usuarios (nombre,apellido_primero,apellido_segundo,avatar,contrasena)VALUES('{0}','{1}','{2}','{3}','{4}')",
                 nombreUsuarioTxt.Text,primerApellidoTxt.Text,SegundoApellidoTxt.Text,NickTxt.Text,contrasenaEncrip);
-            
+                
                 mySqlDb.EjectSQL(query);
                 mySqlDb.CommitTransaction();
                 mySqlDb.CloseConnection();

@@ -97,6 +97,15 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}' where nombre=('{2}')", NombreModificado(), colorLibroDialog.Color.ToArgb(), tituloActualLabel.Text);
             mySqlDb.EjectSQL(queryActualizar);
+            Transaccion transaccion = new Transaccion
+            {
+                AccionRealizada = $"Se modifico el libro {tituloActualLabel.Text}",
+                InformacionAdicional = $"Se modifico el libro {tituloActualLabel.Text}, ahora contiene los datos; nombre {NombreModificado()}, color de fondo {colorLibroDialog.Color.ToArgb()}",
+                Objeto = $"Libro {tituloActualLabel.Text}",
+                CodigoPagina = "Formulario 10"
+
+            };
+            Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
             Singlenton.Instance.miLibro.ActualizarPage();
         }
 

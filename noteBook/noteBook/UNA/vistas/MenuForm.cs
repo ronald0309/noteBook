@@ -78,7 +78,7 @@ namespace noteBook.UNA.vistas
                     {
                         if (pantallaActiva == 3)
                         {
-                            this.nombreVistaLabel.Text = "Reportes(Formulario 04)";
+                            this.nombreVistaLabel.Text = "Transacciones(Formulario 04)";
                             TransaccionForm reporteForm = new TransaccionForm();
                             this.AbrirFormulario(reporteForm);
                         }

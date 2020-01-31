@@ -12,7 +12,7 @@ namespace noteBook.UNA.vistas
 {
     public partial class AccesoNotaPrivadaForm : Form
     {
-        private Nota notaAuxiliar;
+        private Nota notaPrivada;
         public AccesoNotaPrivadaForm()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace noteBook.UNA.vistas
        
         public void ResibirNota(Object nota)
         {
-            notaAuxiliar = (Nota)nota;
+            notaPrivada = (Nota)nota;
         }
         private void Aceptarbtn_Click(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace noteBook.UNA.vistas
             string categoriaEncrip = "";
             foreach (DataRow row in mySqlDb.QuerySQL(query).Rows)
             {
-                if (Encriptacion.DesencriptarString(row["titulo"].ToString(), "titu") == notaAuxiliar.Titulo.ToString())
+                if (Encriptacion.DesencriptarString(row["titulo"].ToString(), "titu") == notaPrivada.Titulo.ToString())
                 {
                     idNota = row["id_nota"].ToString();
                     tituloEncrip = Encriptacion.DesencriptarString(row["titulo"].ToString(), "titu");
@@ -54,6 +54,16 @@ namespace noteBook.UNA.vistas
                     mySqlDb.EjectSQL(queryN);
                     mySqlDb.CloseConnection();
                     Singlenton.Instance.miLibro.ActualizarPage();
+                    Transaccion transaccion= new Transaccion
+                    {
+                        AccionRealizada = "Se abre una nota privada",
+                        InformacionAdicional = $"El usuario {Singlenton.Instance.usuarioActual.NombreUsuario} abrio la nota {notaPrivada.Titulo}",
+                        Objeto = "Nota Privada",
+                        CodigoPagina = "Formulario 05"
+
+                    };
+                    Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
+
                     this.Close();
                 }
                 else

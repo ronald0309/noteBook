@@ -56,6 +56,7 @@ namespace noteBook.UNA.vistas
             };
             notaControl.MouseHover += NotaControl_MouseHover;
             notaControl.MouseMove += NotaControl_MouseMove;
+            
             return notaControl;
         }
 
@@ -118,7 +119,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
 
             string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
-            //  Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query));
+            
             String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
 
             bibliotecaTabControl.Controls.Clear();
@@ -147,8 +148,8 @@ namespace noteBook.UNA.vistas
                     BackColor = Color.FromArgb(libro.Color),
                     
                 };
-                pestaña.Controls.Add(InformacionLabel());
-
+              
+                pestaña.Controls.Add(value: InformacionLabel());
                 libroControl.MouseClick += (a, b) =>
                 {
 

@@ -54,6 +54,7 @@
             this.VerLibrosCheck = new System.Windows.Forms.CheckBox();
             this.SegundoApellidoLabel = new System.Windows.Forms.Label();
             this.SegundoApellidoTxt = new System.Windows.Forms.TextBox();
+            this.formulario05Lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.registroUsuarioErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -313,6 +314,16 @@
             this.SegundoApellidoTxt.Size = new System.Drawing.Size(231, 22);
             this.SegundoApellidoTxt.TabIndex = 79;
             // 
+            // formulario05Lbl
+            // 
+            this.formulario05Lbl.AutoSize = true;
+            this.formulario05Lbl.Location = new System.Drawing.Point(589, 242);
+            this.formulario05Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.formulario05Lbl.Name = "formulario05Lbl";
+            this.formulario05Lbl.Size = new System.Drawing.Size(95, 17);
+            this.formulario05Lbl.TabIndex = 80;
+            this.formulario05Lbl.Text = "Formulario 15";
+            // 
             // RegistroUsuarioForms
             // 
             this.AcceptButton = this.aceptarBtn;
@@ -321,6 +332,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
             this.CancelButton = this.cancelarBtn;
             this.ClientSize = new System.Drawing.Size(692, 268);
+            this.Controls.Add(this.formulario05Lbl);
             this.Controls.Add(this.SegundoApellidoTxt);
             this.Controls.Add(this.SegundoApellidoLabel);
             this.Controls.Add(this.VerLibrosCheck);
@@ -384,5 +396,6 @@
         private System.Windows.Forms.CheckBox VerNotasCheck;
         private System.Windows.Forms.Label SegundoApellidoLabel;
         private System.Windows.Forms.TextBox SegundoApellidoTxt;
+        private System.Windows.Forms.Label formulario05Lbl;
     }
 }

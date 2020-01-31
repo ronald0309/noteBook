@@ -88,6 +88,15 @@ namespace noteBook.UNA.vistas
                 string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
                 TituloTxt.Text, CategoriaTxt.Text, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152, 0, FechaActual());
                 mySqlDb.EjectSQL(queryLibros);
+                Transaccion transaccion = new Transaccion
+                {
+                    AccionRealizada = $"Se creo la nota {TituloTxt.Text}",
+                    InformacionAdicional = $"Se creo una nota de nombre {TituloTxt.Text}, con la categoria {CategoriaTxt.Text}, con la fuente {FuenteComboBox.Text}, el color de fondo { colorDialog1.Color.ToArgb()}, el color de fuente {colorDialog2.Color.ToArgb()} ",
+                    Objeto = $"Nota {TituloTxt.Text}",
+                    CodigoPagina = "Formulario 07"
+
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
             }
             else { MessageBox.Show("Ya existe una nota con ese titulo"); }
         }
@@ -106,6 +115,15 @@ namespace noteBook.UNA.vistas
                 string queryLibros = string.Format("INSERT INTO notas(id_libro,titulo,categoria,fuente,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh,privacidad,fecha_creacion)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", Convert.ToInt16(mySqlDb.QuerySQL(queryid).Rows[0][0].ToString()),
                     tituloEncriptado, categoriaEncriptado, FuenteComboBox.Text, colorDialog1.Color.ToArgb(), x, y, colorDialog2.Color.ToArgb(), 155, 152, 1, FechaActual());
                 mySqlDb.EjectSQL(queryLibros);
+                Transaccion transaccion = new Transaccion
+                {
+                    AccionRealizada = $"Se creo una nota privada",
+                    InformacionAdicional = $"Se creo una nota privada",
+                    Objeto = $"Nota privada",
+                    CodigoPagina = "Formulario 07"
+
+                };
+                Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
             }
             else { MessageBox.Show("Ya existe una nota con ese titulo"); }
         }

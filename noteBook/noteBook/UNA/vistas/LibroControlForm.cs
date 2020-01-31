@@ -101,7 +101,7 @@ namespace noteBook.UNA.vistas
                             AccionRealizada= $"Se elimina el libro{this.TituloLabel.Text}",
                             InformacionAdicional= $"Se elimino la libro {this.TituloLabel.Text}",
                             Objeto= $"Libro {this.TituloLabel.Text}",
-                            CodigoPagina= "Formulario 02"
+                            CodigoPagina= "Formulario 16"
 
                         };Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
 
