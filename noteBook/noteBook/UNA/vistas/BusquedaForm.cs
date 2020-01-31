@@ -146,14 +146,9 @@ namespace UNA.noteBook.vistas
                 };
                 mySqlDb.OpenConnection();
                 string query="";
-                if (generoCbx.Text.Length != 0 && nombreTxt.Text.Length != 0)
-                {
+              
                     query = String.Format("select l.nombre, l.color, g.nombre from libros l join generos_libros gl on gl.id_libro = l.id_libro join generos g on g.id_genero = gl.id_genero join usuarios u on u.avatar = '{0}' where l.nombre like '%{1}%' and g.nombre like '%{2}%'", Singlenton.Instance.usuarioActual.NombreUsuario, nombreTxt.Text, generoCbx.Text);
-                }
-                //if (generoCbx.Text.Length == 0 && nombreTxt.Text.Length != 0) {
                 
-                //    query = String.Format("select l.nombre, l.color, g.nombre from libros l join generos_libros gl on gl.id_libro = l.id_libro join usuarios u on u.avatar = '{0}' where l.nombre like '%{1}%'", Singlenton.Instance.usuarioActual.NombreUsuario, nombreTxt.Text);
-                //} 
             
                 foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
                 {
