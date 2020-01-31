@@ -28,9 +28,7 @@ namespace noteBook.UNA.vistas
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-
             string queryNot = String.Format("Select nombre,color from libros where nombre='{0}'", nombre);
-
             foreach (DataRow data in mySqlDb.QuerySQL(queryNot).Rows)
             {
                 tituloActualLabel.Text = data["nombre"].ToString();
@@ -82,7 +80,7 @@ namespace noteBook.UNA.vistas
                     if (label.Text == categoria)
                         contenedorCategoriasFP.Controls.Remove(label);
                     generosEliminados.Add(label.Text);
-                    
+                    //   generos.Remove(categoria);
                 }
 
 
@@ -116,87 +114,76 @@ namespace noteBook.UNA.vistas
         }
         public void EditarLibro()
         {
-            MySqlDb mySqlDb = new MySqlDb
-            {
-                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
-            };
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             mySqlDb.OpenConnection();
             string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}' where nombre=('{2}')", NombreModificado(), colorLibroDialog.Color.ToArgb(), tituloActualLabel.Text);
             mySqlDb.EjectSQL(queryActualizar);
-
-            Transaccion transaccion = new Transaccion
-            {
-                AccionRealizada = $"Se modifico el libro {tituloActualLabel.Text}",
-                InformacionAdicional = $"Se modifico el libro {tituloActualLabel.Text}, ahora contiene los datos; nombre {NombreModificado()}, color de fondo {colorLibroDialog.Color.ToArgb()}",
-                Objeto = $"Libro {tituloActualLabel.Text}",
-                CodigoPagina = "Formulario 10"
-
-            };
-            Singlenton.Instance.transaccion.CargarDatosTransacciones(transaccion);
-            Singlenton.Instance.miLibro.ActualizarPage();
-
             Singlenton.Instance.miLibro.CrearLibroDB();
         }
-        public void EditarCategorias() {
+        public void EditarCategorias()
+        {
             MySqlDb mySqlDb = new MySqlDb();
             mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             mySqlDb.OpenConnection();
             String idLibro = String.Format("Select id_libro from libros where nombre='{0}'", tituloActualLabel.Text);
-            foreach (var generos in generosSeleccionados) {
+            foreach (var generos in generosSeleccionados)
+            {
                 String idGenero = String.Format("Select id_genero from generos where nombre='{0}'", generos);
-               
-                String selecionarGenero= String.Format("Select id_libro from generos_libros where id_libro='{0}' and id_genero='{1}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(idGenero).Rows[0][0].ToString());
+
+                String selecionarGenero = String.Format("Select id_libro from generos_libros where id_libro='{0}' and id_genero='{1}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(idGenero).Rows[0][0].ToString());
                 if (mySqlDb.QuerySQL(selecionarGenero).Rows.Count == 0)
                 {
                     string queryLibros = string.Format("INSERT INTO generos_libros(id_libro,id_genero)values('{0}','{1}') ", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(idGenero).Rows[0][0].ToString());
                     mySqlDb.EjectSQL(queryLibros);
                 }
-           
+
             }
-            foreach (var generosEliminados in generosEliminados) {
+            foreach (var generosEliminados in generosEliminados)
+            {
                 String idGenerosEliminados = String.Format("Select id_genero from generos where nombre='{0}'", generosEliminados);
                 String SelecionarGenerosEliminados = String.Format("Select id_libro from generos_libros where id_libro='{0}' and id_genero='{1}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(idGenerosEliminados).Rows[0][0].ToString());
-                if (mySqlDb.QuerySQL(SelecionarGenerosEliminados).Rows.Count == 1) {
+                if (mySqlDb.QuerySQL(SelecionarGenerosEliminados).Rows.Count == 1)
+                {
                     string query = String.Format("delete from generos_libros where id_libro='{0}' and id_genero='{1}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString(), mySqlDb.QuerySQL(idGenerosEliminados).Rows[0][0].ToString());
                     mySqlDb.EjectSQL(query);
                 }
             }
-          
+
+
+
+
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
         {
             EditarCategorias();
             EditarLibro();
-            
-        }
-
-
-        private void CancelarBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
 
         }
+
+
+
         private void agregarCategoria_MouseClick(object sender, MouseEventArgs e)
         {
-            
 
-                MySqlDb mySqlDb = new MySqlDb
-                {
-                    ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
-                };
-                mySqlDb.OpenConnection();
-                string queryGeneros = string.Format("SELECT nombre from generos");
-                foreach (DataRow genero in mySqlDb.QuerySQL(queryGeneros).Rows)
-                {
-                    string nuevoGenero = genero["nombre"].ToString();
-               
-                 generos.Add(nuevoGenero);
+
+            MySqlDb mySqlDb = new MySqlDb
+            {
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
+            };
+            mySqlDb.OpenConnection();
+            string queryGeneros = string.Format("SELECT nombre from generos");
+            foreach (DataRow genero in mySqlDb.QuerySQL(queryGeneros).Rows)
+            {
+                string nuevoGenero = genero["nombre"].ToString();
+
+                generos.Add(nuevoGenero);
             }
 
             agregarCategoria.DataSource = generos;
             mySqlDb.CloseConnection();
-            }
+        }
 
         private void agregarCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -219,7 +206,7 @@ namespace noteBook.UNA.vistas
                 }
                 if (isGeneroSeleccionado)
                 {
-                 ErrorCambiarDatos.SetError(agregarCategoria, "El genero ya fue seleccionado");
+                    ErrorCambiarDatos.SetError(agregarCategoria, "El genero ya fue seleccionado");
                 }
                 else
                 {
@@ -231,4 +218,4 @@ namespace noteBook.UNA.vistas
 
         }
     }
-    }
+}

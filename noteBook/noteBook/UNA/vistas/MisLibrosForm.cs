@@ -119,7 +119,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
 
             string query = String.Format("Select nombre,color from libros where id_usuario=(Select id_usuario from usuarios where avatar='{0}')", Singlenton.Instance.usuarioActual.NombreUsuario);
-            
+            //  Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query));
             String nombreUsuario = Singlenton.Instance.usuarioActual.NombreUsuario;
 
             bibliotecaTabControl.Controls.Clear();
@@ -132,41 +132,27 @@ namespace noteBook.UNA.vistas
             bibliotecaTabControl.Controls.Add(biblioteca);
 
             FlowLayoutPanel contenedorLibros = new FlowLayoutPanel();
-            
+            //  foreach (var libro in Singlenton.Instance.LibrosList)
             foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
             {
-                     LibroControlForm libroControl = new LibroControlForm
-                        {
-                         
-                            Nombre = libro.Nombre,
-                            ColorLibro = libro.Color,
-                          
-                        };
-                     string idLibro = string.Format("Select id_libro from libros where nombre='{0}'",libro.Nombre);
-                     string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
-               DataTable data= mySqlDb.QuerySQL(idGenero);
-                foreach (DataRow dataRow in data.Rows)
-                { 
-                    string nombreGeneros = String.Format("Select nombre from generos where id_genero='{0}'",Convert.ToInt16(dataRow["id_genero"].ToString()));
-                     libroControl.Genero=libroControl.Genero+"/" +mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
-                   }
-                    TabPage pestaña = new TabPage();
-
 
                 LibroControlForm libroControl = new LibroControlForm
                 {
+
                     Nombre = libro.Nombre,
-                    Genero = libro.Genero,
-                    ColorLibro = libro.Color
+                    ColorLibro = libro.Color,
+
                 };
-                TabPage pestaña = new TabPage
+                string idLibro = string.Format("Select id_libro from libros where nombre='{0}'", libro.Nombre);
+                string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
+                DataTable data = mySqlDb.QuerySQL(idGenero);
+                foreach (DataRow dataRow in data.Rows)
                 {
-                    Text = libro.Nombre,
-                    BackColor = Color.FromArgb(libro.Color),
-                    
-                };
-              
-                pestaña.Controls.Add(value: InformacionLabel());
+                    string nombreGeneros = String.Format("Select nombre from generos where id_genero='{0}'", Convert.ToInt16(dataRow["id_genero"].ToString()));
+                    libroControl.Genero = libroControl.Genero + "/" + mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
+                }
+                TabPage pestaña = new TabPage();
+
                 libroControl.MouseClick += (a, b) =>
                 {
 
@@ -175,6 +161,8 @@ namespace noteBook.UNA.vistas
                         libro.Abrir = true;
                         libroControl.Abierto = true;
 
+                        pestaña.Text = libro.Nombre;
+                        pestaña.BackColor = Color.FromArgb(libro.Color);
                         pestaña.Select();
                         pestaña.MouseClick += (s, e) =>
                         {
@@ -185,11 +173,10 @@ namespace noteBook.UNA.vistas
                             formulario.NombreLibro = libro.Nombre;
                             formulario.ShowDialog();
                             string queryNot = String.Format("Select privacidad,titulo,fecha_creacion,categoria,color_fondo,posicion_x,posicion_y,color_fuente,width,heigh from notas where(id_libro=(select id_libro from libros where nombre=('{0}')))", libroControl.Nombre);
-
                             foreach (var nota in Singlenton.Instance.listNotafromDb.GetListFromDataTable(mySqlDb.QuerySQL(queryNot)))
                             {
-                                      
-                                        if (nota.Privacidad == false)
+                                // MessageBox.Show(nota.Titulo);
+                                if (nota.Privacidad == false)
                                 {
                                     NotaControlForm notaControl = CrearNotaControl(nota);
                                     pestaña.Controls.Add(notaControl);
@@ -201,7 +188,6 @@ namespace noteBook.UNA.vistas
                                 }
 
                             }
-
                         };
                         if (libro.Abrir == true)
                         {
@@ -220,7 +206,6 @@ namespace noteBook.UNA.vistas
                                     pestaña.Controls.Add(notaPrivada);
                                 }
                             }
-
                         }
 
                         bibliotecaTabControl.Controls.Add(pestaña);
@@ -236,7 +221,6 @@ namespace noteBook.UNA.vistas
                         BackColor = Color.FromArgb(libro.Color)
                     };
                     pestañaLibro.Select();
-                    pestañaLibro.Controls.Add(InformacionLabel());
                     pestañaLibro.MouseClick += (s, e) =>
                     {
                         int x = e.X;
