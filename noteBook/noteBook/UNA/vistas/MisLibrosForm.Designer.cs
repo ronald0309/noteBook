@@ -30,9 +30,9 @@
         {
             this.bibliotecaTabControl = new System.Windows.Forms.TabControl();
             this.FondoPanel = new System.Windows.Forms.Panel();
+            this.cerrarLibroActual = new System.Windows.Forms.Button();
             this.ordenLabel = new System.Windows.Forms.Label();
             this.ordenComboBox = new System.Windows.Forms.ComboBox();
-            this.cerrarLibroActual = new System.Windows.Forms.Button();
             this.FondoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             this.bibliotecaTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.bibliotecaTabControl.TabIndex = 1;
             this.bibliotecaTabControl.TabStop = false;
-            // 
+       // 
             // FondoPanel
             // 
             this.FondoPanel.Controls.Add(this.cerrarLibroActual);
@@ -58,6 +58,16 @@
             this.FondoPanel.Name = "FondoPanel";
             this.FondoPanel.Size = new System.Drawing.Size(800, 32);
             this.FondoPanel.TabIndex = 0;
+            // 
+            // cerrarLibroActual
+            // 
+            this.cerrarLibroActual.Location = new System.Drawing.Point(713, 6);
+            this.cerrarLibroActual.Name = "cerrarLibroActual";
+            this.cerrarLibroActual.Size = new System.Drawing.Size(75, 21);
+            this.cerrarLibroActual.TabIndex = 2;
+            this.cerrarLibroActual.Text = "Cerrar";
+            this.cerrarLibroActual.UseVisualStyleBackColor = true;
+            this.cerrarLibroActual.Click += new System.EventHandler(this.CerrarLibroActual_Click);
             // 
             // ordenLabel
             // 
@@ -84,17 +94,7 @@
             this.ordenComboBox.TabIndex = 1;
             this.ordenComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdenComboBox_SelectedIndexChanged);
             // 
-            // cerrarLibroActual
-            // 
-            this.cerrarLibroActual.Location = new System.Drawing.Point(713, 6);
-            this.cerrarLibroActual.Name = "cerrarLibroActual";
-            this.cerrarLibroActual.Size = new System.Drawing.Size(75, 21);
-            this.cerrarLibroActual.TabIndex = 2;
-            this.cerrarLibroActual.Text = "Cerrar";
-            this.cerrarLibroActual.UseVisualStyleBackColor = true;
-            this.cerrarLibroActual.Click += new System.EventHandler(this.CerrarLibroActual_Click);
-            // 
-            // MisLibros
+            // MisLibrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +102,7 @@
             this.Controls.Add(this.bibliotecaTabControl);
             this.Controls.Add(this.FondoPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MisLibros";
+            this.Name = "MisLibrosForm";
             this.Text = "MisLibros";
             this.FondoPanel.ResumeLayout(false);
             this.FondoPanel.PerformLayout();

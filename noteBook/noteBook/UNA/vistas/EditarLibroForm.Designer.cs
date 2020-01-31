@@ -38,15 +38,20 @@
             this.editarLibroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.generoCombobox = new System.Windows.Forms.ComboBox();
             this.categoriaCBX = new System.Windows.Forms.Label();
-            this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
             this.cancelarBtn = new System.Windows.Forms.Button();
             this.aceptarBtn = new System.Windows.Forms.Button();
             this.errorProviderEditarNotas = new System.Windows.Forms.ErrorProvider(this.components);
             this.tituloActualLabel = new System.Windows.Forms.Label();
+
             this.formulario05Lbl = new System.Windows.Forms.Label();
+
+            this.ErrorCambiarDatos = new System.Windows.Forms.ErrorProvider(this.components);
+            this.contenedorCategoriasFP = new System.Windows.Forms.FlowLayoutPanel();
+
             ((System.ComponentModel.ISupportInitialize)(this.colorPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editarLibroErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorCambiarDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // colorPB
@@ -110,12 +115,16 @@
             // 
             // generoCombobox
             // 
-            this.generoCombobox.FormattingEnabled = true;
-            this.generoCombobox.Location = new System.Drawing.Point(195, 181);
-            this.generoCombobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.generoCombobox.Name = "generoCombobox";
-            this.generoCombobox.Size = new System.Drawing.Size(188, 24);
-            this.generoCombobox.TabIndex = 51;
+
+            this.agregarCategoria.FormattingEnabled = true;
+            this.agregarCategoria.Location = new System.Drawing.Point(146, 147);
+            this.agregarCategoria.Margin = new System.Windows.Forms.Padding(2);
+            this.agregarCategoria.Name = "agregarCategoria";
+            this.agregarCategoria.Size = new System.Drawing.Size(142, 21);
+            this.agregarCategoria.TabIndex = 51;
+            this.agregarCategoria.SelectedIndexChanged += new System.EventHandler(this.agregarCategoria_SelectedIndexChanged);
+            this.agregarCategoria.MouseClick += new System.Windows.Forms.MouseEventHandler(this.agregarCategoria_MouseClick);
+
             // 
             // categoriaCBX
             // 
@@ -129,6 +138,7 @@
             this.categoriaCBX.TabIndex = 52;
             this.categoriaCBX.Text = "Generos:";
             // 
+
             // contenedorCategoriasFP
             // 
             this.contenedorCategoriasFP.Location = new System.Drawing.Point(195, 210);
@@ -137,6 +147,7 @@
             this.contenedorCategoriasFP.Size = new System.Drawing.Size(200, 118);
             this.contenedorCategoriasFP.TabIndex = 53;
             // 
+
             // cancelarBtn
             // 
             this.cancelarBtn.BackColor = System.Drawing.Color.AliceBlue;
@@ -149,7 +160,9 @@
             this.cancelarBtn.TabIndex = 54;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
+
             this.cancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
+
             // 
             // aceptarBtn
             // 
@@ -179,6 +192,7 @@
             this.tituloActualLabel.TabIndex = 56;
             this.tituloActualLabel.Text = "Titulo";
             // 
+
             // formulario05Lbl
             // 
             this.formulario05Lbl.AutoSize = true;
@@ -188,18 +202,32 @@
             this.formulario05Lbl.Size = new System.Drawing.Size(95, 17);
             this.formulario05Lbl.TabIndex = 57;
             this.formulario05Lbl.Text = "Formulario 10";
+
+            // ErrorCambiarDatos
+            // 
+            this.ErrorCambiarDatos.ContainerControl = this;
+            // 
+            // contenedorCategoriasFP
+            // 
+            this.contenedorCategoriasFP.AutoScroll = true;
+            this.contenedorCategoriasFP.Location = new System.Drawing.Point(34, 173);
+            this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
+            this.contenedorCategoriasFP.Size = new System.Drawing.Size(290, 94);
+            this.contenedorCategoriasFP.TabIndex = 57;
+
             // 
             // EditarLibroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(67)))), ((int)(((byte)(191)))));
-            this.ClientSize = new System.Drawing.Size(448, 395);
-            this.Controls.Add(this.formulario05Lbl);
+
+            this.ClientSize = new System.Drawing.Size(336, 321);
+            this.Controls.Add(this.contenedorCategoriasFP);
+
             this.Controls.Add(this.tituloActualLabel);
             this.Controls.Add(this.cancelarBtn);
             this.Controls.Add(this.aceptarBtn);
-            this.Controls.Add(this.contenedorCategoriasFP);
             this.Controls.Add(this.categoriaCBX);
             this.Controls.Add(this.generoCombobox);
             this.Controls.Add(this.tituloVistaLabel);
@@ -208,13 +236,16 @@
             this.Controls.Add(this.fuenteLabel);
             this.Controls.Add(this.formularioLabelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.Margin = new System.Windows.Forms.Padding(2);
+
             this.Name = "EditarLibroForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarLibroForm";
             ((System.ComponentModel.ISupportInitialize)(this.colorPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editarLibroErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEditarNotas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorCambiarDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,13 +260,17 @@
         private System.Windows.Forms.Label tituloVistaLabel;
         private System.Windows.Forms.ColorDialog colorLibroDialog;
         private System.Windows.Forms.ErrorProvider editarLibroErrorProvider;
-        private System.Windows.Forms.FlowLayoutPanel contenedorCategoriasFP;
         private System.Windows.Forms.Label categoriaCBX;
         private System.Windows.Forms.ComboBox generoCombobox;
         private System.Windows.Forms.Button cancelarBtn;
         private System.Windows.Forms.Button aceptarBtn;
         private System.Windows.Forms.ErrorProvider errorProviderEditarNotas;
         private System.Windows.Forms.Label tituloActualLabel;
+
         private System.Windows.Forms.Label formulario05Lbl;
+
+        private System.Windows.Forms.ErrorProvider ErrorCambiarDatos;
+        private System.Windows.Forms.FlowLayoutPanel contenedorCategoriasFP;
+
     }
 }

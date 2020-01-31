@@ -49,14 +49,12 @@ namespace noteBook.UNA.vistas
                         busquedaNotasPanel.Controls.Add(notaC);
 
                     }
-                }else
-                {
-                    MessageBox.Show("No se han agregado notas");
                 }
-
+                else {
+                    MessageBox.Show("No hay notas creadas");
+                }
+               
             }
-
-            
 
         }
         protected override CreateParams CreateParams
@@ -111,7 +109,7 @@ namespace noteBook.UNA.vistas
 
                 }
             }
-           
+
         }
 
         private void CategoriaTxt_TextChanged_1(object sender, EventArgs e)

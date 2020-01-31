@@ -135,6 +135,23 @@ namespace noteBook.UNA.vistas
             
             foreach (var libro in Singlenton.Instance.listfromDb.GetListFromDataTable(mySqlDb.QuerySQL(query)))
             {
+                     LibroControlForm libroControl = new LibroControlForm
+                        {
+                         
+                            Nombre = libro.Nombre,
+                            ColorLibro = libro.Color,
+                          
+                        };
+                     string idLibro = string.Format("Select id_libro from libros where nombre='{0}'",libro.Nombre);
+                     string idGenero = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(idLibro).Rows[0][0].ToString());
+               DataTable data= mySqlDb.QuerySQL(idGenero);
+                foreach (DataRow dataRow in data.Rows)
+                { 
+                    string nombreGeneros = String.Format("Select nombre from generos where id_genero='{0}'",Convert.ToInt16(dataRow["id_genero"].ToString()));
+                     libroControl.Genero=libroControl.Genero+"/" +mySqlDb.QuerySQL(nombreGeneros).Rows[0][0].ToString();
+                   }
+                    TabPage pestaña = new TabPage();
+
 
                 LibroControlForm libroControl = new LibroControlForm
                 {
@@ -348,5 +365,7 @@ namespace noteBook.UNA.vistas
                 bibliotecaTabControl.Controls.Remove(bibliotecaTabControl.SelectedTab);
             }
         }
+
+       
     }
 }

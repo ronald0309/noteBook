@@ -15,6 +15,7 @@ namespace noteBook.UNA.vistas
         public LibroControlForm()
         {
             InitializeComponent();
+            timerMovimiento.Enabled = true;
         }
         string nombre;
         string genero;
@@ -118,9 +119,32 @@ namespace noteBook.UNA.vistas
         private void EditarBtn_Click(object sender, EventArgs e)
         {
             EditarLibroForm editarLibro = new EditarLibroForm();
-            editarLibro.CargarDatos(TituloLabel.Text);
+            editarLibro.CargarDatos(Nombre);
             editarLibro.ShowDialog();
         }
 
+        private void timerMovimiento_Tick(object sender, EventArgs e)
+        {       
+            
+                if (GeneroLabel.Left <= 0 - GeneroLabel.Width)
+                {
+                    GeneroLabel.Left = this.Width;
+                }
+                else
+                {
+                    GeneroLabel.Left = GeneroLabel.Left - 1;
+                }
+            if (TituloLabel.Text.Length > 10) {
+
+                if (TituloLabel.Left <= 0 - TituloLabel.Width)
+                {
+                    TituloLabel.Left = this.Width;
+                }
+                else
+                {
+                 TituloLabel.Left = TituloLabel.Left- 1;
+                }
+            }
+        }
     }
 }
