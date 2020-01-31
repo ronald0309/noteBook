@@ -61,9 +61,7 @@ namespace noteBook.UNA.vistas
                 else
                 {
                     string queryU = string.Format("Select id_usuario from usuarios where avatar='" + Singlenton.Instance.UsuarioActivo() + "'");
-                    String queryPermiso = String.Format("Select id_permiso from permisos_personas where id_usuario='{0}'and id_permiso=1", mySqlDb.QuerySQL(queryU).Rows[0][0].ToString());
-                    if (mySqlDb.QuerySQL(queryPermiso).Rows[0][0].ToString() == "1")
-                    {
+                    
                         queryLibros = string.Format("INSERT INTO libros (nombre,color,id_usuario,orden)VALUES('{0}','{1}','{2}','{3}')",
                        nombreTxt.Text, selectorColorImage.BackColor.ToArgb(), mySqlDb.QuerySQL(queryU).Rows[0][0].ToString(), "1");
                         mySqlDb.EjectSQL(queryLibros);
@@ -76,7 +74,7 @@ namespace noteBook.UNA.vistas
                         }
                         mySqlDb.CloseConnection();
                         this.Close();
-                    }
+                    
                 }
 
             }
@@ -196,13 +194,16 @@ namespace noteBook.UNA.vistas
             foreach (DataRow genero in mySqlDb.QuerySQL(queryGeneros).Rows)
             {
                 string nuevoGenero = genero["nombre"].ToString();
-                generos.Add(nuevoGenero);
+                // generos.Add(nuevoGenero);
             }
             generoComboBox.DataSource = generos;
 
             mySqlDb.CloseConnection();
         }
 
-      
+        private void guardarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

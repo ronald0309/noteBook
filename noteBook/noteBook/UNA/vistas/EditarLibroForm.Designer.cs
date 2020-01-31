@@ -106,10 +106,11 @@
             // 
             this.agregarCategoria.FormattingEnabled = true;
             this.agregarCategoria.Location = new System.Drawing.Point(146, 147);
-            this.agregarCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.agregarCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.agregarCategoria.Name = "agregarCategoria";
             this.agregarCategoria.Size = new System.Drawing.Size(142, 21);
             this.agregarCategoria.TabIndex = 51;
+            this.agregarCategoria.MouseClick += new System.Windows.Forms.MouseEventHandler(this.agregarCategoria_MouseClick);
             // 
             // categoriaCBX
             // 
@@ -125,7 +126,7 @@
             // contenedorCategoriasFP
             // 
             this.contenedorCategoriasFP.Location = new System.Drawing.Point(146, 171);
-            this.contenedorCategoriasFP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contenedorCategoriasFP.Margin = new System.Windows.Forms.Padding(2);
             this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
             this.contenedorCategoriasFP.Size = new System.Drawing.Size(150, 96);
             this.contenedorCategoriasFP.TabIndex = 53;
@@ -141,7 +142,6 @@
             this.cancelarBtn.TabIndex = 54;
             this.cancelarBtn.Text = "Cancelar";
             this.cancelarBtn.UseVisualStyleBackColor = false;
-            this.cancelarBtn.Click += new System.EventHandler(this.cancelarBtn_Click);
             // 
             // aceptarBtn
             // 
@@ -187,7 +187,7 @@
             this.Controls.Add(this.fuenteLabel);
             this.Controls.Add(this.formularioLabelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditarLibroForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarLibroForm";

@@ -129,11 +129,20 @@ namespace noteBook.UNA.vistas
 
                         LibroControlForm libroControl = new LibroControlForm
                         {
+                         
                             Nombre = libro.Nombre,
-                            Genero = libro.Genero,
-                            ColorLibro = libro.Color
+                            ColorLibro = libro.Color,
+                          
                         };
-                        TabPage pestaña = new TabPage();
+                     string cate = string.Format("Select id_libro from libros where nombre='{0}'",libro.Nombre);
+                     string cate2 = string.Format("SELECT id_genero from generos_libros where id_libro='{0}'", mySqlDb.QuerySQL(cate).Rows[0][0].ToString());
+               DataTable data= mySqlDb.QuerySQL(cate2);
+                foreach (DataRow dataRow in data.Rows)
+                { 
+                    string cate3 = String.Format("Select nombre from generos where id_genero='{0}'",Convert.ToInt16(dataRow["id_genero"].ToString()));
+                     libroControl.Genero=libroControl.Genero+"/" +mySqlDb.QuerySQL(cate3).Rows[0][0].ToString();
+                   }
+                    TabPage pestaña = new TabPage();
 
                         libroControl.MouseClick += (a, b) =>
                         {
@@ -383,5 +392,7 @@ namespace noteBook.UNA.vistas
                 bibliotecaTabControl.Controls.Remove(bibliotecaTabControl.SelectedTab);
             }
         }
+
+       
     }
 }

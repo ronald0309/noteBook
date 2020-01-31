@@ -18,23 +18,30 @@ namespace noteBook.UNA.vistas
         {
             InitializeComponent();
         }
-        public void CargarDatos(string titulo)
-        {
+        public void CargarDatos(string nombre)
+        { 
             MySqlDb mySqlDb = new MySqlDb
             {
                 ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString
             };
             mySqlDb.OpenConnection();
-            string queryNot = String.Format("Select nombre,color from libros where nombre=nombre");
+            string queryNot = String.Format("Select nombre,color from libros where nombre='{0}'",nombre);
             foreach (DataRow data in mySqlDb.QuerySQL(queryNot).Rows)
             {
                 tituloActualLabel.Text = data["nombre"].ToString();
                 colorPB.BackColor = Color.FromArgb(Convert.ToInt32(data["color"].ToString()));
                 colorLibroDialog.Color = Color.FromArgb(Convert.ToInt32(data["color"].ToString()));
             }
-            mySqlDb.CloseConnection();
+            String queryCategoria = String.Format("Select id_genero from generos_libros where id_libro=(Select id_libro from libros where nombre='{0}')",tituloActualLabel.Text);
+            foreach (DataRow data in mySqlDb.QuerySQL(queryCategoria).Rows)
+            {
+                string nombreGenero = String.Format("Select nombre from generos where id_genero='{0}'",data["id_genero"]);
+                contenedorCategoriasFP.Controls.Add(LabelCategoria(mySqlDb.QuerySQL(nombreGenero).Rows[0][0].ToString()));
 
-            contenedorCategoriasFP.Controls.Add(LabelCategoria("hola"));
+            }
+                mySqlDb.CloseConnection();
+
+            
         }
         public Label LabelCategoria(string categoria)
         {
@@ -45,25 +52,37 @@ namespace noteBook.UNA.vistas
                 Size = new Size(100, 30),
                
         };
-            labelCategoria.Controls.Add(CrearBotonEliminarCategoria());
+            labelCategoria.Controls.Add(CrearBotonEliminarCategoria(categoria));
             return labelCategoria;
         }
-        public Button CrearBotonEliminarCategoria()
+        public Button CrearBotonEliminarCategoria(string categoria)
         {
             string rutaImagen = $"cerrar.png";
-            
+
             Image imagen = Image.FromFile(rutaImagen);
-           
+
             Button eliminar = new Button
             {
                 Size = new Size(20, 20),
                 Location = new Point(75, 0),
                 Visible = true,
+
                 Image = imagen
             };
-            eliminar.MouseClick += Eliminar_MouseClick;
+            eliminar.MouseClick += (e, a) =>
+            {
+                foreach (Label label in contenedorCategoriasFP.Controls)
+                {
+                    if (label.Text == categoria)
+                        contenedorCategoriasFP.Controls.Remove(label);
+                 //   generos.Remove(categoria);
+                }
+
+
+            };
             return eliminar;
         }
+
 
         private void Eliminar_MouseClick(object sender, MouseEventArgs e)
         {
@@ -95,7 +114,7 @@ namespace noteBook.UNA.vistas
             mySqlDb.OpenConnection();
             string queryActualizar = String.Format("UPDATE libros SET nombre='{0}',color='{1}' where nombre=('{2}')", NombreModificado(), colorLibroDialog.Color.ToArgb(), tituloActualLabel.Text);
             mySqlDb.EjectSQL(queryActualizar);
-            Singlenton.Instance.miLibro.ActualizarPage();
+            Singlenton.Instance.miLibro.CrearLibroDB();
         }
 
         private void AceptarBtn_Click(object sender, EventArgs e)
@@ -103,9 +122,22 @@ namespace noteBook.UNA.vistas
             EditarLibro();
         }
 
-        private void cancelarBtn_Click(object sender, EventArgs e)
-        {
+  
 
+        private void agregarCategoria_MouseClick(object sender, MouseEventArgs e)
+        {
+            MySqlDb mySqlDb = new MySqlDb();
+            mySqlDb.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            mySqlDb.OpenConnection();
+            string queryGeneros = string.Format("SELECT nombre from generos");
+            foreach (DataRow genero in mySqlDb.QuerySQL(queryGeneros).Rows)
+            {
+                string nuevoGenero = genero["nombre"].ToString();
+                // generos.Add(nuevoGenero);
+            }
+        //    generoComboBox.DataSource = generos;
+
+            mySqlDb.CloseConnection();
         }
     }
 }

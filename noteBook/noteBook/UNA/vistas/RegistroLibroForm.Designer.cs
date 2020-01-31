@@ -53,7 +53,7 @@
             this.guardarBtn.TabIndex = 31;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
-         
+            this.guardarBtn.Click += new System.EventHandler(this.guardarBtn_Click);
             this.guardarBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GuardarBtn_MouseClick);
             // 
             // colorLabel
@@ -70,7 +70,7 @@
             this.nombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreTxt.Location = new System.Drawing.Point(224, 94);
-            this.nombreTxt.MaxLength = 11;
+            this.nombreTxt.MaxLength = 20;
             this.nombreTxt.Name = "nombreTxt";
             this.nombreTxt.Size = new System.Drawing.Size(336, 20);
             this.nombreTxt.TabIndex = 27;
@@ -140,7 +140,7 @@
             // contenedorCategoriasFP
             // 
             this.contenedorCategoriasFP.Location = new System.Drawing.Point(231, 214);
-            this.contenedorCategoriasFP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contenedorCategoriasFP.Margin = new System.Windows.Forms.Padding(2);
             this.contenedorCategoriasFP.Name = "contenedorCategoriasFP";
             this.contenedorCategoriasFP.Size = new System.Drawing.Size(145, 167);
             this.contenedorCategoriasFP.TabIndex = 54;
